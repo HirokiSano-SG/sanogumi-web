@@ -2,6 +2,8 @@
 
 GitHub Pages の静的サイトです。カスタムドメインは `CNAME` の `www.sanogumi.biz` です。この URL は電子公告の掲載先でもあります。ビルド手順はありません。
 
+ローカル確認は同一オリジンの静的サーバで行ってください（例: `python3 -m http.server`）。`file://` では `works.json` を読めません。
+
 ## 作品を追加する
 
 作品カードは HTML に書きません。`works.json` の `works` 配列にオブジェクトを 1 件追加してコミットします。トップの抜粋と `works.html` は同じファイルを読みます。
