@@ -1,0 +1,38 @@
+{
+  "works": [
+    {
+      "id": "yumemiru-sakura",
+      "title": "ゆめみるサクラの卒業式",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "kind": "駆菓子ゲーム",
+      "price": "198円＋税",
+      "links": [
+        {
+          "label": "unityroom",
+          "url": "https://unityroom.com/games/karma"
+        },
+        {
+          "label": "Steam",
+          "status": "coming"
+        }
+      ]
+    },
+    {
+      "id": "praefatio-conii",
+      "title": "プラーエファティオ・コニィ",
+      "titleEn": "Praefatio CoNii",
+      "kind": "ダウンフォールンファンタジー × 拠点出立アドベンチャー",
+      "price": "￥980＋税",
+      "priceNote": "予定価格",
+      "platforms": "PC (Steam) / iOS / Android ほか",
+      "publisher": "株式会社佐野組",
+      "links": [
+        {
+          "label": "作品サイト",
+          "url": "https://praconii.sanogumi.biz",
+          "status": "準備中"
+        }
+      ]
+    }
+  ]
+}

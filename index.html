@@ -4,59 +4,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>株式会社佐野組</title>
-  <meta name="description" content="株式会社佐野組 — ゲームとデジタルコンテンツの企画・開発・運営">
-  <style>
-    :root { color-scheme: light dark; --fg:#e8e6e3; --muted:#9aa3ad; --line:#2a3038; --bg:#0f1115; --link:#9ecbff; }
-    * { box-sizing: border-box; }
-    body { margin:0; min-height:100vh; font-family:"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.75; background:var(--bg); color:var(--fg); }
-    .wrap { max-width:42rem; margin:0 auto; padding:2.5rem 1.25rem 3rem; }
-    header { margin-bottom:2rem; }
-    .brand { font-size:0.8rem; letter-spacing:0.12em; color:var(--muted); margin:0 0 0.4rem; }
-    h1 { font-size:1.65rem; font-weight:600; margin:0 0 0.5rem; letter-spacing:0.04em; }
-    .tag { margin:0; color:var(--muted); font-size:0.98rem; }
-    section { margin:0 0 1.9rem; }
-    h2 { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin:0 0 0.65rem; font-weight:600; }
-    p { margin:0.35rem 0; }
-    dl { margin:0; display:grid; grid-template-columns:8.5rem 1fr; gap:0.4rem 0.85rem; }
-    dt { color:var(--muted); }
-    dd { margin:0; }
-    ul { margin:0.35rem 0 0; padding-left:1.2rem; }
-    li { margin:0.2rem 0; }
-    a { color:var(--link); }
-    .card { border:1px solid var(--line); border-radius:0.6rem; padding:1rem 1.1rem; background:#141820; }
-    .foot { margin-top:2.25rem; padding-top:1rem; border-top:1px solid var(--line); font-size:0.9rem; color:var(--muted); }
-  </style>
+  <meta name="description" content="株式会社佐野組 — ゲームとデジタルコンテンツの企画・開発・運営。電子公告掲載URL。">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="icon" href="assets/logo/s-logo-color.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/logo/s-logo-color-on-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/logo/s-logo-color.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <p class="brand">K.K. Sano-Gumi</p>
-      <h1>株式会社佐野組</h1>
-      <p class="tag">ゲームとデジタルコンテンツの企画・開発・運営</p>
-    </header>
-    <section>
-      <h2>About</h2>
-      <p>株式会社佐野組は、ゲームソフトおよびデジタルコンテンツの企画・開発・パブリッシングを行う会社です。代表作としてダウンフォールンファンタジー×拠点出立アドベンチャー『プラーエファティオ・コニィ』（Praefatio CoNii / #プラコニ）を開発しています。</p>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img class="logo-mark" src="assets/logo/s-logo-color-on-dark.svg" alt="" width="44" height="44">
+        <img class="logo-wordmark" src="assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="72" height="52">
+      </a>
+      <nav class="nav" aria-label="主要">
+        <a href="#company">会社</a>
+        <a href="works.html">作品</a>
+        <a href="#notice">公告</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <h1 class="visually-hidden">株式会社佐野組</h1>
+    <p class="lede">ゲームとデジタルコンテンツの企画・開発・運営</p>
+
+    <section id="company">
+      <h2>会社</h2>
+      <p>株式会社佐野組は、ゲームおよびデジタルコンテンツの企画・開発・パブリッシングを行う会社です。公開中および準備中の作品は、作品ページに掲載しています。</p>
     </section>
-    <section>
-      <h2>Works</h2>
-      <div class="card">
-        <p><strong>プラーエファティオ・コニィ</strong>（Praefatio CoNii）</p>
-        <p>ジャンル: ダウンフォールンファンタジー × 拠点出立アドベンチャー</p>
-        <p>対応: PC (Steam) / iOS / Android ほか</p>
-        <p>予定価格: ￥980＋税</p>
-        <p>企画: 有害 ／ 開発: 有害・シルバーサウンズ・嗚呼タマ ／ 販売元: 株式会社佐野組</p>
-        <p>作品サイト: <a href="https://praconii.sanogumi.biz">praconii.sanogumi.biz</a>（準備中）</p>
-      </div>
+
+    <section id="works">
+      <h2>作品</h2>
+      <div data-works data-works-src="works.json" data-works-limit="2"></div>
+      <p class="more"><a href="works.html">作品一覧</a></p>
     </section>
-    <section>
-      <h2>Contact</h2>
+
+    <section id="contact">
+      <h2>お問い合わせ</h2>
       <dl>
         <dt>窓口</dt><dd><a href="mailto:info@sanogumi.biz">info@sanogumi.biz</a></dd>
         <dt>案件</dt><dd><a href="mailto:praconii@sanogumi.biz">praconii@sanogumi.biz</a></dd>
       </dl>
     </section>
-    <section>
+
+    <section id="overview">
       <h2>会社概要</h2>
       <dl>
         <dt>商号</dt><dd>株式会社佐野組（サノグミ）</dd>
@@ -68,7 +62,7 @@
         <dt>公告の方法</dt><dd>電子公告（下記）</dd>
         <dt>設立</dt><dd>令和8年7月31日（2026-07-31）登記</dd>
       </dl>
-      <p style="margin-top:1rem;color:var(--muted)">目的（要旨）</p>
+      <p class="purpose-label">目的（要旨）</p>
       <ul>
         <li>ゲームソフトウェア及び各種デジタルコンテンツの企画、開発、制作、パブリッシング、配信及び販売</li>
         <li>イラスト、漫画、書籍、各種キャラクターグッズ等の企画、制作、印刷、出版、卸売及び小売業</li>
@@ -81,7 +75,8 @@
         <li>前各号に附帯関連する一切の事業</li>
       </ul>
     </section>
-    <section>
+
+    <section id="notice">
       <h2>電子公告</h2>
       <div class="card">
         <p>当会社の公告は、電子公告により行います。事故その他やむを得ない事由によって電子公告による公告をすることができない場合は、官報に掲載する方法により行います。</p>
@@ -90,7 +85,9 @@
         <p>現在、決算公告その他の掲載事項はありません。</p>
       </div>
     </section>
-    <p class="foot">© 2026 株式会社佐野組 ／ Pages: <a href="https://hirokisano-sg.github.io/sanogumi-web/">hirokisano-sg.github.io/sanogumi-web</a></p>
-  </div>
+
+    <p class="foot">© 2026 株式会社佐野組</p>
+  </main>
+  <script src="assets/js/works.js"></script>
 </body>
 </html>
