@@ -1,0 +1,69 @@
+{
+  "works": [
+    {
+      "id": "yumemiru-sakura",
+      "title": "ゆめみるサクラの卒業式",
+      "alias": "ゆめサクラ",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "繰り返すたび、壊れていく卒業式。",
+      "kind": "ホラーノベルゲーム",
+      "editions": [
+        {
+          "label": "無料版",
+          "price": "無料",
+          "platforms": "ブラウザ (unityroom)",
+          "links": [
+            {
+              "label": "unityroom",
+              "url": "https://unityroom.com/games/karma"
+            }
+          ]
+        },
+        {
+          "label": "有料版",
+          "price": "198円＋税",
+          "platforms": "Steam",
+          "links": [
+            {
+              "label": "Steam",
+              "status": "準備中"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "praefatio-conii",
+      "title": "プラーエファティオ・コニィ",
+      "alias": "プラコニ",
+      "titleEn": "Praefatio CoNii",
+      "kind": "ダウンフォールンファンタジー × 拠点出立アドベンチャー",
+      "editions": [
+        {
+          "label": "有料版",
+          "price": "980円＋税",
+          "priceNote": "予定価格",
+          "platforms": "PC (Steam) / iOS / Android ほか"
+        }
+      ],
+      "links": [
+        {
+          "label": "作品サイト",
+          "url": "https://praconii.sanogumi.biz",
+          "status": "準備中"
+        },
+        {
+          "label": "エックス",
+          "url": "https://x.com/praconii"
+        }
+      ],
+      "embeds": [
+        {
+          "kind": "x",
+          "url": "https://x.com/praconii",
+          "handle": "praconii"
+        }
+      ]
+    }
+  ]
+}
