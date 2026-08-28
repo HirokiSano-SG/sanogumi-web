@@ -144,6 +144,8 @@ li { margin: 0.2rem 0; }
   .works-list { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 }
 .work-card { margin: 0; border: 1px solid var(--rule); padding: 1.1rem 1.2rem; }
+.work-visual { margin: 0 0 0.75rem; }
+.work-visual img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .work-title { margin: 0 0 0.2rem; font-size: 1.1rem; font-weight: 600; }
 .work-alias { margin: 0 0 0.1rem; }
 .work-title-en { margin: 0 0 0.35rem; color: var(--muted); font-size: 0.9rem; }
