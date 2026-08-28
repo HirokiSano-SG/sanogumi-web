@@ -55,6 +55,16 @@
     var article = el("article", "card work-card");
     if (work.id) article.id = text(work.id);
 
+    if (work.image) {
+      var fig = el("figure", "work-visual");
+      var img = el("img");
+      img.src = text(work.image);
+      img.alt = text(work.imageAlt) || text(work.title);
+      img.width = 1920;
+      img.height = 1080;
+      fig.appendChild(img);
+      article.appendChild(fig);
+    }
     article.appendChild(el("h3", "work-title", text(work.title)));
     if (work.alias) {
       article.appendChild(el("p", "work-alias", text(work.alias)));
