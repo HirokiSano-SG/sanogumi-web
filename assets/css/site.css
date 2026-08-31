@@ -49,6 +49,7 @@ a:focus-visible, button:focus-visible {
   padding-left: clamp(1.25rem, 4vw, 3rem);
   padding-right: clamp(1.25rem, 4vw, 3rem);
 }
+.wrap--wide { max-width: 92rem; }
 .site-header {
   position: sticky;
   top: 0;

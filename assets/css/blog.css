@@ -1,7 +1,7 @@
 /* blog extras on top of site.css — do not replace site chrome */
 
 .blog-prose {
-  max-width: 40em;
+  max-width: none;
 }
 
 .blog-prose h2 {
