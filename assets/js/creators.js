@@ -58,6 +58,8 @@
     img.alt = text(work.imageAlt) || text(work.title);
     img.width = 640;
     img.height = 640;
+    var pos = text(work && work.imagePosition);
+    if (pos === "left" || pos === "right") img.className = "pos-" + pos;
     img.addEventListener("error", function () {
       vis.replaceChildren(placeholder(work && work.title));
     });

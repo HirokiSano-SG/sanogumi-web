@@ -22,6 +22,7 @@
           "url": "https://unityroom.com/games/karma",
           "image": "assets/works/yumemiru-sakura.png",
           "imageAlt": "ゆめみるサクラの卒業式",
+          "imagePosition": "left",
           "page": "works/yumemiru-sakura.html",
           "links": [
             {
@@ -65,6 +66,7 @@
           "url": "https://atelier-blue-citrus.com/",
           "image": "assets/works/shikiiro-reframe.png",
           "imageAlt": "シキイロリフレーム",
+          "imagePosition": "right",
           "links": [
             {
               "label": "公式HP",
@@ -77,10 +79,6 @@
           ],
           "members": [
             {
-              "name": "嗚呼タマ",
-              "role": "プログラム"
-            },
-            {
               "name": "下城サユウ",
               "role": "シナリオ"
             },
@@ -91,6 +89,10 @@
             {
               "name": "かずら's MUSIC",
               "role": "サウンド"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "プログラム"
             }
           ]
         }

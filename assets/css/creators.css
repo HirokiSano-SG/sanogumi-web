@@ -90,6 +90,12 @@ a.tile:focus-visible {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+.tile-grid--featured .tile-visual,
+.tile-grid--featured .tile-visual img {
+  aspect-ratio: 16 / 9;
+}
+.tile-visual img.pos-left { object-position: left center; }
+.tile-visual img.pos-right { object-position: right center; }
 .tile-ph {
   display: flex;
   align-items: center;
