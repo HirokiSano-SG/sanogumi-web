@@ -2,7 +2,7 @@
   "works": [
     {
       "id": "yumemiru-sakura",
-      "title": "ゆめみるサクラの卒業式",
+      "title": "ゆめみるサクラの卒業式（unityroom版）",
       "alias": "ゆめサクラ",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
       "blurb": "繰り返すたび、壊れていく卒業式。",
@@ -22,7 +22,7 @@
               "url": "https://unityroom.com/games/karma"
             },
             {
-              "label": "公式X",
+              "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
           ]
@@ -46,11 +46,7 @@
           "platforms": "Steam",
           "links": [
             {
-              "label": "unityroomで遊ぶ（無償版）",
-              "url": "https://unityroom.com/games/karma"
-            },
-            {
-              "label": "公式X",
+              "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
           ]
@@ -75,11 +71,11 @@
       ],
       "links": [
         {
-          "label": "公式HP",
+          "label": "HP",
           "url": "https://praconii.sanogumi.biz"
         },
         {
-          "label": "公式X",
+          "label": "X",
           "url": "https://x.com/praconii"
         }
       ]
