@@ -1,0 +1,147 @@
+/* blog extras on top of site.css — do not replace site chrome */
+
+.blog-prose {
+  max-width: 40em;
+}
+
+.blog-prose h2 {
+  margin: 2.1rem 0 0.8rem;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+}
+
+.blog-prose h3 {
+  margin: 1.6rem 0 0.55rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.blog-prose h3::after {
+  content: none;
+  display: none;
+  animation: none;
+}
+
+.blog-prose p {
+  margin: 0.7rem 0;
+  overflow-wrap: anywhere;
+}
+
+.blog-prose li {
+  overflow-wrap: anywhere;
+}
+
+.blog-prose ol,
+.blog-prose ul {
+  margin: 0.5rem 0 1rem;
+}
+
+.blog-author {
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0 1.4rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.blog-prose table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 36rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-prose th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.blog-prose td {
+  overflow-wrap: anywhere;
+}
+
+.blog-prose figure {
+  margin: 1.35rem 0;
+}
+
+.blog-prose figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 22rem;
+  border: 1px solid var(--rule);
+  object-fit: contain;
+  object-position: top left;
+}
+
+.blog-prose figcaption {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.blog-prose code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Noto Sans Mono", monospace;
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.blog-index {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+.blog-index-card {
+  margin: 0;
+}
+
+.blog-index-title {
+  margin: 0 0 0.45rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.blog-index-title::after {
+  content: none;
+  display: none;
+  animation: none;
+}
+
+.blog-index-title a {
+  text-decoration: none;
+}
+
+.blog-index-lead {
+  margin: 0;
+}

@@ -124,14 +124,17 @@
   function renderTile(work, featured) {
     var tile = el("article", "tile");
     var play = text(work && work.url);
-    var vis = renderVisual(work);
-    if (play) {
-      var wrap = el("a", "tile-visual-link");
-      linkify(wrap, play);
-      wrap.appendChild(vis);
-      tile.appendChild(wrap);
-    } else {
-      tile.appendChild(vis);
+    var hasImage = !!text(work && work.image);
+    if (hasImage) {
+      var vis = renderVisual(work);
+      if (play) {
+        var wrap = el("a", "tile-visual-link");
+        linkify(wrap, play);
+        wrap.appendChild(vis);
+        tile.appendChild(wrap);
+      } else {
+        tile.appendChild(vis);
+      }
     }
 
     var body = el("div", "tile-body");
@@ -151,6 +154,12 @@
     if (work.jam) kindBits.push(text(work.jam));
     if (kindBits.length) {
       body.appendChild(el("p", "tile-kind", kindBits.join(" ／ ")));
+    }
+    if (work.blurb) {
+      body.appendChild(el("p", "tile-kind", text(work.blurb)));
+    }
+    if (work.credit) {
+      body.appendChild(el("p", "tile-credits", "クレジット: " + text(work.credit)));
     }
     var credits = formatMembers(work.members);
     if (credits) {
@@ -462,36 +471,20 @@
 
     if (Array.isArray(person.featured) && person.featured.length) {
       section.appendChild(el("h3", null, "代表作"));
-      if (person.id === "ahtama") {
-        var feat = el("div", "tile-grid tile-grid--featured");
-        person.featured.forEach(function (work) {
-          feat.appendChild(renderTile(work, true));
-        });
-        section.appendChild(feat);
-      } else {
-        var featPlain = el("div", "plain-grid");
-        person.featured.forEach(function (work) {
-          featPlain.appendChild(renderPlain(work));
-        });
-        section.appendChild(featPlain);
-      }
+      var feat = el("div", "tile-grid tile-grid--featured");
+      person.featured.forEach(function (work) {
+        feat.appendChild(renderTile(work, true));
+      });
+      section.appendChild(feat);
     }
 
     if (Array.isArray(person.works) && person.works.length) {
       section.appendChild(el("h3", null, "他作品"));
-      if (person.id === "ahtama") {
-        var grid = el("div", "tile-grid");
-        person.works.forEach(function (work) {
-          grid.appendChild(renderTile(work, false));
-        });
-        section.appendChild(grid);
-      } else {
-        var plain = el("div", "plain-grid");
-        person.works.forEach(function (work) {
-          plain.appendChild(renderPlain(work));
-        });
-        section.appendChild(plain);
-      }
+      var grid = el("div", "tile-grid");
+      person.works.forEach(function (work) {
+        grid.appendChild(renderTile(work, false));
+      });
+      section.appendChild(grid);
     }
 
     if (person.adult && Array.isArray(person.adult.works) && person.adult.works.length) {
