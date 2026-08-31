@@ -375,7 +375,9 @@
 
   function renderListCard(person) {
     var card = el("article", "creator-card");
-    var href = asset(text(person.page));
+    var pid = text(person.id);
+    var href = pid ? "/creators/" + pid + "/" : asset(text(person.page));
+    var nameId = pid ? "creator-card-name-" + pid : "";
     var icon = el("div", "creator-card-icon");
     if (person.avatar) {
       var img = el("img");
@@ -383,26 +385,12 @@
       img.alt = text(person.name);
       img.width = 112;
       img.height = 112;
-      if (href) {
-        var wrap = el("a");
-        linkify(wrap, href);
-        wrap.appendChild(img);
-        icon.appendChild(wrap);
-      } else {
-        icon.appendChild(img);
-      }
+      icon.appendChild(img);
     }
     card.appendChild(icon);
     var body = el("div", "creator-card-body");
-    var name = el("h2", "creator-card-name");
-    if (href) {
-      var na = el("a");
-      linkify(na, href);
-      na.textContent = text(person.name);
-      name.appendChild(na);
-    } else {
-      name.textContent = text(person.name);
-    }
+    var name = el("h2", "creator-card-name", text(person.name));
+    if (nameId) name.id = nameId;
     body.appendChild(name);
     if (person.role) body.appendChild(el("p", "creator-role", text(person.role)));
     if (person.blurb) body.appendChild(el("p", "creator-card-blurb", text(person.blurb)));
@@ -421,6 +409,12 @@
       body.appendChild(ul);
     }
     card.appendChild(body);
+    if (href) {
+      var hit = el("a", "creator-card-hit");
+      linkify(hit, href);
+      if (nameId) hit.setAttribute("aria-labelledby", nameId);
+      card.appendChild(hit);
+    }
     return card;
   }
 
