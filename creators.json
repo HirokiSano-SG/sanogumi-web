@@ -54,6 +54,45 @@
               "url": "https://x.com/praconii"
             }
           ]
+        },
+        {
+          "id": "shikiiro-reframe",
+          "slug": "shikiiro-reframe",
+          "title": "シキイロリフレーム",
+          "alias": "シキイロ",
+          "kind": "ビジュアルノベル",
+          "note": "unityroomの『ナツイロリテイク』をベースに製品化を目指している。",
+          "url": "https://atelier-blue-citrus.com/",
+          "image": "assets/works/shikiiro-reframe.png",
+          "imageAlt": "シキイロリフレーム",
+          "links": [
+            {
+              "label": "公式HP",
+              "url": "https://atelier-blue-citrus.com/"
+            },
+            {
+              "label": "公式X",
+              "url": "https://x.com/a_bluecitrus"
+            }
+          ],
+          "members": [
+            {
+              "name": "嗚呼タマ",
+              "role": "プログラム"
+            },
+            {
+              "name": "下城サユウ",
+              "role": "シナリオ"
+            },
+            {
+              "name": "#99cafe",
+              "role": "アート"
+            },
+            {
+              "name": "かずら's MUSIC",
+              "role": "サウンド"
+            }
+          ]
         }
       ],
       "works": [
