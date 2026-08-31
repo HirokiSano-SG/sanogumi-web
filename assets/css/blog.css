@@ -145,3 +145,13 @@
 .blog-index-lead {
   margin: 0;
 }
+
+.blog-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.35rem 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.blog-index-card .blog-dates { margin: 0.35rem 0 0.55rem; }
