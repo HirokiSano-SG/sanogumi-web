@@ -464,7 +464,7 @@
     if (extras.childNodes.length) ident.appendChild(extras);
     var back = el("p", "more");
     var ba = el("a");
-    ba.href = asset("creators.html");
+    ba.href = asset("/creators/");
     ba.textContent = "所属クリエイター一覧";
     back.appendChild(ba);
     ident.appendChild(back);

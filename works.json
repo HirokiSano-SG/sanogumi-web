@@ -6,11 +6,11 @@
       "alias": "ゆめサクラ",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
       "blurb": "繰り返すたび、壊れていく卒業式。",
-      "image": "assets/works/yumemiru-sakura.png",
+      "image": "/assets/works/yumemiru-sakura.png",
       "imageAlt": "ゆめみるサクラの卒業式",
       "kind": "ホラーノベルゲーム",
       "home": true,
-      "page": "works/yumemiru-sakura.html",
+      "page": "/works/yumemiru-sakura/",
       "editions": [
         {
           "label": "unityroom版",
@@ -35,10 +35,10 @@
       "alias": "ゆめサクラ",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
       "blurb": "繰り返すたび、壊れていく卒業式。",
-      "image": "assets/works/yumemiru-sakura.png",
+      "image": "/assets/works/yumemiru-sakura.png",
       "imageAlt": "ゆめみるサクラの卒業式",
       "kind": "ホラーノベルゲーム",
-      "page": "works/yumemiru-sakura-steam.html",
+      "page": "/works/yumemiru-sakura-steam/",
       "editions": [
         {
           "label": "商用版",
@@ -60,7 +60,7 @@
       "titleEn": "Praefatio CoNii",
       "kind": "ダウンフォールンファンタジー × 拠点出立アドベンチャー",
       "home": true,
-      "page": "works/praefatio-conii.html",
+      "page": "/works/praefatio-conii/",
       "editions": [
         {
           "label": "商用版",

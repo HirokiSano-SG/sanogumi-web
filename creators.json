@@ -23,7 +23,7 @@
           "image": "assets/works/yumemiru-sakura.png",
           "imageAlt": "ゆめみるサクラの卒業式",
           "imagePosition": "left",
-          "page": "works/yumemiru-sakura.html",
+          "page": "/works/yumemiru-sakura/",
           "links": [
             {
               "label": "unityroomで遊ぶ",
@@ -44,7 +44,7 @@
           "kind": "ダウンフォールンファンタジー × 拠点出立アドベンチャー",
           "note": "公式HPとXから最新情報をチェック！",
           "url": "https://praconii.sanogumi.biz",
-          "page": "works/praefatio-conii.html",
+          "page": "/works/praefatio-conii/",
           "links": [
             {
               "label": "公式HP",
@@ -594,7 +594,7 @@
       "x": "https://x.com/ahTama",
       "xHandle": "ahTama",
       "avatar": "assets/creators/avatars/ahtama.png",
-      "page": "creators/ahtama.html",
+      "page": "/creators/ahtama/",
       "listLinks": [
         {
           "label": "@ahTama",
@@ -602,7 +602,7 @@
         },
         {
           "label": "作品を見る",
-          "url": "creators/ahtama.html"
+          "url": "/creators/ahtama/"
         }
       ],
       "skills": [
@@ -694,7 +694,7 @@
       "x": "https://x.com/KK_SanoGumi",
       "xHandle": "KK_SanoGumi",
       "avatar": "assets/creators/avatars/kk-sanogumi.jpg",
-      "page": "creators/hiroki.html",
+      "page": "/creators/hiroki/",
       "listLinks": [
         {
           "label": "@KK_SanoGumi",
@@ -702,7 +702,7 @@
         },
         {
           "label": "クレジットを見る",
-          "url": "creators/hiroki.html"
+          "url": "/creators/hiroki/"
         }
       ],
       "kaban": "代表取締役"
