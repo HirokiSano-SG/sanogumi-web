@@ -9,26 +9,49 @@
       "image": "assets/works/yumemiru-sakura.png",
       "imageAlt": "ゆめみるサクラの卒業式",
       "kind": "ホラーノベルゲーム",
+      "home": true,
+      "page": "works/yumemiru-sakura.html",
       "editions": [
         {
-          "label": "無料版",
+          "label": "無償版",
           "price": "無料",
           "platforms": "ブラウザ (unityroom)",
           "links": [
             {
-              "label": "unityroom",
+              "label": "unityroomで遊ぶ",
               "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "公式X",
+              "url": "https://x.com/yumesakurakarma"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "yumemiru-sakura-steam",
+      "title": "ゆめみるサクラの卒業式",
+      "alias": "ゆめサクラ",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "繰り返すたび、壊れていく卒業式。",
+      "image": "assets/works/yumemiru-sakura.png",
+      "imageAlt": "ゆめみるサクラの卒業式",
+      "kind": "ホラーノベルゲーム",
+      "page": "works/yumemiru-sakura-steam.html",
+      "editions": [
         {
-          "label": "有料版",
+          "label": "商用版",
           "price": "198円＋税",
           "platforms": "Steam",
           "links": [
             {
-              "label": "Steam",
-              "status": "準備中"
+              "label": "unityroomで遊ぶ（無償版）",
+              "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "公式X",
+              "url": "https://x.com/yumesakurakarma"
             }
           ]
         }
@@ -40,9 +63,11 @@
       "alias": "プラコニ",
       "titleEn": "Praefatio CoNii",
       "kind": "ダウンフォールンファンタジー × 拠点出立アドベンチャー",
+      "home": true,
+      "page": "works/praefatio-conii.html",
       "editions": [
         {
-          "label": "有料版",
+          "label": "商用版",
           "price": "980円＋税",
           "priceNote": "予定価格",
           "platforms": "PC (Steam) / iOS / Android ほか"
@@ -50,20 +75,12 @@
       ],
       "links": [
         {
-          "label": "作品サイト",
-          "url": "https://praconii.sanogumi.biz",
-          "status": "準備中"
+          "label": "公式HP",
+          "url": "https://praconii.sanogumi.biz"
         },
         {
-          "label": "エックス",
+          "label": "公式X",
           "url": "https://x.com/praconii"
-        }
-      ],
-      "embeds": [
-        {
-          "kind": "x",
-          "url": "https://x.com/praconii",
-          "handle": "praconii"
         }
       ]
     }

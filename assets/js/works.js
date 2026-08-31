@@ -7,6 +7,7 @@
   var src = root.getAttribute("data-works-src") || "works.json";
   var limitAttr = root.getAttribute("data-works-limit");
   var limit = limitAttr ? parseInt(limitAttr, 10) : NaN;
+  var homeOnly = root.hasAttribute("data-works-home");
 
   function text(value) {
     return value == null ? "" : String(value);
@@ -32,6 +33,7 @@
     var status = text(item && item.status);
     var labelNode;
 
+    if (!url) return null;
     if (url) {
       labelNode = el("a");
       labelNode.href = url;
@@ -65,7 +67,16 @@
       fig.appendChild(img);
       article.appendChild(fig);
     }
-    article.appendChild(el("h3", "work-title", text(work.title)));
+    var title = el("h3", "work-title");
+    if (work.page) {
+      var titleLink = el("a");
+      titleLink.href = text(work.page);
+      titleLink.textContent = text(work.title);
+      title.appendChild(titleLink);
+    } else {
+      title.textContent = text(work.title);
+    }
+    article.appendChild(title);
     if (work.alias) {
       article.appendChild(el("p", "work-alias", text(work.alias)));
     }
@@ -102,7 +113,8 @@
       if (Array.isArray(ed.links) && ed.links.length) {
         var ul = el("ul", "work-links");
         ed.links.forEach(function (item) {
-          ul.appendChild(renderLink(item));
+          var rendered = renderLink(item);
+          if (rendered) ul.appendChild(rendered);
         });
         box.appendChild(ul);
       }
@@ -112,27 +124,10 @@
     if (Array.isArray(work.links) && work.links.length && Array.isArray(work.editions) && work.editions.length) {
       var extra = el("ul", "work-links");
       work.links.forEach(function (item) {
-        extra.appendChild(renderLink(item));
+        var extraLink = renderLink(item);
+        if (extraLink) extra.appendChild(extraLink);
       });
       article.appendChild(extra);
-    }
-
-    if (!limit && Array.isArray(work.embeds)) {
-      work.embeds.forEach(function (emb) {
-        if (!emb || emb.kind !== "x") return;
-        var handle = text(emb.handle).replace(/^@/, "");
-        var href = "https://x.com/" + handle + "?ref_src=twsrc%5Etfw";
-        if (!handle) return;
-        var box = el("div", "work-embed");
-        var a = el("a", "twitter-timeline");
-        a.href = href;
-        a.setAttribute("data-height", "480");
-        a.setAttribute("data-theme", "light");
-        a.setAttribute("data-dnt", "true");
-        a.textContent = "@" + handle;
-        box.appendChild(a);
-        article.appendChild(box);
-      });
     }
 
     return article;
@@ -151,6 +146,9 @@
     })
     .then(function (data) {
       var works = data && Array.isArray(data.works) ? data.works : [];
+      if (homeOnly) {
+        works = works.filter(function (work) { return work && work.home; });
+      }
       var items = Number.isFinite(limit) && limit > 0 ? works.slice(0, limit) : works;
       if (!items.length) {
         showMessage("現在、掲載中の作品はありません。");
@@ -161,16 +159,6 @@
         list.appendChild(renderCard(work || {}));
       });
       root.replaceChildren(list);
-      if (!limit && root.querySelector(".twitter-timeline")) {
-        var s = document.createElement("script");
-        s.src = "https://platform.x.com/widgets.js";
-        s.onload = function () {
-          if (window.twttr && window.twttr.widgets) window.twttr.widgets.load(root);
-        };
-        s.async = true;
-        s.charset = "utf-8";
-        document.body.appendChild(s);
-      }
     })
     .catch(function () {
       showMessage("作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。");

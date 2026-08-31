@@ -200,3 +200,52 @@ main.wrap > .foot { animation-delay: 0.28s; }
 
 .work-edition { margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); }
 .work-edition .work-links { margin-top: 0.5rem; }
+
+.work-invite { margin: 1rem 0 0.5rem; font-size: 1rem; line-height: 1.75; }
+.work-next { margin: 0.35rem 0 1rem; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+.work-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+.work-actions a,
+.work-actions .work-wait {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+.work-actions a:hover,
+.work-actions a:focus-visible {
+  color: var(--paper);
+  background: var(--seal);
+  border-color: var(--seal);
+}
+.work-actions a.primary {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+.work-actions a.primary:hover,
+.work-actions a.primary:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.work-actions .work-wait {
+  color: var(--muted);
+  border-style: dashed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-actions a { transition: none; }
+}
