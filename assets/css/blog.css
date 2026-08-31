@@ -155,3 +155,17 @@
   font-size: 0.85rem;
 }
 .blog-index-card .blog-dates { margin: 0.35rem 0 0.55rem; }
+
+.blog-nav {
+  margin: 2.5rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule);
+}
+
+.blog-nav p {
+  margin: 0.45rem 0;
+}
+
+.blog-nav + .foot {
+  margin-top: 1.75rem;
+}
