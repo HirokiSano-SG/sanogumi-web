@@ -44,7 +44,7 @@ a:focus-visible, button:focus-visible {
 }
 .skip:focus { top: 0.75rem; }
 .wrap {
-  max-width: 68.75rem;
+  max-width: 92rem;
   margin: 0 auto;
   padding-left: clamp(1.25rem, 4vw, 3rem);
   padding-right: clamp(1.25rem, 4vw, 3rem);
