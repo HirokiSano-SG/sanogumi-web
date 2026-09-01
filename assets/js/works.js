@@ -20,6 +20,32 @@
     return node;
   }
 
+  function isHttpUrl(url) {
+    return /^https?:\/\//i.test(url);
+  }
+
+  function isOffsite(url) {
+    var u = text(url);
+    if (!u || /^(mailto|tel):/i.test(u)) return false;
+    if (!isHttpUrl(u)) return false;
+    try {
+      var host = new URL(u).hostname.toLowerCase();
+      return host !== "www.sanogumi.biz" && host !== "sanogumi.biz";
+    } catch (e) {
+      return true;
+    }
+  }
+
+  function linkify(node, url) {
+    if (!url) return node;
+    node.href = url;
+    if (isOffsite(url)) {
+      node.target = "_blank";
+      node.rel = "noopener noreferrer";
+    }
+    return node;
+  }
+
   function addMeta(dl, label, value) {
     if (!text(value)) return;
     dl.appendChild(el("dt", null, label));
@@ -36,11 +62,8 @@
     if (!url) return null;
     if (url) {
       labelNode = el("a");
-      labelNode.href = url;
+      linkify(labelNode, url);
       labelNode.textContent = label || url;
-      if (/^https?:\/\//i.test(url)) {
-        labelNode.rel = "noopener noreferrer";
-      }
     } else {
       labelNode = document.createTextNode(label);
     }
@@ -70,7 +93,7 @@
     var title = el("h3", "work-title");
     if (work.page) {
       var titleLink = el("a");
-      titleLink.href = text(work.page);
+      linkify(titleLink, text(work.page));
       titleLink.textContent = text(work.title);
       title.appendChild(titleLink);
     } else {

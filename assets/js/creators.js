@@ -25,20 +25,35 @@
     return node;
   }
 
-  function isExternal(url) {
+  function isHttpUrl(url) {
     return /^https?:\/\//i.test(url);
+  }
+
+  function isOffsite(url) {
+    var u = text(url);
+    if (!u || /^(mailto|tel):/i.test(u)) return false;
+    if (!isHttpUrl(u)) return false;
+    try {
+      var host = new URL(u).hostname.toLowerCase();
+      return host !== "www.sanogumi.biz" && host !== "sanogumi.biz";
+    } catch (e) {
+      return true;
+    }
   }
 
   function asset(path) {
     var p = text(path);
-    if (!p || isExternal(p) || p.charAt(0) === "/" || p.charAt(0) === ".") return p;
+    if (!p || isHttpUrl(p) || p.charAt(0) === "/" || p.charAt(0) === ".") return p;
     return assetBase + p;
   }
 
   function linkify(node, url) {
     if (!url) return node;
     node.href = url;
-    if (isExternal(url)) node.rel = "noopener noreferrer";
+    if (isOffsite(url)) {
+      node.target = "_blank";
+      node.rel = "noopener noreferrer";
+    }
     return node;
   }
 
