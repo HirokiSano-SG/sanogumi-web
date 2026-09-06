@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【メモリ枯渇】上限付き grep が単体で8GB食って、PCがハングした（Windows 11 / Git Bash / GNU grep 3.0） — 株式会社佐野組</title>
+  <meta name="description" content="Windows 11 / Git Bash / GNU grep 3.0 で、上限付き {n,m} の grep が単体約8GB・4時間回り、find / は /proc/registry で終わらなかった実測メモ。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=2">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
+      </a>
+      <nav class="nav" aria-label="主要">
+        <a href="/#company">会社</a>
+        <a href="/works/">作品</a>
+        <a href="/creators/">所属クリエイター</a>
+        <a href="/blog/" aria-current="page">ブログ</a>
+        <a href="/#notice">公告</a>
+        <a href="/privacy/">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap wrap--wide">
+    <article class="blog-prose">
+      <h1 class="page-title">【メモリ枯渇】上限付き grep が単体で8GB食って、PCがハングした（Windows 11 / Git Bash / GNU grep 3.0）</h1>
+      <p class="blog-dates">
+        <span>投稿 <time datetime="2026-09-07">令和8年9月7日</time></span>
+        <span>最終更新 <time datetime="2026-09-07">令和8年9月7日</time></span>
+      </p>
+
+      <p class="blog-author">文：株式会社佐野組 佐野 凛</p>
+
+      <h2>環境（先に書く）</h2>
+
+      <p>この記事の実測は、次の環境でだけ確認した。</p>
+
+      <ul>
+        <li>OS: Windows 11</li>
+        <li>シェル: Git Bash（MSYS2 / Cygwin 系のパス）</li>
+        <li>grep: Git Bash 同梱の <strong>GNU grep 3.0（2017年）</strong></li>
+        <li>対象ファイル（grep の入力）: <code>log.jsonl</code>、11MB・8401行・最長4170文字</li>
+      </ul>
+
+      <p>Linux の新しい grep や、WSL の find では数字も挙動も変わり得る。こちらでは未検証なので、同じ症状が出ない環境もある、と先に書いておく。</p>
+
+      <h2>症状：セッションが、どれも動かなくなった</h2>
+
+      <p>ゲーム開発の作業マシンで、AI エージェントのセッションが突然どれも動かなくなった。見える顔はこれだった。</p>
+
+      <pre><code>bash        fork: retry: Resource temporarily unavailable
+PowerShell  Starting the CLR failed with HRESULT 8007000e</code></pre>
+
+      <p>どちらもメモリ枯渇の顔だ。原因がシェル側なのか、Windows 側なのか、この文言だけでは切り分けられない。</p>
+
+      <p><code>tasklist</code> を見たら、答えはそこにあった。</p>
+
+      <pre><code>   8078 MB  PID 977980   grep.exe      ← 4時間回りっぱなし</code></pre>
+
+      <p>さらに <code>find</code> が <strong>15本</strong>、最古は2日前から居残っていた。全部、別々のセッションが打ったコマンドの生き残りだ。人間が手で打つ分にはあまり起きないが、エージェントにシェルを任せる現場では、残骸が積み上がりやすい。</p>
+
+      <p>ここから犯人は二つある。順番に潰す。</p>
+
+      <h2>犯人1：暴走を防ぐつもりで書いた上限が、暴走の原因だった</h2>
+
+      <p>実際に居残っていたコマンドは、だいたいこういう形だった。</p>
+
+      <pre><code class="language-bash">grep -o &#x27;&quot;body&quot;:&quot;[^&quot;]\{0,2000\}assign\.json[^&quot;]\{0,2000\}&quot;&#x27; log.jsonl</code></pre>
+
+      <p>直感では「<code>{0,2000}</code> で上限を付ければ安全」に見える。ところが同じファイル・同じ目的で測ると、結果は逆だった。</p>
+
+      <table>
+        <thead>
+          <tr><th>書き方</th><th>結果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>[^"]*</code>（上限なし）</td><td><strong>395ms で完走</strong></td></tr>
+          <tr><td><code>[^"]\{0,2000}</code> ×2（上限あり）</td><td><strong>30秒でも終わらない</strong>（実際は4時間・約8GB）</td></tr>
+        </tbody>
+      </table>
+
+      <p>入力を30バイトに減らしても、オートマトンを組むだけで上限に比例以上に伸びた。</p>
+
+      <pre><code>{0,100}   410ms
+{0,500}   484ms
+{0,1000}  959ms
+{0,1500}  2241ms
+{0,2000}  5091ms</code></pre>
+
+      <p>ファイルサイズは犯人ではなかった。11MB の小さい入力でも、大きな <code>{n,m}</code> だけで PC がハングする。</p>
+
+      <h3>「新しい grep なら直るのか」→ 直らない（仕様）</h3>
+
+      <p>GNU grep の公式マニュアル <strong>Known Bugs</strong> には、次のように書いてある（GNU Grep 3.11 のマニュアルページで確認。原文の要旨は変わっていない）。</p>
+
+      <blockquote>
+        <p>Large repetition counts in the '{n,m}' construct may cause grep to use lots of memory. In addition, certain other obscure regular expressions require exponential time and space, and may cause grep to run out of memory.</p>
+      </blockquote>
+
+      <p>公式 NEWS（savannah の plain NEWS、release 3.0 から 3.12 まで）を通して読んでも、この「大きな interval / bounded repetition のメモリ・時間」を直した、というエントリは見当たらなかった。</p>
+
+      <p>つまり不具合というより <strong>既知の仕様</strong> に近い。避けるのは呼ぶ側の責任になる。</p>
+
+      <p>実測の数字は GNU grep 3.0（Git Bash 同梱）のものだ。もっと新しい grep でも Known Bugs の文言は残っているが、こちらの環境以外では再測していない。</p>
+
+      <h2>犯人2：<code>find /</code> が終わらない。ただし理由は通説と違う</h2>
+
+      <p>よくある説明は「<code>/</code> は C ドライブ全体だから重い」だ。<strong>Git Bash では、これは誤りだった。</strong></p>
+
+      <p>実測では次のようになった。</p>
+
+      <ul>
+        <li>Git Bash の <code>/</code> は <code>C:\Program Files\Git\</code>（<code>cygpath -w /</code> で確認）</li>
+        <li>ドライブは <code>/c</code> <code>/d</code> にマウントされるが、<code>ls /</code> には現れない（自動マウントで、<code>/</code> 直下のエントリではない）</li>
+        <li>したがって <strong><code>find /</code> は C ドライブへ降りない</strong></li>
+      </ul>
+
+      <p>では何が終わらないのか。<code>/</code> 直下を個別に測った。</p>
+
+      <table>
+        <thead>
+          <tr><th>パス</th><th><code>find</code> の所要時間</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/bin</code> <code>/cmd</code> <code>/dev</code> <code>/etc</code> <code>/mingw64</code> <code>/usr</code></td><td>各 0.5〜0.7秒</td></tr>
+          <tr><td><code>/tmp</code></td><td>6.9秒（76,702件）</td></tr>
+          <tr><td><strong><code>/proc</code></strong></td><td><strong>15秒でも終わらない</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p><code>/proc</code> の中を見ると、答えが出る。</p>
+
+      <pre><code>$ ls /proc/registry
+HKEY_CLASSES_ROOT  HKEY_CURRENT_CONFIG  HKEY_CURRENT_USER
+HKEY_LOCAL_MACHINE  HKEY_PERFORMANCE_DATA  HKEY_USERS</code></pre>
+
+      <p>Cygwin / MSYS は、Windows のレジストリ全体をファイルシステムとして <code>/proc/registry</code> に見せている。<code>find /</code> はここへ潜って、実質戻らない。</p>
+
+      <p>除外すると完走する。これが決定的な証拠だった。</p>
+
+      <pre><code class="language-bash">$ find / -path &#x27;/proc/registry*&#x27; -prune -o -iname &#x27;foo&#x27; -print
+# 10秒で終わる</code></pre>
+
+      <h2>後始末（実際に使ったコマンド）</h2>
+
+      <p>落とす前に、必ず何の残骸かを見る。</p>
+
+      <pre><code class="language-bash">ps -ef                                    # cygwin側。古い find/grep がぶら下がっていないか
+ps -W                                     # Windows PID も出る
+cat /proc/&lt;PID&gt;/cmdline | tr &#x27;\0&#x27; &#x27; &#x27;     # 何を打った残骸かが分かる
+kill -9 &lt;cygwin PID&gt;</code></pre>
+
+      <p>メモリ上位を出すときは、Git Bash がパス変換で壊さないよう、<code>//FO</code> の二重スラッシュにする。</p>
+
+      <pre><code class="language-bash">tasklist //FO CSV //NH | sed &#x27;s/^&quot;//; s/&quot;$//&#x27; \
+  | awk -F&#x27;&quot;,&quot;&#x27; &#x27;{m=$5; gsub(/[^0-9]/,&quot;&quot;,m); if(m+0&gt;150000) printf &quot;%7.0f MB  PID %-8s %s\n&quot;, m/1024, $2, $1}&#x27; \
+  | sort -rn</code></pre>
+
+      <h2>予防</h2>
+
+      <pre><code class="language-bash">timeout 30 &lt;重くなり得るコマンド&gt;
+( ulimit -v 2000000; &lt;メモリを食い得るコマンド&gt; )   # 2GBで切る。破裂してもPC本体までは落とさない</code></pre>
+
+      <h2>まとめ</h2>
+
+      <p>今回の PC ハングは、見た目は「bash が fork できない」「PowerShell が CLR を起動できない」だったが、中身は <strong>約8GB の grep</strong> と <strong>居残った find</strong> だった。</p>
+
+      <p>両方とも、次の二行で防げた。</p>
+
+      <ol>
+        <li>正規表現に大きな <code>{n,m}</code> 上限を書かない（暴走防止のつもりが、暴走の原因になる）</li>
+        <li>範囲を書かない <code>find /</code> を打たない（Git Bash では C ドライブではなく <code>/proc/registry</code> が終わらない）</li>
+      </ol>
+
+      <p>数字は Windows 11 / Git Bash / GNU grep 3.0 の実測だ。環境が違えば出ないこともある。同じ症状を疑うときは、まず <code>tasklist</code> と <code>ps</code> で残骸を見ること。</p>
+
+      <h2>出典</h2>
+
+      <ul>
+        <li>GNU grep manual, Known Bugs — <a href="https://www.gnu.org/software/grep/manual/html_node/Known-Bugs.html" target="_blank" rel="noopener noreferrer">https://www.gnu.org/software/grep/manual/html_node/Known-Bugs.html</a>（本稿では GNU Grep 3.11 の文言を確認）</li>
+        <li>GNU grep NEWS — <a href="https://git.savannah.gnu.org/cgit/grep.git/plain/NEWS" target="_blank" rel="noopener noreferrer">https://git.savannah.gnu.org/cgit/grep.git/plain/NEWS</a>（3.0〜3.12 を通読。bounded repetition のメモリ問題を直したエントリは見当たらず）</li>
+      </ul>
+    </article>
+    <nav class="blog-nav" aria-label="記事の案内">
+      <p><a href="/blog/">一覧に戻る</a></p>
+      <p><a href="/blog/psd-layers-20260907/">前の記事『そのPSD、レイヤー消えてます — ibisPaint と Procreate の書き出しの罠』</a></p>
+    </nav>
+    <p class="foot">© 2026 株式会社佐野組</p>
+  </main>
+</body>
+</html>
