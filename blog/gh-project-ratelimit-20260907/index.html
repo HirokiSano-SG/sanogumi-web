@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【しくじり話】gh issue list は1点、gh project item-list は203点 — AIエージェント11席で GraphQL 枠を20分で焼いた話 — 株式会社佐野組</title>
+  <meta name="description" content="gh issue list は1点、gh project item-list は203点。AIエージェント11席の巡回で GitHub GraphQL 枠を20〜30分で焼いた実測と、死んだ rate_limit 計器の話。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=8">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
+      </a>
+      <nav class="nav" aria-label="主要">
+        <a href="/#company">会社</a>
+        <a href="/works/">作品</a>
+        <a href="/creators/">所属クリエイター</a>
+        <a href="/blog/" aria-current="page">ブログ</a>
+        <a href="/news/">お知らせ</a>
+        <a href="/#notice">公告</a>
+        <a href="/privacy/">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap wrap--wide">
+    <article class="blog-prose">
+      <h1 class="page-title">【しくじり話】gh issue list は1点、gh project item-list は203点 — AIエージェント11席で GraphQL 枠を20分で焼いた話</h1>
+      <p class="blog-dates">
+        <span>投稿 <time datetime="2026-09-07">令和8年9月7日</time></span>
+        <span>最終更新 <time datetime="2026-09-07">令和8年9月7日</time></span>
+      </p>
+
+      <p class="blog-author">文：株式会社佐野組 佐野 凛</p>
+
+      <ul class="blog-tags" aria-label="タグ"><li><a class="blog-tag" href="/blog/#開発">開発</a></li><li><a class="blog-tag" href="/blog/#CLI">CLI</a></li><li><a class="blog-tag" href="/blog/#エラーレポート">エラーレポート</a></li><li><a class="blog-tag" href="/blog/#AIエージェント">AIエージェント</a></li></ul>
+
+      <h2>事故</h2>
+      <p>AIエージェントを11席、だいたい10分おきに自律巡回させている開発組織で、Priority を P1 にした Issue が、およそ1時間だれにも振られなかった。</p>
+      <p>時刻の流れはこうだった。</p>
+      <pre><code>04:46  P1 を設定
+04:59  差配席が巡回 … 候補に出ない
+05:20  差配席が巡回 … 候補に出ない
+05:31  差配席が巡回 … 候補に出ない</code></pre>
+      <p>判定ロジックを読み取り専用で手から叩くと、正しく候補に出る。ロジックは壊れていなかった。席も「見ていないもの: OPEN Issue 一覧と Kanban の item-list（<code>gh</code> が非0）」と正直に申告していた。</p>
+      <p>最初は GitHub CLI 側の不具合だと思った。違った。原因は、自分たちが書いた巡回コードだった。</p>
+
+      <h2>見た目が同じ2本で、値段が200倍違う</h2>
+      <p>同じ <code>gh</code>、同じ <code>--limit</code>、同じ <code>--json</code> でも、GraphQL の消費点がまるで違う。</p>
+      <pre><code>$ gh issue list --limit 200 --json number,title,labels,body,updatedAt
+  →   1 点
+
+$ gh project item-list 1 --owner &lt;org&gt; --format json --limit 400
+  → 203 点</code></pre>
+      <p>測り方は単純で、<code>GH_DEBUG=api</code> を付けたときのレスポンスヘッダ <code>X-Ratelimit-Used</code> の差分を、前後で挟んで3回ずつ取った。ばらつきは無かった。</p>
+      <p>効くのは <code>--limit</code> の数字そのものではなく、盤の実データ件数だ。</p>
+      <table>
+        <thead><tr><th><code>--limit</code></th><th>実測</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td>11 点</td></tr>
+          <tr><td>50</td><td>54 点</td></tr>
+          <tr><td>100</td><td>105 点</td></tr>
+          <tr><td>400</td><td>203 点（実データ 127 件）</td></tr>
+        </tbody>
+      </table>
+
+      <h2>なぜそうなるか — 入れ子の connection</h2>
+      <p><code>GH_DEBUG=api</code> で、<code>gh</code> が実際に投げているクエリを見ると、だいたい次の形になっている（執筆時点の <code>gh</code>）。</p>
+      <pre><code class="language-graphql">items(first: $firstItems, after: $afterItems) {
+  ...
+  fieldValues(first: 100) { ... }
+}</code></pre>
+      <p>GitHub 公式ドキュメント「Rate limits and node limits for the GraphQL API」は、ポイントの見積もりをこう書いている。</p>
+      <blockquote>
+        <p>Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the <code>first</code> or <code>last</code> argument limits.</p>
+        <p>Divide the number by 100 and round the result to the nearest whole number to get the final aggregate point value.</p>
+      </blockquote>
+      <p>ユーザー向けの枠は、だいたい「1時間あたり 5,000 点」だ。</p>
+      <p>ここから単純に計算すると、<code>items(first:100)</code> × <code>fieldValues(first:100)</code> は 10,000 ÷ 100 で、<strong>1ページあたり 100 点</strong>になる。</p>
+      <p>そして <code>--limit 400</code> が、いちばん悪い効き方をする。実データ 127 件は2ページになり、2ページ目は 27 件しか返らないのに、満額の 100 点を取られる。「Assume every request will reach the <code>first</code> limits」が、そのまま効く。100 + 100 に端数が乗って 203。実測と一致した。</p>
+      <p><code>gh issue list</code> 側には、この入れ子の connection が無いので 1 点で済む。同じ CLI なのに、値段だけが約200倍違い、その差額はどこにも表示されない。</p>
+      <p><code>fieldValues(first: 100)</code> は、いまの <code>gh</code> が選んでいる実装値だ。将来の版では変わり得るので、記事の式は「執筆時点の <code>gh</code> が投げるクエリ」として読んでほしい。</p>
+
+      <h2>×11席 — 予算を連続で超える</h2>
+      <p>巡回コードは、この呼び出しに席の区別を付けていなかった。巡回控えから集計した実数は、こうだった。</p>
+      <table>
+        <thead><tr><th>時刻帯</th><th>巡回回数</th><th>席数</th><th>item-list だけの消費</th><th>予算 5,000/時 に対して</th></tr></thead>
+        <tbody>
+          <tr><td>0時間前</td><td>36</td><td>11</td><td>7,308 点</td><td>146%</td></tr>
+          <tr><td>1時間前</td><td>44</td><td>11</td><td>8,932 点</td><td>179%</td></tr>
+          <tr><td>2時間前</td><td>29</td><td>11</td><td>5,887 点</td><td>118%</td></tr>
+        </tbody>
+      </table>
+      <p>3時間連続で予算超過。だいたい20〜30分で枠が焼け、残りの時間は全席が盲になる。推定ではなく、巡回ログの実行時刻を時間で刻んだ実数に、実測単価を掛けた結果だ。</p>
+
+      <h2>落ち方が悪い — 黙って消える</h2>
+      <p>スナップショット取得は、2本を続けて取る設計だった。</p>
+      <table>
+        <thead><tr><th>取るもの</th><th>レート制限時</th></tr></thead>
+        <tbody>
+          <tr><td><code>gh issue list</code></td><td>REST への退避を書いてあった</td></tr>
+          <tr><td><code>gh project item-list</code></td><td>退避が無い。Projects v2 は GraphQL 専用</td></tr>
+        </tbody>
+      </table>
+      <p>後者が落ちると <code>return null</code> になる。呼び出し側は <code>if (snap === null) return;</code> なので、ふたつの検査が同時に、例外も警告も出さずに消える。</p>
+      <p>しかも <code>gh</code> は、GraphQL のレート制限を <code>unknown owner type</code> という、まったく無関係に見える文言に潰して返すことがある。ログを読んでも、枠切れだと分からない。</p>
+      <p>Projects v2 に REST の代替は、classic Projects の REST 口を叩いても 404 で、代替にはならなかった（こちらも実測）。</p>
+
+      <h2>安全弁が、死んだ計器に繋がっていた</h2>
+      <p>枠切れを予防するために、「残枠が細ければ重い呼び出しを飛ばす」ガードを書いてあった。その入力が <code>gh api rate_limit</code> の <code>graphql</code> 欄だった。ところが、この欄は常に <code>used=0 / remaining=5000</code> で、一度も動かなかった。</p>
+      <pre><code>gh api rate_limit の申告          実ヘッダ（同じセッション・同じトークン）
+graphql used=0  remaining=5000    X-Ratelimit-Used: 1356 → 1458 → 2596 → 2805
+core    used=98 remaining=4902    ← core は正しく動く</code></pre>
+      <p>同じ応答の中で <code>core</code> は正しく、<code>graphql</code> だけが死んでいる。つまり安全弁は、永久に「健全」としか言わない。</p>
+      <p>執筆時点でも、こちらで <code>gh api rate_limit</code> を叩くと <code>graphql.used</code> が 0 のまま返ることがあった。一方、実際の GraphQL 呼び出しのレスポンスヘッダでは <code>X-Ratelimit-Used</code> が増えていた。条件を classic PAT 以外（fine-grained PAT や GitHub App トークン）まで絞ってはいないので、GitHub 側の既知不具合かどうかは断定しない。確実に言えるのは、「ヘッダを見ずに REST の申告だけを信じるな」ということだ。</p>
+      <p>公式も、できるときはレスポンスヘッダを使え、と書いている。</p>
+
+      <h2>書くな、の5箇条</h2>
+      <p>ニッチな <code>gh</code> の小ネタに見えて、中身は AIエージェントが最も書きやすいコードの型だ。「巡回で Kanban の Priority を見て」と頼めば、まずこう書く。</p>
+      <ol>
+        <li><strong>手近な CLI をそのまま呼ぶ。</strong> <code>gh issue list</code> が安いので、<code>gh project item-list</code> も安いと思う。</li>
+        <li><strong><code>--limit</code> は大きめにしておく。</strong> 「取りこぼすよりマシ」——その1行が、ページ課金を倍にする。</li>
+        <li><strong>全席に同じ処理を配る。</strong> 1席で問題が無かったので、11席でも問題が無いと思う。</li>
+        <li><strong>安全弁を書く。</strong> ただし、その計器が正しいかは確かめない。</li>
+        <li><strong>失敗を握りつぶす。</strong> <code>if (snap === null) return;</code> は行儀よく見えて、いちばん害が大きい。</li>
+      </ol>
+      <p>5つとも、単体レビューでは通る。掛け算になって初めて、「P1 が1時間放置される」に化ける。</p>
+      <p><code>gh</code> は仕様どおりに動いている。しくじったのは、呼ぶ側だ。</p>
+
+      <h2>出典</h2>
+      <ul>
+        <li>実測: 2026-09-07 05:3x〜06:1x（JST）。事故側の環境は Windows 11 / Git Bash / classic PAT（<code>ghp_</code>）</li>
+        <li>GitHub 公式 — <a href="https://docs.github.com/en/graphql/overview/rate-limits-and-node-limits-for-the-graphql-api" target="_blank" rel="noopener noreferrer">Rate limits and node limits for the GraphQL API</a></li>
+      </ul>
+
+    </article>
+    <nav class="blog-nav" aria-label="記事の案内">
+      <p><a href="/blog/">一覧に戻る</a></p>
+      <p><a href="/blog/grep-hang-20260907/">前の記事『【メモリ枯渇】上限付き grep が単体で8GB食って、PCがハングした（Windows 11 / Git Bash / GNU grep 3.0）』</a></p>
+    </nav>
+    <p class="foot">© 2026 株式会社佐野組</p>
+  </main>
+</body>
+</html>
