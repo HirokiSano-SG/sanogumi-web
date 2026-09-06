@@ -1,0 +1,123 @@
+/* news / お知らせ — keep separate from legal 電子公告 */
+
+.news-index {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+.news-index-card {
+  margin: 0;
+}
+
+.news-index-title {
+  margin: 0 0 0.45rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+}
+
+.news-index-title::after {
+  content: none;
+  display: none;
+}
+
+.news-index-title a {
+  text-decoration: none;
+}
+
+.news-index-lead {
+  margin: 0.35rem 0 0;
+}
+
+.news-prose {
+  max-width: none;
+}
+
+.news-prose h2 {
+  margin: 1.8rem 0 0.7rem;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+}
+
+.news-prose p {
+  margin: 0.7rem 0;
+}
+
+.news-note {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.news-nav {
+  margin: 2.5rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule);
+}
+
+.news-nav p {
+  margin: 0.45rem 0;
+}
+
+.news-nav + .foot {
+  margin-top: 1.75rem;
+}
+
+.news-cta {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--ink);
+}
+.news-cta-lead {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+.news-cta-button {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.news-cta-button:hover {
+  background: var(--seal);
+  border-color: var(--seal);
+  color: var(--paper);
+}
+.news-bio {
+  margin: 0.6rem 0 1rem;
+  padding-left: 1.2rem;
+}
+.news-bio li {
+  margin: 0.25rem 0;
+}
+.news-embed {
+  margin: 1rem 0 1.5rem;
+  max-width: 34rem;
+}
+.news-embed .twitter-tweet {
+  margin: 0 auto;
+}
+
+.news-bio-quote {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--ink);
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+.news-bio-quote p {
+  margin: 0.55rem 0;
+  line-height: 1.65;
+}
+.news-bio-quote p:first-child { margin-top: 0; }
+.news-bio-quote p:last-child { margin-bottom: 0; }
