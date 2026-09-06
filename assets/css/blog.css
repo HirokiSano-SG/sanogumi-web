@@ -195,3 +195,137 @@
 .blog-nav + .foot {
   margin-top: 1.75rem;
 }
+
+/* blog index toolbar: title/lead left, search right */
+.blog-index-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin: 0 0 1.35rem;
+}
+.blog-index-head-main {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+.blog-index-head .page-title {
+  margin-bottom: 0.55rem;
+}
+.blog-index-head .page-lead {
+  margin: 0;
+}
+.blog-filters {
+  flex: 0 1 22rem;
+  width: min(22rem, 100%);
+  margin: 0.15rem 0 0;
+}
+.blog-filter-search {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 0.5rem 0.85rem;
+  min-height: 2.55rem;
+}
+.blog-filter-search:focus-within {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+.blog-filter-search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.blog-filter-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.blog-filter-input::placeholder {
+  color: var(--muted);
+}
+.blog-filter-clear {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0.1rem 0.15rem;
+  display: none;
+  white-space: nowrap;
+}
+.blog-filter-clear.is-visible {
+  display: inline;
+}
+.blog-filter-clear:hover {
+  color: var(--seal);
+}
+.blog-filter-empty {
+  display: none;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+.blog-filter-empty.is-visible {
+  display: block;
+}
+.blog-index-card.is-hidden {
+  display: none;
+}
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+  margin: 0.45rem 0 0.15rem;
+  padding: 0;
+  list-style: none;
+}
+.blog-index-card .blog-tags {
+  margin: 0.15rem 0 0.55rem;
+}
+.blog-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+button.blog-tag {
+  appearance: none;
+}
+a.blog-tag:hover,
+button.blog-tag:hover {
+  color: var(--seal);
+  border-color: var(--seal);
+}
+.blog-prose .blog-tags {
+  margin: 0.35rem 0 1rem;
+}
+@media (max-width: 40rem) {
+  .blog-filters {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+
