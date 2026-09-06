@@ -734,7 +734,15 @@
           "label": "性格",
           "text": "素直で、くだけた場では「あたし」と言います。"
         }
-      ]
+      ],
+      "listLinks": [
+        {
+          "label": "@rinsanoSG",
+          "url": "https://x.com/rinsanoSG"
+        }
+      ],
+      "x": "https://x.com/rinsanoSG",
+      "xHandle": "rinsanoSG"
     }
   ]
 }
