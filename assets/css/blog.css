@@ -329,3 +329,8 @@ button.blog-tag:hover {
   }
 }
 
+/* native datalist: keep free text; browser shows tag/author suggestions */
+.blog-filter-input[list] {
+  /* allow browser suggestion UI; no extra chrome */
+}
+

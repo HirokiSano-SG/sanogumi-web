@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/blog.css?v=6">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=7">
 </head>
 <body>
   <a class="skip" href="#main">本文へ</a>
@@ -36,9 +36,20 @@
       <div class="blog-filters" data-blog-filters>
         <label class="blog-filter-search-label" for="blog-filter-q">タイトル・本文・タグ・筆者で探す</label>
         <div class="blog-filter-search">
-          <input id="blog-filter-q" class="blog-filter-input" type="search" name="q" placeholder="タイトル・本文・タグ・筆者で探す" autocomplete="off" data-blog-filter-input>
+          <input id="blog-filter-q" class="blog-filter-input" type="search" name="q" placeholder="タイトル・本文・タグ・筆者で探す" autocomplete="off" data-blog-filter-input list="blog-filter-suggestions">
           <button type="button" class="blog-filter-clear" data-blog-filter-clear aria-label="クリア">クリア</button>
         </div>
+        <datalist id="blog-filter-suggestions">
+          <option value="開発">
+          <option value="CLI">
+          <option value="エラーレポート">
+          <option value="デザイン">
+          <option value="納品">
+          <option value="広報">
+          <option value="プレス">
+          <option value="AIエージェント">
+          <option value="佐野 凛">
+        </datalist>
       </div>
     </div>
     <p class="blog-filter-empty" data-blog-empty>該当する記事がありません。</p>
@@ -70,6 +81,6 @@
     </div>
     <p class="foot">© 2026 株式会社佐野組</p>
   </main>
-  <script src="/assets/js/blog-filter.js?v=3"></script>
+  <script src="/assets/js/blog-filter.js?v=4"></script>
 </body>
 </html>
