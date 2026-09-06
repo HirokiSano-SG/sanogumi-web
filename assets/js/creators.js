@@ -407,7 +407,8 @@
     var name = el("h2", "creator-card-name", text(person.name));
     if (nameId) name.id = nameId;
     body.appendChild(name);
-    if (person.role) body.appendChild(el("p", "creator-role", text(person.role)));
+    var listRole = text(person.listRole) || text(person.role);
+    if (listRole) body.appendChild(el("p", "creator-role", listRole));
     if (person.blurb) body.appendChild(el("p", "creator-card-blurb", text(person.blurb)));
     var items = Array.isArray(person.listLinks) ? person.listLinks : [];
     if (items.length) {
@@ -479,6 +480,33 @@
     ident.appendChild(back);
     head.appendChild(ident);
     section.appendChild(head);
+
+    var profile = Array.isArray(person.profile) ? person.profile : (Array.isArray(person.sections) ? person.sections : []);
+    if (profile.length) {
+      var profileWrap = el("div", "creator-profile");
+      profile.forEach(function (item) {
+        if (!item) return;
+        var label = text(item.label);
+        var bodyText = text(item.text);
+        if (!label && !bodyText) return;
+        var block = el("div", "creator-profile-item");
+        if (label) {
+          var dt = el("h3", null, label);
+          block.appendChild(dt);
+        }
+        var row = el("div", "creator-profile-body");
+        if (item.color) {
+          var sw = el("span", "creator-color-swatch");
+          sw.style.backgroundColor = text(item.color);
+          sw.setAttribute("aria-hidden", "true");
+          row.appendChild(sw);
+        }
+        if (bodyText) row.appendChild(el("p", "creator-profile-text", bodyText));
+        block.appendChild(row);
+        profileWrap.appendChild(block);
+      });
+      section.appendChild(profileWrap);
+    }
 
     if (Array.isArray(person.featured) && person.featured.length) {
       section.appendChild(el("h3", null, "代表作"));
