@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>そのPSD、レイヤー消えてます — ibisPaint と Procreate の書き出しの罠 — 株式会社佐野組</title>
+  <meta name="description" content="ibisPaintのキャンバス書き出しとProcreateのShareで、PSDのレイヤーが消える事故の記録です。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/blog.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
+      </a>
+      <nav class="nav" aria-label="主要">
+        <a href="/#company">会社</a>
+        <a href="/works/">作品</a>
+        <a href="/creators/">所属クリエイター</a>
+        <a href="/blog/" aria-current="page">ブログ</a>
+        <a href="/#notice">公告</a>
+        <a href="/privacy/">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap wrap--wide">
+    <article class="blog-prose">
+      <h1 class="page-title">そのPSD、レイヤー消えてます — ibisPaint と Procreate の書き出しの罠</h1>
+      <p class="blog-dates">
+        <span>投稿 <time datetime="2026-09-07">令和8年9月7日</time></span>
+        <span>最終更新 <time datetime="2026-09-07">令和8年9月7日</time></span>
+      </p>
+
+      <p>この記事の読み手は、絵を発注する側と、iPadで描いてPSDを納品する側です。「なんでレイヤーが消える？」と検索したときに、開いたまま読める記録にしたつもりです。製品の宣伝ではありません。株式会社佐野組がゲーム開発の案件で踏んだ事故のレポートです。</p>
+
+      <p class="blog-author">文：株式会社佐野組 佐野 凛</p>
+
+      <h2>先に結論</h2>
+
+      <p>ibisPaint では、キャンバス画面から書き出すと「Preserve Layers」（レイヤーを保持）の項目そのものが出ず、レイヤーが結合された状態で出ます。レイヤーを残すときはマイギャラリーから作品を選び、<code>PSD (Preserved Layers)</code>（PSD（レイヤーを保持））で書き出します。</p>
+
+      <p>Procreate では、レイヤーを残す形式は PSD です。JPEG / PNG / TIFF はいずれも flatten（統合）されます。Share Layers は形式を問わず、表示中のレイヤーだけが書き出される、と公式に書かれています。非表示レイヤーが PSD の Share Image でどうなるかは、公式に「visibility を保持する」と「表示中だけ書き出される」の両方があり、こちらでは実機確認していません。</p>
+
+      <p>発注のときに添える一文の例と、受け取る側が開かずにレイヤーの有無を見るコードは、下にあります。コードは飛ばして大丈夫です。</p>
+
+      <h2>事故</h2>
+
+      <p>ゲーム開発の案件で、UIの配置指定をPSDで受け取りました。開くとレイヤーが1枚に統合されていて、要素ごとの位置・サイズが取れませんでした。</p>
+
+      <p>最初は納品の経路（Docker経由の取り込み）で加工ミスがあったのでは、と疑いました。追ったところ、コードは <code>fs.linkSync</code> / <code>fs.copyFileSync</code> だけで、画像ライブラリは使っていませんでした。バイト列はそのまま通っていました。原因はアプリ側の書き出しでした。</p>
+
+      <p>届いたファイルは 3840×2160 で、後述の確認では <code>layer_info_len</code> と <code>layer_count</code> がどちらも 0 でした。直接の原因は、ibisPaint のキャンバス画面からの書き出し経路でした。</p>
+
+      <h2>ibisPaint の罠</h2>
+
+      <p>出典は ibisPaint 公式の講義ページです。</p>
+
+      <ul>
+        <li><a href="https://ibispaint.com/lecture/index.jsp?no=206" target="_blank" rel="noopener noreferrer">54. Export an Artwork (Save)</a></li>
+        <li><a href="https://ibispaint.com/lecture/index.jsp?no=119" target="_blank" rel="noopener noreferrer">186. Importing and exporting Photoshop files (PSD)</a></li>
+      </ul>
+
+      <p>マイギャラリーからの手順について、公式には次のように書かれています。</p>
+
+      <blockquote>
+        <p>“Tap ①Share button and choose ②"PSD (Preserved Layers)" or "PSD (Flattened Layer)" according to the use.”</p>
+        <p>（共有ボタンを押し、用途に応じて「PSD（レイヤーを保持）」または「PSD（レイヤーを統合）」を選ぶ、という意味です。）</p>
+      </blockquote>
+
+      <blockquote>
+        <p>“When using an application that can edit PSD files, such as PC it's recommended exporting with "PSD (Preserved Layers)"”</p>
+        <p>（PCなどPSDを編集できるアプリ向けには「PSD（レイヤーを保持）」が推奨、という意味です。印刷原稿向けには、ブレンドモードによる色のずれを避けるため Flattened が案内されています。）</p>
+      </blockquote>
+
+      <p>核心は、次の一文でした。</p>
+
+      <blockquote>
+        <p>“When saving from the canvas screen, this item is not shown and the artwork is exported with 'Preserve Layers' turned off.”</p>
+        <p>（キャンバス画面から保存すると、この項目は表示されず、レイヤー保持はオフのまま書き出される、という意味です。）</p>
+      </blockquote>
+
+      <p>描き終わってそのまま共有する、という自然な操作が、そのまま罠になっていました。今回受け取ったファイルも、この経路でした。</p>
+
+      <h2>Procreate の場合</h2>
+
+      <p>出典は Procreate 公式ハンドブックの Share です。</p>
+
+      <ul>
+        <li><a href="https://help.procreate.com/procreate/handbook/actions/actions-share" target="_blank" rel="noopener noreferrer">Actions → Share</a></li>
+      </ul>
+
+      <blockquote>
+        <p>“Tap Actions → Share → PSD, then select a destination for your file.”</p>
+        <p>（Actions → Share → PSD を選び、保存先を選ぶ、という意味です。）</p>
+      </blockquote>
+
+      <blockquote>
+        <p>“This will save your image into the standard format used by Adobe® Photoshop®, preserving all your layers, layer names, opacity, visibility and blend modes.”</p>
+        <p>（Adobe Photoshop の標準形式で保存し、レイヤー・名前・不透明度・可視性・ブレンドモードを保持する、という意味です。）</p>
+      </blockquote>
+
+      <p>一方、JPEG / PNG / TIFF については、いずれも flatten（レイヤー統合）されると書かれています。Share Layers では、PDF（レイヤーごとに1ページ）、PNG（レイヤーごとのフォルダ）、アニメーション形式などが案内されています。</p>
+
+      <p>形式を問わない一文もあります。</p>
+
+      <blockquote>
+        <p>“Regardless of the format you choose, only visible layers will be exported.”</p>
+        <p>（どの形式を選んでも、表示中のレイヤーだけが書き出される、という意味です。）</p>
+      </blockquote>
+
+      <p>同じ公式ページには、PSDについて「visibility を保持する」とも、「表示中のレイヤーだけが書き出される」とも書かれています。非表示レイヤーが PSD の Share Image でどう扱われるかは、この2文だけでは切り分けきれません。こちらでは iPad 実機での確認はしていません。公式に両方ある、という事実だけを残します。</p>
+
+      <h2>発注時に添える一文（防げた実例）</h2>
+
+      <p>今回の切れ目を知ったあとなら、発注文に次のような一文を添えておけば防げた、という実例です。命令ではなく、こちらが後から書いた控えです。</p>
+
+      <blockquote>
+        <p>PSDでレイヤーを残す場合は、ibisPaintならマイギャラリーから「PSD（レイヤーを保持）」で書き出してください。キャンバス画面からの書き出しだとレイヤーが統合されます。Procreateなら Actions → Share → PSD を選び、JPEG / PNG / TIFF ではレイヤーが残りません。</p>
+      </blockquote>
+
+      <h2>受け取る側の確認（コード・飛ばしてOK）</h2>
+
+      <p>ここから下のコードは飛ばして大丈夫です。発注文の一文と、ibisPaint／Procreateの手順だけで足ります。</p>
+
+      <p>Photoshopがなくても、PSDのバイナリを読めばレイヤーの有無は分かります。今回の事故も、これで確定させました。構造の出典は Adobe の <a href="https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/" target="_blank" rel="noopener noreferrer">Photoshop File Formats Specification</a> です。並びは File Header → Color Mode Data → Image Resources → Layer and Mask Information → Image Data です。レイヤーやマスクが無いとき、Layer and Mask Information は長さゼロを示す4バイトだけになります（PSBは8バイト）。レイヤー数は符号付き2バイトで、負のときは絶対値が枚数で、先頭のアルファが結合透明度を持つ、と仕様に書かれています。</p>
+
+      <p>この案件で使った Python の骨格は、次のとおりです。</p>
+
+      <pre><code>import struct
+
+with open('received.psd', 'rb') as f:
+    f.read(4)                                    # signature '8BPS'
+    struct.unpack('&gt;H', f.read(2))[0]            # version
+    f.read(6)                                    # reserved
+    channels = struct.unpack('&gt;H', f.read(2))[0]
+    height   = struct.unpack('&gt;I', f.read(4))[0]
+    width    = struct.unpack('&gt;I', f.read(4))[0]
+    f.read(4)                                    # depth + color mode
+    f.read(struct.unpack('&gt;I', f.read(4))[0])    # color mode data
+    f.read(struct.unpack('&gt;I', f.read(4))[0])    # image resources
+    struct.unpack('&gt;I', f.read(4))[0]            # layer &amp; mask info length
+    layer_info_len = struct.unpack('&gt;I', f.read(4))[0]
+    layer_count    = struct.unpack('&gt;h', f.read(2))[0]
+
+print(width, height, layer_info_len, layer_count)</code></pre>
+
+      <p><code>layer_info_len</code> と <code>layer_count</code> がどちらも 0 なら、そのPSDはレイヤー情報を持っていない（統合済み）と読みました。届いたファイルは 3840×2160 で、この2つがどちらも 0 でした。</p>
+
+      <h2>今回の切れ目</h2>
+
+      <ol>
+        <li>受け取ったUI配置のPSDは、レイヤーが統合されていました。</li>
+        <li>納品経路のコードはバイト列の素通りでした。画像ライブラリは使っていませんでした。</li>
+        <li>直接の原因は、ibisPaint のキャンバス画面からの書き出しでした。</li>
+        <li>レイヤーを残す ibisPaint の経路は、マイギャラリー → <code>PSD (Preserved Layers)</code> です。</li>
+        <li>Procreate でレイヤーを残す形式は PSD です。JPEG / PNG / TIFF は統合されます。</li>
+        <li>公式には「visibility を保持」と「表示中だけ書き出す」の両方があります。非表示レイヤーの実機確認はしていません。</li>
+        <li>発注時の一文と、受け取り側のヘッダ確認で、同じ事故は止められる、というのが今回の切れ目です。</li>
+      </ol>
+
+      <p>スクリーンショットは載せていません。メニュー文言は公式の英語表記と、その日本語訳に寄せました。アプリの画面は更新されるので、迷ったら公式の講義・ハンドブックを開くのが安全です。</p>
+    </article>
+    <nav class="blog-nav" aria-label="記事の案内">
+      <p><a href="/blog/">一覧に戻る</a></p>
+      <p><a href="/blog/press-copy-20260901/">前の記事『AIエージェントにプレス送付を任せてみた ~本文編~』</a></p>
+    </nav>
+    <p class="foot">© 2026 株式会社佐野組</p>
+  </main>
+</body>
+</html>
