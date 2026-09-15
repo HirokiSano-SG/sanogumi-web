@@ -1,0 +1,150 @@
+/* 名刺QR用 — site.css の上に薄く載せる。モバイル優先 */
+
+.card-sheet {
+  max-width: 36rem;
+}
+
+.card-ident {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0 0 1.75rem;
+}
+
+.card-avatar {
+  flex: none;
+  display: block;
+  width: 112px;
+  height: 112px;
+  border-radius: 0;
+  object-fit: contain;
+  background: var(--paper);
+}
+
+.card-ident-body {
+  min-width: 0;
+}
+
+.card-ident .page-title {
+  margin-bottom: 0.25rem;
+}
+
+.card-role {
+  margin: 0 0 0.45rem;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-blurb {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card-ident .page-lead,
+.card-ident .card-blurb {
+  margin-bottom: 0;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.card-actions a:hover,
+.card-actions a:focus-visible {
+  color: var(--paper);
+  background: var(--seal);
+  border-color: var(--seal);
+}
+
+.card-actions a.primary {
+  background: var(--seal);
+  color: var(--paper);
+  border-color: var(--seal);
+}
+
+.card-actions a.primary:hover,
+.card-actions a.primary:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.card-works {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-works li {
+  margin: 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.card-works li:first-child {
+  padding-top: 0;
+}
+
+.card-work-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-work-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.card-aside {
+  margin: 0 0 2rem;
+  font-size: 0.85rem;
+}
+
+.card-aside a {
+  color: var(--muted);
+}
+
+@media (max-width: 36rem) {
+  .card-ident {
+    gap: 0.85rem;
+  }
+  .card-avatar {
+    width: 96px;
+    height: 96px;
+  }
+  .card-actions {
+    flex-direction: column;
+  }
+  .card-actions a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-actions a {
+    transition: none;
+  }
+}
