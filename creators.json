@@ -99,6 +99,43 @@
       ],
       "works": [
         {
+          "title": "魔法少女ノ魔女裁判",
+          "blurb": "プログラマー。UI 実装、ローカライズ 英・繁・簡、Naninovel 拡張など。",
+          "links": [
+            {
+              "label": "Steamで見る",
+              "url": "https://store.steampowered.com/app/3101040/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3101040/"
+        },
+        {
+          "title": "温泉でお酒を飲もう！",
+          "blurb": "メインプログラマーを担当しました。ティラノスクリプトを使用、吹き出し・CSV 自動読み込みなどの拡張コーディングも実装しました。",
+          "links": [
+            {
+              "label": "Steam（無料）",
+              "url": "https://store.steampowered.com/app/3282480/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3282480/"
+        },
+        {
+          "title": "イツカノヨル",
+          "blurb": "ゲームイベント・マスターアップ前のデバッグ。テクニカルメンター。",
+          "links": [
+            {
+              "label": "公式HP",
+              "url": "https://www.wakuwakugames.com/itsukanoyoru"
+            },
+            {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/3030980/"
+            }
+          ],
+          "url": "https://www.wakuwakugames.com/itsukanoyoru"
+        },
+        {
           "id": "parasite_ore",
           "title": "俺がいないとダメだろ～ヒモニート伝説～",
           "url": "https://unityroom.com/games/parasite_ore",
@@ -631,28 +668,6 @@
       ],
       "works": [
         {
-          "title": "魔法少女ノ魔女裁判",
-          "blurb": "プログラマー。UI 実装、ローカライズ 英・繁・簡、Naninovel 拡張など。",
-          "links": [
-            {
-              "label": "Steamで見る",
-              "url": "https://store.steampowered.com/app/3101040/"
-            }
-          ],
-          "url": "https://store.steampowered.com/app/3101040/"
-        },
-        {
-          "title": "温泉でお酒を飲もう！",
-          "blurb": "メインプログラマーを担当しました。ティラノスクリプトを使用、吹き出し・CSV 自動読み込みなどの拡張コーディングも実装しました。",
-          "links": [
-            {
-              "label": "Steam（無料）",
-              "url": "https://store.steampowered.com/app/3282480/"
-            }
-          ],
-          "url": "https://store.steampowered.com/app/3282480/"
-        },
-        {
           "title": "UNDERGROUNDED",
           "blurb": "インゲームのレトロシューティングのクライアントエンジニアを担当しました。",
           "links": [
@@ -666,21 +681,6 @@
             }
           ],
           "url": "https://store.steampowered.com/app/3076910/"
-        },
-        {
-          "title": "イツカノヨル",
-          "blurb": "ゲームイベント・マスターアップ前のデバッグ。テクニカルメンター。",
-          "links": [
-            {
-              "label": "公式HP",
-              "url": "https://www.wakuwakugames.com/itsukanoyoru"
-            },
-            {
-              "label": "Steam",
-              "url": "https://store.steampowered.com/app/3030980/"
-            }
-          ],
-          "url": "https://www.wakuwakugames.com/itsukanoyoru"
         },
         {
           "title": "カジュアルゲームアプリ",
