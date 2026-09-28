@@ -51,6 +51,8 @@
 
   var root = document.querySelector("[data-works]");
   if (!root) return;
+  // tools/web-i18n/seo.py が HTML に書き出し済みなら、そのまま使う
+  if (root.hasAttribute("data-prerendered")) return;
 
   var src = root.getAttribute("data-works-src") || "works.json";
   var limitAttr = root.getAttribute("data-works-limit");

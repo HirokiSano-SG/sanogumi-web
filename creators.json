@@ -20,7 +20,7 @@
           "kind": "ホラーノベルゲーム",
           "note": "unityroom版は今すぐ無料で遊べます。",
           "url": "https://unityroom.com/games/karma",
-          "image": "assets/works/yumemiru-sakura.png",
+          "image": "assets/works/yumemiru-sakura.webp",
           "imageAlt": "ゆめみるサクラの卒業式",
           "imagePosition": "left",
           "page": "/works/yumemiru-sakura-steam/",
@@ -64,7 +64,7 @@
           "kind": "ビジュアルノベル",
           "note": "unityroomの『ナツイロリテイク』をベースに製品化を目指している。",
           "url": "https://atelier-blue-citrus.com/",
-          "image": "assets/works/shikiiro-reframe.png",
+          "image": "assets/works/shikiiro-reframe.webp",
           "imageAlt": "シキイロリフレーム",
           "imagePosition": "right",
           "links": [
@@ -154,7 +154,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/parasite_ore.gif",
+          "image": "assets/creators/parasite_ore.webp",
           "imageAlt": "俺がいないとダメだろ～ヒモニート伝説～",
           "links": [
             {
@@ -191,7 +191,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/rinri.png",
+          "image": "assets/creators/rinri.webp",
           "imageAlt": "昨日のあなたは、異常を知らない",
           "links": [
             {
@@ -228,7 +228,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/pomu.gif",
+          "image": "assets/creators/pomu.webp",
           "imageAlt": "ぽむはBIGなスライムになりたい！",
           "links": [
             {
@@ -260,7 +260,7 @@
               "role": "サウンド"
             }
           ],
-          "image": "assets/creators/how_to_make_devils_heart.gif",
+          "image": "assets/creators/how_to_make_devils_heart.webp",
           "imageAlt": "悪魔の心臓のつくりかた",
           "links": [
             {
@@ -293,7 +293,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/goodluck.png",
+          "image": "assets/creators/goodluck.webp",
           "imageAlt": "がんばれ相棒",
           "links": [
             {
@@ -327,7 +327,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/tikitikibanban.png",
+          "image": "assets/creators/tikitikibanban.webp",
           "imageAlt": "Feelite!!",
           "links": [
             {
@@ -360,7 +360,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/s3nd.png",
+          "image": "assets/creators/s3nd.webp",
           "imageAlt": "f0rM!sia.S3nd$ignal();",
           "links": [
             {
@@ -389,7 +389,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/lust_of_dinner.png",
+          "image": "assets/creators/lust_of_dinner.webp",
           "imageAlt": "ラストオブディナー",
           "links": [
             {
@@ -422,7 +422,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/natuiroretake.jpg",
+          "image": "assets/creators/natuiroretake.webp",
           "imageAlt": "ナツイロリテイク",
           "links": [
             {
@@ -455,7 +455,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/goodnight.png",
+          "image": "assets/creators/goodnight.webp",
           "imageAlt": "クリスマスはマフラーと共に",
           "links": [
             {
@@ -480,7 +480,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/letter2u.png",
+          "image": "assets/creators/letter2u.webp",
           "imageAlt": "Letter2U",
           "links": [
             {
@@ -509,7 +509,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/tot.png",
+          "image": "assets/creators/tot.webp",
           "imageAlt": "トリックorトリート",
           "links": [
             {
@@ -538,7 +538,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/yomurun.png",
+          "image": "assets/creators/yomurun.webp",
           "imageAlt": "Cloaking:Dobell",
           "links": [
             {
@@ -563,7 +563,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/peter.png",
+          "image": "assets/creators/peter.webp",
           "imageAlt": "診察室へお入り下さい",
           "links": [
             {
@@ -588,7 +588,7 @@
               "role": "エンジニア"
             }
           ],
-          "image": "assets/creators/huriwake-sweets.png",
+          "image": "assets/creators/huriwake-sweets.webp",
           "imageAlt": "ふりわけ！スイーツ！",
           "specialThanks": [
             {
@@ -635,7 +635,7 @@
       },
       "x": "https://x.com/ahTama",
       "xHandle": "ahTama",
-      "avatar": "assets/creators/avatars/ahtama.png",
+      "avatar": "assets/creators/avatars/ahtama.webp",
       "page": "/creators/ahtama/",
       "listLinks": [
         {
@@ -698,7 +698,7 @@
       ],
       "x": "https://x.com/KK_SanoGumi",
       "xHandle": "KK_SanoGumi",
-      "avatar": "assets/creators/avatars/kk-sanogumi.jpg",
+      "avatar": "assets/creators/avatars/kk-sanogumi.webp",
       "page": "/creators/hiroki/",
       "listLinks": [
         {
@@ -715,7 +715,7 @@
       "role": "Webデザイナー、ライター",
       "listRole": "副社長／Webデザイナー／ライター",
       "blurb": "会社のサイトと窓口とドキュメントを回す。",
-      "avatar": "assets/creators/avatars/rin.png",
+      "avatar": "assets/creators/avatars/rin.webp",
       "page": "/creators/rin/",
       "profile": [
         {
