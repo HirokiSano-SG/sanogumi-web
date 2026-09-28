@@ -99,7 +99,7 @@
       ],
       "works": [
         {
-          "title": "魔法少女ノ魔女裁判",
+          "title": "Magical Girl Witch Trials",
           "blurb": "Programmer. UI implementation, localization (English, Traditional Chinese, Simplified Chinese), Naninovel extensions, and more.",
           "links": [
             {
@@ -110,7 +110,7 @@
           "url": "https://store.steampowered.com/app/3101040/"
         },
         {
-          "title": "温泉でお酒を飲もう！",
+          "title": "Drinking in the hot spring!",
           "blurb": "Served as main programmer. Used TyranoScript and implemented extensions such as speech balloons and automatic CSV loading.",
           "links": [
             {
@@ -121,7 +121,7 @@
           "url": "https://store.steampowered.com/app/3282480/"
         },
         {
-          "title": "イツカノヨル",
+          "title": "5omeday",
           "blurb": "Debugging before a game event and master-up. Technical mentor.",
           "links": [
             {
