@@ -1,0 +1,84 @@
+{
+  "works": [
+    {
+      "id": "yumemiru-sakura",
+      "title": "ゆめみるサクラの卒業式（unityroom 版）",
+      "alias": "ゆめサクラ",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "每重复一次，就崩坏得更多的毕业典礼。",
+      "image": "/assets/works/yumemiru-sakura.png",
+      "imageAlt": "ゆめみるサクラの卒業式",
+      "kind": "恐怖小说游戏",
+      "home": true,
+      "page": "/zh-hans/works/yumemiru-sakura/",
+      "editions": [
+        {
+          "label": "unityroom 版",
+          "price": "免费",
+          "platforms": "浏览器（unityroom）",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yumemiru-sakura-steam",
+      "title": "ゆめみるサクラの卒業式",
+      "alias": "ゆめサクラ",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "每重复一次，就崩坏得更多的毕业典礼。",
+      "image": "/assets/works/yumemiru-sakura.png",
+      "imageAlt": "ゆめみるサクラの卒業式",
+      "kind": "恐怖小说游戏",
+      "page": "/zh-hans/works/yumemiru-sakura-steam/",
+      "editions": [
+        {
+          "label": "商业版",
+          "price": "198日圆＋税",
+          "platforms": "Steam",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "praefatio-conii",
+      "title": "プラーエファティオ・コニィ",
+      "alias": "プラコニ",
+      "titleEn": "Praefatio CoNii",
+      "kind": "堕落奇幻 × 据点出发冒险",
+      "home": true,
+      "page": "/zh-hans/works/praefatio-conii/",
+      "editions": [
+        {
+          "label": "商业版",
+          "price": "980日圆＋税",
+          "priceNote": "预定价格",
+          "platforms": "PC（Steam）/ iOS / Android 等"
+        }
+      ],
+      "links": [
+        {
+          "label": "HP",
+          "url": "https://praconii.sanogumi.biz"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/praconii"
+        }
+      ]
+    }
+  ]
+}

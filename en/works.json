@@ -1,0 +1,84 @@
+{
+  "works": [
+    {
+      "id": "yumemiru-sakura",
+      "title": "Dreamy Sakura's Graduation Ceremony (unityroom edition)",
+      "alias": "Yume-Sakura",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "A graduation ceremony that breaks a little more with every repeat.",
+      "image": "/assets/works/yumemiru-sakura.png",
+      "imageAlt": "Dreamy Sakura's Graduation Ceremony",
+      "kind": "Horror novel game",
+      "home": true,
+      "page": "/en/works/yumemiru-sakura/",
+      "editions": [
+        {
+          "label": "unityroom edition",
+          "price": "Free",
+          "platforms": "Browser (unityroom)",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yumemiru-sakura-steam",
+      "title": "Dreamy Sakura's Graduation Ceremony",
+      "alias": "Yume-Sakura",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "A graduation ceremony that breaks a little more with every repeat.",
+      "image": "/assets/works/yumemiru-sakura.png",
+      "imageAlt": "Dreamy Sakura's Graduation Ceremony",
+      "kind": "Horror novel game",
+      "page": "/en/works/yumemiru-sakura-steam/",
+      "editions": [
+        {
+          "label": "Commercial edition",
+          "price": "¥198 + tax",
+          "platforms": "Steam",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "praefatio-conii",
+      "title": "Praefatio CoNii",
+      "alias": "PraCoNi",
+      "titleEn": "Praefatio CoNii",
+      "kind": "Downfallen fantasy × base-departure adventure",
+      "home": true,
+      "page": "/en/works/praefatio-conii/",
+      "editions": [
+        {
+          "label": "Commercial edition",
+          "price": "¥980 + tax",
+          "priceNote": "Planned price",
+          "platforms": "PC (Steam) / iOS / Android, and more"
+        }
+      ],
+      "links": [
+        {
+          "label": "HP",
+          "url": "https://praconii.sanogumi.biz"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/praconii"
+        }
+      ]
+    }
+  ]
+}

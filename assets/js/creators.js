@@ -1,6 +1,96 @@
 (function () {
   "use strict";
 
+  // 自動翻訳ページ（/en/ /zh-hant/ /zh-hans/）用の表示ラベル。日本語ページでは原文のまま。
+  var LANG = (function () {
+    var l = (document.documentElement.getAttribute("lang") || "ja").toLowerCase();
+    if (l.indexOf("en") === 0) return "en";
+    if (l.indexOf("zh-hant") === 0 || l === "zh-tw" || l === "zh-hk") return "zh-hant";
+    if (l.indexOf("zh") === 0) return "zh-hans";
+    return "ja";
+  })();
+  var DICT = {
+    "en": {
+      "画像なし": "No image",
+      "作品の案内を見る": "View work details",
+      "ブラウザで遊ぶ": "Play in browser",
+      "ストアで見る": "View in store",
+      "開く": "Open",
+      "クレジット: ": "Credits: ",
+      "クレジット": "Credits",
+      "スペシャルサンクス: ": "Special thanks: ",
+      "サークル ": "Circle: ",
+      "成人向け": "Adult (18+)",
+      "公式HP": "Official website",
+      "所属クリエイター一覧": "All creators",
+      "代表作": "Featured works",
+      "他作品": "Other works",
+      "読み込み中…": "Loading…",
+      "現在、掲載中の所属クリエイターはいません。": "There are currently no creators listed.",
+      "このクリエイターのページはありません。": "There is no page for this creator.",
+      "所属クリエイターの情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "Could not load the creators data. Please open this page from a same-origin static server.",
+      "（": " (",
+      "）": ")",
+      "、": ", ",
+      "。": ". ",
+      " ／ ": " / "
+    },
+    "zh-hant": {
+      "画像なし": "無圖片",
+      "作品の案内を見る": "查看作品介紹",
+      "ブラウザで遊ぶ": "在瀏覽器遊玩",
+      "ストアで見る": "在商店查看",
+      "開く": "開啟",
+      "クレジット: ": "製作人員：",
+      "クレジット": "製作人員",
+      "スペシャルサンクス: ": "特別感謝：",
+      "サークル ": "社團 ",
+      "成人向け": "成人向（18+）",
+      "公式HP": "官方網站",
+      "所属クリエイター一覧": "所屬創作者列表",
+      "代表作": "代表作",
+      "他作品": "其他作品",
+      "読み込み中…": "載入中…",
+      "現在、掲載中の所属クリエイターはいません。": "目前沒有刊登中的所屬創作者。",
+      "このクリエイターのページはありません。": "沒有這位創作者的頁面。",
+      "所属クリエイターの情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "無法載入所屬創作者資訊。請以同源的靜態伺服器開啟。",
+      "（": "（",
+      "）": "）",
+      "、": "、",
+      "。": "。",
+      " ／ ": " ／ "
+    },
+    "zh-hans": {
+      "画像なし": "无图片",
+      "作品の案内を見る": "查看作品介绍",
+      "ブラウザで遊ぶ": "在浏览器游玩",
+      "ストアで見る": "在商店查看",
+      "開く": "打开",
+      "クレジット: ": "制作人员：",
+      "クレジット": "制作人员",
+      "スペシャルサンクス: ": "特别感谢：",
+      "サークル ": "社团 ",
+      "成人向け": "成人向（18+）",
+      "公式HP": "官方网站",
+      "所属クリエイター一覧": "所属创作者列表",
+      "代表作": "代表作",
+      "他作品": "其他作品",
+      "読み込み中…": "加载中…",
+      "現在、掲載中の所属クリエイターはいません。": "目前没有刊登中的所属创作者。",
+      "このクリエイターのページはありません。": "没有这位创作者的页面。",
+      "所属クリエイターの情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "无法加载所属创作者信息。请以同源的静态服务器打开。",
+      "（": "（",
+      "）": "）",
+      "、": "、",
+      "。": "。",
+      " ／ ": " ／ "
+    }
+  };
+  function tl(s) {
+    var d = DICT[LANG];
+    return d && Object.prototype.hasOwnProperty.call(d, s) ? d[s] : s;
+  }
+
   var root = document.querySelector("[data-creators]");
   if (!root) return;
 
@@ -8,6 +98,7 @@
   var mode = root.getAttribute("data-creators-mode") || "list";
   var onlyId = root.getAttribute("data-creator-id") || "";
   var assetBase = root.getAttribute("data-asset-base") || "";
+  var langPrefix = root.getAttribute("data-lang-prefix") || "";
   var STORAGE_KEY = "sanogumi-creators-r18";
   var dialog = null;
   var opener = null;
@@ -58,7 +149,7 @@
   }
 
   function placeholder(title) {
-    return el("div", "tile-ph", text(title) || "画像なし");
+    return el("div", "tile-ph", text(title) || tl("画像なし"));
   }
 
   function renderVisual(work) {
@@ -87,9 +178,9 @@
     return members.map(function (m) {
       var name = text(m && m.name);
       var role = text(m && m.role);
-      if (name && role) return name + "（" + role + "）";
+      if (name && role) return name + tl("（") + role + tl("）");
       return name || role;
-    }).filter(Boolean).join("、");
+    }).filter(Boolean).join(tl("、"));
   }
 
   function formatThanks(thanks) {
@@ -97,18 +188,18 @@
     return thanks.map(function (t) {
       var name = text(t && t.name);
       var note = text(t && t.note);
-      if (name && note) return name + "（" + note + "）";
+      if (name && note) return name + tl("（") + note + tl("）");
       return name;
-    }).filter(Boolean).join("、");
+    }).filter(Boolean).join(tl("、"));
   }
 
   function ctaFor(work) {
     if (work && work.cta) return text(work.cta);
-    if (work && work.page) return "作品の案内を見る";
+    if (work && work.page) return tl("作品の案内を見る");
     var u = text(work && work.url);
-    if (/unityroom\.com/i.test(u)) return "ブラウザで遊ぶ";
-    if (/dlsite\.com/i.test(u)) return "ストアで見る";
-    if (u) return "開く";
+    if (/unityroom\.com/i.test(u)) return tl("ブラウザで遊ぶ");
+    if (/dlsite\.com/i.test(u)) return tl("ストアで見る");
+    if (u) return tl("開く");
     return "";
   }
 
@@ -120,7 +211,7 @@
     }
     var u = text(work && work.url);
     if (!u) return [];
-    return [{ label: ctaFor(work) || "開く", url: u }];
+    return [{ label: ctaFor(work) || tl("開く"), url: u }];
   }
 
   function renderTileLinks(work) {
@@ -170,21 +261,21 @@
     }
     if (work.jam) kindBits.push(text(work.jam));
     if (kindBits.length) {
-      body.appendChild(el("p", "tile-kind", kindBits.join(" ／ ")));
+      body.appendChild(el("p", "tile-kind", kindBits.join(tl(" ／ "))));
     }
     if (work.blurb) {
       body.appendChild(el("p", "tile-kind", text(work.blurb)));
     }
     if (work.credit) {
-      body.appendChild(el("p", "tile-credits", "クレジット: " + text(work.credit)));
+      body.appendChild(el("p", "tile-credits", tl("クレジット: ") + text(work.credit)));
     }
     var credits = formatMembers(work.members);
     if (credits) {
-      body.appendChild(el("p", "tile-credits", "クレジット: " + credits));
+      body.appendChild(el("p", "tile-credits", tl("クレジット: ") + credits));
     }
     var thanks = formatThanks(work.specialThanks);
     if (thanks) {
-      body.appendChild(el("p", "tile-credits", "スペシャルサンクス: " + thanks));
+      body.appendChild(el("p", "tile-credits", tl("スペシャルサンクス: ") + thanks));
     }
     var linkList = renderTileLinks(work);
     if (linkList) body.appendChild(linkList);
@@ -212,7 +303,7 @@
     if (linkList) article.appendChild(linkList);
     if (work.credit) {
       var dl = el("dl", "work-meta");
-      dl.appendChild(el("dt", null, "クレジット"));
+      dl.appendChild(el("dt", null, tl("クレジット")));
       dl.appendChild(el("dd", null, text(work.credit)));
       article.appendChild(dl);
     }
@@ -245,7 +336,7 @@
       if (item.note) extra.push(text(item.note));
       if (item.date) extra.push(text(item.date));
       if (extra.length) {
-        li.appendChild(document.createTextNode("（" + extra.join("、") + "）"));
+        li.appendChild(document.createTextNode(tl("（") + extra.join(tl("、")) + tl("）")));
       }
       ul.appendChild(li);
     });
@@ -255,10 +346,10 @@
   function renderAdultUnlocked(data) {
     var box = el("div", "adult-panel");
     var meta = [];
-    if (data.circle) meta.push("サークル " + text(data.circle));
+    if (data.circle) meta.push(tl("サークル ") + text(data.circle));
     if (data.credit) meta.push(text(data.credit));
     if (data.note) meta.push(text(data.note));
-    if (meta.length) box.appendChild(el("p", null, meta.join("。") + "。"));
+    if (meta.length) box.appendChild(el("p", null, (meta.join(tl("。")) + tl("。")).trim()));
     box.appendChild(adultList(data));
     return box;
   }
@@ -302,13 +393,13 @@
     dialog.replaceChildren();
     dialog.setAttribute("aria-labelledby", "r18-title");
     dialog.removeAttribute("aria-describedby");
-    dialog.appendChild(el("h2", null, text(data.label) || "成人向け"));
+    dialog.appendChild(el("h2", null, text(data.label) || tl("成人向け")));
     dialog.lastChild.id = "r18-title";
     var meta = [];
-    if (data.circle) meta.push("サークル " + text(data.circle));
+    if (data.circle) meta.push(tl("サークル ") + text(data.circle));
     if (data.credit) meta.push(text(data.credit));
     if (data.note) meta.push(text(data.note));
-    if (meta.length) dialog.appendChild(el("p", null, meta.join("。") + "。"));
+    if (meta.length) dialog.appendChild(el("p", null, (meta.join(tl("。")) + tl("。")).trim()));
     dialog.appendChild(adultList(data));
     var actions = el("div", "r18-dialog-actions");
     var back = el("button", "btn", text(data.backLabel));
@@ -391,7 +482,7 @@
   function renderListCard(person) {
     var card = el("article", "creator-card");
     var pid = text(person.id);
-    var href = pid ? "/creators/" + pid + "/" : asset(text(person.page));
+    var href = pid ? langPrefix + "/creators/" + pid + "/" : asset(text(person.page));
     var nameId = pid ? "creator-card-name-" + pid : "";
     var icon = el("div", "creator-card-icon");
     if (person.avatar) {
@@ -455,7 +546,7 @@
     if (person.role) ident.appendChild(el("p", "creator-role", text(person.role)));
     if (person.blurb) ident.appendChild(el("p", null, text(person.blurb)));
     if (Array.isArray(person.skills) && person.skills.length) {
-      ident.appendChild(el("p", "creator-skills", person.skills.join(" ／ ")));
+      ident.appendChild(el("p", "creator-skills", person.skills.join(tl(" ／ "))));
     }
     var extras = el("p", "creator-links");
     if (person.x) {
@@ -468,14 +559,14 @@
       if (extras.childNodes.length) extras.appendChild(document.createTextNode(" ／ "));
       var sa = el("a");
       linkify(sa, text(person.site));
-      sa.textContent = text(person.siteLabel) || "公式HP";
+      sa.textContent = text(person.siteLabel) || tl("公式HP");
       extras.appendChild(sa);
     }
     if (extras.childNodes.length) ident.appendChild(extras);
     var back = el("p", "more");
     var ba = el("a");
-    ba.href = asset("/creators/");
-    ba.textContent = "所属クリエイター一覧";
+    ba.href = langPrefix + "/creators/";
+    ba.textContent = tl("所属クリエイター一覧");
     back.appendChild(ba);
     ident.appendChild(back);
     head.appendChild(ident);
@@ -509,7 +600,7 @@
     }
 
     if (Array.isArray(person.featured) && person.featured.length) {
-      section.appendChild(el("h3", null, "代表作"));
+      section.appendChild(el("h3", null, tl("代表作")));
       var feat = el("div", "tile-grid tile-grid--featured");
       person.featured.forEach(function (work) {
         feat.appendChild(renderTile(work, true));
@@ -518,7 +609,7 @@
     }
 
     if (Array.isArray(person.works) && person.works.length) {
-      section.appendChild(el("h3", null, "他作品"));
+      section.appendChild(el("h3", null, tl("他作品")));
       var grid = el("div", "tile-grid");
       person.works.forEach(function (work) {
         grid.appendChild(renderTile(work, false));
@@ -527,7 +618,7 @@
     }
 
     if (person.adult && Array.isArray(person.adult.works) && person.adult.works.length) {
-      section.appendChild(el("h3", null, text(person.adult.label) || "成人向け"));
+      section.appendChild(el("h3", null, text(person.adult.label) || tl("成人向け")));
       section.appendChild(renderAdultSection(person.adult));
     }
 
@@ -538,7 +629,7 @@
     root.replaceChildren(el("p", "works-status", message));
   }
 
-  showMessage("読み込み中…");
+  showMessage(tl("読み込み中…"));
 
   fetch(src, { credentials: "same-origin" })
     .then(function (response) {
@@ -548,7 +639,7 @@
     .then(function (data) {
       var creators = data && Array.isArray(data.creators) ? data.creators : [];
       if (!creators.length) {
-        showMessage("現在、掲載中の所属クリエイターはいません。");
+        showMessage(tl("現在、掲載中の所属クリエイターはいません。"));
         return;
       }
       if (mode === "detail") {
@@ -557,7 +648,7 @@
           if (person && text(person.id) === text(onlyId)) match = person;
         });
         if (!match) {
-          showMessage("このクリエイターのページはありません。");
+          showMessage(tl("このクリエイターのページはありません。"));
           return;
         }
         root.replaceChildren(renderPerson(match));
@@ -570,6 +661,6 @@
       root.replaceChildren(list);
     })
     .catch(function () {
-      showMessage("所属クリエイターの情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。");
+      showMessage(tl("所属クリエイターの情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。"));
     });
 })();

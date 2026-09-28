@@ -1,0 +1,752 @@
+{
+  "page": {
+    "title": "所属创作者",
+    "lead": "隶属于株式会社佐野组的创作者。如有委托需求，请洽询窗口。"
+  },
+  "creators": [
+    {
+      "id": "ahtama",
+      "name": "嗚呼タマ",
+      "handle": "ahtama",
+      "role": "游戏创作者（主要活跃于独立游戏）",
+      "blurb": "从企划启动到工程开发，有时也兼任脚本等其他职务，一路确实负责到发售。",
+      "featured": [
+        {
+          "id": "yumemiru-sakura",
+          "slug": "karma",
+          "title": "ゆめみるサクラの卒業式",
+          "alias": "ゆめサクラ",
+          "titleEn": "Dreamy Sakura's Graduation Ceremony",
+          "kind": "恐怖小说游戏",
+          "note": "unityroom 版现在即可免费游玩。",
+          "url": "https://unityroom.com/games/karma",
+          "image": "assets/works/yumemiru-sakura.png",
+          "imageAlt": "ゆめみるサクラの卒業式",
+          "imagePosition": "left",
+          "page": "/zh-hans/works/yumemiru-sakura/",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "官方 X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        },
+        {
+          "id": "praefatio-conii",
+          "slug": "praefatio-conii",
+          "title": "プラーエファティオ・コニィ",
+          "alias": "プラコニ",
+          "titleEn": "Praefatio CoNii",
+          "kind": "堕落奇幻 × 据点出发冒险",
+          "note": "最新消息请见官方网站与 X！",
+          "url": "https://praconii.sanogumi.biz",
+          "page": "/zh-hans/works/praefatio-conii/",
+          "links": [
+            {
+              "label": "官方网站",
+              "url": "https://praconii.sanogumi.biz"
+            },
+            {
+              "label": "官方 X",
+              "url": "https://x.com/praconii"
+            }
+          ]
+        },
+        {
+          "id": "shikiiro-reframe",
+          "slug": "shikiiro-reframe",
+          "title": "シキイロリフレーム",
+          "alias": "シキイロ",
+          "kind": "视觉小说",
+          "note": "以 unityroom 上的『ナツイロリテイク』为基础，目标推出商业版。",
+          "url": "https://atelier-blue-citrus.com/",
+          "image": "assets/works/shikiiro-reframe.png",
+          "imageAlt": "シキイロリフレーム",
+          "imagePosition": "right",
+          "links": [
+            {
+              "label": "官方网站",
+              "url": "https://atelier-blue-citrus.com/"
+            },
+            {
+              "label": "官方 X",
+              "url": "https://x.com/a_bluecitrus"
+            }
+          ],
+          "members": [
+            {
+              "name": "下城サユウ",
+              "role": "剧本"
+            },
+            {
+              "name": "#99cafe",
+              "role": "美术"
+            },
+            {
+              "name": "かずら's MUSIC",
+              "role": "音效"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "程序"
+            }
+          ]
+        }
+      ],
+      "works": [
+        {
+          "title": "魔法少女ノ魔女裁判",
+          "blurb": "程序员。UI 实作、在地化（英・繁・简）、Naninovel 扩充等。",
+          "links": [
+            {
+              "label": "在 Steam 查看",
+              "url": "https://store.steampowered.com/app/3101040/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3101040/"
+        },
+        {
+          "title": "温泉でお酒を飲もう！",
+          "blurb": "担任主程序员。使用 TyranoScript，并实作了对话气泡、CSV 自动读取等扩充程序。",
+          "links": [
+            {
+              "label": "Steam（免费）",
+              "url": "https://store.steampowered.com/app/3282480/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3282480/"
+        },
+        {
+          "title": "イツカノヨル",
+          "blurb": "游戏活动・Master Up 前的调试。技术导师。",
+          "links": [
+            {
+              "label": "官方网站",
+              "url": "https://www.wakuwakugames.com/itsukanoyoru"
+            },
+            {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/3030980/"
+            }
+          ],
+          "url": "https://www.wakuwakugames.com/itsukanoyoru"
+        },
+        {
+          "id": "parasite_ore",
+          "title": "俺がいないとダメだろ～ヒモニート伝説～",
+          "url": "https://unityroom.com/games/parasite_ore",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "S.KPコーン",
+              "role": "美术"
+            },
+            {
+              "name": "七瀬くんちゃんさん",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/parasite_ore.gif",
+          "imageAlt": "俺がいないとダメだろ～ヒモニート伝説～",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/parasite_ore"
+            }
+          ]
+        },
+        {
+          "id": "rinri",
+          "title": "昨日のあなたは、異常を知らない",
+          "url": "https://unityroom.com/games/rinri",
+          "jam": "第12届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "御原",
+              "role": "UI 设计"
+            },
+            {
+              "name": "東城みな",
+              "role": "美术"
+            },
+            {
+              "name": "Ask.A",
+              "role": "音效"
+            },
+            {
+              "name": "げーまー哲@共犯物語プロライターVTuber",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/rinri.png",
+          "imageAlt": "昨日のあなたは、異常を知らない",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/rinri"
+            }
+          ]
+        },
+        {
+          "id": "pomu",
+          "title": "ぽむはBIGなスライムになりたい！",
+          "url": "https://unityroom.com/games/pomu",
+          "jam": "unity1week：もうひとつ",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "つくつく",
+              "role": "音效"
+            },
+            {
+              "name": "魚花異類",
+              "role": "UI 设计"
+            },
+            {
+              "name": "薙沢ムニン",
+              "role": "美术"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/pomu.gif",
+          "imageAlt": "ぽむはBIGなスライムになりたい！",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/pomu"
+            }
+          ]
+        },
+        {
+          "id": "how_to_make_devils_heart",
+          "title": "悪魔の心臓のつくりかた",
+          "url": "https://unityroom.com/games/how_to_make_devils_heart",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "剧本"
+            },
+            {
+              "name": "紅芋けんぴ",
+              "role": "美术"
+            },
+            {
+              "name": "みをつくし",
+              "role": "音效"
+            }
+          ],
+          "image": "assets/creators/how_to_make_devils_heart.gif",
+          "imageAlt": "悪魔の心臓のつくりかた",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/how_to_make_devils_heart"
+            }
+          ]
+        },
+        {
+          "id": "goodluck",
+          "title": "奋斗吧姐妹",
+          "url": "https://unityroom.com/games/goodluck",
+          "jam": "unity1week：あい",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "みをつくし",
+              "role": "音效"
+            },
+            {
+              "name": "あきひら",
+              "role": "美术"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/goodluck.png",
+          "imageAlt": "奋斗吧姐妹",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/goodluck"
+            }
+          ]
+        },
+        {
+          "id": "tikitikibanban",
+          "title": "Feelite!!",
+          "url": "https://unityroom.com/games/tikitikibanban",
+          "jam": "第7届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "音效"
+            },
+            {
+              "name": "朧童子",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/tikitikibanban.png",
+          "imageAlt": "Feelite!!",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/tikitikibanban"
+            }
+          ]
+        },
+        {
+          "id": "s3nd",
+          "title": "f0rM!sia.S3nd$ignal();",
+          "url": "https://unityroom.com/games/s3nd",
+          "jam": "unity1week：ない",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "朧童子",
+              "role": "美术"
+            },
+            {
+              "name": "朱音あおも",
+              "role": "音效"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/s3nd.png",
+          "imageAlt": "f0rM!sia.S3nd$ignal();",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/s3nd"
+            }
+          ]
+        },
+        {
+          "id": "lust_of_dinner",
+          "title": "ラストオブディナー",
+          "url": "https://unityroom.com/games/lust_of_dinner",
+          "jam": "第6届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "BGM"
+            },
+            {
+              "name": "ガタス",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/lust_of_dinner.png",
+          "imageAlt": "ラストオブディナー",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/lust_of_dinner"
+            }
+          ]
+        },
+        {
+          "id": "natuiroretake",
+          "title": "ナツイロリテイク",
+          "url": "https://unityroom.com/games/natuiroretake",
+          "jam": "unity1week：かえす",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "音效"
+            },
+            {
+              "name": "#99cafe",
+              "role": "美术"
+            },
+            {
+              "name": "下城サユウ",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/natuiroretake.jpg",
+          "imageAlt": "ナツイロリテイク",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/natuiroretake"
+            }
+          ]
+        },
+        {
+          "id": "goodnight",
+          "title": "クリスマスはマフラーと共に",
+          "url": "https://unityroom.com/games/goodnight",
+          "jam": "unity1week：おくる",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "ノキアパケット",
+              "role": "音效"
+            },
+            {
+              "name": "ガイア",
+              "role": "美术"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "剧本"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/goodnight.png",
+          "imageAlt": "クリスマスはマフラーと共に",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/goodnight"
+            }
+          ]
+        },
+        {
+          "id": "letter2u",
+          "title": "Letter2U",
+          "url": "https://unityroom.com/games/letter2u",
+          "jam": "第3届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "コトバッチ",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/letter2u.png",
+          "imageAlt": "Letter2U",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/letter2u"
+            }
+          ]
+        },
+        {
+          "id": "tot",
+          "title": "トリックorトリート",
+          "url": "https://unityroom.com/games/tot",
+          "jam": "unity1week：1ボタン",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "鐘本響花 /Kanemoto Kyoka",
+              "role": "音效"
+            },
+            {
+              "name": "NEBOUNEBOSUKE",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/tot.png",
+          "imageAlt": "トリックorトリート",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/tot"
+            }
+          ]
+        },
+        {
+          "id": "yomurun",
+          "title": "Cloaking:Dobell",
+          "url": "https://unityroom.com/games/yomurun",
+          "jam": "第2届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "むてきいも",
+              "role": "美术"
+            },
+            {
+              "name": "九藤周(くどうあまね)",
+              "role": "作曲"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/yomurun.png",
+          "imageAlt": "Cloaking:Dobell",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/yomurun"
+            }
+          ]
+        },
+        {
+          "id": "peter",
+          "title": "診察室へお入り下さい",
+          "url": "https://unityroom.com/games/peter",
+          "jam": "第1届 おためし Game Jam",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "こまる",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/peter.png",
+          "imageAlt": "診察室へお入り下さい",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/peter"
+            }
+          ]
+        },
+        {
+          "id": "huriwake-sweets",
+          "title": "ふりわけ！スイーツ！",
+          "url": "https://unityroom.com/games/huriwake-sweets",
+          "jam": "unity1week：ふる",
+          "role": "工程师",
+          "members": [
+            {
+              "name": "ちゃんばく",
+              "role": "美术"
+            },
+            {
+              "name": "嗚呼タマ",
+              "role": "工程师"
+            }
+          ],
+          "image": "assets/creators/huriwake-sweets.png",
+          "imageAlt": "ふりわけ！スイーツ！",
+          "specialThanks": [
+            {
+              "name": "芝生ケーキ",
+              "note": "Acacia、Mimosa、版权方"
+            }
+          ],
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/huriwake-sweets"
+            }
+          ]
+        }
+      ],
+      "adult": {
+        "label": "成人向（18+）",
+        "gateTitle": "未满18岁禁止进入",
+        "gate": "以下为成人向（R18）内容。未满18岁者不得进入。",
+        "confirmLabel": "我已满18岁",
+        "backLabel": "返回",
+        "openLabel": "查看成人向作品",
+        "circle": "芝生ケーキ",
+        "credit": "企划・脚本 嗚呼タマ",
+        "note": "共有3部，其中1部为英文版",
+        "works": [
+          {
+            "title": "NPC転生〜ゲームの中でめっちゃ出す〜",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01476946.html",
+            "date": "2025-09-29"
+          },
+          {
+            "title": "NPC転生〜ゲームの中で不同意わいせつ〜",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01492799.html",
+            "date": "2025-11-28"
+          },
+          {
+            "title": "NPC Reincarnation ~ Blowin' my Load in a Fantasy Game! ~",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01583219.html",
+            "note": "英文版",
+            "date": "2026-03-13"
+          }
+        ]
+      },
+      "x": "https://x.com/ahTama",
+      "xHandle": "ahTama",
+      "avatar": "assets/creators/avatars/ahtama.png",
+      "page": "/zh-hans/creators/ahtama/",
+      "listLinks": [
+        {
+          "label": "@ahTama",
+          "url": "https://x.com/ahTama"
+        }
+      ],
+      "skills": [
+        "企划",
+        "游戏逻辑",
+        "工程开发",
+        "脚本编写",
+        "数据输入",
+        "环境建置",
+        "翻译・配音委托",
+        "2D 动画"
+      ]
+    },
+    {
+      "id": "hiroki",
+      "name": "佐野 弘树",
+      "role": "商业客户端程序员",
+      "blurb": "主要以业务承揽方式参与商业游戏等开发",
+      "featured": [
+        {
+          "title": "智能手机数字卡牌游戏 App",
+          "blurb": "iOS / Android / Windows（Shift）。卡牌开发的程序负责人／主程序员。",
+          "credit": "株式会社ゲームスタジオ（Game Studio）"
+        },
+        {
+          "title": "トリプルモンスターズ（Triple Monsters）",
+          "blurb": "智能手机数字卡牌游戏。营运・追加功能开发・结束营运等。",
+          "credit": "株式会社ゲームスタジオ（Game Studio） 佐野弘树"
+        }
+      ],
+      "works": [
+        {
+          "title": "UNDERGROUNDED",
+          "blurb": "担任游戏内复古射击游戏的客户端工程师。",
+          "links": [
+            {
+              "label": "在 Steam 查看",
+              "url": "https://store.steampowered.com/app/3076910/"
+            },
+            {
+              "label": "在 Nintendo eShop 查看",
+              "url": "https://store-jp.nintendo.com/item/software/D70010000118305"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3076910/"
+        },
+        {
+          "title": "休闲游戏 App",
+          "blurb": "将电视台节目中的小游戏数字游戏化的工作。从正式开工到 α 阶段担任主程序员，离职时交棒给后辈。作品名称不公开。"
+        },
+        {
+          "title": "Roblox 的 3D 仿真多人游戏",
+          "blurb": "作品名称不公开。开发了更新与追加功能。使用语言为 Luau。"
+        }
+      ],
+      "x": "https://x.com/KK_SanoGumi",
+      "xHandle": "KK_SanoGumi",
+      "avatar": "assets/creators/avatars/kk-sanogumi.jpg",
+      "page": "/zh-hans/creators/hiroki/",
+      "listLinks": [
+        {
+          "label": "@KK_SanoGumi",
+          "url": "https://x.com/KK_SanoGumi"
+        }
+      ],
+      "kaban": "代表董事"
+    },
+    {
+      "id": "rin",
+      "name": "佐野 凛",
+      "kaban": "副社长",
+      "role": "网页设计师、写手",
+      "listRole": "副社长／网页设计师／写手",
+      "blurb": "负责公司网站、窗口与文档的运作。",
+      "avatar": "assets/creators/avatars/rin.png",
+      "page": "/zh-hans/creators/rin/",
+      "profile": [
+        {
+          "label": "出生日期",
+          "text": "2006年8月20日"
+        },
+        {
+          "label": "家人",
+          "text": "姊姊 薰（相差2岁）"
+        },
+        {
+          "label": "社长的评价",
+          "text": "IQ200、天才少女、超级黑客"
+        },
+        {
+          "label": "代表色",
+          "text": "冷冽的蓝靛色 #5a7a94",
+          "color": "#5a7a94"
+        },
+        {
+          "label": "工作",
+          "text": "整理公司网站与博客，并负责窗口相关事务。"
+        },
+        {
+          "label": "个性",
+          "text": "个性坦率，在轻松的场合会自称「あたし」。"
+        }
+      ],
+      "listLinks": [
+        {
+          "label": "@rinsanoSG",
+          "url": "https://x.com/rinsanoSG"
+        }
+      ],
+      "x": "https://x.com/rinsanoSG",
+      "xHandle": "rinsanoSG"
+    }
+  ]
+}

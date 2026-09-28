@@ -1,0 +1,67 @@
+/* 言語の切り替え・自動翻訳の注記（/en/ /zh-hant/ /zh-hans/ と日本語ページ共通） */
+.lang-bar {
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.85rem;
+}
+.lang-bar-inner {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.lang-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 1.1rem;
+}
+.lang-switch a {
+  text-decoration: none;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+}
+.lang-switch a:hover { color: var(--seal); }
+.lang-switch a[aria-current] {
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--seal);
+}
+.mt-notice {
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--seal);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.mt-notice a { color: var(--ink); margin-left: 0.4em; }
+.i18n-langnote {
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.i18n-callout {
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid var(--seal);
+}
+.i18n-callout-title { margin: 0 0 0.5rem; }
+.i18n-callout ul { margin: 0; padding-left: 1.2rem; }
+.i18n-callout li + li { margin-top: 0.35rem; }
+
+/* 中国語のフォント（既存の Noto 系に TC / SC を足す） */
+html:lang(zh-Hant) body {
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Noto Sans JP", "Hiragino Sans", sans-serif;
+}
+html:lang(zh-Hans) body {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Noto Sans JP", "Hiragino Sans", sans-serif;
+}
+html:lang(zh-Hant) .page-title, html:lang(zh-Hant) h2, html:lang(zh-Hant) .slogans,
+html:lang(zh-Hant) .news-index-title, html:lang(zh-Hant) .creator-card-name {
+  font-family: "Noto Serif TC", "PMingLiU", "Noto Serif JP", serif;
+}
+html:lang(zh-Hans) .page-title, html:lang(zh-Hans) h2, html:lang(zh-Hans) .slogans,
+html:lang(zh-Hans) .news-index-title, html:lang(zh-Hans) .creator-card-name {
+  font-family: "Noto Serif SC", "SimSun", "Noto Serif JP", serif;
+}
