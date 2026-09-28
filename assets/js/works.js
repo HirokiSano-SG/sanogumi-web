@@ -1,6 +1,54 @@
 (function () {
   "use strict";
 
+  // 自動翻訳ページ（/en/ /zh-hant/ /zh-hans/）用の表示ラベル。日本語ページでは原文のまま。
+  var LANG = (function () {
+    var l = (document.documentElement.getAttribute("lang") || "ja").toLowerCase();
+    if (l.indexOf("en") === 0) return "en";
+    if (l.indexOf("zh-hant") === 0 || l === "zh-tw" || l === "zh-hk") return "zh-hant";
+    if (l.indexOf("zh") === 0) return "zh-hans";
+    return "ja";
+  })();
+  var DICT = {
+    "en": {
+      "ジャンル": "Genre",
+      "区分": "Edition",
+      "価格": "Price",
+      "対応": "Platforms",
+      "読み込み中…": "Loading…",
+      "現在、掲載中の作品はありません。": "There are currently no works listed.",
+      "作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "Could not load the works data. Please open this page from a same-origin static server.",
+      "（": " (",
+      "）": ")"
+    },
+    "zh-hant": {
+      "ジャンル": "類型",
+      "区分": "版本",
+      "価格": "價格",
+      "対応": "對應平台",
+      "読み込み中…": "載入中…",
+      "現在、掲載中の作品はありません。": "目前沒有刊登中的作品。",
+      "作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "無法載入作品資訊。請以同源的靜態伺服器開啟。",
+      "（": "（",
+      "）": "）"
+    },
+    "zh-hans": {
+      "ジャンル": "类型",
+      "区分": "版本",
+      "価格": "价格",
+      "対応": "对应平台",
+      "読み込み中…": "加载中…",
+      "現在、掲載中の作品はありません。": "目前没有刊登中的作品。",
+      "作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "无法加载作品信息。请以同源的静态服务器打开。",
+      "（": "（",
+      "）": "）"
+    }
+  };
+  function tl(s) {
+    var d = DICT[LANG];
+    return d && Object.prototype.hasOwnProperty.call(d, s) ? d[s] : s;
+  }
+
   var root = document.querySelector("[data-works]");
   if (!root) return;
 
@@ -71,7 +119,7 @@
     li.appendChild(labelNode);
     if (status) {
       li.appendChild(document.createTextNode(" "));
-      li.appendChild(el("span", "status-note", "（" + status + "）"));
+      li.appendChild(el("span", "status-note", tl("（") + status + tl("）")));
     }
     return li;
   }
@@ -111,7 +159,7 @@
     }
 
     var top = el("dl", "work-meta");
-    addMeta(top, "ジャンル", work.kind);
+    addMeta(top, tl("ジャンル"), work.kind);
     if (top.childNodes.length) article.appendChild(top);
 
     var editions = Array.isArray(work.editions) && work.editions.length
@@ -127,11 +175,11 @@
       if (!ed) return;
       var box = el("div", "work-edition");
       var price = text(ed.price);
-      if (price && ed.priceNote) price += "（" + text(ed.priceNote) + "）";
+      if (price && ed.priceNote) price += tl("（") + text(ed.priceNote) + tl("）");
       var dl = el("dl", "work-meta");
-      addMeta(dl, "区分", ed.label);
-      addMeta(dl, "価格", price);
-      addMeta(dl, "対応", ed.platforms);
+      addMeta(dl, tl("区分"), ed.label);
+      addMeta(dl, tl("価格"), price);
+      addMeta(dl, tl("対応"), ed.platforms);
       if (dl.childNodes.length) box.appendChild(dl);
       if (Array.isArray(ed.links) && ed.links.length) {
         var ul = el("ul", "work-links");
@@ -160,7 +208,7 @@
     root.replaceChildren(el("p", "works-status", message));
   }
 
-  showMessage("読み込み中…");
+  showMessage(tl("読み込み中…"));
 
   fetch(src, { credentials: "same-origin" })
     .then(function (response) {
@@ -174,7 +222,7 @@
       }
       var items = Number.isFinite(limit) && limit > 0 ? works.slice(0, limit) : works;
       if (!items.length) {
-        showMessage("現在、掲載中の作品はありません。");
+        showMessage(tl("現在、掲載中の作品はありません。"));
         return;
       }
       var list = el("div", "works-list");
@@ -184,6 +232,6 @@
       root.replaceChildren(list);
     })
     .catch(function () {
-      showMessage("作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。");
+      showMessage(tl("作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。"));
     });
 })();

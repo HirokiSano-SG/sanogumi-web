@@ -1,0 +1,752 @@
+{
+  "page": {
+    "title": "Creators",
+    "lead": "Creators affiliated with Sano-Gumi Co., Ltd.. For requests, please contact us through the inquiry addresses below."
+  },
+  "creators": [
+    {
+      "id": "ahtama",
+      "name": "ahTama",
+      "handle": "ahtama",
+      "role": "Game creator (active mainly in indie games)",
+      "blurb": "From launching a project through engineering — and sometimes other roles such as scripting — handles everything solidly all the way to release.",
+      "featured": [
+        {
+          "id": "yumemiru-sakura",
+          "slug": "karma",
+          "title": "Dreamy Sakura's Graduation Ceremony",
+          "alias": "Yume-Sakura",
+          "titleEn": "Dreamy Sakura's Graduation Ceremony",
+          "kind": "Horror novel game",
+          "note": "The unityroom edition is free to play right now.",
+          "url": "https://unityroom.com/games/karma",
+          "image": "assets/works/yumemiru-sakura.png",
+          "imageAlt": "Dreamy Sakura's Graduation Ceremony",
+          "imagePosition": "left",
+          "page": "/en/works/yumemiru-sakura/",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/karma"
+            },
+            {
+              "label": "Official X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        },
+        {
+          "id": "praefatio-conii",
+          "slug": "praefatio-conii",
+          "title": "Praefatio CoNii",
+          "alias": "PraCoNi",
+          "titleEn": "Praefatio CoNii",
+          "kind": "Downfallen fantasy × base-departure adventure",
+          "note": "Check the official website and X for the latest news!",
+          "url": "https://praconii.sanogumi.biz",
+          "page": "/en/works/praefatio-conii/",
+          "links": [
+            {
+              "label": "Official website",
+              "url": "https://praconii.sanogumi.biz"
+            },
+            {
+              "label": "Official X",
+              "url": "https://x.com/praconii"
+            }
+          ]
+        },
+        {
+          "id": "shikiiro-reframe",
+          "slug": "shikiiro-reframe",
+          "title": "シキイロリフレーム",
+          "alias": "シキイロ",
+          "kind": "Visual novel",
+          "note": "Aiming for commercial release based on “ナツイロリテイク” on unityroom.",
+          "url": "https://atelier-blue-citrus.com/",
+          "image": "assets/works/shikiiro-reframe.png",
+          "imageAlt": "シキイロリフレーム",
+          "imagePosition": "right",
+          "links": [
+            {
+              "label": "Official website",
+              "url": "https://atelier-blue-citrus.com/"
+            },
+            {
+              "label": "Official X",
+              "url": "https://x.com/a_bluecitrus"
+            }
+          ],
+          "members": [
+            {
+              "name": "下城サユウ",
+              "role": "Scenario"
+            },
+            {
+              "name": "#99cafe",
+              "role": "Art"
+            },
+            {
+              "name": "かずら's MUSIC",
+              "role": "Sound"
+            },
+            {
+              "name": "ahTama",
+              "role": "Programming"
+            }
+          ]
+        }
+      ],
+      "works": [
+        {
+          "title": "魔法少女ノ魔女裁判",
+          "blurb": "Programmer. UI implementation, localization (English, Traditional Chinese, Simplified Chinese), Naninovel extensions, and more.",
+          "links": [
+            {
+              "label": "View on Steam",
+              "url": "https://store.steampowered.com/app/3101040/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3101040/"
+        },
+        {
+          "title": "温泉でお酒を飲もう！",
+          "blurb": "Served as main programmer. Used TyranoScript and implemented extensions such as speech balloons and automatic CSV loading.",
+          "links": [
+            {
+              "label": "Steam (free)",
+              "url": "https://store.steampowered.com/app/3282480/"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3282480/"
+        },
+        {
+          "title": "イツカノヨル",
+          "blurb": "Debugging before a game event and master-up. Technical mentor.",
+          "links": [
+            {
+              "label": "Official website",
+              "url": "https://www.wakuwakugames.com/itsukanoyoru"
+            },
+            {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/3030980/"
+            }
+          ],
+          "url": "https://www.wakuwakugames.com/itsukanoyoru"
+        },
+        {
+          "id": "parasite_ore",
+          "title": "俺がいないとダメだろ～ヒモニート伝説～",
+          "url": "https://unityroom.com/games/parasite_ore",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "S.KPコーン",
+              "role": "Art"
+            },
+            {
+              "name": "七瀬くんちゃんさん",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/parasite_ore.gif",
+          "imageAlt": "俺がいないとダメだろ～ヒモニート伝説～",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/parasite_ore"
+            }
+          ]
+        },
+        {
+          "id": "rinri",
+          "title": "昨日のあなたは、異常を知らない",
+          "url": "https://unityroom.com/games/rinri",
+          "jam": "12th Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "御原",
+              "role": "UI design"
+            },
+            {
+              "name": "東城みな",
+              "role": "Art"
+            },
+            {
+              "name": "Ask.A",
+              "role": "Sound"
+            },
+            {
+              "name": "げーまー哲@共犯物語プロライターVTuber",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/rinri.png",
+          "imageAlt": "昨日のあなたは、異常を知らない",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/rinri"
+            }
+          ]
+        },
+        {
+          "id": "pomu",
+          "title": "ぽむはBIGなスライムになりたい！",
+          "url": "https://unityroom.com/games/pomu",
+          "jam": "unity1week: もうひとつ",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "つくつく",
+              "role": "Sound"
+            },
+            {
+              "name": "魚花異類",
+              "role": "UI design"
+            },
+            {
+              "name": "薙沢ムニン",
+              "role": "Art"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/pomu.gif",
+          "imageAlt": "ぽむはBIGなスライムになりたい！",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/pomu"
+            }
+          ]
+        },
+        {
+          "id": "how_to_make_devils_heart",
+          "title": "悪魔の心臓のつくりかた",
+          "url": "https://unityroom.com/games/how_to_make_devils_heart",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "Scenario"
+            },
+            {
+              "name": "紅芋けんぴ",
+              "role": "Art"
+            },
+            {
+              "name": "みをつくし",
+              "role": "Sound"
+            }
+          ],
+          "image": "assets/creators/how_to_make_devils_heart.gif",
+          "imageAlt": "悪魔の心臓のつくりかた",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/how_to_make_devils_heart"
+            }
+          ]
+        },
+        {
+          "id": "goodluck",
+          "title": "Ganbare Aibou",
+          "url": "https://unityroom.com/games/goodluck",
+          "jam": "unity1week: あい",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "みをつくし",
+              "role": "Sound"
+            },
+            {
+              "name": "あきひら",
+              "role": "Art"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/goodluck.png",
+          "imageAlt": "Ganbare Aibou",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/goodluck"
+            }
+          ]
+        },
+        {
+          "id": "tikitikibanban",
+          "title": "Feelite!!",
+          "url": "https://unityroom.com/games/tikitikibanban",
+          "jam": "7th Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "Sound"
+            },
+            {
+              "name": "朧童子",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/tikitikibanban.png",
+          "imageAlt": "Feelite!!",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/tikitikibanban"
+            }
+          ]
+        },
+        {
+          "id": "s3nd",
+          "title": "f0rM!sia.S3nd$ignal();",
+          "url": "https://unityroom.com/games/s3nd",
+          "jam": "unity1week: ない",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "朧童子",
+              "role": "Art"
+            },
+            {
+              "name": "朱音あおも",
+              "role": "Sound"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/s3nd.png",
+          "imageAlt": "f0rM!sia.S3nd$ignal();",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/s3nd"
+            }
+          ]
+        },
+        {
+          "id": "lust_of_dinner",
+          "title": "ラストオブディナー",
+          "url": "https://unityroom.com/games/lust_of_dinner",
+          "jam": "6th Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "BGM"
+            },
+            {
+              "name": "ガタス",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/lust_of_dinner.png",
+          "imageAlt": "ラストオブディナー",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/lust_of_dinner"
+            }
+          ]
+        },
+        {
+          "id": "natuiroretake",
+          "title": "ナツイロリテイク",
+          "url": "https://unityroom.com/games/natuiroretake",
+          "jam": "unity1week: かえす",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "かずら's MUSIC/Kazura",
+              "role": "Sound"
+            },
+            {
+              "name": "#99cafe",
+              "role": "Art"
+            },
+            {
+              "name": "下城サユウ",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/natuiroretake.jpg",
+          "imageAlt": "ナツイロリテイク",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/natuiroretake"
+            }
+          ]
+        },
+        {
+          "id": "goodnight",
+          "title": "クリスマスはマフラーと共に",
+          "url": "https://unityroom.com/games/goodnight",
+          "jam": "unity1week: おくる",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "ノキアパケット",
+              "role": "Sound"
+            },
+            {
+              "name": "ガイア",
+              "role": "Art"
+            },
+            {
+              "name": "Indigo Ingots",
+              "role": "Scenario"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/goodnight.png",
+          "imageAlt": "クリスマスはマフラーと共に",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/goodnight"
+            }
+          ]
+        },
+        {
+          "id": "letter2u",
+          "title": "Letter2U",
+          "url": "https://unityroom.com/games/letter2u",
+          "jam": "3rd Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "コトバッチ",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/letter2u.png",
+          "imageAlt": "Letter2U",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/letter2u"
+            }
+          ]
+        },
+        {
+          "id": "tot",
+          "title": "トリックorトリート",
+          "url": "https://unityroom.com/games/tot",
+          "jam": "unity1week: 1ボタン",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "鐘本響花 /Kanemoto Kyoka",
+              "role": "Sound"
+            },
+            {
+              "name": "NEBOUNEBOSUKE",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/tot.png",
+          "imageAlt": "トリックorトリート",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/tot"
+            }
+          ]
+        },
+        {
+          "id": "yomurun",
+          "title": "Cloaking:Dobell",
+          "url": "https://unityroom.com/games/yomurun",
+          "jam": "2nd Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "むてきいも",
+              "role": "Art"
+            },
+            {
+              "name": "九藤周(くどうあまね)",
+              "role": "Composer"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/yomurun.png",
+          "imageAlt": "Cloaking:Dobell",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/yomurun"
+            }
+          ]
+        },
+        {
+          "id": "peter",
+          "title": "診察室へお入り下さい",
+          "url": "https://unityroom.com/games/peter",
+          "jam": "1st Otameshi Game Jam",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "こまる",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/peter.png",
+          "imageAlt": "診察室へお入り下さい",
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/peter"
+            }
+          ]
+        },
+        {
+          "id": "huriwake-sweets",
+          "title": "ふりわけ！スイーツ！",
+          "url": "https://unityroom.com/games/huriwake-sweets",
+          "jam": "unity1week: ふる",
+          "role": "Engineer",
+          "members": [
+            {
+              "name": "ちゃんばく",
+              "role": "Art"
+            },
+            {
+              "name": "ahTama",
+              "role": "Engineer"
+            }
+          ],
+          "image": "assets/creators/huriwake-sweets.png",
+          "imageAlt": "ふりわけ！スイーツ！",
+          "specialThanks": [
+            {
+              "name": "芝生ケーキ",
+              "note": "Acacia, Mimosa, rights holder"
+            }
+          ],
+          "links": [
+            {
+              "label": "Play on unityroom",
+              "url": "https://unityroom.com/games/huriwake-sweets"
+            }
+          ]
+        }
+      ],
+      "adult": {
+        "label": "Adult (18+)",
+        "gateTitle": "No one under 18",
+        "gate": "The following content is for adults only (R18). No one under 18 may enter.",
+        "confirmLabel": "I am 18 or older",
+        "backLabel": "Back",
+        "openLabel": "View adult works",
+        "circle": "芝生ケーキ",
+        "credit": "Planning & script: ahTama",
+        "note": "There are 3 titles, one of which is an English edition",
+        "works": [
+          {
+            "title": "NPC転生〜ゲームの中でめっちゃ出す〜",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01476946.html",
+            "date": "2025-09-29"
+          },
+          {
+            "title": "NPC転生〜ゲームの中で不同意わいせつ〜",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01492799.html",
+            "date": "2025-11-28"
+          },
+          {
+            "title": "NPC Reincarnation ~ Blowin' my Load in a Fantasy Game! ~",
+            "url": "https://www.dlsite.com/maniax/work/=/product_id/RJ01583219.html",
+            "note": "English edition",
+            "date": "2026-03-13"
+          }
+        ]
+      },
+      "x": "https://x.com/ahTama",
+      "xHandle": "ahTama",
+      "avatar": "assets/creators/avatars/ahtama.png",
+      "page": "/en/creators/ahtama/",
+      "listLinks": [
+        {
+          "label": "@ahTama",
+          "url": "https://x.com/ahTama"
+        }
+      ],
+      "skills": [
+        "Planning",
+        "Game logic",
+        "Engineering",
+        "Scripting",
+        "Data entry",
+        "Environment setup",
+        "Commissioning translation and voice acting",
+        "2D animation"
+      ]
+    },
+    {
+      "id": "hiroki",
+      "name": "Hiroki Sano",
+      "role": "Commercial client-side programmer",
+      "blurb": "Works mainly on commercial games as a contractor",
+      "featured": [
+        {
+          "title": "Digital card game app for smartphones",
+          "blurb": "iOS / Android / Windows (Shift). Program leader / main programmer for card development.",
+          "credit": "Game Studio Inc. (株式会社ゲームスタジオ)"
+        },
+        {
+          "title": "Triple Monsters (トリプルモンスターズ)",
+          "blurb": "Digital card game for smartphones. Live operations, additional feature development, closing, and more.",
+          "credit": "Game Studio Inc. (株式会社ゲームスタジオ), Hiroki Sano"
+        }
+      ],
+      "works": [
+        {
+          "title": "UNDERGROUNDED",
+          "blurb": "Served as client engineer for the in-game retro shooter.",
+          "links": [
+            {
+              "label": "View on Steam",
+              "url": "https://store.steampowered.com/app/3076910/"
+            },
+            {
+              "label": "View on Nintendo eShop",
+              "url": "https://store-jp.nintendo.com/item/software/D70010000118305"
+            }
+          ],
+          "url": "https://store.steampowered.com/app/3076910/"
+        },
+        {
+          "title": "Casual game app",
+          "blurb": "A project turning mini-games from a major TV network program into digital games. Main programmer from the start of production through the alpha phase; handed over to a junior colleague upon leaving the company. Title undisclosed."
+        },
+        {
+          "title": "3D simulation multiplayer game on Roblox",
+          "blurb": "Title undisclosed. Developed updates and additional features. The language was Luau."
+        }
+      ],
+      "x": "https://x.com/KK_SanoGumi",
+      "xHandle": "KK_SanoGumi",
+      "avatar": "assets/creators/avatars/kk-sanogumi.jpg",
+      "page": "/en/creators/hiroki/",
+      "listLinks": [
+        {
+          "label": "@KK_SanoGumi",
+          "url": "https://x.com/KK_SanoGumi"
+        }
+      ],
+      "kaban": "Representative Director"
+    },
+    {
+      "id": "rin",
+      "name": "Rin Sano",
+      "kaban": "Vice President",
+      "role": "Web designer, writer",
+      "listRole": "Vice President / Web designer / Writer",
+      "blurb": "Runs the company website, inquiries, and documentation.",
+      "avatar": "assets/creators/avatars/rin.png",
+      "page": "/en/creators/rin/",
+      "profile": [
+        {
+          "label": "Date of birth",
+          "text": "August 20, 2006"
+        },
+        {
+          "label": "Family",
+          "text": "Older sister Kaoru (2 years older)"
+        },
+        {
+          "label": "The president's assessment",
+          "text": "IQ 200, genius girl, super hacker"
+        },
+        {
+          "label": "Theme color",
+          "text": "Cool indigo #5a7a94",
+          "color": "#5a7a94"
+        },
+        {
+          "label": "Work",
+          "text": "Maintains the company website and blog, and handles the inquiry desk."
+        },
+        {
+          "label": "Personality",
+          "text": "Straightforward; in casual settings she refers to herself as “atashi.”"
+        }
+      ],
+      "listLinks": [
+        {
+          "label": "@rinsanoSG",
+          "url": "https://x.com/rinsanoSG"
+        }
+      ],
+      "x": "https://x.com/rinsanoSG",
+      "xHandle": "rinsanoSG"
+    }
+  ]
+}
