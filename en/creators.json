@@ -23,7 +23,7 @@
           "image": "assets/works/yumemiru-sakura.png",
           "imageAlt": "Dreamy Sakura's Graduation Ceremony",
           "imagePosition": "left",
-          "page": "/en/works/yumemiru-sakura/",
+          "page": "/en/works/yumemiru-sakura-steam/",
           "links": [
             {
               "label": "Play on unityroom",
@@ -297,10 +297,15 @@
           "imageAlt": "Don't Give Up, Pal",
           "links": [
             {
+              "label": "Game page (2027 full release)",
+              "url": "/en/works/ganbare-aibou/"
+            },
+            {
               "label": "Play on unityroom",
               "url": "https://unityroom.com/games/goodluck"
             }
-          ]
+          ],
+          "page": "/en/works/ganbare-aibou/"
         },
         {
           "id": "tikitikibanban",

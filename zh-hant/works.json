@@ -1,35 +1,6 @@
 {
   "works": [
     {
-      "id": "yumemiru-sakura",
-      "title": "ゆめみるサクラの卒業式（unityroom 版）",
-      "alias": "ゆめサクラ",
-      "titleEn": "Dreamy Sakura's Graduation Ceremony",
-      "blurb": "每重複一次，就崩壞得更多的畢業典禮。",
-      "image": "/assets/works/yumemiru-sakura.png",
-      "imageAlt": "ゆめみるサクラの卒業式",
-      "kind": "恐怖小說遊戲",
-      "home": true,
-      "page": "/zh-hant/works/yumemiru-sakura/",
-      "editions": [
-        {
-          "label": "unityroom 版",
-          "price": "免費",
-          "platforms": "瀏覽器（unityroom）",
-          "links": [
-            {
-              "label": "在 unityroom 遊玩",
-              "url": "https://unityroom.com/games/karma"
-            },
-            {
-              "label": "X",
-              "url": "https://x.com/yumesakurakarma"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "yumemiru-sakura-steam",
       "title": "ゆめみるサクラの卒業式",
       "alias": "ゆめサクラ",
@@ -48,6 +19,34 @@
             {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ],
+      "home": true
+    },
+    {
+      "id": "ganbare-aibou",
+      "title": "奮鬥吧姐妹",
+      "titleEn": "Don't Give Up, Pal",
+      "blurb": "為了不讓她死去。為了不讓她崩壞。為了讓她能多活一點點。我推著她的背向前。",
+      "image": "/assets/creators/goodluck.png",
+      "imageAlt": "奮鬥吧姐妹",
+      "kind": "反覆改造與出擊的戰鬥模擬遊戲",
+      "home": true,
+      "page": "/zh-hant/works/ganbare-aibou/",
+      "editions": [
+        {
+          "label": "正式版（預計2027年發售）"
+        },
+        {
+          "label": "Jam 版（Unity 1週遊戲開發大賽 題目「あい」）",
+          "price": "免費",
+          "platforms": "瀏覽器（unityroom）",
+          "links": [
+            {
+              "label": "在 unityroom 遊玩（Jam 版）",
+              "url": "https://unityroom.com/games/goodluck"
             }
           ]
         }

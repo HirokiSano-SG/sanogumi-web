@@ -23,7 +23,7 @@
           "image": "assets/works/yumemiru-sakura.png",
           "imageAlt": "ゆめみるサクラの卒業式",
           "imagePosition": "left",
-          "page": "/works/yumemiru-sakura/",
+          "page": "/works/yumemiru-sakura-steam/",
           "links": [
             {
               "label": "unityroomで遊ぶ",
@@ -297,10 +297,15 @@
           "imageAlt": "がんばれ相棒",
           "links": [
             {
+              "label": "作品ページ（2027年 製品版）",
+              "url": "/works/ganbare-aibou/"
+            },
+            {
               "label": "unityroomで遊ぶ",
               "url": "https://unityroom.com/games/goodluck"
             }
-          ]
+          ],
+          "page": "/works/ganbare-aibou/"
         },
         {
           "id": "tikitikibanban",
