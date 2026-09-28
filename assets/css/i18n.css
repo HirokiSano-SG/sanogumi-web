@@ -75,3 +75,5 @@ html:lang(ko) .page-title, html:lang(ko) h2, html:lang(ko) .slogans,
 html:lang(ko) .news-index-title, html:lang(ko) .creator-card-name {
   font-family: "Noto Serif KR", "AppleMyungjo", "Batang", "Noto Serif CJK KR", "Noto Serif JP", serif;
 }
+/* 見出しの字間は日本語向けに広いので、分かち書きの韓国語では詰める */
+html:lang(ko) h2 { letter-spacing: 0.04em; }
