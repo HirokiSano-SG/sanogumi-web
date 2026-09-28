@@ -1,12 +1,13 @@
 (function () {
   "use strict";
 
-  // 自動翻訳ページ（/en/ /zh-hant/ /zh-hans/）用の表示ラベル。日本語ページでは原文のまま。
+  // 自動翻訳ページ（/en/ /zh-hant/ /zh-hans/ /ko/）用の表示ラベル。日本語ページでは原文のまま。
   var LANG = (function () {
     var l = (document.documentElement.getAttribute("lang") || "ja").toLowerCase();
     if (l.indexOf("en") === 0) return "en";
     if (l.indexOf("zh-hant") === 0 || l === "zh-tw" || l === "zh-hk") return "zh-hant";
     if (l.indexOf("zh") === 0) return "zh-hans";
+    if (l.indexOf("ko") === 0) return "ko";
     return "ja";
   })();
   var DICT = {
@@ -42,6 +43,17 @@
       "作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "无法加载作品信息。请以同源的静态服务器打开。",
       "（": "（",
       "）": "）"
+    },
+    "ko": {
+      "ジャンル": "장르",
+      "区分": "구분",
+      "価格": "가격",
+      "対応": "지원 플랫폼",
+      "読み込み中…": "불러오는 중…",
+      "現在、掲載中の作品はありません。": "현재 소개 중인 작품이 없습니다.",
+      "作品情報を読み込めませんでした。同一オリジンの静的サーバで開いてください。": "작품 정보를 불러오지 못했습니다. 같은 출처의 정적 서버에서 열어 주세요.",
+      "（": "(",
+      "）": ")"
     }
   };
   function tl(s) {

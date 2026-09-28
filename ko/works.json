@@ -1,0 +1,83 @@
+{
+  "works": [
+    {
+      "id": "yumemiru-sakura-steam",
+      "title": "ゆめみるサクラの卒業式",
+      "alias": "ゆめサクラ",
+      "titleEn": "Dreamy Sakura's Graduation Ceremony",
+      "blurb": "반복될 때마다 무너져 가는 졸업식.",
+      "image": "/assets/works/yumemiru-sakura.webp",
+      "imageAlt": "ゆめみるサクラの卒業式",
+      "kind": "호러 노벨 게임",
+      "page": "/en/works/yumemiru-sakura-steam/",
+      "editions": [
+        {
+          "label": "상용 버전",
+          "price": "550엔(세금 포함)",
+          "platforms": "Steam",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ],
+      "home": true
+    },
+    {
+      "id": "ganbare-aibou",
+      "title": "힘내라파트너",
+      "titleEn": "Don't Give Up, Pal",
+      "blurb": "죽지 않도록. 부서지지 않도록. 조금이라도 더 오래 살 수 있도록. 나는 그녀의 등을 떠민다.",
+      "image": "/assets/creators/goodluck.webp",
+      "imageAlt": "힘내라파트너",
+      "kind": "개조와 출격을 반복하는 전투 시뮬레이션",
+      "home": true,
+      "page": "/ko/works/ganbare-aibou/",
+      "editions": [
+        {
+          "label": "정식 버전(2027년 발매 예정)"
+        },
+        {
+          "label": "게임잼 버전(Unity 1주일 게임잼 주제 「あい」)",
+          "price": "무료",
+          "platforms": "브라우저(unityroom)",
+          "links": [
+            {
+              "label": "unityroom에서 플레이(게임잼 버전)",
+              "url": "https://unityroom.com/games/goodluck"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "praefatio-conii",
+      "title": "Praefatio CoNii",
+      "alias": "プラコニ",
+      "titleEn": "Praefatio CoNii",
+      "kind": "다운폴른 판타지 × 거점 출발 어드벤처",
+      "home": true,
+      "page": "/en/works/praefatio-conii/",
+      "editions": [
+        {
+          "label": "상용 버전",
+          "price": "980엔+세금",
+          "priceNote": "예정 가격",
+          "platforms": "PC (Steam) / iOS / Android 등"
+        }
+      ],
+      "links": [
+        {
+          "label": "HP",
+          "url": "https://praconii.sanogumi.biz"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/praconii"
+        }
+      ]
+    }
+  ]
+}

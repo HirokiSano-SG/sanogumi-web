@@ -65,3 +65,13 @@ html:lang(zh-Hans) .page-title, html:lang(zh-Hans) h2, html:lang(zh-Hans) .sloga
 html:lang(zh-Hans) .news-index-title, html:lang(zh-Hans) .creator-card-name {
   font-family: "Noto Serif SC", "SimSun", "Noto Serif JP", serif;
 }
+
+/* 韓国語のフォント（ハングルを持つ Noto Sans KR 等を先に。漢字の社名は JP にフォールバック） */
+html:lang(ko) body {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", "Noto Sans JP", "Hiragino Sans", sans-serif;
+  word-break: keep-all;
+}
+html:lang(ko) .page-title, html:lang(ko) h2, html:lang(ko) .slogans,
+html:lang(ko) .news-index-title, html:lang(ko) .creator-card-name {
+  font-family: "Noto Serif KR", "AppleMyungjo", "Batang", "Noto Serif CJK KR", "Noto Serif JP", serif;
+}

@@ -7,6 +7,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/"/>
   </url>
   <url>
@@ -94,6 +95,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/"/>
   </url>
   <url>
@@ -184,6 +186,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
   </url>
   <url>
@@ -203,6 +206,34 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/yumemiru-sakura-steam/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/yumemiru-sakura-steam/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/yumemiru-sakura-steam/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/ko/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/ko/company/</loc>
+    <lastmod>2026-09-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/ko/contact/</loc>
+    <lastmod>2026-09-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/ko/works/ganbare-aibou/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/</loc>
@@ -258,6 +289,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
   </url>
   <url>
@@ -285,6 +317,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/"/>
   </url>
   <url>
@@ -375,6 +408,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
   </url>
   <url>
@@ -402,6 +436,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/"/>
   </url>
   <url>
@@ -492,6 +527,7 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
   </url>
   <url>
