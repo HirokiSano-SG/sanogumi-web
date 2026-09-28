@@ -53,6 +53,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/careers/dev-intern-20260922/"/>
   </url>
   <url>
+    <loc>https://www.sanogumi.biz/company/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/company/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/company/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/company/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/company/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/contact/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/contact/"/>
+  </url>
+  <url>
     <loc>https://www.sanogumi.biz/creators/</loc>
     <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/creators/"/>
@@ -115,6 +135,26 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/careers/dev-intern-20260922/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/en/company/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/company/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/company/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/company/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/company/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/en/contact/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/contact/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/en/creators/</loc>
@@ -220,10 +260,22 @@
   <url>
     <loc>https://www.sanogumi.biz/ko/company/</loc>
     <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/company/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/company/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/company/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/company/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/ko/contact/</loc>
     <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/contact/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/ko/works/ganbare-aibou/</loc>
@@ -337,6 +389,26 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/careers/dev-intern-20260922/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/zh-hans/company/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/company/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/company/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/company/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/company/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/zh-hans/contact/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/contact/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hans/creators/</loc>
@@ -456,6 +528,26 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/careers/dev-intern-20260922/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/careers/dev-intern-20260922/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/zh-hant/company/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/company/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/company/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/company/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/company/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/company/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/zh-hant/contact/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/contact/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hant/creators/</loc>
