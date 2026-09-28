@@ -99,7 +99,7 @@
       ],
       "works": [
         {
-          "title": "魔法少女ノ魔女裁判",
+          "title": "魔法少女的魔女審判",
           "blurb": "程式設計師。UI 實作、在地化（英・繁・簡）、Naninovel 擴充等。",
           "links": [
             {
@@ -110,7 +110,7 @@
           "url": "https://store.steampowered.com/app/3101040/"
         },
         {
-          "title": "温泉でお酒を飲もう！",
+          "title": "Drinking in the hot spring!",
           "blurb": "擔任主程式設計師。使用 TyranoScript，並實作了對話氣泡、CSV 自動讀取等擴充程式。",
           "links": [
             {
@@ -121,7 +121,7 @@
           "url": "https://store.steampowered.com/app/3282480/"
         },
         {
-          "title": "イツカノヨル",
+          "title": "五天一夜",
           "blurb": "遊戲活動・Master Up 前的除錯。技術導師。",
           "links": [
             {
@@ -673,7 +673,7 @@
       ],
       "works": [
         {
-          "title": "UNDERGROUNDED",
+          "title": "UNDERGROUNDED -懷舊地下城-",
           "blurb": "擔任遊戲內復古射擊遊戲的客戶端工程師。",
           "links": [
             {
