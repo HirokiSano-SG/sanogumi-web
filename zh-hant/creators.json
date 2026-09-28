@@ -23,7 +23,7 @@
           "image": "assets/works/yumemiru-sakura.png",
           "imageAlt": "ゆめみるサクラの卒業式",
           "imagePosition": "left",
-          "page": "/zh-hant/works/yumemiru-sakura/",
+          "page": "/zh-hant/works/yumemiru-sakura-steam/",
           "links": [
             {
               "label": "在 unityroom 遊玩",
@@ -297,10 +297,15 @@
           "imageAlt": "奮鬥吧姐妹",
           "links": [
             {
+              "label": "作品頁面（2027年正式版）",
+              "url": "/zh-hant/works/ganbare-aibou/"
+            },
+            {
               "label": "在 unityroom 遊玩",
               "url": "https://unityroom.com/games/goodluck"
             }
-          ]
+          ],
+          "page": "/zh-hant/works/ganbare-aibou/"
         },
         {
           "id": "tikitikibanban",

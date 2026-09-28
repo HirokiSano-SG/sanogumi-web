@@ -1,35 +1,6 @@
 {
   "works": [
     {
-      "id": "yumemiru-sakura",
-      "title": "Dreamy Sakura's Graduation Ceremony (unityroom edition)",
-      "alias": "Yume-Sakura",
-      "titleEn": "Dreamy Sakura's Graduation Ceremony",
-      "blurb": "A graduation ceremony that breaks a little more with every repeat.",
-      "image": "/assets/works/yumemiru-sakura.png",
-      "imageAlt": "Dreamy Sakura's Graduation Ceremony",
-      "kind": "Horror novel game",
-      "home": true,
-      "page": "/en/works/yumemiru-sakura/",
-      "editions": [
-        {
-          "label": "unityroom edition",
-          "price": "Free",
-          "platforms": "Browser (unityroom)",
-          "links": [
-            {
-              "label": "Play on unityroom",
-              "url": "https://unityroom.com/games/karma"
-            },
-            {
-              "label": "X",
-              "url": "https://x.com/yumesakurakarma"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "yumemiru-sakura-steam",
       "title": "Dreamy Sakura's Graduation Ceremony",
       "alias": "Yume-Sakura",
@@ -48,6 +19,34 @@
             {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
+            }
+          ]
+        }
+      ],
+      "home": true
+    },
+    {
+      "id": "ganbare-aibou",
+      "title": "Don't Give Up, Pal",
+      "titleEn": "Don't Give Up, Pal",
+      "blurb": "So she won't die. So she won't break. So she can live even a little longer. I push her forward.",
+      "image": "/assets/creators/goodluck.png",
+      "imageAlt": "Don't Give Up, Pal",
+      "kind": "Combat simulation of repeated upgrades and sorties",
+      "home": true,
+      "page": "/en/works/ganbare-aibou/",
+      "editions": [
+        {
+          "label": "Full release (planned for 2027)"
+        },
+        {
+          "label": "Game jam version (Unity 1-Week Game Jam, theme “あい”)",
+          "price": "Free",
+          "platforms": "Browser (unityroom)",
+          "links": [
+            {
+              "label": "Play on unityroom (jam version)",
+              "url": "https://unityroom.com/games/goodluck"
             }
           ]
         }
