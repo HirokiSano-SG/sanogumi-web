@@ -211,6 +211,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/publishing/"/>
   </url>
   <url>
+    <loc>https://www.sanogumi.biz/en/security/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/security/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/security/"/>
+  </url>
+  <url>
     <loc>https://www.sanogumi.biz/en/works/</loc>
     <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
@@ -324,6 +333,15 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/publishing/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/publishing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/publishing/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/security/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/security/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/security/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/works/</loc>
@@ -465,6 +483,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/publishing/"/>
   </url>
   <url>
+    <loc>https://www.sanogumi.biz/zh-hans/security/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/security/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/security/"/>
+  </url>
+  <url>
     <loc>https://www.sanogumi.biz/zh-hans/works/</loc>
     <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
@@ -602,6 +629,15 @@
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/publishing/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/publishing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/publishing/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/zh-hant/security/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/security/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/security/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/security/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/security/"/>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hant/works/</loc>
