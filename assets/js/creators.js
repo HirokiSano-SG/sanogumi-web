@@ -629,6 +629,29 @@
     root.replaceChildren(el("p", "works-status", message));
   }
 
+  // tools/web-i18n/seo.py が HTML に書き出し済みなら、成人向けの欄（年齢確認つき）だけをここで足す
+  if (root.hasAttribute("data-prerendered")) {
+    if (mode !== "detail") return;
+    fetch(src, { credentials: "same-origin" })
+      .then(function (response) {
+        if (!response.ok) throw new Error(String(response.status));
+        return response.json();
+      })
+      .then(function (data) {
+        var creators = data && Array.isArray(data.creators) ? data.creators : [];
+        var match = null;
+        creators.forEach(function (person) {
+          if (person && text(person.id) === text(onlyId)) match = person;
+        });
+        var section = root.querySelector(".creator-person");
+        if (!match || !section || !(match.adult && Array.isArray(match.adult.works) && match.adult.works.length)) return;
+        section.appendChild(el("h3", null, text(match.adult.label) || tl("成人向け")));
+        section.appendChild(renderAdultSection(match.adult));
+      })
+      .catch(function () {});
+    return;
+  }
+
   showMessage(tl("読み込み中…"));
 
   fetch(src, { credentials: "same-origin" })
