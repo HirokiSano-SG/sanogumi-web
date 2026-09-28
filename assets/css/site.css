@@ -225,3 +225,8 @@ li { margin: 0.2rem 0; }
 @media (prefers-reduced-motion: reduce) {
   .work-actions a { transition: none; }
 }
+
+/* コピーライトの下の小さいリンク（公告・プライバシー） */
+.foot-links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-top: 0.35rem; font-size: 0.85rem; }
+.foot-links a { color: var(--muted); padding: 0.35rem 0; }
+.foot-links a[aria-current="page"] { color: var(--ink, inherit); }
