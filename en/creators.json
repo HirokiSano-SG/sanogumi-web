@@ -271,7 +271,7 @@
         },
         {
           "id": "goodluck",
-          "title": "Ganbare Aibou",
+          "title": "Don't Give Up, Pal",
           "url": "https://unityroom.com/games/goodluck",
           "jam": "unity1week: あい",
           "role": "Engineer",
@@ -294,7 +294,7 @@
             }
           ],
           "image": "assets/creators/goodluck.png",
-          "imageAlt": "Ganbare Aibou",
+          "imageAlt": "Don't Give Up, Pal",
           "links": [
             {
               "label": "Play on unityroom",
