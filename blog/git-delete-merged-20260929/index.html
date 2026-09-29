@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!-- seo:begin ga -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6GB1SPFFG2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6GB1SPFFG2');
+</script>
+  <!-- seo:end ga -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった — 株式会社佐野組</title>
+  <meta name="description" content="Git 2.56 の新機能 git branch --delete-merged を実測。push -u した枝は仕様で全部スキップ、squash マージも拾わない。消えるのは origin/main を追跡している枝だけだった。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=8">
+  <!-- i18n:begin head --><link rel="stylesheet" href="/assets/css/i18n.css?v=2"><!-- i18n:end head -->
+  <!-- seo:begin head -->
+  <link rel="canonical" href="https://www.sanogumi.biz/blog/git-delete-merged-20260929/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="株式会社佐野組">
+  <meta property="og:title" content="【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった — 株式会社佐野組">
+  <meta property="og:description" content="Git 2.56 の新機能 git branch --delete-merged を実測。push -u した枝は仕様で全部スキップ、squash マージも拾わない。消えるのは origin/main を追跡している枝だけだった。">
+  <meta property="og:url" content="https://www.sanogumi.biz/blog/git-delete-merged-20260929/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://www.sanogumi.biz/assets/og/default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="株式会社佐野組">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KK_SanoGumi">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.sanogumi.biz/#organization","name":"株式会社佐野組","alternateName":["Sano-Gumi Co., Ltd.","佐野組"],"url":"https://www.sanogumi.biz/","logo":{"@type":"ImageObject","url":"https://www.sanogumi.biz/assets/logo/kanji-logo-512.png","width":512,"height":512},"sameAs":["https://x.com/KK_SanoGumi","https://www.youtube.com/@KK_SanoGumi"]},{"@type":"BlogPosting","headline":"【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった","mainEntityOfPage":"https://www.sanogumi.biz/blog/git-delete-merged-20260929/","image":["https://www.sanogumi.biz/assets/og/default.jpg"],"inLanguage":"ja","publisher":{"@id":"https://www.sanogumi.biz/#organization"},"datePublished":"2026-09-29T00:00:00+09:00","dateModified":"2026-09-29T00:00:00+09:00","author":{"@type":"Person","name":"佐野 凛","url":"https://www.sanogumi.biz/creators/rin/"}}]}</script>
+  <!-- seo:end head -->
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <!-- i18n:begin langbar --><div class="lang-bar"><div class="wrap lang-bar-inner"><nav class="lang-switch" aria-label="Language / 言語"><a href="/blog/git-delete-merged-20260929/" hreflang="ja" lang="ja" aria-current="true">日本語</a><a href="/en/" hreflang="en-US" lang="en-US">English</a><a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></nav></div></div><!-- i18n:end langbar -->
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
+      </a>
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            <span class="nav-label" lang="ja">メニュー</span>
+            <span class="nav-label" lang="en">Menu</span>
+            <span class="nav-label" lang="zh-Hant">選單</span>
+            <span class="nav-label" lang="zh-Hans">菜单</span>
+            <span class="nav-label" lang="ko">메뉴</span>
+          </span>
+        </summary>
+      </details>
+      <nav class="nav" id="site-nav" aria-label="主要">
+        <a href="/company/">会社概要</a>
+        <a href="/contact/">お問い合わせ</a>
+        <a href="/works/">作品</a>
+        <a href="/creators/">所属クリエイター</a>
+        <a href="/blog/" aria-current="page">ブログ</a>
+        <a href="/news/">お知らせ</a>
+        <a href="/publishing/">パブリッシング</a>
+        <a href="/careers/">採用</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap wrap--wide">
+    <article class="blog-prose">
+      <h1 class="page-title">【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった</h1>
+      <p class="blog-dates">
+        <span>投稿 <time datetime="2026-09-29">令和8年9月29日</time></span>
+        <span>最終更新 <time datetime="2026-09-29">令和8年9月29日</time></span>
+      </p>
+
+      <p class="blog-author">文：株式会社佐野組 佐野 凛</p>
+
+      <ul class="blog-tags" aria-label="タグ"><li><a class="blog-tag" href="/blog/#開発">開発</a></li><li><a class="blog-tag" href="/blog/#CLI">CLI</a></li></ul>
+
+      <h2>環境（先に書く）</h2>
+
+      <p>この記事の実測は、次の環境でだけ確認した。</p>
+
+      <ul>
+        <li>OS: Linux（Debian 系）</li>
+        <li>Git: 2.56.0。kernel.org の公式 tarball（<code>git-2.56.0.tar.xz</code>）からビルドした。sha256 はミラーの <code>sha256sums.asc</code> と一致</li>
+        <li>リポジトリ: ローカルの bare リポジトリを <code>origin</code> にして、作業用クローン <code>work</code> とマージ担当のクローン <code>maintainer</code> の2つを用意</li>
+        <li>設定: <code>HOME</code> を隔離し、<code>GIT_CONFIG_NOSYSTEM=1</code>。ユーザー設定もシステム設定も読んでいない。<code>push.default</code> も未設定（既定値のまま）</li>
+      </ul>
+
+      <p>GitHub などのホスティング側の挙動は見ていない。ローカルの Git の判定だけを測った記事だ。</p>
+
+      <h2>触れ込み</h2>
+
+      <p>GitHub Blog の「Highlights from Git 2.56」では、こう紹介されている。</p>
+
+      <pre><code class="language-bash">$ git branch --delete-merged 'origin/*' 'topic-*' --dry-run
+</code></pre>
+
+      <p>マージ済みのローカル枝を、上流と比べてまとめて消す。<code>--dry-run</code> を付ければ一覧を出すだけ。聞くかぎり、<code>git branch --merged main | xargs git branch -d</code> の置き換えに見える。</p>
+
+      <p>実際に8通りの枝を作って試した。</p>
+
+      <h2>同梱ドキュメントに書いてあること</h2>
+
+      <p><code>Documentation/git-branch.adoc</code> の要点はこうだ（原文は英語）。</p>
+
+      <ul>
+        <li>対象は、設定された上流が <code>&lt;pattern&gt;</code> に一致するローカル枝。そのうち、枝の先端が上流から到達可能なものだけを消す</li>
+        <li><code>&lt;pattern&gt;</code> には ref 名、リモート名（その <code>HEAD</code> が指す枝）、シェル風のグロブを書ける</li>
+        <li>後ろに <code>&lt;branch-pattern&gt;</code> を書くと、候補のローカル枝を絞れる</li>
+      </ul>
+
+      <p>次の場合は消さない。</p>
+
+      <ul>
+        <li>設定された上流の ref がもう存在しない</li>
+        <li>どこかの worktree でチェックアウトされている</li>
+        <li><code>branch.&lt;name&gt;.remote</code> へ push すると上流そのものを更新してしまう（push と fetch の refspec で判定）</li>
+        <li>消さずに残る枝の、ローカル上流になっている</li>
+        <li><code>branch.&lt;name&gt;.deleteMerged</code> が <code>false</code></li>
+      </ul>
+
+      <p>未マージの枝は「黙ってスキップ」するとも書いてある。</p>
+
+      <p>3つめの条件は、読んだだけでは効き方が分からなかった。実測したら、これが一番効いた。</p>
+
+      <h2>用意した枝</h2>
+
+      <p>すべて <code>main</code> から生やし、1コミットずつ積んで push した。マージは別クローンで行い、<code>main</code> を push している。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>記号</th><th>枝</th><th>やったこと</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>A</td><td>topic-merge</td><td><code>--no-ff</code> でマージ。リモート枝は残す</td></tr>
+          <tr><td>B</td><td>topic-ff</td><td>fast-forward でマージ。リモート枝は残す</td></tr>
+          <tr><td>C</td><td>topic-squash-keep</td><td>squash マージ。リモート枝は残す</td></tr>
+          <tr><td>D</td><td>topic-squash-del</td><td>squash マージ後にリモート枝を削除し、作業側で <code>git fetch --prune</code></td></tr>
+          <tr><td>E</td><td>topic-unpushed-work</td><td>push した分はマージ済み。その後、未 push のコミットを1つ追加</td></tr>
+          <tr><td>F</td><td>topic-merged-then-del</td><td>通常マージ後にリモート枝を削除し、<code>fetch --prune</code></td></tr>
+          <tr><td>G</td><td>topic-keep-config</td><td>通常マージ。<code>branch.topic-keep-config.deleteMerged=false</code> を設定</td></tr>
+          <tr><td>H</td><td>topic-worktree</td><td>通常マージ。別 worktree でチェックアウト中</td></tr>
+          <tr><td>I</td><td>topic-never-merged</td><td>対照用。push しただけで、マージしない</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これを、上流の張り方だけ変えて2通り作った。</p>
+
+      <ul>
+        <li>パターン1: いつもの <code>git push -u origin topic-X</code>。上流は <code>origin/topic-X</code> になる</li>
+        <li>パターン2: <code>git switch -c topic-X --track origin/main</code> で作り、<code>git push origin topic-X</code>（<code>-u</code> なし）。上流は <code>origin/main</code> のまま</li>
+      </ul>
+
+      <h2>パターン1：push -u 運用では、1本も消えない</h2>
+
+      <p>作業側の状態はこうだ。</p>
+
+      <pre><code class="language-bash">$ git branch -vv
+* main                  ec88ac9 [origin/main] Merge topic-worktree
+  topic-ff              f75151d [origin/topic-ff] topic-ff work
+  topic-keep-config     5174cb5 [origin/topic-keep-config] topic-keep-config work
+  topic-merge           73b2701 [origin/topic-merge] topic-merge work
+  topic-merged-then-del 535e5f8 [origin/topic-merged-then-del: gone] topic-merged-then-del work
+  topic-never-merged    5d9018a [origin/topic-never-merged] topic-never-merged work
+  topic-squash-del      ced93ef [origin/topic-squash-del: gone] topic-squash-del work
+  topic-squash-keep     2d3d3a4 [origin/topic-squash-keep] topic-squash-keep work
+  topic-unpushed-work   3abeb8f [origin/topic-unpushed-work: ahead 1] unpushed local commit
++ topic-worktree        0663fa9 (../wt-topic-worktree) [origin/topic-worktree] topic-worktree work
+</code></pre>
+
+      <p>従来の <code>--merged</code> は、素直に拾う。</p>
+
+      <pre><code class="language-bash">$ git branch --merged main
+* main
+  topic-ff
+  topic-keep-config
+  topic-merge
+  topic-merged-then-del
++ topic-worktree
+</code></pre>
+
+      <p><code>--delete-merged</code> は、何を渡しても無言だった。</p>
+
+      <pre><code class="language-bash">$ git branch --dry-run --delete-merged 'origin/*'
+
+$ git branch --dry-run --delete-merged 'origin/*' 'topic-*'
+
+$ git branch --dry-run --delete-merged origin
+
+$ git branch --dry-run --delete-merged '*/*'
+
+$ git branch --delete-merged 'origin/*'
+
+</code></pre>
+
+      <p><code>--dry-run</code> を外した本番も、終了コードは 0 で、何も消えていない。確かにマージ済みの A と B も残った。</p>
+
+      <h3>理由：自分の push 先を上流にしている枝は、判定のしようがない</h3>
+
+      <p>これは不具合ではなく、先の3つめの条件だ。<code>builtin/branch.c</code> の <code>branch_pushes_to_upstream()</code> を読むと、判定はこうなっている。</p>
+
+      <ol>
+        <li><code>remote.origin.push</code> があれば、それで push 先を求める。無ければ同名（<code>refs/heads/topic-X</code>）</li>
+        <li>push 先を fetch refspec に通すと <code>refs/remotes/origin/topic-X</code> になる</li>
+        <li>それが上流と同じなら、スキップ</li>
+      </ol>
+
+      <p><code>push -u</code> した枝は、上流が「自分を push したもの」だ。push した直後なら、先端は当然上流から到達できる。マージされたのか、push しただけなのか、区別がつかない。だから最初から候補にしない。</p>
+
+      <p>ちなみに <code>push.default</code> は判定に使っていない。<code>push.default=nothing</code> にしても、結果は同じ無言だった。</p>
+
+      <pre><code class="language-bash">$ git -c push.default=nothing branch --dry-run --delete-merged 'origin/*'
+
+</code></pre>
+
+      <h3>ガードを外すと、何が起きるか</h3>
+
+      <p>push refspec を別の名前へ向けると、このガードは外れる。試しに一時的に付けて dry-run した。</p>
+
+      <pre><code class="language-bash">$ git -c remote.origin.push='refs/heads/*:refs/heads/wip/*' branch --dry-run --delete-merged 'origin/*'
+Skipping 'topic-keep-config' (branch.topic-keep-config.deleteMerged is false)
+Would delete branch topic-ff (was f75151d).
+Would delete branch topic-merge (was 73b2701).
+Would delete branch topic-never-merged (was 5d9018a).
+Would delete branch topic-squash-keep (was 2d3d3a4).
+</code></pre>
+
+      <p>一度もマージしていない <code>topic-never-merged</code> が、削除候補に入った。ガードが防いでいるのは、まさにこれだ。</p>
+
+      <h2>パターン2：origin/main を追跡している枝なら、効く</h2>
+
+      <p>同じ9本を、上流 <code>origin/main</code> で作り直した。</p>
+
+      <pre><code class="language-bash">$ git branch --dry-run --delete-merged 'origin/*'
+Skipping 'topic-keep-config' (branch.topic-keep-config.deleteMerged is false)
+Would delete branch topic-ff (was f75151d).
+Would delete branch topic-merge (was 73b2701).
+Would delete branch topic-merged-then-del (was 535e5f8).
+</code></pre>
+
+      <p><code>'origin/*' 'topic-*'</code>、<code>origin</code>、<code>origin/main</code>、<code>'*/*'</code> も、同じ一覧になった。<code>'topic-*'</code> を上流側のパターンに渡すと、何も一致しない（上流を絞る引数なので当然だ）。</p>
+
+      <p>本番を打つと、dry-run の一覧どおりに消えた。</p>
+
+      <pre><code class="language-bash">$ git branch --delete-merged 'origin/*'
+Skipping 'topic-keep-config' (branch.topic-keep-config.deleteMerged is false)
+Deleted branch topic-ff (was f75151d).
+Deleted branch topic-merge (was 73b2701).
+Deleted branch topic-merged-then-del (was 535e5f8).
+</code></pre>
+
+      <p>後ろに <code>'topic-m*'</code> を付けた回は、<code>topic-merge</code> と <code>topic-merged-then-del</code> だけが消えた。消えた枝の <code>branch.&lt;name&gt;.*</code> 設定も一緒に消えていた。</p>
+
+      <p>ただし、この運用には代償がある。上流と名前が違うので、既定の <code>push.default=simple</code> のもとでは引数なしの <code>git push</code> が拒否される。</p>
+
+      <pre><code class="language-bash">$ git push --dry-run
+fatal: The upstream branch of your current branch does not match
+the name of your current branch.  To push to the upstream branch
+on the remote, use
+
+    git push origin HEAD:main
+</code></pre>
+
+      <p>（以下、案内文が続く。全文は検証ログにある。）</p>
+
+      <h2>結果の一覧</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>記号</th><th>枝</th><th>パターン1（上流＝同名）</th><th>パターン2（上流＝origin/main）</th><th><code>--merged main</code></th></tr>
+          </thead>
+          <tbody>
+          <tr><td>A</td><td>topic-merge</td><td>残る</td><td>消える</td><td>出る</td></tr>
+          <tr><td>B</td><td>topic-ff</td><td>残る</td><td>消える</td><td>出る</td></tr>
+          <tr><td>C</td><td>topic-squash-keep</td><td>残る</td><td>残る</td><td>出ない</td></tr>
+          <tr><td>D</td><td>topic-squash-del</td><td>残る</td><td>残る</td><td>出ない</td></tr>
+          <tr><td>E</td><td>topic-unpushed-work</td><td>残る</td><td>残る</td><td>出ない</td></tr>
+          <tr><td>F</td><td>topic-merged-then-del</td><td>残る</td><td>消える</td><td>出る</td></tr>
+          <tr><td>G</td><td>topic-keep-config</td><td>残る</td><td>残る（Skipping と表示）</td><td>出る</td></tr>
+          <tr><td>H</td><td>topic-worktree</td><td>残る</td><td>残る</td><td>出る</td></tr>
+          <tr><td>I</td><td>topic-never-merged</td><td>残る</td><td>残る</td><td>出ない</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>引っかかった点</h2>
+
+      <p>squash マージは拾わない。C も D も、パターン2でさえ残った。<code>main</code> にある squash コミットは枝の先端を含まないので、到達可能の判定に乗らない。これは <code>--merged main</code> も同じだ。GitHub の「Squash and merge」で運用しているリポジトリでは、この機能で枝は減らない。</p>
+
+      <p>上流が消えた枝も拾わない。F は本当にマージ済みだが、パターン1では <code>fetch --prune</code> で上流が <code>gone</code> になった時点で対象から外れる。ドキュメントの「上流の ref が存在しない」だ。GitHub の「マージ後に枝を自動削除」と組み合わせると、まさにこの形になる。</p>
+
+      <p>スキップ理由は、ほぼ表示されない。表示されたのは <code>deleteMerged=false</code> の1行だけだった。worktree 使用中、上流消滅、push ガード、未マージは、どれも無言で飛ばす。パターン1のように dry-run が空だと、なぜ空なのかは自分で調べるしかない。</p>
+
+      <h2>まとめ</h2>
+
+      <p><code>git branch --delete-merged</code> は「main にマージ済みか」ではなく、「その枝が追跡している上流に取り込まれたか」を見る。</p>
+
+      <ul>
+        <li><code>git push -u origin topic</code> の運用では、ガードにより1本も消えない</li>
+        <li>効くのは、ローカル枝が <code>origin/main</code> などの統合先を直接追跡している運用（Git 本体のテスト <code>t/t3200-branch.sh</code> もこの形）</li>
+        <li>squash マージの枝と、上流が消えた枝は、どちらの運用でも残る</li>
+      </ul>
+
+      <p>手元がいつもの <code>push -u</code> 運用なら、当面は <code>git branch --merged main</code> を見て <code>git branch -d</code> で消すほうが早い。数字と挙動は Git 2.56.0 のローカル実測で、ホスティングの設定や将来の版では変わり得る。</p>
+
+      <h2>出典</h2>
+
+      <ul>
+        <li>GitHub Blog — Highlights from Git 2.56 — <a href="https://github.blog/open-source/git/highlights-from-git-2-56/" target="_blank" rel="noopener noreferrer">https://github.blog/open-source/git/highlights-from-git-2-56/</a></li>
+        <li>Git 2.56.0 ソース同梱 <code>Documentation/git-branch.adoc</code>、<code>Documentation/config/branch.adoc</code>、<code>Documentation/RelNotes/2.56.0.adoc</code></li>
+        <li>Git 2.56.0 ソース <code>builtin/branch.c</code>（<code>branch_pushes_to_upstream()</code>、<code>delete_merged_branches()</code>）、<code>t/t3200-branch.sh</code></li>
+        <li>実測: 令和8年9月29日（JST）。再現スクリプトと全ログを手元に保存（<code>repro.sh</code> を2回実行し、ログが完全一致することを確認）</li>
+      </ul>
+    </article>
+    <nav class="blog-nav" aria-label="記事の案内">
+      <p><a href="/blog/">一覧に戻る</a></p>
+      <p><a href="/blog/gh-project-ratelimit-20260907/">前の記事『【しくじり話】gh issue list は1点、gh project item-list は203点 — AIエージェント11席で GraphQL 枠を20分で焼いた話』</a></p>
+    </nav>
+    <p class="foot">© 2026 株式会社佐野組</p>
+    <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a><a href="/security/">情報セキュリティ</a></nav><!-- i18n:end footlinks -->
+  </main>
+  <script src="/assets/js/nav-menu.js" defer></script>
+</body>
+</html>
