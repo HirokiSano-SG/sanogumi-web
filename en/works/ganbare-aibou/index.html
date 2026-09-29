@@ -55,7 +55,19 @@
       <a class="brand" href="/en/">
         <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="Sano-Gumi Co., Ltd." width="200" height="146">
       </a>
-      <nav class="nav" aria-label="Main">
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            <span class="nav-label" lang="ja">メニュー</span>
+            <span class="nav-label" lang="en">Menu</span>
+            <span class="nav-label" lang="zh-Hant">選單</span>
+            <span class="nav-label" lang="zh-Hans">菜单</span>
+            <span class="nav-label" lang="ko">메뉴</span>
+          </span>
+        </summary>
+      </details>
+      <nav class="nav" id="site-nav" aria-label="Main">
         <a href="/en/company/">Company Overview</a>
         <a href="/en/contact/">Contact</a>
         <a href="/en/works/" aria-current="page">Works</a>
@@ -114,5 +126,6 @@
     <p class="foot">© 2026 Sano-Gumi Co., Ltd.</p>
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="Footer"><a href="/en/#notice">Public Notices</a><a href="/en/privacy/">Privacy</a><a href="/en/security/">Information Security</a></nav><!-- i18n:end footlinks -->
   </main>
+  <script src="/assets/js/nav-menu.js" defer></script>
 </body>
 </html>

@@ -45,7 +45,19 @@
       <a class="brand" href="/">
         <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
       </a>
-      <nav class="nav" aria-label="主要">
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            <span class="nav-label" lang="ja">メニュー</span>
+            <span class="nav-label" lang="en">Menu</span>
+            <span class="nav-label" lang="zh-Hant">選單</span>
+            <span class="nav-label" lang="zh-Hans">菜单</span>
+            <span class="nav-label" lang="ko">메뉴</span>
+          </span>
+        </summary>
+      </details>
+      <nav class="nav" id="site-nav" aria-label="主要">
         <a href="/company/">会社概要</a>
         <a href="/contact/">お問い合わせ</a>
         <a href="/works/">作品</a>
@@ -110,5 +122,6 @@
     <p class="foot">© 2026 株式会社佐野組</p>
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a></nav><!-- i18n:end footlinks -->
   </main>
+  <script src="/assets/js/nav-menu.js" defer></script>
 </body>
 </html>
