@@ -562,7 +562,16 @@
     background: repeating-linear-gradient(180deg, var(--char) 0 10px, transparent 10px 16px);
   }
   .expo-road li { display: grid; grid-template-columns: 5.2rem 1.9rem 1fr; align-items: start; text-align: left; padding: 0 0 1.1rem; }
-  .expo-road .d { height: auto; font-size: 1.2rem; text-align: right; padding-top: 0.05rem; }
+  .expo-road .d { height: auto; font-size: 1.2rem; text-align: right; padding-top: 0.05rem; min-width: 0; }
+  /* narrow: weekday under the date, clear of the dot and dashed line */
+  .expo-road .d small {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.02rem;
+    font-size: 0.72rem;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
   .expo-road .d.txt { font-size: 0.85rem; padding-top: 0.25rem; white-space: normal; line-height: 1.35; }
   .expo-road .dot { margin: 0.35rem auto 0; }
   .expo-road li.day .dot { margin-top: 0.15rem; }
