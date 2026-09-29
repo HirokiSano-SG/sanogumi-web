@@ -27,7 +27,7 @@ body {
 img { max-width: 100%; height: auto; object-fit: contain; }
 a { color: var(--ink); }
 a:hover { color: var(--seal); }
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, .nav-toggle:focus-visible {
   outline: 2px solid var(--seal);
   outline-offset: 3px;
 }
@@ -320,7 +320,9 @@ html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
     overscroll-behavior: contain;
   }
   .site-header:has(.nav-menu[open]) .nav > a {
-    width: 100%;
+    width: max-content;
+    min-width: 44px;
+    max-width: 100%;
   }
   .site-header:has(.nav-menu[open]) .lang-bar,
   .site-header:has(.nav-menu[open]) .nav .lang-bar {
