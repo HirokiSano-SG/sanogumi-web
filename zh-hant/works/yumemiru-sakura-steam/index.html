@@ -53,7 +53,19 @@
       <a class="brand" href="/zh-hant/">
         <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式會社佐野組" width="200" height="146">
       </a>
-      <nav class="nav" aria-label="主要">
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            <span class="nav-label" lang="ja">メニュー</span>
+            <span class="nav-label" lang="en">Menu</span>
+            <span class="nav-label" lang="zh-Hant">選單</span>
+            <span class="nav-label" lang="zh-Hans">菜单</span>
+            <span class="nav-label" lang="ko">메뉴</span>
+          </span>
+        </summary>
+      </details>
+      <nav class="nav" id="site-nav" aria-label="主要">
         <a href="/zh-hant/company/">公司概要</a>
         <a href="/zh-hant/contact/">聯絡我們</a>
         <a href="/zh-hant/works/" aria-current="page">作品</a>
@@ -92,5 +104,6 @@
     <p class="foot">© 2025 zuA / © 2016 UguisuAnn / © 2025 peginn / © 2021 iam_a_fish / © 2026 株式會社佐野組</p>
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="頁尾"><a href="/zh-hant/#notice">公告</a><a href="/zh-hant/privacy/">隱私權</a><a href="/zh-hant/security/">資訊安全</a></nav><!-- i18n:end footlinks -->
   </main>
+  <script src="/assets/js/nav-menu.js" defer></script>
 </body>
 </html>

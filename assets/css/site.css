@@ -27,7 +27,7 @@ body {
 img { max-width: 100%; height: auto; object-fit: contain; }
 a { color: var(--ink); }
 a:hover { color: var(--seal); }
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, .nav-toggle:focus-visible {
   outline: 2px solid var(--seal);
   outline-offset: 3px;
 }
@@ -166,8 +166,6 @@ li { margin: 0.2rem 0; }
   color: var(--muted);
 }
 @media (max-width: 36rem) {
-  .header-inner { flex-wrap: wrap; min-height: 0; }
-  .nav { width: 100%; justify-content: flex-start; }
   dl, .work-meta { grid-template-columns: 1fr; gap: 0.15rem; }
 }
 
@@ -230,3 +228,118 @@ li { margin: 0.2rem 0; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; margin-top: 0.35rem; font-size: 0.85rem; }
 .foot-links a { color: var(--muted); padding: 0.35rem 0; }
 .foot-links a[aria-current="page"] { color: var(--ink, inherit); }
+
+/* 狭い画面のヘッダー。広い画面ではボタンごと出さない（既存の並びのまま） */
+.nav-menu { display: none; }
+.nav-toggle {
+  list-style: none;
+  cursor: pointer;
+}
+.nav-toggle::-webkit-details-marker { display: none; }
+.nav-toggle .nav-label { display: none; }
+html:lang(ja) .nav-toggle .nav-label:lang(ja),
+html:lang(en) .nav-toggle .nav-label:lang(en),
+html:lang(zh-Hant) .nav-toggle .nav-label:lang(zh-Hant),
+html:lang(zh-Hans) .nav-toggle .nav-label:lang(zh-Hans),
+html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
+
+@media (max-width: 48rem) {
+  .lang-bar { display: none; }
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    min-height: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .logo-wordmark {
+    height: 40px;
+    width: auto;
+    max-width: 4.5rem;
+  }
+  .nav-menu { display: block; justify-self: end; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-toggle-bars {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
+    position: relative;
+  }
+  .nav-menu[open] .nav-toggle-bars {
+    background: transparent;
+    box-shadow: none;
+  }
+  .nav-menu[open] .nav-toggle-bars::before,
+  .nav-menu[open] .nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+  }
+  .nav-menu[open] .nav-toggle-bars::before { transform: rotate(45deg); }
+  .nav-menu[open] .nav-toggle-bars::after { transform: rotate(-45deg); }
+  .site-header .nav { display: none; }
+  .site-header:has(.nav-menu[open]) .nav {
+    display: flex;
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: auto;
+    margin: 0;
+    padding: 0.35rem clamp(1.25rem, 4vw, 3rem) 0.6rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    max-height: calc(100dvh - 3.5rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  .site-header:has(.nav-menu[open]) .nav > a {
+    width: max-content;
+    min-width: 44px;
+    max-width: 100%;
+  }
+  .site-header:has(.nav-menu[open]) .lang-bar,
+  .site-header:has(.nav-menu[open]) .nav .lang-bar {
+    display: block;
+    border-bottom: 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+  }
+  .nav .lang-bar .wrap {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .nav .lang-bar-inner {
+    justify-content: flex-start;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
+}
