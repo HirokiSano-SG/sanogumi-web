@@ -704,4 +704,16 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/yumemiru-sakura-steam/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/yumemiru-sakura-steam/"/>
   </url>
+  <url>
+    <loc>https://www.sanogumi.biz/events/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/events/dreamscape-5/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/events/the-indie-fukuoka-2026/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
 </urlset>
