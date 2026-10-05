@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>株式会社佐野組 ブログ</title>
+    <link>https://www.sanogumi.biz/blog/</link>
+    <description>株式会社佐野組のブログ。AIエージェントの運用、開発環境のトラブル、プレス送付など、実際に見たことを自分の言葉で書いています。</description>
+    <language>ja</language>
+    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://www.sanogumi.biz/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AIの文章が「ライター1年生」の注意を守れるようになった。推敲スキルyomiyasuの前後比較</title>
+      <link>https://www.sanogumi.biz/blog/yomiyasu-beforeafter-20261003/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/yomiyasu-beforeafter-20261003/</guid>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>AIエージェント</category>
+      <category>広報</category>
+      <description>AIが書いたブログ記事を、文章推敲のスキル「yomiyasu」で推敲しました。検査スクリプトの点数は前も後も98/100でしたが、読み比べると違いははっきりしています。直した前後の文と、佐野組での使い方を紹介します。</description>
+    </item>
+    <item>
+      <title>発注仕様書に活用してね！X（旧Twitter）のアイコンとヘッダーの落とし穴</title>
+      <link>https://www.sanogumi.biz/blog/x-header-icon-spec-20261003/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/x-header-icon-spec-20261003/</guid>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>デザイン</category>
+      <category>納品</category>
+      <description>Xのヘッダー画像（1500×500px）とアイコン（400×400px）を発注するときの仕様です。公式の値と、PC・スマホのブラウザとiPhoneアプリで測った「隠れる場所」、セーフエリア、納品形式、チェックリスト、重ねて使えるテンプレート（PSD・PNG）をまとめました。</description>
+    </item>
+    <item>
+      <title>【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった</title>
+      <link>https://www.sanogumi.biz/blog/git-delete-merged-20260929/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/git-delete-merged-20260929/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>開発</category>
+      <category>CLI</category>
+      <description>Git 2.56 の新機能 git branch --delete-merged を実測。push -u した枝は仕様で全部スキップ、squash マージも拾わない。消えるのは origin/main を追跡している枝だけだった。</description>
+    </item>
+    <item>
+      <title>【しくじり話】gh issue list は1点、gh project item-list は203点 — AIエージェント11席で GraphQL 枠を20分で焼いた話</title>
+      <link>https://www.sanogumi.biz/blog/gh-project-ratelimit-20260907/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/gh-project-ratelimit-20260907/</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>開発</category>
+      <category>CLI</category>
+      <category>エラーレポート</category>
+      <category>AIエージェント</category>
+      <description>gh issue list は1点、gh project item-list は203点。AIエージェント11席の巡回で GitHub GraphQL 枠を20〜30分で焼いた実測と、死んだ rate_limit 計器の話。</description>
+    </item>
+    <item>
+      <title>【メモリ枯渇】上限付き grep が単体で8GB食って、PCがハングした（Windows 11 / Git Bash / GNU grep 3.0）</title>
+      <link>https://www.sanogumi.biz/blog/grep-hang-20260907/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/grep-hang-20260907/</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>開発</category>
+      <category>CLI</category>
+      <category>エラーレポート</category>
+      <description>Windows 11 / Git Bash / GNU grep 3.0 で、上限付き {n,m} の grep が単体約8GB・4時間回り、find / は /proc/registry で終わらなかった実測メモ。</description>
+    </item>
+    <item>
+      <title>そのPSD、レイヤー消えてます — ibisPaint と Procreate の書き出しの罠</title>
+      <link>https://www.sanogumi.biz/blog/psd-layers-20260907/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/psd-layers-20260907/</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>デザイン</category>
+      <category>納品</category>
+      <category>エラーレポート</category>
+      <description>ibisPaintのキャンバス書き出しとProcreateのShareで、PSDのレイヤーが消える事故の記録です。</description>
+    </item>
+    <item>
+      <title>AIエージェントにプレス送付を任せてみた ~本文編~</title>
+      <link>https://www.sanogumi.biz/blog/press-copy-20260901/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/press-copy-20260901/</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>広報</category>
+      <category>プレス</category>
+      <category>AIエージェント</category>
+      <description>短編ホラーノベルを無料のブラウザ配信で出したときに、実際に組み立てて送った文面のレポート。</description>
+    </item>
+    <item>
+      <title>AIエージェントにプレス送付を任せてみた ~窓口編~</title>
+      <link>https://www.sanogumi.biz/blog/press-20260831/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/press-20260831/</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>広報</category>
+      <category>プレス</category>
+      <category>AIエージェント</category>
+      <description>人がエージェントに仕事を渡したときに、どこまで通って、どこで窓口が止まって、どこを人間が拾うかのレポート。</description>
+    </item>
+  </channel>
+</rss>

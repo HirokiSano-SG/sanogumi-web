@@ -385,3 +385,262 @@ button.blog-tag:hover {
   color: var(--seal);
 }
 
+
+/* 記事末尾の共有ボタン（seo.py が <!-- seo:begin share --> に書き出す） */
+.blog-share {
+  margin: 2.5rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+.blog-share .blog-share-title {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.blog-share .blog-share-title::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--seal);
+  margin-top: 0.4rem;
+}
+/* 共有ボタンはアイコンだけ（名前は aria-label と title）。押せる範囲は 48×48px。
+   見えるマークは 24px にそろえ、ボタンの中に上下左右 12px の空きを取る。ボタンの間は 12px。
+   → マークどうし・マークとほかの要素は 36px 以上離れる。各社の余白の決まりを満たすため：
+     Mastodon「全方向 36px 以上」、Facebook「ロゴの幅の 1/4（6px）／ほかの要素から幅の半分（12px）以上」。
+     上の見出し・下の文字とも 36px 以上空ける。はてなブックマークは公式のボタン（24×24）をそのまま置き、押せる範囲は 48×48（下の .blog-share-hatena）。
+   ボタンに枠は付けない（枠も「ほかの要素」になるため）。ホバー・選択中はうすい地の色だけ。 */
+.blog-share .blog-share-title {
+  margin-bottom: 24px;
+}
+.blog-share .blog-share-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+.blog-share .blog-share-list li {
+  margin: 0;
+}
+.blog-share .blog-share-list li[hidden] {
+  display: none;
+}
+.blog-share-btn {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+a.blog-share-btn:hover,
+button.blog-share-btn:hover,
+button.blog-share-btn[aria-expanded="true"] {
+  background: #f0f0f0;
+}
+button.blog-share-btn:hover .blog-share-icon--copy {
+  color: var(--seal);
+}
+.blog-share-btn:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 0;
+}
+/* アイコン（各社の公式素材をそのまま置く。色・形・縦横比は変えない。web/assets/img/share/README.md）。
+   素材に余白があるもの（Facebook・Misskey）は画像を大きめに置き、負のマージンで余白ぶんを詰める */
+.blog-share-icon {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+.blog-share-icon--x {
+  width: 23.47px; /* 素材の縦横比 1200:1227 のまま */
+}
+.blog-share-icon--facebook {
+  width: 33.6px; /* アートボード 700 のうちマーク 500 */
+  height: 33.6px;
+  margin: -4.8px;
+}
+/* はてなブックマークは、はてな公式のボタン（bookmark_button.js が a を 24×24 の iframe に置き換える）。
+   ボタンの中身には手を加えず、ほかのマークと同じ 24px でまん中に置く。
+   まわりの 48×48 は、下に敷いた自前のリンク（.blog-share-hatena-hit）が同じ追加画面を開く＝押せる範囲だけ広げる。
+   スクリプトが動かないときは公式コードの a（20px の画像）が残るので、その a を 48×48 に広げて上に重ねる */
+.blog-share-hatena {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+.blog-share-hatena-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 6px;
+}
+.blog-share-hatena-hit:hover,
+.blog-share-hatena:hover .blog-share-hatena-hit {
+  background: #f0f0f0;
+}
+.blog-share-hatena .hatena-bookmark-button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+.blog-share-hatena iframe {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+.blog-share-icon--misskey {
+  width: 30px; /* 384px の画像のうち「Mi」は 302×220 */
+  height: 30px;
+  margin: -3px;
+}
+.blog-share-icon--mastodon {
+  width: 22.78px; /* 素材の縦横比 75:79 のまま */
+}
+.blog-share .blog-share-credit {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.blog-share .blog-share-credit a {
+  color: var(--muted);
+}
+.blog-share .blog-share-status {
+  min-height: 1.4em;
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+/* Misskey・Mastodon のサーバーを入れる欄と、覚えたサーバーの表示（share.js が出し入れする） */
+.blog-share-link {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 1.05rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.blog-share-link:hover {
+  color: var(--seal);
+  border-color: var(--seal);
+}
+.blog-share .blog-share-fedi {
+  margin: 0.8rem 0 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--rule);
+}
+.blog-share .blog-share-fedi[hidden],
+.blog-share .blog-share-saved[hidden] {
+  display: none;
+}
+.blog-share .blog-share-fedi-label {
+  display: block;
+  margin: 0 0 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.blog-share .blog-share-fedi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.blog-share .blog-share-fedi-input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+.blog-share .blog-share-fedi-input:focus {
+  outline: 2px solid var(--seal);
+  outline-offset: 1px;
+}
+.blog-share .blog-share-fedi-input[aria-invalid="true"] {
+  border-color: var(--seal);
+}
+.blog-share .blog-share-fedi-note {
+  margin: 0.45rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.blog-share .blog-share-fedi:has([aria-invalid="true"]) .blog-share-fedi-note {
+  color: var(--seal);
+}
+.blog-share .blog-share-saved {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.2rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.blog-share .blog-share-change {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.blog-share .blog-share-change:hover {
+  color: var(--seal);
+}
+@media (max-width: 40rem) {
+  /* スマホでは 7 個を 1 段に並べると 36px の空きが取れないので、4 個＋3 個の 2 段にする（48×4＋12×3＝228px） */
+  .blog-share .blog-share-list {
+    max-width: 228px;
+  }
+  .blog-share .blog-share-fedi-input {
+    flex-basis: 100%;
+  }
+  .blog-share .blog-share-fedi-row .blog-share-link {
+    flex: 1 1 0;
+  }
+}
+
+/* ブログ一覧の RSS リンク */
+.blog-feed-link {
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
+}
+.blog-feed-link a {
+  color: var(--muted);
+}
+.blog-feed-link a:hover {
+  color: var(--seal);
+}
