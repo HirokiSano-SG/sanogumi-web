@@ -1,0 +1,244 @@
+/* 関西インディー試遊会inひらかた — 一般来場者向けLP（/news/indie-expo-20260925/visit/）
+   expo.css の上に重ねる。.expo-visit の中だけに効かせる。
+   色はチラシ（一般来場者向け v2）に合わせる: 紺 #223066 / 濃紺 #161f45 / 空 #accbec / 橙 #f66e23 */
+
+.expo-visit {
+  --red: #223066;          /* expo.css の見出しの帯・ボタンなどを紺にする */
+  --red-soft: #eef3f9;
+  --navy: #223066;
+  --navy-d: #161f45;
+  --sky: #accbec;
+  --orange: #f66e23;
+  --wash: #f6f8fc;
+  --line: #d9e2ee;
+  max-width: 68rem;
+}
+.expo-visit a:hover { color: var(--orange); }
+.expo-visit .vh-catch, .expo-visit .vh-note, .expo-visit .vd-k, .expo-visit .vd-i p, .expo-visit .vs-nm, .expo-visit .vs-who, .expo-visit .vn li, .expo-visit .vm p, .expo-visit .vm-h, .expo-visit .vg-notes, .expo-visit .vo-contact, .expo-visit .va-how dd { word-break: auto-phrase; }
+
+/* ---------- hero（チラシと同じ: 青海波の地にロゴ → 紺の帯） ---------- */
+.vh {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px var(--line);
+  background: var(--wash);
+}
+.vh-top {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 5vw, 4rem) clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
+  background:
+    linear-gradient(180deg, var(--wash) 0%, rgba(246, 248, 252, 0.88) 45%, rgba(246, 248, 252, 0.35) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cdefs%3E%3Cg id='s'%3E%3Ccircle r='40' fill='%23f6f8fc'/%3E%3Cg fill='none' stroke='%23d6e3f2' stroke-width='2.2'%3E%3Ccircle r='35'/%3E%3Ccircle r='27'/%3E%3Ccircle r='19'/%3E%3Ccircle r='11'/%3E%3C/g%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s' x='0' y='0'/%3E%3Cuse href='%23s' x='80' y='0'/%3E%3Cuse href='%23s' x='40' y='20'/%3E%3Cuse href='%23s' x='0' y='40'/%3E%3Cuse href='%23s' x='80' y='40'/%3E%3C/svg%3E") repeat;
+  background-size: auto, 80px 40px;
+}
+.vh-logo { margin: 0 auto; max-width: 52rem; line-height: 0; }
+.vh-logo img { display: block; width: 100%; height: auto; }
+.vh-catch {
+  margin: clamp(0.75rem, 2vw, 1.25rem) 0 0;
+  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+.vh-band {
+  position: relative;
+  background: linear-gradient(180deg, #25336b 0%, var(--navy-d) 100%);
+  color: #fff;
+  padding: clamp(1.25rem, 3.5vw, 2rem) clamp(1.25rem, 5vw, 3.5rem) clamp(1.75rem, 4vw, 2.5rem);
+}
+.vh-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 6px);
+  pointer-events: none;
+}
+.vh-band > * { position: relative; }
+.vh-date { display: flex; align-items: baseline; flex-wrap: wrap; margin: 0; font-weight: 900; line-height: 1; white-space: nowrap; }
+.vh-date .y { font-size: clamp(1.2rem, 3vw, 1.9rem); color: var(--sky); margin-right: 0.6rem; letter-spacing: 0.02em; }
+.vh-date .n { font-size: clamp(3rem, 9vw, 5rem); letter-spacing: -0.01em; }
+.vh-date .u { font-size: clamp(1.3rem, 3.4vw, 2.1rem); margin: 0 0.3rem 0 0.1rem; }
+.vh-date .dow {
+  align-self: center;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: clamp(2.1rem, 5vw, 3rem); height: clamp(2.1rem, 5vw, 3rem);
+  border-radius: 50%;
+  background: var(--orange);
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+  margin-left: 0.2rem;
+}
+.vh-when {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 1.1rem 0 0;
+  max-width: 44rem;
+}
+.vh-when dt {
+  align-self: start;
+  margin-top: 0.3rem;
+  padding: 0.1rem 0.7rem 0.15rem;
+  border: 2px solid var(--sky);
+  border-radius: 6px;
+  color: var(--sky);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+.vh-when dd { margin: 0; font-weight: 700; font-size: clamp(1.05rem, 2.6vw, 1.35rem); line-height: 1.45; }
+.vh-when dd b { font-size: clamp(1.6rem, 4.4vw, 2.4rem); font-weight: 900; letter-spacing: 0.02em; line-height: 1.1; }
+.vh-when dd small { display: block; margin-top: 0.15rem; font-weight: 500; font-size: 0.88rem; color: #dfe6ff; }
+.vh-note { margin: 1rem 0 0; font-size: 0.92rem; color: #dfe6ff; line-height: 1.7; }
+.vh-free {
+  position: absolute;
+  right: clamp(1rem, 5vw, 3.5rem);
+  top: -3.25rem;
+  z-index: 2;
+  width: clamp(7.5rem, 16vw, 10.5rem);
+  height: clamp(7.5rem, 16vw, 10.5rem);
+  margin: 0;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  background: var(--orange);
+  color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 6px 6px 0 var(--sky);
+  transform: rotate(-8deg);
+  line-height: 1.05;
+}
+.vh-free b { font-size: clamp(1.1rem, 2.6vw, 1.6rem); font-weight: 900; letter-spacing: 0.3em; margin-left: 0.3em; }
+.vh-free i { font-style: normal; font-size: clamp(2rem, 4.8vw, 2.9rem); font-weight: 900; letter-spacing: 0.06em; }
+.vh .expo-cta { margin-top: 1.4rem; }
+.vh .expo-btn.primary { color: var(--navy); }
+.vh .expo-btn.primary:hover { color: var(--orange); }
+.vh .expo-btn.ghost:hover { color: var(--navy); }
+.vh-stripe { position: absolute; left: 0; right: 0; bottom: 0; height: 7px; display: flex; }
+.vh-stripe i { flex: 1; }
+.vh-stripe i:nth-child(1) { background: #365437; }
+.vh-stripe i:nth-child(2) { background: #f66e23; }
+.vh-stripe i:nth-child(3) { background: #242cd5; }
+.vh-stripe i:nth-child(4) { background: #24d526; }
+.vh-stripe i:nth-child(5) { background: #fdb855; }
+.vh-stripe i:nth-child(6) { background: #9f55fe; }
+
+/* ---------- 遊べるゲーム（8枚は同じ大きさ・同じ書式） ---------- */
+.vg {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+.vg-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px var(--line), 4px 4px 0 2px rgba(34, 48, 102, 0.18);
+}
+.vg-ph { position: relative; aspect-ratio: 16 / 9; background: #111; }
+.vg-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.vg-cap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.65rem 0.85rem 0.8rem;
+  background: var(--navy);
+  border-top: 4px solid var(--sky);
+  color: #fff;
+}
+.vg-t { margin: 0; font-size: 1.02rem; font-weight: 900; letter-spacing: 0.03em; line-height: 1.4; min-height: 2.8em; color: #fff; word-break: auto-phrase; }
+.expo .vg-g { margin: 0 0 0.1rem; font-size: 0.82rem; font-weight: 500; color: var(--sky); letter-spacing: 0.04em; }
+.expo .vg-l { margin: auto 0 0; padding-top: 0.55rem; font-size: 0.82rem; font-weight: 700; line-height: 1.6; height: calc(0.55rem + 1.6em); }
+.vg-l a { display: inline-flex; gap: 0.25rem; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+.expo-visit .vg-l a:hover { color: var(--sky); border-color: var(--sky); }
+.vg-ast { font-size: 0.65em; font-weight: 700; margin-left: 0.1em; vertical-align: super; line-height: 0; }
+.expo .vg-asof { margin: 0.1rem 0 0; font-size: 0.9rem; color: var(--muted, #5c5c5c); word-break: auto-phrase; }
+.vg-notes { margin: 1rem 0 0; font-size: 0.85rem; color: var(--muted, #5c5c5c); line-height: 1.7; }
+
+/* ---------- 会場でできること ---------- */
+.vd { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 1rem; }
+.vd-i { border-top: 4px solid var(--navy); background: var(--wash); border-radius: 0 0 12px 12px; padding: 1rem 1.15rem 1.15rem; }
+.expo .vd-tm { margin: 0; font-size: 0.82rem; font-weight: 700; color: var(--orange); letter-spacing: 0.06em; }
+.expo .vd-k { margin: 0.1rem 0 0.3rem; font-size: 1.5rem; font-weight: 900; letter-spacing: 0.12em; color: var(--navy); line-height: 1.3; }
+.vd-i p:last-child { margin: 0; font-size: 0.95rem; line-height: 1.7; }
+
+/* ---------- 当日の流れ ---------- */
+.vs-key { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; margin: 0 0 1rem; }
+.vs-key span { display: inline-block; padding: 0.35rem 0.95rem; border-radius: 8px; background: #fff3eb; color: #b44a0c; font-weight: 700; font-size: 1rem; }
+.vs-key b { font-size: 1.2rem; font-weight: 900; margin: 0 0.1rem; }
+.vs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 6px; }
+.vs-i { margin: 0; border-radius: 10px; padding: 0.8rem 0.9rem 0.9rem; display: flex; flex-direction: column; gap: 0.15rem; min-height: 7.5rem; font-size: 0.85rem; line-height: 1.5; }
+.vs-tm { font-weight: 900; font-size: 0.9rem; white-space: nowrap; }
+.vs-nm { font-weight: 900; font-size: 1.15rem; letter-spacing: 0.04em; line-height: 1.35; }
+.vs-who { font-weight: 700; opacity: 0.9; }
+.vs-i.off { background: #e9edf3; color: #3a4257; }
+.vs-i.pub { background: var(--navy); color: #fff; box-shadow: inset 0 -5px 0 var(--orange); }
+.vs-i.pub + .vs-i.pub { background: #34468c; }
+.vs-i.off.dark { background: #2b2b2b; color: #fff; }
+
+/* ---------- 会場 ---------- */
+.va { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; padding: 1.1rem 1.4rem; border: 3px solid var(--line); border-radius: 16px; }
+.va-dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.1rem; margin: 0; }
+.va-dl dt { color: var(--navy); font-weight: 900; letter-spacing: 0.1em; }
+.va-dl dd { margin: 0; font-weight: 700; }
+.expo .va-map { margin: 0; }
+.va-how { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0 0; }
+.va-how > div { background: var(--wash); border-radius: 12px; padding: 0.8rem 1rem 0.9rem; }
+.va-how dt { color: var(--navy); font-weight: 900; letter-spacing: 0.1em; }
+.va-how dd { margin: 0.15rem 0 0; font-size: 0.95rem; line-height: 1.7; }
+.expo .va-src { margin: 0.75rem 0 0; font-size: 0.9rem; }
+
+/* ---------- ご来場の前に ---------- */
+.vn { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.vn li { display: grid; grid-template-columns: 11rem 1fr; gap: 0.2rem 1rem; margin: 0; padding: 0.7rem 0.2rem; border-bottom: 1px solid var(--line); }
+.vn-k { color: var(--navy); font-weight: 900; letter-spacing: 0.04em; }
+
+/* ---------- 作り手向けの小さな案内 ---------- */
+.vm { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; padding: 1rem 1.4rem; border-radius: 16px; background: var(--wash); }
+.vm-h { margin: 0; padding: 0; border: 0; font-size: 1.05rem; font-weight: 900; letter-spacing: 0.06em; color: var(--navy); }
+.vm p { margin: 0.2rem 0 0; font-size: 0.95rem; }
+
+/* ---------- 主催 ---------- */
+.vo { border-radius: 20px; background: linear-gradient(180deg, #25336b 0%, var(--navy-d) 100%); color: #fff; padding: clamp(1.5rem, 4vw, 2.25rem); }
+.vo .expo-h { color: #fff; }
+.vo .expo-h::before { background: var(--orange); }
+.vo .expo-h .en { color: var(--sky); }
+.expo .vo-name { margin: 0; font-size: 1.6rem; font-weight: 900; letter-spacing: 0.08em; }
+.vo-contact { font-size: 0.95rem; color: #dfe6ff; }
+.vo-contact a { color: #fff; }
+.vo-cr { font-size: 0.82rem; color: var(--sky); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 60rem) {
+  .vg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 52rem) {
+  .vd { grid-template-columns: 1fr; }
+  .va-how { grid-template-columns: 1fr; }
+  .vn li { grid-template-columns: 1fr; }
+  .vs { grid-template-columns: 1fr; }
+  .vs-i { min-height: 0; display: grid; grid-template-columns: 6.6rem 1fr; column-gap: 0.75rem; align-items: baseline; }
+  .vs-tm { grid-row: 1 / span 2; }
+  .vs-nm, .vs-who { grid-column: 2; }
+  .vh-free { top: -2.5rem; }
+}
+@media (max-width: 36rem) {
+  .vg { gap: 0.75rem; }
+  .vg-cap { padding: 0.55rem 0.6rem 0.65rem; }
+  .vg-t { font-size: 0.9rem; }
+  .expo .vg-g, .expo .vg-l { font-size: 0.75rem; }
+  .vh-free { position: static; transform: rotate(-4deg); width: auto; height: auto; flex-direction: row; gap: 0.4rem; display: inline-flex; border-radius: 999px; border-width: 3px; padding: 0.2rem 1.1rem 0.3rem; margin: 0 0 0.9rem; box-shadow: 4px 4px 0 var(--sky); }
+  .vh-free b { font-size: 1.1rem; letter-spacing: 0.1em; margin-left: 0; }
+  .vh-free i { font-size: 1.6rem; }
+  .vh-when { grid-template-columns: 1fr; gap: 0.2rem; }
+  .vh-when dt { justify-self: start; margin-top: 0.6rem; }
+  .va-map, .va-map .expo-btn { width: 100%; }
+  .vm .expo-btn { width: 100%; }
+}

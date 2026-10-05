@@ -78,6 +78,21 @@
           "url": "https://x.com/praconii"
         }
       ]
+    },
+    {
+      "id": "pazuholo",
+      "title": "ぱずホロ",
+      "blurb": "『ぱずホロ』は非公式の二次創作作品です（© 2016 COVER Corp.）",
+      "image": "/assets/works/pazuholo.webp",
+      "imageAlt": "ぱずホロ",
+      "kind": "3つの操作モードが切り替わるカジュアルパズル",
+      "home": true,
+      "page": "/works/pazuholo/",
+      "editions": [
+        {
+          "label": "開発中・非公式の二次創作（ホロライブプロダクション）"
+        }
+      ]
     }
   ]
 }
