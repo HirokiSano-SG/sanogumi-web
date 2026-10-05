@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.sanogumi.biz/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -314,11 +314,15 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/indie-expo-20260925/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/indie-expo-20260925/exhibit/</loc>
     <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/news/indie-expo-20260925/visit/</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/indie-expo-20260925/terms/</loc>
@@ -365,7 +369,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/works/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/"/>
@@ -381,6 +385,10 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sanogumi.biz/zh-hans/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://www.sanogumi.biz/ko/works/ganbare-aibou/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sanogumi.biz/works/ganbare-aibou/"/>
+  </url>
+  <url>
+    <loc>https://www.sanogumi.biz/works/pazuholo/</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/works/praefatio-conii/</loc>
