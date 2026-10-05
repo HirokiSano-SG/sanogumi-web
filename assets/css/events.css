@@ -1,0 +1,202 @@
+/* トップ #topics — 専用サムネ（1200×630）をそのまま見せる */
+.topics-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 0 0 0.5rem;
+  align-items: stretch;
+}
+@media (min-width: 40rem) {
+  .topics-list { grid-template-columns: 1fr 1fr; gap: 1.15rem; }
+}
+@media (min-width: 64rem) {
+  .topics-list { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+}
+
+.topics-card {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.topics-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.topics-card-link:hover .topics-title,
+.topics-card-link:focus-visible .topics-title { color: var(--seal); }
+.topics-card:has(.topics-card-link:hover),
+.topics-card:has(.topics-card-link:focus-visible) {
+  border-color: var(--ink);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .topics-card { transition: none; }
+}
+
+.topics-visual {
+  margin: 0;
+  flex: none;
+  aspect-ratio: 1200 / 630;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+.topics-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 専用画を切らない */
+  object-position: center;
+  background: #f5f1e8;
+}
+
+.topics-body {
+  padding: 0.85rem 1rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  flex: 1;
+}
+.topics-date {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.topics-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.topics-title::after { content: none; display: none; }
+.topics-more { margin: 0.85rem 0 0; }
+
+/* events index */
+.events-list {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0 0 2rem;
+}
+.event-card {
+  margin: 0;
+}
+.event-date {
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.event-title {
+  margin: 0 0 0.65rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+.event-title::after { content: none; display: none; }
+.event-title a { text-decoration: none; }
+.event-meta {
+  margin: 0 0 0.85rem;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.28rem 0.75rem;
+  font-size: 0.95rem;
+}
+.event-meta dt { color: var(--muted); }
+.event-meta dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 36rem) {
+  .event-meta { grid-template-columns: 1fr; gap: 0.15rem; }
+  .event-meta dt { margin-top: 0.35rem; }
+  .event-meta dt:first-child { margin-top: 0; }
+}
+.event-works {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 40rem) {
+  .event-works { grid-template-columns: 1fr 1fr; }
+}
+.event-work {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid var(--rule);
+  padding: 0.55rem 0.7rem;
+}
+.event-work img {
+  flex: none;
+  width: 5.5rem;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.event-work-text {
+  min-width: 0;
+}
+.event-work-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.event-work-title a { text-decoration: none; }
+.event-work-note {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.event-links {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+.event-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* event detail */
+.event-crumb {
+  margin: 0 0 1.1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.event-crumb a { color: var(--muted); }
+.event-crumb a:hover { color: var(--seal); }
+.event-detail .event-title {
+  font-size: 1.45rem;
+  margin-bottom: 0.85rem;
+}

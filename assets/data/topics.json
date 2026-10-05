@@ -1,0 +1,40 @@
+{
+  "topics": [
+    {
+      "id": "events",
+      "date": "2026-10-05",
+      "dateLabel": "令和8年10月5日",
+      "title": "今後のイベント出展",
+      "url": "/events/",
+      "image": "/assets/img/topics/events.webp",
+      "imageAlt": "今後のイベント出展"
+    },
+    {
+      "id": "youtube",
+      "date": "2026-09-28",
+      "dateLabel": "令和8年9月28日",
+      "title": "株式会社佐野組 公式YouTubeチャンネルを開設しました",
+      "url": "/news/youtube-20260928/",
+      "image": "/assets/img/topics/youtube.webp",
+      "imageAlt": "公式YouTubeチャンネルを開設"
+    },
+    {
+      "id": "hirakata",
+      "date": "2026-09-25",
+      "dateLabel": "令和8年9月25日",
+      "title": "11月29日（日）「関西インディー試遊会inひらかた」を予定しています",
+      "url": "/news/indie-expo-20260925/",
+      "image": "/assets/img/topics/hirakata.webp",
+      "imageAlt": "関西インディー試遊会inひらかた"
+    },
+    {
+      "id": "recruit",
+      "date": "2026-09-22",
+      "dateLabel": "令和8年9月22日",
+      "title": "開発アルバイト・インターンの募集を始めました",
+      "url": "/news/recruit-20260922/",
+      "image": "/assets/img/topics/recruit.webp",
+      "imageAlt": "開発アルバイト・インターン募集"
+    }
+  ]
+}
