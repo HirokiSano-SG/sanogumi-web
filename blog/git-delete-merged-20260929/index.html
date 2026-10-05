@@ -19,7 +19,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/blog.css?v=8">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=14">
   <!-- i18n:begin head --><link rel="stylesheet" href="/assets/css/i18n.css?v=2"><!-- i18n:end head -->
   <!-- seo:begin head -->
   <link rel="canonical" href="https://www.sanogumi.biz/blog/git-delete-merged-20260929/">
@@ -35,6 +35,7 @@
   <meta property="og:image:alt" content="株式会社佐野組">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@KK_SanoGumi">
+  <link rel="alternate" type="application/rss+xml" title="株式会社佐野組 ブログ" href="https://www.sanogumi.biz/blog/feed.xml">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.sanogumi.biz/#organization","name":"株式会社佐野組","alternateName":["Sano-Gumi Co., Ltd.","佐野組"],"url":"https://www.sanogumi.biz/","logo":{"@type":"ImageObject","url":"https://www.sanogumi.biz/assets/logo/kanji-logo-512.png","width":512,"height":512},"sameAs":["https://x.com/KK_SanoGumi","https://www.youtube.com/@KK_SanoGumi"]},{"@type":"BlogPosting","headline":"【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった","mainEntityOfPage":"https://www.sanogumi.biz/blog/git-delete-merged-20260929/","image":["https://www.sanogumi.biz/assets/og/default.jpg"],"inLanguage":"ja","publisher":{"@id":"https://www.sanogumi.biz/#organization"},"datePublished":"2026-09-29T00:00:00+09:00","dateModified":"2026-09-29T00:00:00+09:00","author":{"@type":"Person","name":"佐野 凛","url":"https://www.sanogumi.biz/creators/rin/"}}]}</script>
   <!-- seo:end head -->
 </head>
@@ -322,6 +323,32 @@ on the remote, use
         <li>Git 2.56.0 ソース <code>builtin/branch.c</code>（<code>branch_pushes_to_upstream()</code>、<code>delete_merged_branches()</code>）、<code>t/t3200-branch.sh</code></li>
         <li>実測: 令和8年9月29日（JST）。再現スクリプトと全ログを手元に保存（<code>repro.sh</code> を2回実行し、ログが完全一致することを確認）</li>
       </ul>
+      <!-- seo:begin share --><aside class="blog-share" aria-labelledby="blog-share-title" data-share-title="【検証】Git 2.56 の git branch --delete-merged、いつもの push -u 運用では1本も消えなかった" data-share-url="https://www.sanogumi.biz/blog/git-delete-merged-20260929/">
+        <p class="blog-share-title" id="blog-share-title">この記事を共有する</p>
+        <ul class="blog-share-list">
+          <li><a class="blog-share-btn" href="https://x.com/intent/tweet?text=%E3%80%90%E6%A4%9C%E8%A8%BC%E3%80%91Git%202.56%20%E3%81%AE%20git%20branch%20--delete-merged%E3%80%81%E3%81%84%E3%81%A4%E3%82%82%E3%81%AE%20push%20-u%20%E9%81%8B%E7%94%A8%E3%81%A7%E3%81%AF1%E6%9C%AC%E3%82%82%E6%B6%88%E3%81%88%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F&amp;url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fgit-delete-merged-20260929%2F" target="_blank" rel="noopener noreferrer" aria-label="X でポスト" title="X でポスト"><img class="blog-share-icon blog-share-icon--x" src="/assets/img/share/x.svg" alt="" width="23" height="24" decoding="async"></a></li>
+          <li><a class="blog-share-btn" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fgit-delete-merged-20260929%2F&amp;text=%E3%80%90%E6%A4%9C%E8%A8%BC%E3%80%91Git%202.56%20%E3%81%AE%20git%20branch%20--delete-merged%E3%80%81%E3%81%84%E3%81%A4%E3%82%82%E3%81%AE%20push%20-u%20%E9%81%8B%E7%94%A8%E3%81%A7%E3%81%AF1%E6%9C%AC%E3%82%82%E6%B6%88%E3%81%88%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F" target="_blank" rel="noopener noreferrer" aria-label="LINEで送る" title="LINEで送る"><img class="blog-share-icon blog-share-icon--line" src="/assets/img/share/line.png" alt="" width="24" height="24" decoding="async"></a></li>
+          <li><a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fgit-delete-merged-20260929%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook でシェア" title="Facebook でシェア"><img class="blog-share-icon blog-share-icon--facebook" src="/assets/img/share/facebook.svg" alt="" width="34" height="34" decoding="async"></a></li>
+          <li class="blog-share-hatena"><a class="blog-share-hatena-hit" href="https://b.hatena.ne.jp/entry/panel/?url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fgit-delete-merged-20260929%2F#bbutton" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" title="このエントリーをはてなブックマークに追加"></a><a href="https://b.hatena.ne.jp/entry/s/www.sanogumi.biz/blog/git-delete-merged-20260929/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic" data-hatena-bookmark-width="24" data-hatena-bookmark-height="24" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-fedi="misskey" aria-controls="blog-share-fedi" aria-expanded="false" aria-label="Misskey でノート" title="Misskey でノート"><img class="blog-share-icon blog-share-icon--misskey" src="/assets/img/share/misskey.png" alt="" width="30" height="30" decoding="async"></button></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-fedi="mastodon" aria-controls="blog-share-fedi" aria-expanded="false" aria-label="Mastodon で投稿" title="Mastodon で投稿"><img class="blog-share-icon blog-share-icon--mastodon" src="/assets/img/share/mastodon.svg" alt="" width="23" height="24" decoding="async"></button></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-copy="https://www.sanogumi.biz/blog/git-delete-merged-20260929/" aria-label="リンクをコピー" title="リンクをコピー"><svg class="blog-share-icon blog-share-icon--copy" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg></button></li>
+        </ul>
+        <form class="blog-share-fedi" id="blog-share-fedi" data-share-fedi-form hidden novalidate>
+          <label class="blog-share-fedi-label" for="blog-share-fedi-host" data-share-fedi-label>サーバー</label>
+          <div class="blog-share-fedi-row">
+            <input class="blog-share-fedi-input" id="blog-share-fedi-host" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="blog-share-fedi-note">
+            <button type="submit" class="blog-share-link">開く</button>
+            <button type="button" class="blog-share-link" data-share-fedi-cancel>やめる</button>
+          </div>
+          <p class="blog-share-fedi-note" id="blog-share-fedi-note" data-share-fedi-note>サーバーのアドレスだけを入れてください。このブラウザに覚えておき、次からはすぐ開きます。</p>
+        </form>
+        <p class="blog-share-saved" data-share-saved hidden></p>
+        <p class="blog-share-status" role="status" data-share-status></p>
+        <p class="blog-share-credit" data-share-js-item hidden>Misskey のアイコン © syuilo and Misskey Project（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="license noopener noreferrer" target="_blank">CC BY-SA 4.0</a>）</p>
+      </aside>
+      <script src="/assets/js/share.js?v=3" defer></script>
+      <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script><!-- seo:end share -->
     </article>
     <nav class="blog-nav" aria-label="記事の案内">
       <p><a href="/blog/">一覧に戻る</a></p>
