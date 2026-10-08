@@ -38,6 +38,18 @@
   max-width: none;
 }
 
+/* 関西インディー試遊会の正式ロゴ。幅だけ指定し、高さはファイルの比率のまま。 */
+.news-event-logo {
+  margin: 0 0 1.15rem;
+  padding: 0;
+}
+.news-event-logo img {
+  display: block;
+  width: 22.5rem; /* 360px */
+  max-width: 100%;
+  height: auto;
+}
+
 .news-prose h2 {
   margin: 1.8rem 0 0.7rem;
   font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
