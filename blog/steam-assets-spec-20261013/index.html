@@ -133,6 +133,40 @@
         <li>すべてのカプセル画像は、全年齢向け（PG-13相当）の絵にします。</li>
       </ul>
 
+      <h2>隠れる場所・切れる場所</h2>
+      <p>Steamworks公式ドキュメントに書かれている、画像が切れたり、上に何かが重なったりする場所です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>画像</th><th>切れる・重なる場所</th><th>出典</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>ライブラリヒーロー（3840×1240px）</td><td>Steamの窓の大きさによって周りが切れます。中央の860×380pxの「セーフエリア」だけは、どの大きさでも切れません。顔など大事なものはセーフエリアに入れ、絵はキャンバス全体に描きます。</td><td><a href="https://partner.steamgames.com/doc/store/assets/libraryassets" target="_blank" rel="noopener noreferrer">出典</a></td></tr>
+          <tr><td>ライブラリヒーロー（ロゴとの重なり）</td><td>ライブラリロゴがヒーローの上に重なります。ロゴの位置は、アップロード後にプレビューで「左下」「上の中央」「真ん中」「下の中央」から選びます。選ぶ予定の位置には、大事なものを置かないでください。</td><td><a href="https://partner.steamgames.com/doc/store/assets/libraryassets" target="_blank" rel="noopener noreferrer">出典</a></td></tr>
+          <tr><td>小カプセル（462×174px）</td><td>120×45pxまで縮小されて表示されます。細かい部分はつぶれるので、ロゴがほぼいっぱいになるくらいにします。</td><td><a href="https://partner.steamgames.com/doc/store/assets/standard" target="_blank" rel="noopener noreferrer">出典</a></td></tr>
+          <tr><td>イベントヘッダー（1920×622px）</td><td>切れる範囲があります。公式の一覧には「切れる範囲はテンプレートを見てください」とだけ書かれています。</td><td><a href="https://partner.steamgames.com/doc/store/assets" target="_blank" rel="noopener noreferrer">出典</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>公式テンプレートのガイド</h3>
+      <p>公式テンプレートのPSDを開いて、ガイドのレイヤーが入っているかを確かめました（令和8年10月13日）。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>テンプレート</th><th>入っているガイド</th></tr>
+          </thead>
+          <tbody>
+          <tr><td><code>library_hero.psd</code></td><td>セーフエリアのガイドあり（レイヤー名「Safe Zone Guides - Hide this layer before saving」）</td></tr>
+          <tr><td><code>library_capsule.psd</code></td><td>ガイドあり（「GUIDES (turn off this layer before saving)」）</td></tr>
+          <tr><td><code>event_header.psd</code></td><td>切れる範囲のガイドあり（「Template Layer - Turn Off」「Edge blur area」）</td></tr>
+          <tr><td><code>store_capsule_header.psd</code>、<code>store_capsule_main.psd</code>、<code>store_capsule_small.psd</code>、<code>library_header.psd</code></td><td>表示例の枠（「Template TURN OFF」）と、DLC・デモ・サウンドトラックなどの帯の見本（「Placeholder FPO」）あり。帯は画像の端に重なることがあるので、見本を表示して位置を確かめると安心です。</td></tr>
+          <tr><td><code>store_capsule_vertical.psd</code></td><td>表示例の枠（「Template TURN OFF」）あり</td></tr>
+          <tr><td><code>library_logo_transparent.psd</code>、<code>store_page_background.psd</code>、<code>event_cover.psd</code>、配信の左右パネル</td><td>ガイドのレイヤーはなし（キャンバスだけ）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>どのテンプレートも、ガイドや見本のレイヤーは書き出す前に非表示にしてください。レイヤー名にも「turn off」「hide」と書かれています。</p>
+
       <h2>ドット絵を拡大するときのコツ</h2>
       <p>ドット絵（ピクセルアート）を拡大するときは、<strong>ニアレストネイバー法</strong>を使ってください。Photoshopでは「ニアレストネイバー（ハードな輪郭）」、ソフトによっては「Point」「最近傍」という名前です。バイリニアやバイキュービックで拡大すると、ドットの輪郭がぼやけます。</p>
       <ul>
