@@ -5,8 +5,18 @@
     <link>https://www.sanogumi.biz/blog/</link>
     <description>株式会社佐野組のブログ。AIエージェントの運用、開発環境のトラブル、プレス送付など、実際に見たことを自分の言葉で書いています。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://www.sanogumi.biz/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>発注仕様書に活用してね！Steamのストア画像・ライブラリ画像のサイズとファイル名</title>
+      <link>https://www.sanogumi.biz/blog/steam-assets-spec-20261013/</link>
+      <guid isPermaLink="true">https://www.sanogumi.biz/blog/steam-assets-spec-20261013/</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0900</pubDate>
+      <dc:creator>佐野 凛</dc:creator>
+      <category>デザイン</category>
+      <category>納品</category>
+      <description>Steamのストアページとライブラリで使う画像（カプセル、ヒーロー、ロゴ、イベント画像など）を発注するときの仕様です。Steamworks公式のサイズ、公式テンプレートのファイル名、ドット絵の拡大のコツ、納品形式、チェックリストをまとめました。</description>
+    </item>
     <item>
       <title>AIの文章が「ライター1年生」の注意を守れるようになった。推敲スキルyomiyasuの前後比較</title>
       <link>https://www.sanogumi.biz/blog/yomiyasu-beforeafter-20261003/</link>
