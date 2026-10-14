@@ -83,8 +83,10 @@
     prev.disabled = track.scrollLeft <= 2;
     next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
   }
-  prev.addEventListener('click', function () { track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }); });
-  next.addEventListener('click', function () { track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }); });
+  // 1画面ぶん＝表示幅＋カード間隔（丸ごとのカード n 枚）
+  function page() { return track.clientWidth + (parseFloat(getComputedStyle(track).columnGap) || 0); }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
   track.addEventListener('scroll', upd, { passive: true });
   window.addEventListener('resize', upd);
   // 初期位置：今日（直前の過去1件が左端に来る位置）
