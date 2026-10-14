@@ -136,6 +136,30 @@
           "url": "https://www.wakuwakugames.com/itsukanoyoru"
         },
         {
+          "id": "makimonogatari",
+          "title": "巻物語 -捲土\"招来\"！ 花札遊宴絵巻-",
+          "url": "https://booth.pm/ja/items/5326922",
+          "role": "開発",
+          "members": [
+            {
+              "name": "嗚呼タマ",
+              "role": "開発"
+            },
+            {
+              "name": "ちゃんばく",
+              "role": "原案・権利"
+            }
+          ],
+          "image": "assets/works/makimonogatari.webp",
+          "imageAlt": "巻物語",
+          "links": [
+            {
+              "label": "Boothでダウンロード",
+              "url": "https://booth.pm/ja/items/5326922"
+            }
+          ]
+        },
+        {
           "id": "parasite_ore",
           "title": "俺がいないとダメだろ～ヒモニート伝説～",
           "url": "https://unityroom.com/games/parasite_ore",
