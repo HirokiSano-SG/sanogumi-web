@@ -188,6 +188,62 @@
   font-size: 0.9rem;
 }
 
+/* 公式ロゴ／公式画像の枠。全イベント同じ 16:9 枠・同じ幅。ファイルは原寸のまま、表示だけ等比で縮める。切らない・色を変えない。 */
+.event-eyecatch {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  width: 100%;
+}
+.event-detail .event-eyecatch { max-width: 640px; margin-left: auto; margin-right: auto; }
+.events-list .event-eyecatch { max-width: 320px; }
+.event-eyecatch a { display: block; text-decoration: none; line-height: 0; }
+.event-eyecatch img,
+.event-eyecatch-none {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  box-sizing: border-box;
+}
+/* 文字ロゴは白地の枠の中央へ。左右に余白（アイソレーション）を必ず取る */
+.event-eyecatch--logo img { padding: 0 12%; background: #fff; }
+/* 公式ロゴが使えないイベント：同じ枠に催し名だけ（ロゴを作らない） */
+.event-eyecatch-none {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f5f1e8;
+  color: var(--muted);
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.05rem;
+  text-align: center;
+}
+.event-detail .event-eyecatch-none { font-size: 1.5rem; }
+.event-eyecatch figcaption {
+  margin: 0;
+  padding: 0.4rem 0.75rem 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+}
+
+/* 過去のイベント（年月の一覧＋カード） */
+.events-past { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.events-cal { margin: 0 0 1.5rem; }
+.events-cal-year { margin: 0 0 0.5rem; font-size: 1rem; }
+.events-cal-months { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.35rem; }
+.events-cal-month { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--rule); }
+.events-cal-label { color: var(--muted); font-weight: 600; }
+.events-cal-month ul { list-style: none; margin: 0; padding: 0; }
+.events-cal-month time { color: var(--muted); margin-right: 0.35rem; }
+.events-list--past .event-card { opacity: 0.92; }
+
 /* event detail */
 .event-crumb {
   margin: 0 0 1.1rem;
