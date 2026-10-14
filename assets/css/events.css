@@ -224,6 +224,9 @@
   text-align: center;
 }
 .event-detail .event-eyecatch-none { font-size: 1.5rem; }
+/* 文字だけの枠も画像の枠と同じく個別ページへリンク（一覧では <a> で包む） */
+.event-eyecatch a .event-eyecatch-none { line-height: 1.5; color: var(--muted); }
+.event-eyecatch a:hover .event-eyecatch-none, .event-eyecatch a:focus-visible .event-eyecatch-none { color: var(--seal); }
 .event-eyecatch figcaption {
   margin: 0;
   padding: 0.4rem 0.75rem 0.5rem;
