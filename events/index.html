@@ -72,6 +72,14 @@
     </div>
   </header>
   <main id="main" class="wrap wrap--wide">
+    <section class="events-timeline" id="events-timeline" aria-labelledby="etl-heading">
+      <div class="etl-head">
+        <h2 class="etl-heading" id="etl-heading">出展スケジュール</h2>
+        <div class="etl-nav"><button type="button" class="etl-prev" aria-label="前へ">‹</button><button type="button" class="etl-next" aria-label="次へ">›</button></div>
+      </div>
+      <!-- 中身は events-timeline.js が下のカードから生成（データは下のカードが正本） -->
+      <ol class="etl-track" tabindex="0" aria-label="イベントのタイムライン（横にスクロール）"></ol>
+    </section>
     <h1 class="page-title">イベント出展</h1>
     <p class="page-lead">今後の出展予定です。日付の近い順に並べています。終わった催しは下の<a href="#past">過去のイベント</a>にまとめています。</p>
 
@@ -186,7 +194,7 @@
         <figure class="event-eyecatch event-eyecatch--logo">
           <a href="/news/indie-expo-20260925/"><img src="/assets/expo/kansai-indie-logo-yoko.png" width="720" height="188" alt="関西インディー試遊会inひらかた 公式ロゴ"></a>
         </figure>
-        <p class="event-date"><time datetime="2026-11-29">2026-11-29（日）</time></p>
+        <p class="event-date"><time datetime="2026-11-29">2026-11-29（日）</time> 13:00–16:00（12:00–13:00 は関係者・招待者・プレスの先行入場）</p>
         <!-- ひらかたは主催イベントのため詳細はお知らせ正本へ（重複ページを作らない） -->
         <h2 class="event-title"><a href="/news/indie-expo-20260925/">関西インディー試遊会inひらかた</a></h2>
         <dl class="event-meta">
@@ -195,7 +203,10 @@
           <dt>主催</dt>
           <dd>株式会社佐野組</dd>
           <dt>内容</dt>
-          <dd>インディーゲームの展示と、出展者・関係者による意見交流会</dd>
+          <dd>インディーゲームの試遊（13:00〜）と LT（15:00〜）。入場無料</dd>
+          <dt>出展作品</dt>
+          <!-- 件数は data/events/hirakata-2026/exhibitors.json の approval=yes かつ publish=yes（2026-10-14 時点 14作品）。一覧は来場者ページ（tools/expo/build_visit.py で生成） -->
+          <dd data-short="14作品">14作品（<a href="/news/indie-expo-20260925/visit/">来場者向けページで一覧</a>）</dd>
         </dl>
         <ul class="event-links">
           <li><a href="/news/indie-expo-20260925/">お知らせ</a></li>
@@ -261,5 +272,6 @@
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a><a href="/security/">情報セキュリティ</a></nav><!-- i18n:end footlinks -->
   </main>
   <script src="/assets/js/nav-menu.js" defer></script>
+  <script src="/assets/js/events-timeline.js" defer></script>
 </body>
 </html>
