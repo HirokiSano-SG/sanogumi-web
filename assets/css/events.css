@@ -188,6 +188,65 @@
   font-size: 0.9rem;
 }
 
+/* 公式ロゴ／公式画像の枠。全イベント同じ 16:9 枠・同じ幅。ファイルは原寸のまま、表示だけ等比で縮める。切らない・色を変えない。 */
+.event-eyecatch {
+  margin: 0 0 1.15rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  width: 100%;
+}
+.event-detail .event-eyecatch { max-width: 640px; margin-left: auto; margin-right: auto; }
+.events-list .event-eyecatch { max-width: 320px; }
+.event-eyecatch a { display: block; text-decoration: none; line-height: 0; }
+.event-eyecatch img,
+.event-eyecatch-none {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center;
+  box-sizing: border-box;
+}
+/* 文字ロゴは白地の枠の中央へ。左右に余白（アイソレーション）を必ず取る */
+.event-eyecatch--logo img { padding: 0 12%; background: #fff; }
+/* 公式ロゴが使えないイベント：同じ枠に催し名だけ（ロゴを作らない） */
+.event-eyecatch-none {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f5f1e8;
+  color: var(--muted);
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-size: 1.05rem;
+  text-align: center;
+}
+.event-detail .event-eyecatch-none { font-size: 1.5rem; }
+/* 文字だけの枠も画像の枠と同じく個別ページへリンク（一覧では <a> で包む） */
+.event-eyecatch a .event-eyecatch-none { line-height: 1.5; color: var(--muted); }
+.event-eyecatch a:hover .event-eyecatch-none, .event-eyecatch a:focus-visible .event-eyecatch-none { color: var(--seal); }
+.event-eyecatch figcaption {
+  margin: 0;
+  padding: 0.4rem 0.75rem 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+}
+
+/* 過去のイベント（年月の一覧＋カード） */
+.events-past { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.events-cal { margin: 0 0 1.5rem; }
+.events-cal-year { margin: 0 0 0.5rem; font-size: 1rem; }
+.events-cal-months { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.35rem; }
+.events-cal-month { display: grid; grid-template-columns: 3.5rem 1fr; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--rule); }
+.events-cal-label { color: var(--muted); font-weight: 600; }
+.events-cal-month ul { list-style: none; margin: 0; padding: 0; }
+.events-cal-month time { color: var(--muted); margin-right: 0.35rem; }
+.events-list--past .event-card { opacity: 0.92; }
+
 /* event detail */
 .event-crumb {
   margin: 0 0 1.1rem;
@@ -235,3 +294,48 @@
 .event-oshinagaki-list li {
   overflow-wrap: anywhere;
 }
+
+/* 上部タイムライン（#events-timeline）— 下のカードから JS で生成 */
+.events-timeline { position: relative; margin: 0 0 2rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 0.9rem 0 1rem; }
+.etl-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 0.6rem; }
+.etl-heading { margin: 0; font-size: 0.95rem; letter-spacing: 0.08em; font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
+.etl-nav { display: flex; gap: 0.4rem; }
+.etl-nav button { width: 2.25rem; height: 2.25rem; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-size: 1rem; cursor: pointer; }
+.etl-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.etl-nav button:disabled { opacity: 0.3; cursor: default; }
+.etl-track { list-style: none; margin: 0; padding: 0.25rem 0 0.5rem; display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; position: relative; }
+/* 1画面＝丸ごとのカードだけ（コンテナ幅で枚数を決める。今日の線は幅0で間隔の中に描く） */
+.events-timeline { container-type: inline-size; }
+.etl-item { --n: 4; flex: 0 0 calc((100% - (var(--n) - 1) * 1.5rem) / var(--n)); scroll-snap-align: start; min-width: 0; }
+@container (max-width: 56rem) { .etl-item { --n: 3; } }
+@container (max-width: 40rem) { .etl-item { --n: 2; } }
+@container (max-width: 30rem) { .etl-item { flex-basis: 82%; } }
+.etl-card { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--rule); background: var(--paper); color: inherit; text-decoration: none; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.etl-card:hover, .etl-card:focus-visible { border-color: var(--ink); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+.etl-card:hover .etl-title { color: var(--seal); }
+.is-past .etl-card { opacity: 0.7; }
+.etl-visual { aspect-ratio: 16 / 9; background: #fff; border-bottom: 1px solid var(--rule); overflow: hidden; }
+.etl-visual img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.etl-visual--logo img { padding: 0 12%; box-sizing: border-box; }
+.etl-visual--none { display: flex; align-items: center; justify-content: center; padding: 1rem; background: #f5f1e8; color: var(--muted); font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; text-align: center; }
+.etl-body { padding: 0.6rem 0.8rem 0.75rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.etl-body p { margin: 0; line-height: 1.45; }
+.etl-date { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.etl-time { font-weight: 400; color: var(--muted); font-size: 0.9rem; }
+.etl-badge { font-size: 0.72rem; font-weight: 400; border: 1px solid var(--muted); color: var(--muted); padding: 0 0.35rem; }
+.etl-title { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; font-size: 1.05rem; font-weight: 700; }
+.etl-works { font-size: 0.9rem; }
+.etl-works::before { content: "出展："; color: var(--muted); }
+.etl-venue { font-size: 0.85rem; color: var(--muted); }
+.etl-today { flex: 0 0 0; width: 0; margin-right: -1.5rem; position: relative; scroll-snap-align: none; }
+.etl-today::before { content: ""; position: absolute; top: 0; bottom: 0; left: -0.75rem; width: 2px; margin-left: -1px; background: var(--seal); }
+.etl-today:first-child::before { left: 1px; }
+.etl-today-label { position: absolute; z-index: 1; top: 0; left: -0.75rem; transform: translateX(-50%); writing-mode: vertical-rl; background: var(--seal); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.4rem 0.15rem; white-space: nowrap; letter-spacing: 0.05em; }
+@media (prefers-reduced-motion: reduce) { .etl-track { scroll-behavior: auto; } .etl-card { transition: none; } }
+.is-now .etl-card { border: 2px solid var(--seal); box-shadow: 0 0 0 3px rgba(212,0,0,0.08); }
+.etl-badge--now { border-color: var(--seal); background: var(--seal); color: #fff; font-weight: 700; }
+.etl-empty { display: flex; align-items: center; justify-content: center; border: 1px dashed var(--rule); color: var(--muted); padding: 1rem; text-align: center; font-size: 0.9rem; }
+.etl-empty p { margin: 0; }
+.is-week .etl-card { border-color: rgba(212,0,0,0.45); }
+.etl-badge--week { border-color: rgba(212,0,0,0.55); color: var(--seal); background: #fff5f5; }
+.etl-today:first-child .etl-today-label { left: 0.6rem; }

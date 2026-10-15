@@ -93,6 +93,29 @@
           "label": "開発中・非公式の二次創作（ホロライブプロダクション）"
         }
       ]
+    },
+    {
+      "id": "primary-bloom",
+      "title": "プライマリ・ブルーム",
+      "titleEn": "Primary Bloom",
+      "blurb": "高度なAI技術の発展により、大きく変化した世界。主人公のザニアはただ一人、人の手から生み出された植物たちを取り戻すため、研究を続けています。部屋で植物を育て、咲いた花をSNSで世界に広めていく、ドット絵・横スクロールのSF×ガーデンシミュレーションです。",
+      "image": "/assets/works/primary-bloom.webp",
+      "imageAlt": "プライマリ・ブルーム",
+      "kind": "ドット絵・横スクロールのSF×ガーデンシミュレーション",
+      "home": true,
+      "page": "/works/primary-bloom/",
+      "editions": [
+        {
+          "label": "製品版（2027年 発売予定）",
+          "platforms": "Steam（Windows / Mac / Linux）",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/Primary_Bloom"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

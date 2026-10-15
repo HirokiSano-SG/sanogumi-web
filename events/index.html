@@ -15,7 +15,7 @@
   <!-- seo:end ga -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>イベント出展 — 株式会社佐野組</title>
-  <meta name="description" content="株式会社佐野組の今後のイベント出展予定。THEインディー展、DREAMSCAPE#5、関西インディー試遊会inひらかたなど。">
+  <meta name="description" content="株式会社佐野組の今後のイベント出展予定。THEインディー展、DREAMSCAPE#5、東京ゲームダンジョン14、SHIBUYA GAME CROSS 3、神戸ゲームラビリンス2026、関西インディー試遊会inひらかたなど。">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
@@ -26,7 +26,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="株式会社佐野組">
   <meta property="og:title" content="イベント出展 — 株式会社佐野組">
-  <meta property="og:description" content="株式会社佐野組の今後のイベント出展予定。THEインディー展、DREAMSCAPE#5、関西インディー試遊会inひらかたなど。">
+  <meta property="og:description" content="株式会社佐野組の今後のイベント出展予定。THEインディー展、DREAMSCAPE#5、東京ゲームダンジョン14、SHIBUYA GAME CROSS 3、神戸ゲームラビリンス2026、関西インディー試遊会inひらかたなど。">
   <meta property="og:url" content="https://www.sanogumi.biz/events/">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="https://www.sanogumi.biz/assets/img/topics/events.png">
@@ -35,6 +35,7 @@
   <meta property="og:image:alt" content="イベント出展">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@KK_SanoGumi">
+  <link rel="alternate" type="application/rss+xml" title="株式会社佐野組 ブログ" href="https://www.sanogumi.biz/blog/feed.xml">
   <!-- seo:end head -->
 </head>
 <body>
@@ -71,47 +72,25 @@
     </div>
   </header>
   <main id="main" class="wrap wrap--wide">
+    <section class="events-timeline" id="events-timeline" aria-labelledby="etl-heading">
+      <div class="etl-head">
+        <h2 class="etl-heading" id="etl-heading">出展スケジュール</h2>
+        <div class="etl-nav"><button type="button" class="etl-prev" aria-label="前へ">‹</button><button type="button" class="etl-next" aria-label="次へ">›</button></div>
+      </div>
+      <!-- 中身は events-timeline.js が下のカードから生成（データは下のカードが正本） -->
+      <ol class="etl-track" tabindex="0" aria-label="イベントのタイムライン（横にスクロール）"></ol>
+    </section>
     <h1 class="page-title">イベント出展</h1>
-    <p class="page-lead">今後の出展予定です。日付の近い順に並べています。</p>
+    <p class="page-lead">今後の出展予定です。日付の近い順に並べています。終わった催しは下の<a href="#past">過去のイベント</a>にまとめています。</p>
 
     <div class="events-list">
 
-      <!-- THEインディー展：公式ロゴ／KVは許諾申請中のため未使用。許諾後は下のコメント位置に置く想定。
-           TODO: 公式KV画像（許諾後）をここ（カード先頭の figure）に追加する -->
-      <article class="card event-card">
-        <p class="event-date"><time datetime="2026-10-10">2026-10-10（土）</time> 11:00–17:00</p>
-        <h2 class="event-title"><a href="/events/the-indie-fukuoka-2026/">THEインディー展</a></h2>
-        <dl class="event-meta">
-          <dt>会場</dt>
-          <dd>福岡・エンジニアカフェ／赤煉瓦文化館2F</dd>
-          <dt>共催</dt>
-          <dd>明星和楽×福岡インディーゲーム協会×エンジニアカフェ</dd>
-          <dt>出展作品</dt>
-          <dd>ゆめみるサクラの卒業式、ぱずホロ（二次創作）</dd>
-        </dl>
-        <!-- TODO: リポジトリ内に本イベント向けの他タイトルの記載は見当たらず。追加があればここに追記 -->
-        <ul class="event-works">
-          <li class="event-work">
-            <img src="/assets/works/yumemiru-sakura.webp" alt="ゆめみるサクラの卒業式" width="320" height="180" loading="lazy">
-            <div class="event-work-text">
-              <p class="event-work-title"><a href="/works/yumemiru-sakura-steam/">ゆめみるサクラの卒業式</a></p>
-            </div>
-          </li>
-          <li class="event-work">
-            <img src="/assets/works/pazuholo.webp" alt="ぱずホロ" width="320" height="180" loading="lazy">
-            <div class="event-work-text">
-              <p class="event-work-title"><a href="/works/pazuholo/">ぱずホロ</a></p>
-              <p class="event-work-note">ホロライブの二次創作（非公式）</p>
-            </div>
-          </li>
-        </ul>
-        <ul class="event-links">
-          <li><a href="/events/the-indie-fukuoka-2026/">出展案内</a></li>
-          <li><a href="https://engineercafe.connpass.com/event/407407/" target="_blank" rel="noopener noreferrer">イベント詳細（connpass）</a></li>
-        </ul>
-      </article>
-
-      <article class="card event-card">
+      <article class="card event-card" data-date="2026-10-24">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch event-eyecatch--logo">
+          <a href="/events/dreamscape-5/"><img src="/assets/img/events/dreamscape-5/logo-bk.svg" width="1006" height="96" alt="DREAMSCAPE#5 公式ロゴ"></a>
+          <figcaption>ロゴ提供：DREAMSCAPE 運営（WorldMap）</figcaption>
+        </figure>
         <p class="event-date"><time datetime="2026-10-24">2026-10-24（土）</time> 13:00–19:00（最終入場 18:30）</p>
         <h2 class="event-title"><a href="/events/dreamscape-5/">DREAMSCAPE#5</a></h2>
         <dl class="event-meta">
@@ -137,8 +116,135 @@
         </ul>
       </article>
 
-      <article class="card event-card">
-        <p class="event-date"><time datetime="2026-11-29">2026-11-29（日）</time></p>
+      <article class="card event-card" data-date="2026-10-31">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch">
+          <a href="/events/tokyo-game-dungeon-14/"><img src="/assets/img/events/tokyo-game-dungeon-14/kv-1600x900.jpg" width="1600" height="900" alt="東京ゲームダンジョン14 の公式キービジュアル（ロゴ入り）"></a>
+          <figcaption>画像提供：ゲームダンジョン事務局</figcaption>
+        </figure>
+        <p class="event-date"><time datetime="2026-10-31">2026-10-31（土）</time> 11:00–17:00（ビジネス・先行入場券は11:00から、それ以外は12:00から）</p>
+        <h2 class="event-title"><a href="/events/tokyo-game-dungeon-14/">東京ゲームダンジョン14</a></h2>
+        <dl class="event-meta">
+          <dt>会場</dt>
+          <dd>東京都立産業貿易センター 浜松町館 2・3階展示室（〒105-7501 東京都港区海岸1-7-1 東京ポートシティ竹芝）</dd>
+          <dt>主催</dt>
+          <dd>ゲームダンジョン事務局</dd>
+          <dt>出展作品</dt>
+          <dd>プライマリ・ブルーム、ゆめみるサクラの卒業式（ブース 3L-4）</dd>
+          <dt>入場料</dt>
+          <dd>一般1,000円、ビジネス2,000円（税込）。18歳以下は無料。16時以降の入場は無料</dd>
+        </dl>
+        <ul class="event-works">
+          <li class="event-work">
+            <img src="/assets/works/primary-bloom.webp" alt="プライマリ・ブルーム" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/primary-bloom/">プライマリ・ブルーム</a></p>
+              <p class="event-work-note">開発中</p>
+            </div>
+          </li>
+          <li class="event-work">
+            <img src="/assets/works/yumemiru-sakura.webp" alt="ゆめみるサクラの卒業式" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/yumemiru-sakura-steam/">ゆめみるサクラの卒業式</a></p>
+              <p class="event-work-note">2026年10月22日にSteamで発売</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="event-links">
+          <li><a href="/events/tokyo-game-dungeon-14/">出展案内</a></li>
+          <li><a href="https://tokyogamedungeon.com/" target="_blank" rel="noopener noreferrer">公式サイト</a></li>
+        </ul>
+      </article>
+
+      <article class="card event-card" data-date="2026-11-03">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch">
+          <a href="/events/shibuya-game-cross-3/"><img src="/assets/img/events/shibuya-game-cross-3/main-1600x900.png" width="1600" height="900" alt="SHIBUYA GAME CROSS 3 の公式告知画像"></a>
+          <figcaption>画像提供：SHIBUYA GAME CROSS 運営事務局</figcaption>
+        </figure>
+        <p class="event-date"><time datetime="2026-11-03">2026-11-03（火・祝）</time> 12:00–18:00</p>
+        <h2 class="event-title"><a href="/events/shibuya-game-cross-3/">SHIBUYA GAME CROSS 3</a></h2>
+        <dl class="event-meta">
+          <dt>会場</dt>
+          <dd>404 Not Found（〒150-0031 東京都渋谷区桜丘町1-4 渋谷サクラステージ SHIBUYAサイド 4F）</dd>
+          <dt>主催</dt>
+          <dd>404 Not Found</dd>
+          <dt>出展作品</dt>
+          <dd>ゆめみるサクラの卒業式</dd>
+          <dt>入場料</dt>
+          <dd>無料（ワンドリンクオーダー制）</dd>
+        </dl>
+        <ul class="event-works">
+          <li class="event-work">
+            <img src="/assets/works/yumemiru-sakura.webp" alt="ゆめみるサクラの卒業式" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/yumemiru-sakura-steam/">ゆめみるサクラの卒業式</a></p>
+              <p class="event-work-note">2026年10月22日にSteamで発売</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="event-links">
+          <li><a href="/events/shibuya-game-cross-3/">出展案内</a></li>
+          <li><a href="https://igda.jp/2026/09/26/17118/" target="_blank" rel="noopener noreferrer">イベント案内（IGDA日本）</a></li>
+        </ul>
+      </article>
+
+      <article class="card event-card" data-date="2026-11-21">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch">
+          <a href="/events/kobe-game-labyrinth-2026/"><img src="/assets/img/events/kobe-game-labyrinth-2026/kv-1600x900.jpg" width="1600" height="900" alt="神戸ゲームラビリンス2026 の公式キービジュアル"></a>
+          <figcaption>画像提供：神戸ゲームラビリンス準備会</figcaption>
+        </figure>
+        <p class="event-date"><time datetime="2026-11-21">2026-11-21（土）</time> 11:00–17:00</p>
+        <h2 class="event-title"><a href="/events/kobe-game-labyrinth-2026/">神戸ゲームラビリンス2026</a></h2>
+        <dl class="event-meta">
+          <dt>会場</dt>
+          <dd>神戸電子専門学校 学生会館4階（〒650-0001 兵庫県神戸市中央区加納町2丁目1-15）</dd>
+          <dt>主催</dt>
+          <dd>神戸ゲームラビリンス準備会</dd>
+          <dt>出展作品</dt>
+          <dd>ゆめみるサクラの卒業式、がんばれ相棒、ぱずホロ（二次創作）</dd>
+          <dt>ブース</dt>
+          <dd>未定（11月1日に出展者一覧が公開されたらお知らせします）</dd>
+          <dt>入場料</dt>
+          <dd>無料</dd>
+        </dl>
+        <ul class="event-works">
+          <li class="event-work">
+            <img src="/assets/works/yumemiru-sakura.webp" alt="ゆめみるサクラの卒業式" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/yumemiru-sakura-steam/">ゆめみるサクラの卒業式</a></p>
+              <p class="event-work-note">2026年10月22日にSteamで発売</p>
+            </div>
+          </li>
+          <li class="event-work">
+            <img src="/assets/creators/goodluck.webp" alt="がんばれ相棒" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/ganbare-aibou/">がんばれ相棒</a></p>
+              <p class="event-work-note">製品版は2027年に発売予定。ジャム版はunityroomで今すぐ無料で遊べます</p>
+            </div>
+          </li>
+          <li class="event-work">
+            <img src="/assets/works/pazuholo.webp" alt="ぱずホロ" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/pazuholo/">ぱずホロ（二次創作）</a></p>
+              <p class="event-work-note">ホロライブの二次創作（非公式）</p>
+              <p class="event-work-note">『ぱずホロ』は非公式の二次創作作品です（© 2016 COVER Corp.）</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="event-links">
+          <li><a href="/events/kobe-game-labyrinth-2026/">出展案内</a></li>
+          <li><a href="https://www.ktmg-llc.com/kobegamelabyrinth" target="_blank" rel="noopener noreferrer">公式サイト</a></li>
+        </ul>
+      </article>
+
+      <article class="card event-card" data-date="2026-11-29">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch event-eyecatch--logo">
+          <a href="/news/indie-expo-20260925/"><img src="/assets/expo/kansai-indie-logo-yoko.png" width="720" height="188" alt="関西インディー試遊会inひらかた 公式ロゴ"></a>
+        </figure>
+        <p class="event-date"><time datetime="2026-11-29">2026-11-29（日）</time> 13:00–16:00（12:00–13:00 は関係者・招待者・プレスの先行入場）</p>
         <!-- ひらかたは主催イベントのため詳細はお知らせ正本へ（重複ページを作らない） -->
         <h2 class="event-title"><a href="/news/indie-expo-20260925/">関西インディー試遊会inひらかた</a></h2>
         <dl class="event-meta">
@@ -147,7 +253,10 @@
           <dt>主催</dt>
           <dd>株式会社佐野組</dd>
           <dt>内容</dt>
-          <dd>インディーゲームの展示と、出展者・関係者による意見交流会</dd>
+          <dd>インディーゲームの試遊（13:00〜）と LT（15:00〜）。入場無料</dd>
+          <dt>出展作品</dt>
+          <!-- 件数は data/events/hirakata-2026/exhibitors.json の approval=yes かつ publish=yes（2026-10-14 時点 14作品）。一覧は来場者ページ（tools/expo/build_visit.py で生成） -->
+          <dd data-short="14作品">14作品（<a href="/news/indie-expo-20260925/visit/">来場者向けページで一覧</a>）</dd>
         </dl>
         <ul class="event-links">
           <li><a href="/news/indie-expo-20260925/">お知らせ</a></li>
@@ -158,11 +267,61 @@
 
     </div>
 
+    <section class="events-past" id="past" aria-labelledby="past-title">
+      <h2 class="section-title" id="past-title">過去のイベント</h2>
+      <nav class="events-cal" aria-label="過去のイベント（年月）">
+        <h3 class="events-cal-year">2026年</h3>
+        <ol class="events-cal-months">
+          <li class="events-cal-month"><span class="events-cal-label">10月</span><ul><li><time datetime="2026-10-10">10日</time> <a href="/events/the-indie-fukuoka-2026/">THEインディー展</a></li></ul></li>
+        </ol>
+      </nav>
+      <div class="events-list events-list--past">
+      <article class="card event-card" data-date="2026-10-10">
+        <!-- 公式ロゴ／公式画像の枠（全イベント同じ 16:9 枠・切らない・加工しない）。出典は web/assets/img/events/README.md -->
+        <figure class="event-eyecatch">
+          <a href="/events/the-indie-fukuoka-2026/"><img src="/assets/img/events/the-indie-fukuoka-2026/eyecatch.png" width="1280" height="720" alt="THEインディー展の公式アイキャッチ"></a>
+          <figcaption>画像提供：明星和楽</figcaption>
+        </figure>
+        <p class="event-date"><time datetime="2026-10-10">2026-10-10（土）</time> 11:00–17:00</p>
+        <h2 class="event-title"><a href="/events/the-indie-fukuoka-2026/">THEインディー展</a></h2>
+        <dl class="event-meta">
+          <dt>会場</dt>
+          <dd>エンジニアカフェ・赤煉瓦文化館 2F</dd>
+          <dt>主催</dt>
+          <dd>明星和楽</dd>
+          <dt>出展作品</dt>
+          <dd>ゆめみるサクラの卒業式、ぱずホロ（二次創作）</dd>
+        </dl>
+        <!-- TODO: リポジトリ内に本イベント向けの他タイトルの記載は見当たらず。追加があればここに追記 -->
+        <ul class="event-works">
+          <li class="event-work">
+            <img src="/assets/works/yumemiru-sakura.webp" alt="ゆめみるサクラの卒業式" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/yumemiru-sakura-steam/">ゆめみるサクラの卒業式</a></p>
+            </div>
+          </li>
+          <li class="event-work">
+            <img src="/assets/works/pazuholo.webp" alt="ぱずホロ" width="320" height="180" loading="lazy">
+            <div class="event-work-text">
+              <p class="event-work-title"><a href="/works/pazuholo/">ぱずホロ</a></p>
+              <p class="event-work-note">ホロライブの二次創作（非公式）</p>
+            </div>
+          </li>
+        </ul>
+        <ul class="event-links">
+          <li><a href="/events/the-indie-fukuoka-2026/">出展案内</a></li>
+          <li><a href="https://engineercafe.connpass.com/event/407407/" target="_blank" rel="noopener noreferrer">イベント詳細（connpass）</a></li>
+        </ul>
+      </article>
+      </div>
+    </section>
+
     <p class="event-note">変更や中止の可能性があります。確定情報は各イベントの案内を見てください。</p>
 
     <p class="foot">© 2026 株式会社佐野組</p>
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a><a href="/security/">情報セキュリティ</a></nav><!-- i18n:end footlinks -->
   </main>
   <script src="/assets/js/nav-menu.js" defer></script>
+  <script src="/assets/js/events-timeline.js" defer></script>
 </body>
 </html>

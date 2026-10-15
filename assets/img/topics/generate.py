@@ -124,6 +124,40 @@ SPECS = [
         ],
     },
     {
+        "id": "tokyo-game-dungeon-14",
+        "category": "イベント",
+        "date": "2026-10-31",
+        "date_label": "令和8年10月31日",
+        "title": "東京ゲームダンジョン14",
+        "title_lines": ["東京ゲームダンジョン14"],
+        "subtitle": "浜松町・10/31（土）",
+        "url_label": "sanogumi.biz/events",
+        "layout": "single-art",
+        "arts": [
+            {
+                "src": WEB / "assets/works/primary-bloom.png",
+                "label": "プライマリ・ブルーム",
+            },
+        ],
+    },
+    {
+        "id": "shibuya-game-cross-3",
+        "category": "イベント",
+        "date": "2026-11-03",
+        "date_label": "令和8年11月3日",
+        "title": "SHIBUYA GAME CROSS 3",
+        "title_lines": ["SHIBUYA GAME", "CROSS 3"],
+        "subtitle": "渋谷・11/3（火・祝）",
+        "url_label": "sanogumi.biz/events",
+        "layout": "single-art",
+        "arts": [
+            {
+                "src": WEB / "assets/works/yumemiru-sakura.png",
+                "label": "ゆめみるサクラの卒業式",
+            },
+        ],
+    },
+    {
         "id": "recruit",
         "category": "採用",
         "date": "2026-09-22",
