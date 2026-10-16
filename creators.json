@@ -794,22 +794,22 @@
       ],
       "companyWorks": [
         {
-          "id": "yumemiru-sakura",
-          "slug": "karma",
+          "id": "yumemiru-sakura-steam",
+          "slug": "yumemiru-sakura-steam",
           "title": "ゆめみるサクラの卒業式",
           "alias": "ゆめサクラ",
           "titleEn": "Dreamy Sakura's Graduation Ceremony",
           "kind": "ホラーノベルゲーム",
-          "note": "unityroom版は今すぐ無料で遊べます。",
-          "url": "https://unityroom.com/games/karma",
+          "note": "Steam版（商用版）の開発に参加しました。",
+          "url": "/works/yumemiru-sakura-steam/",
           "image": "assets/works/yumemiru-sakura.webp",
           "imageAlt": "ゆめみるサクラの卒業式",
           "imagePosition": "left",
           "page": "/works/yumemiru-sakura-steam/",
           "links": [
             {
-              "label": "unityroomで遊ぶ",
-              "url": "https://unityroom.com/games/karma"
+              "label": "作品ページ",
+              "url": "/works/yumemiru-sakura-steam/"
             },
             {
               "label": "公式X",
