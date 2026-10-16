@@ -23,6 +23,7 @@
       "成人向け": "Adult (18+)",
       "公式HP": "Official website",
       "所属クリエイター一覧": "All creators",
+      "佐野組で参加した作品": "Titles at Sano-Gumi",
       "代表作": "Featured works",
       "他作品": "Other works",
       "読み込み中…": "Loading…",
@@ -48,6 +49,7 @@
       "成人向け": "成人向（18+）",
       "公式HP": "官方網站",
       "所属クリエイター一覧": "所屬創作者列表",
+      "佐野組で参加した作品": "在佐野組參與的作品",
       "代表作": "代表作",
       "他作品": "其他作品",
       "読み込み中…": "載入中…",
@@ -73,6 +75,7 @@
       "成人向け": "成人向（18+）",
       "公式HP": "官方网站",
       "所属クリエイター一覧": "所属创作者列表",
+      "佐野組で参加した作品": "在佐野组参与的作品",
       "代表作": "代表作",
       "他作品": "其他作品",
       "読み込み中…": "加载中…",
@@ -597,6 +600,15 @@
         profileWrap.appendChild(block);
       });
       section.appendChild(profileWrap);
+    }
+
+    if (Array.isArray(person.companyWorks) && person.companyWorks.length) {
+      section.appendChild(el("h3", null, tl("佐野組で参加した作品")));
+      var comp = el("div", "tile-grid tile-grid--featured");
+      person.companyWorks.forEach(function (work) {
+        comp.appendChild(renderTile(work, true));
+      });
+      section.appendChild(comp);
     }
 
     if (Array.isArray(person.featured) && person.featured.length) {
