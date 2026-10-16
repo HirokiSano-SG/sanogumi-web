@@ -136,6 +136,30 @@
           "url": "https://www.wakuwakugames.com/itsukanoyoru"
         },
         {
+          "id": "makimonogatari",
+          "title": "巻物語 -捲土\"招来\"！ 花札遊宴絵巻-",
+          "url": "https://booth.pm/ja/items/5326922",
+          "role": "开发",
+          "members": [
+            {
+              "name": "嗚呼タマ",
+              "role": "开发"
+            },
+            {
+              "name": "ちゃんばく",
+              "role": "原案、版权"
+            }
+          ],
+          "image": "assets/works/makimonogatari.webp",
+          "imageAlt": "巻物語",
+          "links": [
+            {
+              "label": "在 Booth 下载",
+              "url": "https://booth.pm/ja/items/5326922"
+            }
+          ]
+        },
+        {
           "id": "parasite_ore",
           "title": "俺がいないとダメだろ～ヒモニート伝説～",
           "url": "https://unityroom.com/games/parasite_ore",
@@ -752,6 +776,134 @@
       ],
       "x": "https://x.com/rinsanoSG",
       "xHandle": "rinsanoSG"
+    },
+    {
+      "id": "dotoe",
+      "name": "Dotoe",
+      "role": "游戏创作者（实习生）",
+      "blurb": "作为游戏创作者，从事企划、编程与美术工作。接受编程与像素画的委托。",
+      "profile": [
+        {
+          "label": "读音",
+          "text": "どとえ（Dotoe）"
+        },
+        {
+          "label": "工作咨询",
+          "text": "承接编程与像素画委托。"
+        }
+      ],
+      "companyWorks": [
+        {
+          "id": "yumemiru-sakura-steam",
+          "slug": "yumemiru-sakura-steam",
+          "title": "ゆめみるサクラの卒業式",
+          "alias": "ゆめサクラ",
+          "titleEn": "Dreamy Sakura's Graduation Ceremony",
+          "kind": "恐怖小说游戏",
+          "note": "参与了 Steam 版（商业版）的开发。",
+          "url": "/zh-hans/works/yumemiru-sakura-steam/",
+          "image": "assets/works/yumemiru-sakura.webp",
+          "imageAlt": "ゆめみるサクラの卒業式",
+          "imagePosition": "left",
+          "page": "/zh-hans/works/yumemiru-sakura-steam/",
+          "links": [
+            {
+              "label": "作品页面",
+              "url": "/zh-hans/works/yumemiru-sakura-steam/"
+            },
+            {
+              "label": "官方 X",
+              "url": "https://x.com/yumesakurakarma"
+            }
+          ],
+          "role": "工程师",
+          "members": [
+            {
+              "name": "Dotoe",
+              "role": "工程师"
+            }
+          ]
+        }
+      ],
+      "featured": [
+        {
+          "id": "ikinokore-yusyachan",
+          "slug": "ikinokore-yusyachan",
+          "title": "生きのこれ！勇者ちゃん",
+          "kind": "生存类 Roguelike",
+          "note": "吃下会引发各种异常状态的蘑菇，努力活下去吧！",
+          "url": "https://unityroom.com/games/ikinokore-yusyachan",
+          "image": "assets/creators/ikinokore-yusyachan.webp",
+          "imageAlt": "生きのこれ！勇者ちゃん",
+          "imagePosition": "left",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/ikinokore-yusyachan"
+            }
+          ],
+          "members": [
+            {
+              "name": "Dotoe",
+              "role": "企划、编程"
+            },
+            {
+              "name": "SOUSE",
+              "role": "美术"
+            },
+            {
+              "name": "Orsia",
+              "role": "音效"
+            }
+          ]
+        }
+      ],
+      "works": [
+        {
+          "id": "kiria_and_fish_river",
+          "title": "キリアと魚湧きの池",
+          "url": "https://unityroom.com/games/kiria_and_fish_river",
+          "role": "编程",
+          "image": "assets/creators/kiria_and_fish_river.webp",
+          "imageAlt": "キリアと魚湧きの池",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/kiria_and_fish_river"
+            }
+          ]
+        },
+        {
+          "id": "shaved_ice_gir",
+          "title": "かき氷少女ものがたり",
+          "url": "https://unityroom.com/games/shaved_ice_gir",
+          "role": "编程、美术",
+          "image": "assets/creators/shaved_ice_gir.webp",
+          "imageAlt": "かき氷少女ものがたり",
+          "links": [
+            {
+              "label": "在 unityroom 游玩",
+              "url": "https://unityroom.com/games/shaved_ice_gir"
+            }
+          ]
+        }
+      ],
+      "x": "https://x.com/dotoe_chan",
+      "xHandle": "dotoe_chan",
+      "avatar": "assets/creators/avatars/dotoe.webp",
+      "page": "/zh-hans/creators/dotoe/",
+      "listLinks": [
+        {
+          "label": "@dotoe_chan",
+          "url": "https://x.com/dotoe_chan"
+        }
+      ],
+      "skills": [
+        "企划",
+        "编程",
+        "美术",
+        "像素画"
+      ]
     }
   ]
 }
