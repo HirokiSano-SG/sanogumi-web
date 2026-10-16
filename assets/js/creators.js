@@ -23,7 +23,7 @@
       "成人向け": "Adult (18+)",
       "公式HP": "Official website",
       "所属クリエイター一覧": "All creators",
-      "佐野組で参加した作品": "Titles at Sano-Gumi",
+      "佐野組で参加した作品": "Projects at Sano-Gumi",
       "代表作": "Featured works",
       "他作品": "Other works",
       "読み込み中…": "Loading…",
