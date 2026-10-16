@@ -1,4 +1,4 @@
-/* 関西インディー試遊会inひらかた — 一般来場者向けLP（/news/indie-expo-20260925/visit/）
+/* 関西インディー試遊会inひらかた — 一般来場者向けLP（/events/kansai-indie-shiyukai-1/visit/）
    expo.css の上に重ねる。.expo-visit の中だけに効かせる。
    色はチラシ（一般来場者向け v2）に合わせる: 紺 #223066 / 濃紺 #161f45 / 空 #accbec / 橙 #f66e23 */
 
@@ -242,3 +242,74 @@
   .va-map, .va-map .expo-btn { width: 100%; }
   .vm .expo-btn { width: 100%; }
 }
+
+/* ---------- イベントのハブ（/events/kansai-indie-shiyukai-1/）。LP の要約だけ ---------- */
+.hb-crumb { max-width: 68rem; margin-left: auto; margin-right: auto; }
+.expo-hub .hb-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 0; }
+.expo-hub .hb-card { display: flex; flex-direction: column; gap: 0.55rem; padding: 1.4rem 1.5rem 1.25rem; border-radius: 16px; text-decoration: none; color: inherit; box-shadow: 0 0 0 2px var(--line); background: #fff; border-top: 6px solid var(--navy); transition: box-shadow .15s, transform .15s; }
+.expo-hub .hb-card.exhibit { border-top-color: var(--orange); }
+.expo-hub .hb-card:hover { color: inherit; box-shadow: 0 0 0 2px var(--navy); transform: translateY(-2px); }
+.expo-hub .hb-k { font-size: 1.3rem; font-weight: 900; letter-spacing: 0.06em; color: var(--navy); }
+.expo-hub .hb-k .en { margin-left: 0.6rem; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--orange); }
+.expo-hub .hb-p { font-size: 0.95rem; line-height: 1.75; word-break: auto-phrase; }
+.expo-hub .hb-go { margin-top: auto; align-self: flex-start; padding: 0.55rem 1.1rem; border-radius: 999px; background: var(--navy); color: #fff; font-weight: 700; font-size: 0.95rem; }
+.expo-hub .hb-card.exhibit .hb-go { background: var(--orange); }
+.expo-hub .hg-n { margin: 0 0 0.9rem; font-size: 0.95rem; }
+.expo-hub .hg-n b { font-size: 1.3rem; color: var(--navy); margin: 0 0.1rem; }
+.expo-hub .hg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 0.75rem; }
+.expo-hub .hg-i { margin: 0; display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1.5px var(--line); background: #fff; }
+.expo-hub .hg-i .vg-ph { aspect-ratio: 16 / 9; overflow: hidden; background: var(--wash); }
+.expo-hub .hg-i .vg-ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.expo-hub .hg-t { padding: 0.4rem 0.55rem 0.5rem; font-size: 0.8rem; font-weight: 700; line-height: 1.4; word-break: auto-phrase; }
+.expo-hub .hg-more { margin: 1.1rem 0 0; text-align: center; }
+.expo-hub .hb-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.expo-hub .hb-box { padding: 1.2rem 1.4rem; border-radius: 16px; background: var(--wash); }
+.expo-hub .hb-box .expo-h { margin-top: 0; }
+.expo-hub .hb-box p { margin: 0.4rem 0 0; line-height: 1.8; }
+.expo-hub .hb-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-weight: 700; }
+.expo-hub .hb-cr { margin-top: 1rem; text-align: right; font-size: 0.8rem; color: var(--muted, #5c5c5c); }
+@media (max-width: 40rem) {
+  .expo-hub .hb-cta, .expo-hub .hb-info { grid-template-columns: 1fr; }
+  .expo-hub .hg { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- 公式表記（コピー用。ハブと来場者LP） ---------- */
+.expo-visit .ot-lead { margin: 0 0 0.9rem; font-size: 0.95rem; word-break: auto-phrase; }
+.expo-visit .ot-dl { display: block; margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 2px var(--line); background: #fff; }
+.expo-visit .ot-row { display: grid; grid-template-columns: 8.5rem 1fr; border-top: 1px solid var(--line); }
+.expo-visit .ot-row:first-child { border-top: 0; }
+.expo-visit .ot-row dt { margin: 0; padding: 0.85rem 1rem; background: var(--wash); font-size: 0.85rem; font-weight: 700; color: var(--navy); letter-spacing: 0.06em; }
+.expo-visit .ot-row dd { margin: 0; padding: 0.6rem 0.75rem 0.6rem 1rem; display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+.expo-visit .ot-v { flex: 1; min-width: 0; font-weight: 700; line-height: 1.6; overflow-wrap: anywhere; user-select: all; }
+.expo-visit .ot-btn { flex: none; padding: 0.4rem 0.9rem; border: 1.5px solid var(--navy); border-radius: 999px; background: #fff; color: var(--navy); font: inherit; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.expo-visit .ot-btn:hover { background: var(--navy); color: #fff; }
+.expo-visit .ot-btn.is-done { background: var(--orange); border-color: var(--orange); color: #fff; }
+.expo-visit .ot-all { margin-top: 1rem; }
+.expo-visit .ot-all-h { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin: 0 0 0.5rem; font-weight: 700; color: var(--navy); }
+.expo-visit .ot-ta { display: block; width: 100%; box-sizing: border-box; padding: 0.85rem 1rem; border: 0; border-radius: 12px; box-shadow: 0 0 0 2px var(--line); background: var(--wash); font: inherit; font-size: 0.92rem; line-height: 1.7; resize: vertical; color: inherit; }
+.expo-visit .ot-more { margin: 0.75rem 0 0; font-size: 0.9rem; }
+@media (max-width: 40rem) {
+  .expo-visit .ot-row { grid-template-columns: 1fr; }
+  .expo-visit .ot-row dt { padding: 0.45rem 0.9rem; }
+  .expo-visit .ot-row dd { padding: 0.55rem 0.6rem 0.65rem 0.9rem; }
+}
+@media (max-width: 40rem) { .expo-visit .ot-ta { min-height: 14rem; font-size: 0.85rem; } }
+
+/* ---------- 公式ロゴの配布（ハブ） ---------- */
+.expo-hub .ol-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.expo-hub .ol-i { margin: 0; padding: 1rem; border-radius: 16px; box-shadow: 0 0 0 2px var(--line); background: #fff; display: flex; flex-direction: column; gap: 0.6rem; }
+.expo-hub .ol-ph { display: flex; align-items: center; justify-content: center; aspect-ratio: 3 / 1; padding: 0.75rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.expo-hub .ol-ph--clear { background-color: #fff; background-image: linear-gradient(45deg, #e9edf3 25%, transparent 25%, transparent 75%, #e9edf3 75%), linear-gradient(45deg, #e9edf3 25%, transparent 25%, transparent 75%, #e9edf3 75%); background-size: 16px 16px; background-position: 0 0, 8px 8px; }
+.expo-hub .ol-ph img { display: block; max-width: 100%; height: auto; }
+.expo-hub .ol-k { margin: 0; font-weight: 700; color: var(--navy); }
+.expo-hub .ol-k span { display: block; font-size: 0.82rem; font-weight: 400; color: #5c5c5c; }
+.expo-hub .ol-dl { margin: 0; }
+.expo-hub .ol-rule { margin-top: 1rem; padding: 1rem 1.4rem; border-radius: 16px; background: var(--wash); }
+.expo-hub .ol-rule-h { margin: 0 0 0.4rem; font-weight: 700; color: var(--navy); }
+.expo-hub .ol-rule ul { margin: 0; padding-left: 1.2em; }
+.expo-hub .ol-rule li { margin: 0.25rem 0; line-height: 1.75; word-break: auto-phrase; }
+.expo-hub .ol-cr { margin: 0.6rem 0 0; font-size: 0.9rem; }
+@media (max-width: 40rem) { .expo-hub .ol-list { grid-template-columns: 1fr; } }
+.expo-hub .ol-ph--sq { aspect-ratio: auto; height: 12rem; }
+.expo-hub .ol-ph--sq img { max-height: 100%; width: auto; }
+.expo-visit .vo-cr a { color: inherit; }
