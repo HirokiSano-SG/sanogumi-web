@@ -158,6 +158,10 @@
 .expo .vg-l { margin: auto 0 0; padding-top: 0.55rem; font-size: 0.82rem; font-weight: 700; line-height: 1.6; height: calc(0.55rem + 1.6em); }
 .vg-l a { display: inline-flex; gap: 0.25rem; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
 .expo-visit .vg-l a:hover { color: var(--sky); border-color: var(--sky); }
+/* リンクが複数ある作品（台帳の links）：2つ目以降は詰めて並べ、長いラベルはカード内で折り返す */
+.expo .vg-l:has(+ .vg-l) { height: auto; }
+.expo .vg-l + .vg-l { margin-top: 0; padding-top: 0.2rem; height: auto; }
+.expo .vg-l:has(+ .vg-l) a, .expo .vg-l + .vg-l a { display: inline; overflow-wrap: anywhere; }
 .vg-ast { font-size: 0.65em; font-weight: 700; margin-left: 0.1em; vertical-align: super; line-height: 0; }
 .expo .vg-asof { margin: 0.1rem 0 0; font-size: 0.9rem; color: var(--muted, #5c5c5c); word-break: auto-phrase; }
 .vg-notes { margin: 1rem 0 0; font-size: 0.85rem; color: var(--muted, #5c5c5c); line-height: 1.7; }
