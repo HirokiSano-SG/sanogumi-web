@@ -1,6 +1,15 @@
 {
   "topics": [
     {
+      "id": "yumesakura-steam",
+      "date": "2026-10-24",
+      "dateLabel": "令和8年10月24日",
+      "title": "『ゆめみるサクラの卒業式』Steam版を発売しました",
+      "url": "/news/yumesakura-steam-20261022/",
+      "image": "/assets/img/topics/yumesakura-steam.webp",
+      "imageAlt": "ゆめみるサクラの卒業式"
+    },
+    {
       "id": "events",
       "date": "2026-10-05",
       "dateLabel": "令和8年10月5日",

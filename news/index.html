@@ -19,7 +19,8 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/news.css?v=4">
+  <link rel="stylesheet" href="/assets/css/events.css">
+  <link rel="stylesheet" href="/assets/css/news.css?v=5">
   <!-- i18n:begin head --><link rel="stylesheet" href="/assets/css/i18n.css?v=2"><!-- i18n:end head -->
   <!-- seo:begin head -->
   <link rel="canonical" href="https://www.sanogumi.biz/news/">
@@ -75,29 +76,87 @@
     <h1 class="page-title">お知らせ</h1>
     <p class="page-lead">会社からのお知らせです。</p>
     <p class="news-note">決算公告など会社法上の掲載は、<a href="/#notice">電子公告（法定）</a>を見てください。ここはお知らせです。</p>
-    <div class="news-index">
-      <article class="card news-index-card">
-        <h2 class="news-index-title"><a href="/news/youtube-20260928/">株式会社佐野組 公式YouTubeチャンネルを開設しました</a></h2>
-        <p class="blog-dates"><span>掲載 <time datetime="2026-09-28">令和8年9月28日</time></span></p>
-        <p class="news-index-lead">公式YouTubeチャンネル @KK_SanoGumi を開設しました。</p>
-      </article>
-      <article class="card news-index-card">
-        <h2 class="news-index-title"><a href="/news/indie-expo-20260925/">11月29日（日）「関西インディー試遊会inひらかた」（インディーゲーム展示会・意見交流会）を予定しています</a></h2>
-        <p class="blog-dates"><span>掲載 <time datetime="2026-09-25">令和8年9月25日</time></span></p>
-        <p class="news-index-lead">小規模なインディーゲームの展示会と意見交流会を予定しています。一般の方は16:00のLT終了までです。意見交流会は出展者・LTの発表者・関係者です。日程・会場・当日の流れは確定しています。出展者（会場出展・代理展示・リモート参加）を募集しています。</p>
-        <p class="news-index-lead"><a href="/events/kansai-indie-shiyukai-1/exhibit/">出展者募集ページ</a>　<a href="/events/kansai-indie-shiyukai-1/terms/">出展規約</a></p>
-      </article>
-      <article class="card news-index-card">
-        <h2 class="news-index-title"><a href="/news/recruit-20260922/">開発アルバイト・インターンの募集を始めました</a></h2>
-        <p class="blog-dates"><span>掲載 <time datetime="2026-09-22">令和8年9月22日</time></span></p>
-        <p class="news-index-lead">自社ゲームタイトルの開発を補助するアルバイト、または実務のあるインターンを募集しています。</p>
-      </article>
-      <article class="card news-index-card">
-        <h2 class="news-index-title"><a href="/news/official-x-20260831/">会社公式X（エックス）を開設しました</a></h2>
-        <p class="blog-dates"><span>掲載 <time datetime="2026-09-07">令和8年9月7日</time></span><span>開設 <time datetime="2026-08-31">令和8年8月31日</time></span></p>
-        <p class="news-index-lead">公式アカウント @KK_SanoGumi を開設しました。</p>
-      </article>
-    </div>
+    <section class="news-topics" aria-labelledby="news-topics-heading">
+      <h2 id="news-topics-heading" class="news-section-title">新着</h2>
+      <div data-prerendered data-topics data-topics-src="/assets/data/topics.json" data-topics-limit="4">
+        <div class="topics-list">
+              <article class="card topics-card">
+                <a class="topics-card-link" href="/news/yumesakura-steam-20261022/">
+                  <div class="topics-visual">
+                    <img src="/assets/img/topics/yumesakura-steam.webp" alt="ゆめみるサクラの卒業式" width="1200" height="630" loading="lazy">
+                  </div>
+                  <div class="topics-body">
+                    <p class="topics-date"><time datetime="2026-10-24">令和8年10月24日</time></p>
+                    <h3 class="topics-title">『ゆめみるサクラの卒業式』Steam版を発売しました</h3>
+                  </div>
+                </a>
+              </article>
+              <article class="card topics-card">
+                <a class="topics-card-link" href="/events/">
+                  <div class="topics-visual">
+                    <img src="/assets/img/topics/events.webp" alt="今後のイベント出展" width="1200" height="630" loading="lazy">
+                  </div>
+                  <div class="topics-body">
+                    <p class="topics-date"><time datetime="2026-10-05">令和8年10月5日</time></p>
+                    <h3 class="topics-title">今後のイベント出展</h3>
+                  </div>
+                </a>
+              </article>
+              <article class="card topics-card">
+                <a class="topics-card-link" href="/news/youtube-20260928/">
+                  <div class="topics-visual">
+                    <img src="/assets/img/topics/youtube.webp" alt="公式YouTubeチャンネルを開設" width="1200" height="630" loading="lazy">
+                  </div>
+                  <div class="topics-body">
+                    <p class="topics-date"><time datetime="2026-09-28">令和8年9月28日</time></p>
+                    <h3 class="topics-title">株式会社佐野組 公式YouTubeチャンネルを開設しました</h3>
+                  </div>
+                </a>
+              </article>
+              <article class="card topics-card">
+                <a class="topics-card-link" href="/news/indie-expo-20260925/">
+                  <div class="topics-visual">
+                    <img src="/assets/img/topics/hirakata.webp" alt="関西インディー試遊会inひらかた" width="1200" height="630" loading="lazy">
+                  </div>
+                  <div class="topics-body">
+                    <p class="topics-date"><time datetime="2026-09-25">令和8年9月25日</time></p>
+                    <h3 class="topics-title">11月29日（日）「関西インディー試遊会inひらかた」を予定しています</h3>
+                  </div>
+                </a>
+              </article>
+        </div>
+      </div>
+    </section>
+    <section class="news-all" aria-labelledby="news-all-heading">
+      <h2 id="news-all-heading" class="news-section-title">お知らせ一覧</h2>
+      <ul class="news-list">
+        <li class="news-row">
+          <time class="news-row-date" datetime="2026-10-24">令和8年10月24日</time>
+          <span class="news-cat news-cat--work">作品</span>
+          <a class="news-row-title" href="/news/yumesakura-steam-20261022/">『ゆめみるサクラの卒業式』Steam版を発売しました</a>
+        </li>
+        <li class="news-row">
+          <time class="news-row-date" datetime="2026-09-28">令和8年9月28日</time>
+          <span class="news-cat news-cat--company">会社</span>
+          <a class="news-row-title" href="/news/youtube-20260928/">株式会社佐野組 公式YouTubeチャンネルを開設しました</a>
+        </li>
+        <li class="news-row">
+          <time class="news-row-date" datetime="2026-09-25">令和8年9月25日</time>
+          <span class="news-cat news-cat--event">イベント</span>
+          <a class="news-row-title" href="/news/indie-expo-20260925/">11月29日（日）「関西インディー試遊会inひらかた」（インディーゲーム展示会・意見交流会）を予定しています</a>
+        </li>
+        <li class="news-row">
+          <time class="news-row-date" datetime="2026-09-22">令和8年9月22日</time>
+          <span class="news-cat news-cat--recruit">採用</span>
+          <a class="news-row-title" href="/news/recruit-20260922/">開発アルバイト・インターンの募集を始めました</a>
+        </li>
+        <li class="news-row">
+          <time class="news-row-date" datetime="2026-09-07">令和8年9月7日</time>
+          <span class="news-cat news-cat--company">会社</span>
+          <a class="news-row-title" href="/news/official-x-20260831/">会社公式X（エックス）を開設しました</a>
+        </li>
+      </ul>
+    </section>
     <p class="foot">© 2026 株式会社佐野組</p>
     <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a><a href="/security/">情報セキュリティ</a></nav><!-- i18n:end footlinks -->
   </main>

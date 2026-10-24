@@ -17,6 +17,10 @@
           "platforms": "Steam",
           "links": [
             {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/5292500/"
+            },
+            {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
@@ -53,6 +57,44 @@
       ]
     },
     {
+      "id": "primary-bloom",
+      "title": "Primary Bloom（プライマリ・ブルーム）",
+      "titleEn": "Primary Bloom",
+      "blurb": "因高度 AI 技术的发展而大幅改变的世界。主角 Xania 是唯一一人，为了找回由人类亲手创造的植物而持续研究。在房间里培育植物，再把绽放的花朵通过社交网站分享给全世界，是一款像素风・横向卷轴的科幻×园艺模拟游戏。",
+      "image": "/assets/works/primary-bloom.webp",
+      "imageAlt": "Primary Bloom（プライマリ・ブルーム）",
+      "kind": "像素风・横向卷轴的科幻×园艺模拟游戏",
+      "home": true,
+      "page": "/works/primary-bloom/",
+      "editions": [
+        {
+          "label": "正式版（预计2027年发售）",
+          "platforms": "Steam（Windows / Mac / Linux）",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/Primary_Bloom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pazuholo",
+      "title": "ぱずホロ",
+      "blurb": "『ぱずホロ』是非官方的二次创作作品。",
+      "image": "/assets/works/pazuholo.webp",
+      "imageAlt": "ぱずホロ",
+      "kind": "在三种操作模式间切换的休闲益智游戏",
+      "home": true,
+      "page": "/works/pazuholo/",
+      "editions": [
+        {
+          "label": "开发中・非官方二次创作（hololive production）"
+        }
+      ]
+    },
+    {
       "id": "praefatio-conii",
       "title": "プラーエファティオ・コニィ",
       "alias": "プラコニ",
@@ -77,7 +119,9 @@
           "label": "X",
           "url": "https://x.com/praconii"
         }
-      ]
+      ],
+      "image": "/assets/works/praefatio-conii-placeholder.webp",
+      "imageAlt": "Praefatio CoNii（图片准备中）"
     }
   ]
 }

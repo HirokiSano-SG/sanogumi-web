@@ -133,3 +133,67 @@
 }
 .news-bio-quote p:first-child { margin-top: 0; }
 .news-bio-quote p:last-child { margin-bottom: 0; }
+
+/* お知らせ一覧：上に新着カード（トップと同じ topics カード）、下に一覧（日付・種類・題名） */
+.news-section-title {
+  margin: 2rem 0 0.9rem;
+  font-size: 1.05rem;
+}
+
+.news-topics .topics-list {
+  margin-bottom: 0.5rem;
+}
+
+.news-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 9.5em 5.5em 1fr;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.85rem 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.news-row-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.news-cat {
+  display: inline-block;
+  justify-self: start;
+  padding: 0.05rem 0.55rem;
+  border: 1px solid var(--ink);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.news-cat--work { border-color: var(--seal); color: var(--seal); }
+
+.news-row-title {
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.news-row-title:hover,
+.news-row-title:focus-visible {
+  color: var(--seal);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .news-row {
+    grid-template-columns: auto 1fr;
+    padding: 0.8rem 0;
+  }
+  .news-row-title { grid-column: 1 / -1; }
+}

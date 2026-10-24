@@ -36,6 +36,9 @@ CHROMES = (
     "chromium",
     "chromium-browser",
     "chrome",
+    "msedge",  # Windows の Edge（Chromium）。PATH に無いときは下の既定の場所を見る
+    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    r"C:\Program Files\Google\Chrome\Application\chrome.exe",
 )
 
 # 事実は topics / 記事に合わせる。文言は短く、カード幅でも読めるサイズで描く。
@@ -113,7 +116,7 @@ SPECS = [
         "date_label": "令和8年10月24日",
         "title": "DREAMSCAPE#5",
         "title_lines": ["DREAMSCAPE#5"],
-        "subtitle": "東京国際フォーラム E2ホール",
+        "subtitle": "10/24（土）13:00–19:00・国際フォーラムE2",
         "url_label": "sanogumi.biz/events",
         "layout": "single-art",
         "arts": [
@@ -129,11 +132,15 @@ SPECS = [
         "date": "2026-10-31",
         "date_label": "令和8年10月31日",
         "title": "東京ゲームダンジョン14",
-        "title_lines": ["東京ゲームダンジョン14"],
-        "subtitle": "浜松町・10/31（土）",
+        "title_lines": ["東京ゲーム", "ダンジョン14"],
+        "subtitle": "10/31（土）11:00–17:00・浜松町館",
         "url_label": "sanogumi.biz/events",
-        "layout": "single-art",
+        "layout": "dual-art",
         "arts": [
+            {
+                "src": WEB / "assets/works/yumemiru-sakura.png",
+                "label": "ゆめみるサクラの卒業式",
+            },
             {
                 "src": WEB / "assets/works/primary-bloom.png",
                 "label": "プライマリ・ブルーム",
@@ -145,9 +152,26 @@ SPECS = [
         "category": "イベント",
         "date": "2026-11-03",
         "date_label": "令和8年11月3日",
-        "title": "SHIBUYA GAME CROSS 3",
-        "title_lines": ["SHIBUYA GAME", "CROSS 3"],
-        "subtitle": "渋谷・11/3（火・祝）",
+        "title": "SHIBUYA GAME CROSS",
+        "title_lines": ["SHIBUYA", "GAME CROSS"],
+        "subtitle": "11/3（火・祝）12:00–18:00・渋谷サクラステージ",
+        "url_label": "sanogumi.biz/events",
+        "layout": "single-art",
+        "arts": [
+            {
+                "src": WEB / "assets/works/yumemiru-sakura.png",
+                "label": "ゆめみるサクラの卒業式",
+            },
+        ],
+    },
+    {
+        "id": "kobe-game-labyrinth-2026",
+        "category": "イベント",
+        "date": "2026-11-21",
+        "date_label": "令和8年11月21日",
+        "title": "神戸ゲームラビリンス2026",
+        "title_lines": ["神戸ゲーム", "ラビリンス2026"],
+        "subtitle": "11/21（土）11:00–17:00・神戸電子専門学校",
         "url_label": "sanogumi.biz/events",
         "layout": "single-art",
         "arts": [
@@ -181,13 +205,13 @@ def font_faces(font_dir: Path | None) -> str:
             if p.is_file():
                 out.append(
                     f'@font-face{{font-family:"{fam}";font-weight:{wt};'
-                    f'src:url("file://{p}")}}'
+                    f'src:url("{p.resolve().as_uri()}")}}'
                 )
     return "\n".join(out)
 
 
 def file_url(path: Path) -> str:
-    return "file://" + str(path.resolve())
+    return path.resolve().as_uri()  # Windows でも file:///C:/... になる
 
 
 def art_panel(arts: list[dict]) -> str:
@@ -420,7 +444,7 @@ body{{
 
 
 def shoot(html_path: Path, png_path: Path) -> None:
-    chrome = next((c for c in CHROMES if shutil.which(c)), None)
+    chrome = next((c for c in CHROMES if shutil.which(c) or os.path.isfile(c)), None)
     if not chrome:
         sys.exit("Chrome（Chromium）が見つかりません。")
     subprocess.run(
@@ -435,7 +459,7 @@ def shoot(html_path: Path, png_path: Path) -> None:
             "--virtual-time-budget=8000",
             "--allow-file-access-from-files",
             f"--screenshot={png_path}",
-            "file://" + str(html_path),
+            html_path.resolve().as_uri(),
         ],
         check=True,
         capture_output=True,

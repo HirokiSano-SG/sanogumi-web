@@ -17,6 +17,10 @@
           "platforms": "Steam",
           "links": [
             {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/5292500/"
+            },
+            {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
@@ -53,6 +57,44 @@
       ]
     },
     {
+      "id": "primary-bloom",
+      "title": "Primary Bloom",
+      "titleEn": "Primary Bloom",
+      "blurb": "A world transformed by the rise of advanced AI. Xania, the only one left, continues her research to bring back plants created by human hands. Grow plants in your room and share the flowers that bloom with the world on social media in this pixel-art, side-scrolling sci-fi gardening simulation.",
+      "image": "/assets/works/primary-bloom.webp",
+      "imageAlt": "Primary Bloom",
+      "kind": "A pixel-art, side-scrolling sci-fi gardening simulation",
+      "home": true,
+      "page": "/works/primary-bloom/",
+      "editions": [
+        {
+          "label": "Full release (planned for 2027)",
+          "platforms": "Steam (Windows / Mac / Linux)",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/Primary_Bloom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pazuholo",
+      "title": "ぱずホロ",
+      "blurb": "“ぱずホロ” is an unofficial fan-made work.",
+      "image": "/assets/works/pazuholo.webp",
+      "imageAlt": "ぱずホロ",
+      "kind": "A casual puzzle game that switches between three control modes",
+      "home": true,
+      "page": "/works/pazuholo/",
+      "editions": [
+        {
+          "label": "In development; an unofficial fan-made work (hololive production)"
+        }
+      ]
+    },
+    {
       "id": "praefatio-conii",
       "title": "Praefatio CoNii",
       "alias": "PraCoNi",
@@ -77,7 +119,9 @@
           "label": "X",
           "url": "https://x.com/praconii"
         }
-      ]
+      ],
+      "image": "/assets/works/praefatio-conii-placeholder.webp",
+      "imageAlt": "Praefatio CoNii (image coming soon)"
     }
   ]
 }

@@ -17,6 +17,10 @@
           "platforms": "Steam",
           "links": [
             {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/5292500/"
+            },
+            {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
@@ -53,6 +57,44 @@
       ]
     },
     {
+      "id": "primary-bloom",
+      "title": "プライマリ・ブルーム",
+      "titleEn": "Primary Bloom",
+      "blurb": "高度なAI技術の発展により、大きく変化した世界。主人公のザニアはただ一人、人の手から生み出された植物たちを取り戻すため、研究を続けています。部屋で植物を育て、咲いた花をSNSで世界に広めていく、ドット絵・横スクロールのSF×ガーデンシミュレーションです。",
+      "image": "/assets/works/primary-bloom.webp",
+      "imageAlt": "プライマリ・ブルーム",
+      "kind": "ドット絵・横スクロールのSF×ガーデンシミュレーション",
+      "home": true,
+      "page": "/works/primary-bloom/",
+      "editions": [
+        {
+          "label": "製品版（2027年 発売予定）",
+          "platforms": "Steam（Windows / Mac / Linux）",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/Primary_Bloom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pazuholo",
+      "title": "ぱずホロ",
+      "blurb": "『ぱずホロ』は非公式の二次創作作品です",
+      "image": "/assets/works/pazuholo.webp",
+      "imageAlt": "ぱずホロ",
+      "kind": "3つの操作モードが切り替わるカジュアルパズル",
+      "home": true,
+      "page": "/works/pazuholo/",
+      "editions": [
+        {
+          "label": "開発中・非公式の二次創作（ホロライブプロダクション）"
+        }
+      ]
+    },
+    {
       "id": "praefatio-conii",
       "title": "プラーエファティオ・コニィ",
       "alias": "プラコニ",
@@ -77,45 +119,9 @@
           "label": "X",
           "url": "https://x.com/praconii"
         }
-      ]
-    },
-    {
-      "id": "pazuholo",
-      "title": "ぱずホロ",
-      "blurb": "『ぱずホロ』は非公式の二次創作作品です",
-      "image": "/assets/works/pazuholo.webp",
-      "imageAlt": "ぱずホロ",
-      "kind": "3つの操作モードが切り替わるカジュアルパズル",
-      "home": true,
-      "page": "/works/pazuholo/",
-      "editions": [
-        {
-          "label": "開発中・非公式の二次創作（ホロライブプロダクション）"
-        }
-      ]
-    },
-    {
-      "id": "primary-bloom",
-      "title": "プライマリ・ブルーム",
-      "titleEn": "Primary Bloom",
-      "blurb": "高度なAI技術の発展により、大きく変化した世界。主人公のザニアはただ一人、人の手から生み出された植物たちを取り戻すため、研究を続けています。部屋で植物を育て、咲いた花をSNSで世界に広めていく、ドット絵・横スクロールのSF×ガーデンシミュレーションです。",
-      "image": "/assets/works/primary-bloom.webp",
-      "imageAlt": "プライマリ・ブルーム",
-      "kind": "ドット絵・横スクロールのSF×ガーデンシミュレーション",
-      "home": true,
-      "page": "/works/primary-bloom/",
-      "editions": [
-        {
-          "label": "製品版（2027年 発売予定）",
-          "platforms": "Steam（Windows / Mac / Linux）",
-          "links": [
-            {
-              "label": "X",
-              "url": "https://x.com/Primary_Bloom"
-            }
-          ]
-        }
-      ]
+      ],
+      "image": "/assets/works/praefatio-conii-placeholder.webp",
+      "imageAlt": "プラーエファティオ・コニィ（画像は準備中）"
     }
   ]
 }

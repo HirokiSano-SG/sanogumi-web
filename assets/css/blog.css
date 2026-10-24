@@ -136,14 +136,50 @@
   white-space: pre;
 }
 
+/* ブログ一覧：OGP 画像つきのカードを並べる（スマホは 1 列、広い画面は自動で 2〜3 列）。
+   カード全体が押せる（題のリンクの ::after をカードいっぱいに広げる）。タグのボタンはその上に出す */
 .blog-index {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
   margin: 0 0 2rem;
 }
 
 .blog-index-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  min-width: 0;
+}
+.blog-index-card:hover,
+.blog-index-card:focus-within {
+  border-color: var(--ink);
+}
+.blog-index-card:hover .blog-index-title a {
+  color: var(--seal);
+}
+/* seo.py が <!-- seo:begin thumb --> に入れる記事の OGP 画像。カードの余白ぶんを広げて、上いっぱいに置く */
+.blog-index-visual {
+  margin: -1.25rem -1.35rem 0.95rem;
+  border-bottom: 1px solid var(--rule);
+  background: #f4f5f7;
+}
+.blog-index-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+}
+.blog-index-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.blog-index-card .blog-tags {
+  position: relative;
+  z-index: 1;
 }
 
 .blog-index-title {
@@ -170,6 +206,13 @@
 
 .blog-index-lead {
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
 .blog-dates {
@@ -631,6 +674,82 @@ button.blog-share-btn:hover .blog-share-icon--copy {
   .blog-share .blog-share-fedi-row .blog-share-link {
     flex: 1 1 0;
   }
+}
+
+/* 「関連記事」「人気の記事」（seo.py が入れる。記事末尾は <!-- seo:begin related -->、一覧は <div data-blog-popular>）。
+   画像つきの小さいカード。並びは自動で 1〜4 列 */
+.blog-more {
+  margin: 2.5rem 0 0;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule);
+}
+.blog-more + .blog-more {
+  margin-top: 2rem;
+}
+.blog-more-title {
+  margin-bottom: 1rem;
+}
+.blog-mini-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+.blog-mini {
+  margin: 0;
+  min-width: 0;
+}
+.blog-mini-link {
+  display: block;
+  height: 100%;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  text-decoration: none;
+}
+.blog-mini-link:hover,
+.blog-mini-link:focus-visible {
+  border-color: var(--ink);
+  color: var(--seal);
+}
+.blog-mini-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  border-bottom: 1px solid var(--rule);
+  background: #f4f5f7;
+}
+.blog-mini-body {
+  display: block;
+  padding: 0.7rem 0.85rem 0.85rem;
+}
+.blog-mini-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.blog-mini-date {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+/* 一覧の上の「人気の記事」。検索・タグで絞っている間は隠す（blog-filter.js） */
+[data-blog-popular] .blog-more {
+  margin: 0 0 2rem;
+  padding-top: 0;
+  border-top: 0;
+}
+[data-blog-popular].is-hidden {
+  display: none;
+}
+.blog-index-heading {
+  margin: 0 0 1rem;
 }
 
 /* ブログ一覧の RSS リンク */

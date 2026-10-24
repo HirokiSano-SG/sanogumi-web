@@ -1,0 +1,8 @@
+{
+  "_note": "ブログ一覧の上と記事末尾に出す「人気の記事」の正本。slugs を上から順に出す（slug は web/blog/<slug>/ の名前）。直したら python3 tools/web-i18n/seo.py web を流す。いまは手で並べた仮の並び。アクセス数の数字（GA4 など）が取れるようになったら、そこから作り直す。空にすると「人気の記事」は出ない。",
+  "slugs": [
+    "steam-assets-spec-20261013",
+    "x-header-icon-spec-20261003",
+    "gh-project-ratelimit-20260907"
+  ]
+}

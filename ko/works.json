@@ -17,6 +17,10 @@
           "platforms": "Steam",
           "links": [
             {
+              "label": "Steam",
+              "url": "https://store.steampowered.com/app/5292500/"
+            },
+            {
               "label": "X",
               "url": "https://x.com/yumesakurakarma"
             }
@@ -53,6 +57,44 @@
       ]
     },
     {
+      "id": "primary-bloom",
+      "title": "Primary Bloom",
+      "titleEn": "Primary Bloom",
+      "blurb": "고도의 AI 기술 발전으로 크게 달라진 세계. 주인공 자니아는 단 한 사람, 사람의 손으로 만들어진 식물들을 되찾기 위해 연구를 이어 갑니다. 방에서 식물을 키우고, 피어난 꽃을 SNS로 세상에 퍼뜨리는 도트 그래픽・횡스크롤 SF×가든 시뮬레이션입니다.",
+      "image": "/assets/works/primary-bloom.webp",
+      "imageAlt": "Primary Bloom",
+      "kind": "도트 그래픽・횡스크롤 SF×가든 시뮬레이션",
+      "home": true,
+      "page": "/works/primary-bloom/",
+      "editions": [
+        {
+          "label": "정식 버전(2027년 발매 예정)",
+          "platforms": "Steam (Windows / Mac / Linux)",
+          "links": [
+            {
+              "label": "X",
+              "url": "https://x.com/Primary_Bloom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pazuholo",
+      "title": "ぱずホロ",
+      "blurb": "『ぱずホロ』는 비공식 2차 창작 작품입니다.",
+      "image": "/assets/works/pazuholo.webp",
+      "imageAlt": "ぱずホロ",
+      "kind": "세 가지 조작 모드가 전환되는 캐주얼 퍼즐",
+      "home": true,
+      "page": "/works/pazuholo/",
+      "editions": [
+        {
+          "label": "개발 중・비공식 2차 창작(hololive production)"
+        }
+      ]
+    },
+    {
       "id": "praefatio-conii",
       "title": "Praefatio CoNii",
       "alias": "プラコニ",
@@ -77,7 +119,9 @@
           "label": "X",
           "url": "https://x.com/praconii"
         }
-      ]
+      ],
+      "image": "/assets/works/praefatio-conii-placeholder.webp",
+      "imageAlt": "Praefatio CoNii (이미지 준비 중)"
     }
   ]
 }
