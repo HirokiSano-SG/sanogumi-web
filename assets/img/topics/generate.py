@@ -182,6 +182,31 @@ SPECS = [
         ],
     },
     {
+        "id": "kyomaf-creative-2026",
+        "category": "イベント",
+        "date": "2026-11-21",
+        "date_label": "令和8年11月21日",
+        "title": "京まふCREATIVE文化祭",
+        "title_lines": ["京まふCREATIVE", "文化祭"],
+        "subtitle": "11/21（土）11:00–17:00・京都駅前",
+        "url_label": "sanogumi.biz/events",
+        "layout": "dual-art",
+        "arts": [
+            {
+                "src": WEB / "assets/works/yumemiru-sakura.png",
+                "label": "ゆめみるサクラの卒業式",
+                "fit": "contain",
+                "bg": "#fbe6ef",
+            },
+            {
+                "src": WEB / "assets/img/events/kyomaf-creative-2026/pazuholo-kv.png",  # 余白調整版（kv_nologo）。顔を切らない
+                "label": "ぱずホロ（二次創作）",
+                "fit": "contain",
+                "bg": "#121228",
+            },
+        ],
+    },
+    {
         "id": "recruit",
         "category": "採用",
         "date": "2026-09-22",
@@ -214,13 +239,20 @@ def file_url(path: Path) -> str:
     return path.resolve().as_uri()  # Windows でも file:///C:/... になる
 
 
+def fit_style(a: dict) -> str:
+    """作品画を切らずに枠へ収めるとき（顔が見切れる画像）は "fit": "contain" と "bg"（余白の色）を指定する。"""
+    if a.get("fit") != "contain":
+        return ""
+    return f' style="object-fit:contain;background:{html.escape(a.get("bg", "#fff"))}"'
+
+
 def art_panel(arts: list[dict]) -> str:
     cells = []
     for a in arts:
         cells.append(
             f'''<figure class="art-cell">
   <div class="art-frame">
-    <img src="{file_url(a["src"])}" alt="">
+    <img src="{file_url(a["src"])}" alt=""{fit_style(a)}>
     <span class="art-label">{html.escape(a["label"])}</span>
   </div>
 </figure>'''
