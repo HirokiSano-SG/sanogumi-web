@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!-- seo:begin ga -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6GB1SPFFG2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6GB1SPFFG2');
+</script>
+  <!-- seo:end ga -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」 — 株式会社佐野組</title>
+  <meta name="description" content="AIの文章を直す2つのスキル、yomiyasuとexplain-before-shortenを使う側から比べました。AIに書かせた1,402字の文章を、yomiyasuだけ、explain-before-shortenだけ、両方の順の3通りで直し、字数と検査スクリプトの件数、AIが間違えた点、佐野組での使い分けをまとめました。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/assets/logo/s-logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/blog.css?v=15">
+  <!-- i18n:begin head --><link rel="stylesheet" href="/assets/css/i18n.css?v=2"><!-- i18n:end head -->
+  <!-- seo:begin head -->
+  <link rel="canonical" href="https://www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="株式会社佐野組">
+  <meta property="og:title" content="AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」 — 株式会社佐野組">
+  <meta property="og:description" content="AIの文章を直す2つのスキル、yomiyasuとexplain-before-shortenを使う側から比べました。AIに書かせた1,402字の文章を、yomiyasuだけ、explain-before-shortenだけ、両方の順の3通りで直し、字数と検査スクリプトの件数、AIが間違えた点、佐野組での使い分けをまとめました。">
+  <meta property="og:url" content="https://www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://www.sanogumi.biz/assets/og/blog/yomiyasu-explain-before-shorten-20261029.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@KK_SanoGumi">
+  <link rel="alternate" type="application/rss+xml" title="株式会社佐野組 ブログ" href="https://www.sanogumi.biz/blog/feed.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.sanogumi.biz/#organization","name":"株式会社佐野組","alternateName":["Sano-Gumi Co., Ltd.","佐野組"],"url":"https://www.sanogumi.biz/","logo":{"@type":"ImageObject","url":"https://www.sanogumi.biz/assets/logo/kanji-logo-512.png","width":512,"height":512},"sameAs":["https://x.com/KK_SanoGumi","https://www.youtube.com/@KK_SanoGumi"]},{"@type":"BlogPosting","headline":"AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」","mainEntityOfPage":"https://www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/","image":["https://www.sanogumi.biz/assets/og/blog/yomiyasu-explain-before-shorten-20261029.png"],"inLanguage":"ja","publisher":{"@id":"https://www.sanogumi.biz/#organization"},"datePublished":"2026-10-29T00:00:00+09:00","dateModified":"2026-10-29T00:00:00+09:00","author":{"@type":"Person","name":"佐野 凛","url":"https://www.sanogumi.biz/creators/rin/"}}]}</script>
+  <!-- seo:end head -->
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="site-header">
+    <!-- i18n:begin langbar --><div class="lang-bar"><div class="wrap lang-bar-inner"><nav class="lang-switch" aria-label="Language / 言語"><a href="/blog/yomiyasu-explain-before-shorten-20261029/" hreflang="ja" lang="ja" aria-current="true">日本語</a><a href="/en/" hreflang="en-US" lang="en-US">English</a><a href="/zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></nav></div></div><!-- i18n:end langbar -->
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="logo-wordmark" src="/assets/logo/kanji-logo.svg" alt="株式会社佐野組" width="200" height="146">
+      </a>
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="visually-hidden">
+            <span class="nav-label" lang="ja">メニュー</span>
+            <span class="nav-label" lang="en">Menu</span>
+            <span class="nav-label" lang="zh-Hant">選單</span>
+            <span class="nav-label" lang="zh-Hans">菜单</span>
+            <span class="nav-label" lang="ko">메뉴</span>
+          </span>
+        </summary>
+      </details>
+      <nav class="nav" id="site-nav" aria-label="主要">
+        <a href="/company/">会社概要</a>
+        <a href="/contact/">お問い合わせ</a>
+        <a href="/works/">作品</a>
+        <a href="/creators/">所属クリエイター</a>
+        <a href="/blog/" aria-current="page">ブログ</a>
+        <a href="/news/">お知らせ</a>
+        <a href="/events/">イベント出展</a>
+        <a href="/publishing/">パブリッシング</a>
+        <a href="/careers/">採用</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap wrap--wide">
+    <article class="blog-prose" data-pagefind-body>
+      <h1 class="page-title">AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」</h1>
+      <p class="blog-dates">
+        <span>投稿 <time datetime="2026-10-29">令和8年10月29日</time></span>
+        <span>最終更新 <time datetime="2026-10-29">令和8年10月29日</time></span>
+      </p>
+
+      <p>AIに書かせた日本語はそのまま社外に出しにくいことがあります。比喩が大げさだったり、短すぎて何を言いたいのか分からなかったりするからです。</p>
+
+      <p>佐野組では、社外の人が読む文章に推敲スキル「yomiyasu」をかけています（<a href="/blog/yomiyasu-beforeafter-20261003/">前後比較の記事</a>）。最近、同じくAIの日本語説明を直すスキル「explain-before-shorten」が公開されました。佐野組はどちらの作者でもなく、使う側です。この記事では公開されているSKILL.mdとREADMEを読み、2つが何を直すのかを比べました。</p>
+
+      <p>どちらも作者が手間をかけて公開しているスキルです。この記事の目的はどの場面でどちらを使うかの整理で、優劣は決めていません。</p>
+
+      <p class="blog-author" data-pagefind-filter="author:佐野 凛">文：株式会社佐野組 佐野 凛</p>
+
+      <ul class="blog-tags" aria-label="タグ"><li><a class="blog-tag" data-pagefind-filter="tag" href="/blog/#AIエージェント">AIエージェント</a></li><li><a class="blog-tag" data-pagefind-filter="tag" href="/blog/#広報">広報</a></li></ul>
+
+      <h2>先に結論</h2>
+
+      <p>yomiyasuは「表現」を直し、explain-before-shortenは「説明の組み立て」を直すスキルです。AIに実際に書かせた1,402字の文章を3通りに通すと、yomiyasuだけでは1か所、explain-before-shortenだけでは13文が直りました。両方を順にかけると、explain-before-shortenが文を分け、yomiyasuが読点を整えて、見直し候補は4件から3件に減りました。一方で、AIが書いた事実の誤りは、どの組み合わせでも直りませんでした。</p>
+
+      <h2>yomiyasuとは</h2>
+
+      <p>yomiyasuは、nanaismさんがGitHubで公開している、AIが生成した日本語を推敲するスキルです。ライセンスはMITで、令和8年10月29日の時点でGitHubのスターは2,690、最新版はv2.4.0です。</p>
+
+      <p>READMEによると、不自然な比喩、曖昧な主述関係、不要な装飾を直します。主な対象は技術記事、設計書、PRの説明文、社内レポートなどの実務の文章です。主述や修飾の対応の点検、擬人化や比喩の言い換え、原文にない情報を足さないこと、文の長さと読点の調整など、7つの変換原則が書かれています。表現と書式を点検する検査スクリプト（<code>yomiyasu_lint.py</code>）と、推敲の前後を比べるスクリプトも付いています。</p>
+
+      <h2>explain-before-shortenとは</h2>
+
+      <p>explain-before-shortenは、Kazuki OtaさんがZennの「Microsoft (有志)」のPublicationで、令和8年10月26日に公開したスキルです。作者がスライドを作るなかで、AIが書く「短すぎて意味が伝わらない説明」に困ったことから生まれました。記事にSKILL.mdの全文が載っています。</p>
+
+      <p>方針は名前のとおりで、まず相手に口頭で説明するつもりで文章を組み立て、そのあと意味を保ったまま短くします。手順は伝えたいことを一文で決める、口頭ならどう説明するか考える、違う話を分ける、意味を保って短くする、短くした文だけで伝わるか確かめる、の順です。検査スクリプトはなく、SKILL.md 1枚で完結しています。</p>
+
+      <h2>何が違うのか</h2>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr><th></th><th>yomiyasu</th><th>explain-before-shorten</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>直すもの</th><td>比喩、擬人化、主述の対応、装飾、読点</td><td>短すぎて意味が通らない説明</td></tr>
+          <tr><th>情報の量</th><td>原文にない情報は足さない</td><td>口頭の説明を経て、必要な言葉を戻す</td></tr>
+          <tr><th>道具</th><td>検査スクリプト、前後比較、文書の種類ごとの参照ファイル</td><td>SKILL.mdのみ</td></tr>
+          <tr><th>生まれた場面</th><td>技術記事、設計書、PRなど</td><td>スライドの箇条書き</td></tr>
+          <tr><th>配布</th><td>GitHub（MIT）</td><td>Zennの記事</td></tr>
+        </tbody>
+      </table></div>
+
+      <figure role="img" aria-label="2つのスキルの役割の図。yomiyasuは書かれた文の表現と書式を直し、情報は足さない。explain-before-shortenは説明の組み立てを直し、抜けた言葉を戻す。">
+        <div style="display:flex;flex-wrap:wrap;gap:0.8rem;align-items:stretch">
+          <div style="flex:1 1 15rem;border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff;border-top:4px solid #000">
+            <p style="margin:0 0 0.3rem;font-weight:700">yomiyasu ＝ 表現を直す</p>
+            <p style="margin:0;font-size:0.92rem">比喩・擬人化・主述の対応・読点・装飾</p>
+            <p style="margin:0.3rem 0 0;font-size:0.92rem;color:#5c5c5c">原文にない情報は足さない／検査スクリプトつき</p>
+          </div>
+          <div style="flex:1 1 15rem;border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff;border-top:4px solid #d40000">
+            <p style="margin:0 0 0.3rem;font-weight:700">explain-before-shorten ＝ 組み立てを直す</p>
+            <p style="margin:0;font-size:0.92rem">口頭で説明する → 話を分ける → 意味を保って短くする</p>
+            <p style="margin:0.3rem 0 0;font-size:0.92rem;color:#5c5c5c">抜けた言葉は戻す／SKILL.md 1枚</p>
+          </div>
+        </div>
+        <figcaption>2つのスキルが直すもの（公開されているSKILL.mdとREADMEから）</figcaption>
+      </figure>
+
+      <p>いちばん大きな違いは情報を足すかどうかです。yomiyasuは「情報を勝手に足さない」を原則にしています。意味を決められない箇所は書き換えずに残し、書き手に確かめる点として示します。</p>
+
+      <p>explain-before-shortenは、削りすぎて意味が抜けた文に説明の言葉を戻します。記事の書き換え例では「受付と完了確認を分離する」を「処理の終了を待たずに受付済みと返し、結果は後から問い合わせる」にしていました。</p>
+
+      <p>explain-before-shortenには、書式や読点を点検する道具がありません。その部分はyomiyasuの検査スクリプトが受け持ちます。</p>
+
+      <h2>同じ文を3通りに通してみた</h2>
+
+      <h3>例文の作り方</h3>
+
+      <p>例文はAIに実際に書かせた長めの文章にしました。素材は公開されている情報だけです。佐野組の<a href="/company/">会社概要</a>と<a href="/works/">作品一覧</a>、『ゆめみるサクラの卒業式』の<a href="https://store.steampowered.com/app/5292500/" target="_blank" rel="noopener noreferrer">Steamストア</a>の説明文、arXivの論文2本の抄録（<a href="https://arxiv.org/abs/2301.11305" target="_blank" rel="noopener noreferrer">DetectGPT</a>と<a href="https://arxiv.org/abs/2406.07016" target="_blank" rel="noopener noreferrer">Kobakらの研究</a>）を1つのファイルにまとめました。素材をまとめるときに、価格の欄は外しています。</p>
+
+      <p>この素材をClaude Code（バージョン2.1.309、モデルはclaude-opus-5-5）に渡し、次のように頼みました。</p>
+
+      <pre><code>次の素材をもとに、株式会社佐野組の紹介と関連研究の要約を書いて。1000〜1300字程度の日本語の文章で、本文だけを出力して。</code></pre>
+
+      <p>返ってきた文章は1,402字でした。全文は次のとおりです。</p>
+
+      <details>
+        <summary>例文の全文（AIが書いたまま）</summary>
+        <blockquote><p>株式会社佐野組は、ゲームとデジタルコンテンツの企画・開発・パブリッシングを手がける会社です。本店は大阪市北区中津にあり、代表取締役は佐野弘樹です。2026年7月31日に設立登記されました。</p><p>公開中の作品は2本あります。1本目の『ゆめみるサクラの卒業式』は、2026年10月21日にSteamで発売したホラーノベルゲームです。卒業式の日、主人公のサクラは、友だちのシオンとヒナのどちらに先に話しかけるかを選びます。話しかける順番で会話が変わり、3人の関係が違う角度から見えてきます。会話を終えると画面が不自然に暗転し、タイトル画面に戻ります。周回するたびに会話は少しずつ変わり、卒業式は悪夢になっていきます。3人のスチルと表情差分、音で心理的に追い詰める演出のほか、作中のBGMを聴けるジュークボックス機能も入っています。ホラー・流血表現と、精神的な負荷が強い表現を含みます。2本目の『プラーエファティオ・コニィ』（プラコニ）は、ダウンフォールンファンタジーと拠点出立アドベンチャーを組み合わせた作品で、Steamで販売中です。</p><p>開発中の作品もあります。『がんばれ相棒』は、改造と出撃を繰り返す戦闘シミュレーションです。Unity1週間ゲームジャム（お題「あい」）で作ったジャム版をunityroomで公開しており、製品版は2027年に発売する予定です。『プライマリ・ブルーム』は、高度なAI技術で大きく変わった世界を舞台にした、ドット絵・横スクロールのSF×ガーデンシミュレーションです。主人公のザニアが部屋で植物を育て、咲いた花をSNSで世界に広めていきます。2027年にSteamで発売する予定です。このほか、ホロライブプロダクションの非公式二次創作として、3つの操作モードを切り替えるカジュアルパズル『ぱずホロ』も開発しています。</p><p>関連研究として、大規模言語モデル（LLM）が書いた文章を扱う論文を2本取り上げます。1本目は、Mitchellらが2023年に発表した「DetectGPT」です。LLMから生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示し、この性質を使って、ある文章が特定のLLMで生成されたかを判定する基準を提案しました。分類器を別に訓練する必要はなく、データセットを集める必要も、透かしを入れる必要もありません。使うのは、対象モデルで計算した対数確率と、T5などの汎用モデルで文章に加えたランダムな書き換えだけです。200億パラメータのGPT-NeoXが生成した偽ニュース記事の検出では、既存のゼロショット手法で最も強いもののAUROC 0.81を、0.95まで引き上げました。</p><p>2本目は、Kobakらが2024年に発表した、生物医学論文でのLLM利用の調査です。PubMedに収録された2010〜2024年の抄録1500万件以上を対象に語彙の変化を調べたところ、LLMの登場後、特定の「スタイル語」の頻度が急に増えていました。本来の頻度を超えて増えた語を分析した結果、2024年の抄録の少なくとも13.5%がLLMで処理されたと推定しています。この下限は分野、国、学術誌によって異なり、一部では40%に達しました。著者らは、LLMが生物医学の論文執筆に与えた影響は、新型コロナのパンデミックのような大きな出来事を上回ると述べています。</p></blockquote>
+      </details>
+
+      <p>使ったPCでは、日本語を書くときはいつもyomiyasuをかけるように設定してあります。そのままだと例文の時点でyomiyasuが動いてしまうので、例文づくりと、explain-before-shortenだけで直す回では、スキルを呼ぶ道具を止めました。explain-before-shortenは、Zennの記事のSKILL.mdをそのまま作業用のフォルダに置き、スラッシュコマンドで読み込ませています。</p>
+
+      <h3>3通りの頼み方</h3>
+
+      <p>どの回も新しい会話で、次のように頼みました。yomiyasuはPCに入れてあるv2.4.0のプラグインです。</p>
+
+      <ul>
+        <li>（a）yomiyasuだけ：「標準入力の文章を yomiyasu:yomiyasu スキルで推敲して。最終稿の本文だけを出力して。」</li>
+        <li>（b）explain-before-shortenだけ：「/explain-before-shorten 標準入力の文章を見直して。完成した文章の本文だけを出力して。」</li>
+        <li>（c）（b）の出力に、（a）と同じ頼み方でyomiyasuをかけた</li>
+      </ul>
+
+      <p>AIの出力は手で直さずに載せています。</p>
+
+      <figure role="img" aria-label="流れ図。公開素材をClaude Codeに渡して例文1,402字を作り、(a) yomiyasuだけ、(b) explain-before-shortenだけ、(c) (b)の出力にyomiyasu、の3通りに通した。">
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:stretch">
+          <div style="flex:1 1 9rem;border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff;text-align:center"><strong>公開素材</strong><br><span style="font-size:0.85rem;color:#5c5c5c">会社概要・作品・Steam・論文2本</span></div><div aria-hidden="true" style="flex:0 0 auto;align-self:center;font-weight:700">→</div><div style="flex:1 1 9rem;border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff;text-align:center"><strong>Claude Code</strong><br><span style="font-size:0.85rem;color:#5c5c5c">例文 1,402字</span></div><div aria-hidden="true" style="flex:0 0 auto;align-self:center;font-weight:700">→</div>
+          <div style="flex:2 1 14rem;display:flex;flex-direction:column;gap:0.4rem">
+            <div style="border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff"><strong>（a）</strong> yomiyasu</div>
+            <div style="border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff"><strong>（b）</strong> explain-before-shorten</div>
+            <div style="border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff"><strong>（c）</strong> explain-before-shorten → yomiyasu</div>
+          </div>
+        </div>
+        <figcaption>今回の流れ。どの回も新しい会話で頼みました。</figcaption>
+      </figure>
+
+      <h3>字数と検査スクリプトの件数</h3>
+
+      <p>字数は本文の文字数です。検査スクリプトはyomiyasu v2.4.0の<code>yomiyasu_lint.py</code>を<code>--doc-type article</code>で実行し、見直し候補の件数を数えました。</p>
+
+      <div class="table-wrap"><table>
+        <thead>
+          <tr><th></th><th>字数</th><th>見直し候補</th><th>直した文の数</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>例文</th><td>1,402字</td><td>4件</td><td>（もとの文）</td></tr>
+          <tr><th>（a）yomiyasuだけ</th><td>1,401字</td><td>4件</td><td>1文</td></tr>
+          <tr><th>（b）explain-before-shortenだけ</th><td>1,411字</td><td>4件</td><td>13文</td></tr>
+          <tr><th>（c）explain-before-shorten → yomiyasu</th><td>1,409字</td><td>3件</td><td>（b）からさらに4文と段落1か所</td></tr>
+        </tbody>
+      </table></div>
+
+      <figure role="img" aria-label="棒グラフ。直した文の数は(a)1文、(b)13文、(c)は(b)からさらに4文。検査スクリプトの見直し候補は例文4件、(a)4件、(b)4件、(c)3件。">
+        <div style="border:1px solid #d1d1d1;border-radius:7px;padding:0.6rem 0.8rem;background:#fff">
+<p style="margin:0.6rem 0 0.3rem;font-weight:700">直した文の数</p>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（a）yomiyasu</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:7.7%;height:100%;background:#000;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">1文</span></div>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（b）explain</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:100.0%;height:100%;background:#d40000;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">13文</span></div>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（c）(b)のあと</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:30.8%;height:100%;background:#5c5c5c;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">+4文</span></div>
+<p style="margin:0.6rem 0 0.3rem;font-weight:700">検査スクリプトの見直し候補</p>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">例文</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:100.0%;height:100%;background:#d1d1d1;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">4件</span></div>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（a）yomiyasu</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:100.0%;height:100%;background:#000;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">4件</span></div>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（b）explain</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:100.0%;height:100%;background:#d40000;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">4件</span></div>
+<div style="display:flex;align-items:center;gap:0.5rem;margin:0.25rem 0"><span style="flex:0 0 8.6rem;font-size:0.85rem;white-space:nowrap">（c）explain→yomi</span><span style="flex:1 1 auto;background:#f4f5f7;height:1.1rem;border-radius:3px"><span style="display:block;width:75.0%;height:100%;background:#5c5c5c;border-radius:3px"></span></span><span style="flex:0 0 3.5rem;text-align:right;font-size:0.88rem">3件</span></div>
+        </div>
+        <figcaption>直した文の数と、見直し候補の件数（runs の実測）。字数はどの回も1,401〜1,411字で、ほぼ同じでした。</figcaption>
+      </figure>
+
+      <p>どの回も字数はほとんど変わりませんでした。見直し候補は、どの回でも「です」「ます」が3回以上続く、という指摘が残っています。</p>
+
+      <h3>（a）yomiyasuだけ</h3>
+
+      <p>yomiyasuが直したのは1か所だけでした。</p>
+
+      <p style="font-size:0.88rem;color:#5c5c5c">差分の見方：<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">取り消し線</del>は消した文字、<ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">下線</ins>は足した文字です。</p>
+      <blockquote>
+        <p>LLM<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">から</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">が</ins>生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示し、…</p>
+      </blockquote>
+
+      <p>今のAIの文章は、もとから比喩や装飾が少なく、yomiyasuが直す箇所がほとんど残っていなかったのだと思います。直した1か所は主語と動詞の関係のずれでした。</p>
+
+      <details>
+        <summary>（a）の全文</summary>
+        <blockquote><p>株式会社佐野組は、ゲームとデジタルコンテンツの企画・開発・パブリッシングを手がける会社です。本店は大阪市北区中津にあり、代表取締役は佐野弘樹です。2026年7月31日に設立登記されました。</p><p>公開中の作品は2本あります。1本目の『ゆめみるサクラの卒業式』は、2026年10月21日にSteamで発売したホラーノベルゲームです。卒業式の日、主人公のサクラは、友だちのシオンとヒナのどちらに先に話しかけるかを選びます。話しかける順番で会話が変わり、3人の関係が違う角度から見えてきます。会話を終えると画面が不自然に暗転し、タイトル画面に戻ります。周回するたびに会話は少しずつ変わり、卒業式は悪夢になっていきます。3人のスチルと表情差分、音で心理的に追い詰める演出のほか、作中のBGMを聴けるジュークボックス機能も入っています。ホラー・流血表現と、精神的な負荷が強い表現を含みます。2本目の『プラーエファティオ・コニィ』（プラコニ）は、ダウンフォールンファンタジーと拠点出立アドベンチャーを組み合わせた作品で、Steamで販売中です。</p><p>開発中の作品もあります。『がんばれ相棒』は、改造と出撃を繰り返す戦闘シミュレーションです。Unity1週間ゲームジャム（お題「あい」）で作ったジャム版をunityroomで公開しており、製品版は2027年に発売する予定です。『プライマリ・ブルーム』は、高度なAI技術で大きく変わった世界を舞台にした、ドット絵・横スクロールのSF×ガーデンシミュレーションです。主人公のザニアが部屋で植物を育て、咲いた花をSNSで世界に広めていきます。2027年にSteamで発売する予定です。このほか、ホロライブプロダクションの非公式二次創作として、3つの操作モードを切り替えるカジュアルパズル『ぱずホロ』も開発しています。</p><p>関連研究として、大規模言語モデル（LLM）が書いた文章を扱う論文を2本取り上げます。1本目は、Mitchellらが2023年に発表した「DetectGPT」です。LLMが生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示し、この性質を使って、ある文章が特定のLLMで生成されたかを判定する基準を提案しました。分類器を別に訓練する必要はなく、データセットを集める必要も、透かしを入れる必要もありません。使うのは、対象モデルで計算した対数確率と、T5などの汎用モデルで文章に加えたランダムな書き換えだけです。200億パラメータのGPT-NeoXが生成した偽ニュース記事の検出では、既存のゼロショット手法で最も強いもののAUROC 0.81を、0.95まで引き上げました。</p><p>2本目は、Kobakらが2024年に発表した、生物医学論文でのLLM利用の調査です。PubMedに収録された2010〜2024年の抄録1500万件以上を対象に語彙の変化を調べたところ、LLMの登場後、特定の「スタイル語」の頻度が急に増えていました。本来の頻度を超えて増えた語を分析した結果、2024年の抄録の少なくとも13.5%がLLMで処理されたと推定しています。この下限は分野、国、学術誌によって異なり、一部では40%に達しました。著者らは、LLMが生物医学の論文執筆に与えた影響は、新型コロナのパンデミックのような大きな出来事を上回ると述べています。</p></blockquote>
+      </details>
+
+      <h3>（b）explain-before-shortenだけ</h3>
+
+      <p>explain-before-shortenは、長い1文を2文に分ける直しが中心でした。</p>
+
+      <blockquote>
+        <p>LLM<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">から</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">が</ins>生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示し<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">、</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">ました。</ins>この性質を使って、ある文章が特定のLLMで生成されたか<ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">どうか</ins>を判定する基準を提案し<ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">てい</ins>ま<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">した</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">す</ins>。</p>
+      </blockquote>
+
+      <blockquote>
+        <p>3人のスチルと表情差分<ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">を収録し</ins>、音<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">で</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">を使って</ins>心理的に追い詰める演出<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">のほか、</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">も加えました。</ins>作中のBGMを聴けるジュークボックス機能も<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">入ってい</del><ins style="color:#1a6e2e;text-decoration:underline;background:#e6f4ea">あり</ins>ます。</p>
+      </blockquote>
+
+      <p>このほか、「取り上げます」を「紹介します」に、「作った」を「制作した」に変えるなど、言葉の置き換えもありました。（a）が直した「LLMから生成した」も、同じように直っています。説明を足して長くする直しは少なく、字数は9字増えただけでした。例文がもとから短すぎる説明になっていなかったので、explain-before-shortenの得意な「言葉を戻す」場面が少なかったのだと思います。</p>
+
+      <details>
+        <summary>（b）の全文</summary>
+        <blockquote><p>株式会社佐野組は、ゲームとデジタルコンテンツの企画・開発・パブリッシングを手がける会社です。本店は大阪市北区中津にあり、代表取締役は佐野弘樹です。2026年7月31日に設立登記しました。</p><p>公開中の作品は2本あります。1本目の『ゆめみるサクラの卒業式』は、2026年10月21日にSteamで発売したホラーノベルゲームです。卒業式の日、主人公のサクラは、友だちのシオンとヒナのどちらに先に話しかけるかを選びます。話しかける順番によって会話が変わり、3人の関係が違う角度から見えてきます。会話を終えると画面が不自然に暗転し、タイトル画面に戻ります。周回するたびに会話は少しずつ変わり、卒業式は悪夢になっていきます。3人のスチルと表情差分を収録し、音を使って心理的に追い詰める演出も加えました。作中のBGMを聴けるジュークボックス機能もあります。本作には、ホラー・流血表現と、精神的な負荷が強い表現が含まれます。2本目の『プラーエファティオ・コニィ』（プラコニ）は、ダウンフォールンファンタジーと拠点出立アドベンチャーを組み合わせた作品で、Steamで販売中です。</p><p>開発中の作品もあります。『がんばれ相棒』は、改造と出撃を繰り返す戦闘シミュレーションです。Unity1週間ゲームジャム（お題「あい」）で制作したジャム版をunityroomで公開しており、製品版は2027年に発売する予定です。『プライマリ・ブルーム』は、高度なAI技術で大きく変わった世界を舞台にした、ドット絵・横スクロールのSF×ガーデンシミュレーションです。主人公のザニアが部屋で植物を育て、咲いた花をSNSで世界に広めていきます。2027年にSteamで発売する予定です。このほか、ホロライブプロダクションの非公式二次創作として、3つの操作モードを切り替えて遊ぶカジュアルパズル『ぱずホロ』も開発しています。</p><p>関連研究として、大規模言語モデル（LLM）が書いた文章を扱う論文を2本紹介します。1本目は、Mitchellらが2023年に発表した「DetectGPT」です。LLMが生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示しました。この性質を使って、ある文章が特定のLLMで生成されたかどうかを判定する基準を提案しています。別の分類器の訓練も、データセットの収集も、透かしの埋め込みも必要ありません。使うのは、対象モデルで計算した対数確率と、T5などの汎用モデルで文章をランダムに書き換えたものだけです。200億パラメータのGPT-NeoXが生成した偽ニュース記事の検出では、AUROCを既存のゼロショット手法で最も高い0.81から0.95に引き上げました。</p><p>2本目は、Kobakらが2024年に発表した、生物医学論文でのLLM利用の調査です。PubMedに収録された2010〜2024年の抄録1500万件以上を対象に語彙の変化を調べたところ、LLMの登場後に特定の「スタイル語」の頻度が急に増えていました。本来の頻度を超えて増えた語を分析し、2024年の抄録の少なくとも13.5%がLLMで処理されたと推定しています。この下限は分野、国、学術誌によって異なり、一部では40%に達しました。著者らは、LLMが生物医学の論文執筆に与えた影響は、新型コロナのパンデミックのような大きな出来事を上回ると述べています。</p></blockquote>
+      </details>
+
+      <h3>（c）explain-before-shorten → yomiyasu</h3>
+
+      <p>（b）の出力にyomiyasuをかけると、主語や主題のすぐあとの読点が4か所外れました。</p>
+
+      <blockquote>
+        <p>1本目は<del style="color:#d40000;text-decoration:line-through;background:#fde8e8">、</del>Mitchellらが2023年に発表した「DetectGPT」です。</p>
+      </blockquote>
+
+      <p>あわせて、ゲームの紹介の段落のうち、最後の『プラーエファティオ・コニィ』の文が別の段落に分かれました。見直し候補は4件から3件に減っています。</p>
+
+      <details>
+        <summary>（c）の全文</summary>
+        <blockquote><p>株式会社佐野組は、ゲームとデジタルコンテンツの企画・開発・パブリッシングを手がける会社です。本店は大阪市北区中津にあり、代表取締役は佐野弘樹です。2026年7月31日に設立登記しました。</p><p>公開中の作品は2本あります。1本目の『ゆめみるサクラの卒業式』は、2026年10月21日にSteamで発売したホラーノベルゲームです。卒業式の日、主人公のサクラは友だちのシオンとヒナのどちらに先に話しかけるかを選びます。話しかける順番によって会話が変わり、3人の関係が違う角度から見えてきます。会話を終えると画面が不自然に暗転し、タイトル画面に戻ります。周回するたびに会話は少しずつ変わり、卒業式は悪夢になっていきます。3人のスチルと表情差分を収録し、音を使って心理的に追い詰める演出も加えました。作中のBGMを聴けるジュークボックス機能もあります。本作にはホラー・流血表現と、精神的な負荷が強い表現が含まれます。</p><p>2本目の『プラーエファティオ・コニィ』（プラコニ）は、ダウンフォールンファンタジーと拠点出立アドベンチャーを組み合わせた作品で、Steamで販売中です。</p><p>開発中の作品もあります。『がんばれ相棒』は、改造と出撃を繰り返す戦闘シミュレーションです。Unity1週間ゲームジャム（お題「あい」）で制作したジャム版をunityroomで公開しており、製品版は2027年に発売する予定です。『プライマリ・ブルーム』は、高度なAI技術で大きく変わった世界を舞台にした、ドット絵・横スクロールのSF×ガーデンシミュレーションです。主人公のザニアが部屋で植物を育て、咲いた花をSNSで世界に広めていきます。2027年にSteamで発売する予定です。このほか、ホロライブプロダクションの非公式二次創作として、3つの操作モードを切り替えて遊ぶカジュアルパズル『ぱずホロ』も開発しています。</p><p>関連研究として、大規模言語モデル（LLM）が書いた文章を扱う論文を2本紹介します。1本目はMitchellらが2023年に発表した「DetectGPT」です。LLMが生成した文章は、そのモデルの対数確率関数で負の曲率をもつ領域に集まりやすいことを示しました。この性質を使って、ある文章が特定のLLMで生成されたかどうかを判定する基準を提案しています。別の分類器の訓練も、データセットの収集も、透かしの埋め込みも必要ありません。使うのは、対象モデルで計算した対数確率と、T5などの汎用モデルで文章をランダムに書き換えたものだけです。200億パラメータのGPT-NeoXが生成した偽ニュース記事の検出では、AUROCを既存のゼロショット手法で最も高い0.81から0.95に引き上げました。</p><p>2本目はKobakらが2024年に発表した、生物医学論文でのLLM利用の調査です。PubMedに収録された2010〜2024年の抄録1500万件以上を対象に語彙の変化を調べたところ、LLMの登場後に特定の「スタイル語」の頻度が急に増えていました。本来の頻度を超えて増えた語を分析し、2024年の抄録の少なくとも13.5%がLLMで処理されたと推定しています。この下限は分野、国、学術誌によって異なり、一部では40%に達しました。著者らは、LLMが生物医学の論文執筆に与えた影響は、新型コロナのパンデミックのような大きな出来事を上回ると述べています。</p></blockquote>
+      </details>
+
+      <h3>AIが間違えた点</h3>
+
+      <div role="note" style="border:2px solid #d40000;border-left-width:8px;border-radius:7px;padding:0.4rem 1rem;margin:1rem 0 1.4rem;background:#fff7f7">
+        <p style="font-weight:700;color:#d40000;margin:0.6rem 0 0">注意：素材にない事実が入っていた</p>
+        <p>例文には、素材にない事実が1つ入っていました。『プラーエファティオ・コニィ』について、例文は「Steamで販売中です」と書き、「公開中の作品は2本あります」と数えています。作品ページにあるのは「商用版」という区分と「予定価格」で、販売中とは書いていません。素材をまとめるときに価格の欄を外したので、「予定」という手がかりも一緒に消えていました。それでも、書いていないことを「販売中」と言い切ったのはAIの誤りです。</p>
+
+      <p>この誤りは（a）（b）（c）のどれでも直りませんでした。yomiyasuは原文にない情報を足さない作りで、explain-before-shortenも文の組み立てを直すスキルです。どちらも、書かれた事実が素材と合っているかまでは確かめません。事実の確認は、人が素材と読み比べてするしかありませんでした。</p>
+      </div>
+
+      <h2>佐野組での使い分け</h2>
+
+      <p>今回の結果から、佐野組では次のように使い分けることにしました。</p>
+
+      <ul>
+        <li>AIが書いた長い説明文は、explain-before-shortenで1文ずつの組み立てを見直す。</li>
+        <li>そのあとにyomiyasuをかけ、読点や主語の対応を整える。</li>
+        <li>数字、日付、発売の状況などの事実は、どちらのスキルも確かめないので、人が素材と読み比べる。</li>
+      </ul>
+
+      <h2>似て見えるが別物のスキル</h2>
+
+      <p>調べるうちに、一緒に並べられそうなスキルが2つ見つかりました。どちらも文章の推敲とは別の問題を解いています。</p>
+
+      <ul>
+        <li><a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer">impeccable</a>はAIエージェント向けのUIデザインのスキルです（Apache-2.0、令和8年10月29日時点でスター94,280）。AIが作りがちな見た目を62の決まったルールで見つけ、<code>polish</code>や<code>critique</code>などのコマンドで直します。<code>clarify</code>というコマンドでUIの文言も直せますが、対象はボタンやエラー表示で、記事や文書ではありません。</li>
+        <li><a href="https://github.com/MaryCache/imozuru" target="_blank" rel="noopener noreferrer">imozuru</a>は知らない分野を原文にたどりつくまで芋づる式に調べるClaude Codeのスキルです（MIT）。集めた原文を要約せずに保存し、根拠の場所を示します。調べる道具なので、書いた文章を直すものではありません。</li>
+      </ul>
+
+      <h2>英語の文章について</h2>
+
+      <p>今回の4つは、どれも英文の推敲には向きませんでした。英語向けはあらためて別の記事で比べます。</p>
+
+      <h2>出典</h2>
+
+      <ul>
+        <li><a href="https://github.com/nanaism/yomiyasu" target="_blank" rel="noopener noreferrer">nanaism/yomiyasu</a>（GitHub。MITライセンス。令和8年10月29日確認）</li>
+        <li><a href="https://zenn.dev/microsoft/articles/explain-before-shorten" target="_blank" rel="noopener noreferrer">AI の謎な説明文を直すスキル</a>（Zenn。Kazuki Ota。令和8年10月29日確認）</li>
+        <li><a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer">pbakaus/impeccable</a>（GitHub。Apache-2.0。令和8年10月29日確認）</li>
+        <li><a href="https://github.com/MaryCache/imozuru" target="_blank" rel="noopener noreferrer">MaryCache/imozuru</a>（GitHub。MITライセンス。令和8年10月29日確認）</li>
+        <li><a href="https://www.sanogumi.biz/company/" target="_blank" rel="noopener noreferrer">株式会社佐野組 会社概要</a>、<a href="https://www.sanogumi.biz/works/" target="_blank" rel="noopener noreferrer">作品一覧</a>（例文の素材。令和8年10月29日取得）</li>
+        <li><a href="https://store.steampowered.com/app/5292500/" target="_blank" rel="noopener noreferrer">ゆめみるサクラの卒業式（Steam）</a>（例文の素材。令和8年10月29日取得）</li>
+        <li><a href="https://arxiv.org/abs/2301.11305" target="_blank" rel="noopener noreferrer">Mitchell et al. DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature</a>（arXiv 2301.11305）</li>
+        <li><a href="https://arxiv.org/abs/2406.07016" target="_blank" rel="noopener noreferrer">Kobak et al. Delving into LLM-assisted writing in biomedical publications through excess vocabulary</a>（arXiv 2406.07016）</li>
+        <li><a href="/blog/yomiyasu-beforeafter-20261003/">AIの文章が「ライター1年生」の注意を守れるようになった。推敲スキルyomiyasuの前後比較</a>（佐野組の前の記事）</li>
+      </ul>
+      <!-- seo:begin share --><aside class="blog-share" aria-labelledby="blog-share-title" data-pagefind-ignore data-share-title="AIの文章を直すスキルを比べてみた「yomiyasu」と「explain-before-shorten」" data-share-url="https://www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/">
+        <p class="blog-share-title" id="blog-share-title">この記事を共有する</p>
+        <ul class="blog-share-list">
+          <li><a class="blog-share-btn" href="https://x.com/intent/tweet?text=AI%E3%81%AE%E6%96%87%E7%AB%A0%E3%82%92%E7%9B%B4%E3%81%99%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E6%AF%94%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F%E3%80%8Cyomiyasu%E3%80%8D%E3%81%A8%E3%80%8Cexplain-before-shorten%E3%80%8D&amp;url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fyomiyasu-explain-before-shorten-20261029%2F" target="_blank" rel="noopener noreferrer" aria-label="X でポスト" title="X でポスト"><img class="blog-share-icon blog-share-icon--x" src="/assets/img/share/x.svg" alt="" width="23" height="24" decoding="async"></a></li>
+          <li><a class="blog-share-btn" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fyomiyasu-explain-before-shorten-20261029%2F&amp;text=AI%E3%81%AE%E6%96%87%E7%AB%A0%E3%82%92%E7%9B%B4%E3%81%99%E3%82%B9%E3%82%AD%E3%83%AB%E3%82%92%E6%AF%94%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F%E3%80%8Cyomiyasu%E3%80%8D%E3%81%A8%E3%80%8Cexplain-before-shorten%E3%80%8D" target="_blank" rel="noopener noreferrer" aria-label="LINEで送る" title="LINEで送る"><img class="blog-share-icon blog-share-icon--line" src="/assets/img/share/line.png" alt="" width="24" height="24" decoding="async"></a></li>
+          <li><a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fyomiyasu-explain-before-shorten-20261029%2F" target="_blank" rel="noopener noreferrer" aria-label="Facebook でシェア" title="Facebook でシェア"><img class="blog-share-icon blog-share-icon--facebook" src="/assets/img/share/facebook.svg" alt="" width="34" height="34" decoding="async"></a></li>
+          <li class="blog-share-hatena"><a class="blog-share-hatena-hit" href="https://b.hatena.ne.jp/entry/panel/?url=https%3A%2F%2Fwww.sanogumi.biz%2Fblog%2Fyomiyasu-explain-before-shorten-20261029%2F#bbutton" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true" title="このエントリーをはてなブックマークに追加"></a><a href="https://b.hatena.ne.jp/entry/s/www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic" data-hatena-bookmark-width="24" data-hatena-bookmark-height="24" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-fedi="misskey" aria-controls="blog-share-fedi" aria-expanded="false" aria-label="Misskey でノート" title="Misskey でノート"><img class="blog-share-icon blog-share-icon--misskey" src="/assets/img/share/misskey.png" alt="" width="30" height="30" decoding="async"></button></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-fedi="mastodon" aria-controls="blog-share-fedi" aria-expanded="false" aria-label="Mastodon で投稿" title="Mastodon で投稿"><img class="blog-share-icon blog-share-icon--mastodon" src="/assets/img/share/mastodon.svg" alt="" width="23" height="24" decoding="async"></button></li>
+          <li data-share-js-item hidden><button type="button" class="blog-share-btn" data-share-copy="https://www.sanogumi.biz/blog/yomiyasu-explain-before-shorten-20261029/" aria-label="リンクをコピー" title="リンクをコピー"><svg class="blog-share-icon blog-share-icon--copy" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg></button></li>
+        </ul>
+        <form class="blog-share-fedi" id="blog-share-fedi" data-share-fedi-form hidden novalidate>
+          <label class="blog-share-fedi-label" for="blog-share-fedi-host" data-share-fedi-label>サーバー</label>
+          <div class="blog-share-fedi-row">
+            <input class="blog-share-fedi-input" id="blog-share-fedi-host" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="blog-share-fedi-note">
+            <button type="submit" class="blog-share-link">開く</button>
+            <button type="button" class="blog-share-link" data-share-fedi-cancel>やめる</button>
+          </div>
+          <p class="blog-share-fedi-note" id="blog-share-fedi-note" data-share-fedi-note>サーバーのアドレスだけを入れてください。このブラウザに覚えておき、次からはすぐ開きます。</p>
+        </form>
+        <p class="blog-share-saved" data-share-saved hidden></p>
+        <p class="blog-share-status" role="status" data-share-status></p>
+        <p class="blog-share-credit" data-share-js-item hidden>Misskey のアイコン © syuilo and Misskey Project（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" rel="license noopener noreferrer" target="_blank">CC BY-SA 4.0</a>）</p>
+      </aside>
+      <script src="/assets/js/share.js?v=3" defer></script>
+      <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script><!-- seo:end share -->
+    </article>
+    <!-- seo:begin related -->
+    <section class="blog-more blog-related" aria-labelledby="blog-related-title"><h2 class="blog-more-title" id="blog-related-title">関連記事</h2><ul class="blog-mini-list"><li class="blog-mini"><a class="blog-mini-link" href="/blog/yomiyasu-beforeafter-20261003/"><img class="blog-mini-img" src="/assets/og/blog/yomiyasu-beforeafter-20261003.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">AIの文章が「ライター1年生」の注意を守れるようになった。推敲スキルyomiyasuの前後比較</span><time class="blog-mini-date" datetime="2026-10-03">令和8年10月3日</time></span></a></li><li class="blog-mini"><a class="blog-mini-link" href="/blog/press-copy-20260901/"><img class="blog-mini-img" src="/assets/og/blog/press-copy-20260901.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">AIエージェントにプレス送付を任せてみた ~本文編~</span><time class="blog-mini-date" datetime="2026-09-01">令和8年9月1日</time></span></a></li><li class="blog-mini"><a class="blog-mini-link" href="/blog/press-20260831/"><img class="blog-mini-img" src="/assets/og/blog/press-20260831.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">AIエージェントにプレス送付を任せてみた ~窓口編~</span><time class="blog-mini-date" datetime="2026-08-31">令和8年8月31日</time></span></a></li></ul></section>
+    <section class="blog-more blog-popular" aria-labelledby="blog-popular-title"><h2 class="blog-more-title" id="blog-popular-title">人気の記事</h2><ul class="blog-mini-list"><li class="blog-mini"><a class="blog-mini-link" href="/blog/steam-assets-spec-20261013/"><img class="blog-mini-img" src="/assets/og/blog/steam-assets-spec-20261013.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">発注仕様書に活用してね！Steamのストア画像・ライブラリ画像のサイズとファイル名</span><time class="blog-mini-date" datetime="2026-10-13">令和8年10月13日</time></span></a></li><li class="blog-mini"><a class="blog-mini-link" href="/blog/x-header-icon-spec-20261003/"><img class="blog-mini-img" src="/assets/og/blog/x-header-icon-spec-20261003.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">発注仕様書に活用してね！X（旧Twitter）のアイコンとヘッダーの落とし穴</span><time class="blog-mini-date" datetime="2026-10-03">令和8年10月3日</time></span></a></li><li class="blog-mini"><a class="blog-mini-link" href="/blog/gh-project-ratelimit-20260907/"><img class="blog-mini-img" src="/assets/og/blog/gh-project-ratelimit-20260907.png" alt="" width="1200" height="630" decoding="async" loading="lazy"><span class="blog-mini-body"><span class="blog-mini-title">【しくじり話】gh issue list は1点、gh project item-list は203点 — AIエージェント11席で GraphQL 枠を20分で焼いた話</span><time class="blog-mini-date" datetime="2026-09-07">令和8年9月7日</time></span></a></li></ul></section>
+    <!-- seo:end related -->
+    <nav class="blog-nav" aria-label="記事の案内">
+      <p><a href="/blog/">一覧に戻る</a></p>
+      <p><a href="/blog/steam-assets-spec-20261013/">前の記事『発注仕様書に活用してね！Steamのストア画像・ライブラリ画像のサイズとファイル名』</a></p>
+    </nav>
+    <p class="foot">© 2026 株式会社佐野組</p>
+    <!-- i18n:begin footlinks --><nav class="foot-links" aria-label="フッター"><a href="/#notice">公告</a><a href="/privacy/">プライバシー</a><a href="/security/">情報セキュリティ</a></nav><!-- i18n:end footlinks -->
+  </main>
+  <script src="/assets/js/nav-menu.js" defer></script>
+</body>
+</html>
