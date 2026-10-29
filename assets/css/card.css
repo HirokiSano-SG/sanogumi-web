@@ -66,7 +66,7 @@
   color: var(--ink);
   text-decoration: none;
   line-height: 1.35;
-  transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+  transition: border-color 150ms var(--ease), color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out);
 }
 
 .card-actions a:hover,
@@ -143,8 +143,5 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card-actions a {
-    transition: none;
-  }
-}
+
+.card-actions a:active { transform: scale(0.97); }

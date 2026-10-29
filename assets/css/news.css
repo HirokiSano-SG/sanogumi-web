@@ -100,7 +100,9 @@
   color: var(--paper);
   text-decoration: none;
   font-size: 0.95rem;
+  transition: border-color 150ms var(--ease), color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out);
 }
+.news-cta-button:active { transform: scale(0.97); }
 .news-cta-button:hover {
   background: var(--seal);
   border-color: var(--seal);

@@ -85,8 +85,11 @@
   }
   // 1画面ぶん＝表示幅＋カード間隔（丸ごとのカード n 枚）
   function page() { return track.clientWidth + (parseFloat(getComputedStyle(track).columnGap) || 0); }
-  prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: 'smooth' }); });
-  next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: 'smooth' }); });
+  // 動きを減らす設定のときは、すべらせずに一度で動かす
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function how() { return reduceMotion.matches ? 'auto' : 'smooth'; }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -page(), behavior: how() }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: page(), behavior: how() }); });
   track.addEventListener('scroll', upd, { passive: true });
   window.addEventListener('resize', upd);
   // 初期位置：今日（直前の過去1件が左端に来る位置）

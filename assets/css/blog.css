@@ -152,9 +152,17 @@
   margin: 0;
   min-width: 0;
 }
-.blog-index-card:hover,
+.blog-index-card {
+  transition: border-color 160ms var(--ease), box-shadow 200ms var(--ease-out);
+}
 .blog-index-card:focus-within {
   border-color: var(--ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  .blog-index-card:hover {
+    border-color: var(--ink);
+    box-shadow: var(--shadow-lift);
+  }
 }
 .blog-index-card:hover .blog-index-title a {
   color: var(--seal);
@@ -763,3 +771,11 @@ button.blog-share-btn:hover .blog-share-icon--copy {
 .blog-feed-link a:hover {
   color: var(--seal);
 }
+
+/* 押した手応え（タグ・共有・絞り込みの解除） */
+:is(button.blog-tag, .blog-share-btn, .blog-filter-clear) {
+  transition: color 150ms var(--ease), background-color 150ms var(--ease), border-color 150ms var(--ease), transform 160ms var(--ease-out);
+}
+:is(button.blog-tag, .blog-share-btn, .blog-filter-clear):active { transform: scale(0.97); }
+.blog-prose p, .blog-prose li { max-width: 40em; }
+html:lang(ja) .blog-index-title { word-break: auto-phrase; text-wrap: balance; }
