@@ -1,11 +1,13 @@
 /* イベント出展ページ上部のタイムライン。下の各カード（正本）から読み取って並べる。
-   今日（Asia/Tokyo）を基準に、直近の過去1件＋今後すべてを日付順に表示する。 */
+   今日（Asia/Tokyo）を基準に、直近の過去1件＋今後すべてを日付順に表示する。
+   描く前に、終了日が今日より前のカードを「過去のイベント」へ移す。 */
 (function () {
+  var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  moveEndedEvents(today);
   var root = document.getElementById('events-timeline');
   if (!root) return;
   var track = root.querySelector('.etl-track');
   var WD = ['日', '月', '火', '水', '木', '金', '土'];
-  var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   // 今週＝月〜日（JST）。週末（日曜）の日付
   var tp = today.split('-'), tdu = new Date(Date.UTC(+tp[0], +tp[1] - 1, +tp[2]));
   var weekEnd = new Date(tdu.getTime() + ((7 - tdu.getUTCDay()) % 7) * 864e5).toISOString().slice(0, 10);
@@ -99,4 +101,148 @@
   if (nextCard && nextCard.offsetLeft + nextCard.offsetWidth - first.offsetLeft > track.clientWidth) first = marker;
   track.scrollLeft = first.offsetLeft - track.offsetLeft;
   upd();
+
+  function isoOk(s) { return /^\d{4}-\d{2}-\d{2}$/.test(s || ''); }
+  function endOf(card) {
+    var end = card.getAttribute('data-end-date');
+    var start = card.getAttribute('data-date');
+    return isoOk(end) ? end : (isoOk(start) ? start : '');
+  }
+  function startOf(card) {
+    var start = card.getAttribute('data-date');
+    return isoOk(start) ? start : endOf(card);
+  }
+  function dayText(iso) { return String(+iso.slice(8, 10)) + '日'; }
+  function rangeText(start, end) {
+    if (!end || start === end) return dayText(start);
+    if (start.slice(0, 7) === end.slice(0, 7)) return dayText(start) + '–' + dayText(end);
+    return dayText(start) + '–' + (+end.slice(5, 7)) + '月' + dayText(end);
+  }
+  function moveEndedEvents(today) {
+    var past = document.querySelector('#past .events-list--past');
+    if (!past || !isoOk(today)) return;
+    Array.prototype.forEach.call(document.querySelectorAll('article.event-card'), function (card) {
+      var end = endOf(card);
+      if (end && end < today && card.parentNode !== past) past.appendChild(card);
+    });
+    var inPast = Array.prototype.filter.call(past.children, function (n) {
+      return n.nodeType === 1 && n.matches('article.event-card');
+    });
+    inPast.sort(function (a, b) {
+      var ae = endOf(a), be = endOf(b);
+      if (ae !== be) return ae < be ? 1 : -1;
+      var as = startOf(a), bs = startOf(b);
+      if (as !== bs) return as < bs ? 1 : -1;
+      return 0;
+    });
+    var seen = 0, ordered = true;
+    Array.prototype.forEach.call(past.children, function (n) {
+      if (n.nodeType === 1 && n.matches('article.event-card')) {
+        if (n !== inPast[seen]) ordered = false;
+        seen++;
+      }
+    });
+    if (!ordered || seen !== inPast.length) inPast.forEach(function (card) { past.appendChild(card); });
+    syncCal(inPast);
+  }
+  function syncCal(cards) {
+    var nav = document.querySelector('#past .events-cal');
+    if (!nav) return;
+    cards.forEach(function (card) {
+      var link = card.querySelector('.event-title a');
+      var start = startOf(card);
+      var end = endOf(card);
+      if (!link || !start) return;
+      var href = link.getAttribute('href');
+      var title = link.textContent.replace(/\s+/g, ' ').trim();
+      var ol = ensureMonths(nav, +start.slice(0, 4));
+      var monthLi = ensureMonth(ol, +start.slice(5, 7));
+      var ul = monthLi.querySelector('ul');
+      var dup = false;
+      Array.prototype.forEach.call(ul.querySelectorAll('a'), function (a) {
+        if (a.getAttribute('href') === href) dup = true;
+      });
+      if (dup) return;
+      var li = document.createElement('li');
+      var time = document.createElement('time');
+      time.setAttribute('datetime', start);
+      time.textContent = rangeText(start, end);
+      li.appendChild(time);
+      li.appendChild(document.createTextNode(' '));
+      var a = document.createElement('a');
+      a.setAttribute('href', href);
+      a.textContent = title;
+      li.appendChild(a);
+      var placed = false;
+      for (var i = 0; i < ul.children.length; i++) {
+        var t = ul.children[i].querySelector('time');
+        var dt = t ? (t.getAttribute('datetime') || '') : '';
+        if (dt > start) { ul.insertBefore(li, ul.children[i]); placed = true; break; }
+      }
+      if (!placed) ul.appendChild(li);
+    });
+  }
+  function ensureMonths(nav, year) {
+    var label = year + '年';
+    var heads = nav.querySelectorAll('.events-cal-year');
+    var head = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].textContent.trim() === label) { head = heads[i]; break; }
+    }
+    if (!head) {
+      head = document.createElement('h3');
+      head.className = 'events-cal-year';
+      head.textContent = label;
+      var olNew = document.createElement('ol');
+      olNew.className = 'events-cal-months';
+      var placed = false;
+      for (var j = 0; j < heads.length; j++) {
+        if (parseInt(heads[j].textContent, 10) > year) {
+          nav.insertBefore(head, heads[j]);
+          nav.insertBefore(olNew, heads[j]);
+          placed = true;
+          break;
+        }
+      }
+      if (!placed) { nav.appendChild(head); nav.appendChild(olNew); }
+      return olNew;
+    }
+    var ol = head.nextElementSibling;
+    if (!ol || !ol.classList || !ol.classList.contains('events-cal-months')) {
+      ol = document.createElement('ol');
+      ol.className = 'events-cal-months';
+      head.parentNode.insertBefore(ol, head.nextSibling);
+    }
+    return ol;
+  }
+  function ensureMonth(ol, month) {
+    var label = month + '月';
+    var months = [];
+    for (var i = 0; i < ol.children.length; i++) {
+      if (ol.children[i].classList.contains('events-cal-month')) months.push(ol.children[i]);
+    }
+    for (var k = 0; k < months.length; k++) {
+      var lab = months[k].querySelector('.events-cal-label');
+      if (lab && lab.textContent.trim() === label) return months[k];
+    }
+    var li = document.createElement('li');
+    li.className = 'events-cal-month';
+    var span = document.createElement('span');
+    span.className = 'events-cal-label';
+    span.textContent = label;
+    var ul = document.createElement('ul');
+    li.appendChild(span);
+    li.appendChild(ul);
+    var placed = false;
+    for (var m = 0; m < months.length; m++) {
+      var lab2 = months[m].querySelector('.events-cal-label');
+      if ((lab2 ? parseInt(lab2.textContent, 10) : 0) > month) {
+        ol.insertBefore(li, months[m]);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed) ol.appendChild(li);
+    return li;
+  }
 })();
