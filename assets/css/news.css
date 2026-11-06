@@ -14,7 +14,7 @@
   margin: 0 0 0.45rem;
   padding-bottom: 0;
   border-bottom: 0;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -51,12 +51,14 @@
 }
 
 .news-prose h2 {
-  margin: 1.8rem 0 0.7rem;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
-  font-size: 1.08rem;
+  margin: 2.2rem 0 0.7rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   font-weight: 600;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .news-prose p {
@@ -72,7 +74,7 @@
 .news-nav {
   margin: 2.5rem 0 0;
   padding-top: 1.15rem;
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
 }
 
 .news-nav p {
@@ -86,28 +88,13 @@
 .news-cta {
   margin: 1.25rem 0 1.5rem;
   padding: 1.1rem 1.25rem;
-  border: 1px solid var(--ink);
+  border: var(--border-strong);
 }
 .news-cta-lead {
   margin: 0 0 0.75rem;
   font-weight: 600;
 }
-.news-cta-button {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: border-color 150ms var(--ease), color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out);
-}
-.news-cta-button:active { transform: scale(0.97); }
-.news-cta-button:hover {
-  background: var(--seal);
-  border-color: var(--seal);
-  color: var(--paper);
-}
+/* .news-cta-button の形は site.css の .button--ink と同じ */
 .news-bio {
   margin: 0.6rem 0 1rem;
   padding-left: 1.2rem;
@@ -138,8 +125,7 @@
 
 /* お知らせ一覧：上に新着カード（トップと同じ topics カード）、下に一覧（日付・種類・題名） */
 .news-section-title {
-  margin: 2rem 0 0.9rem;
-  font-size: 1.05rem;
+  margin: 2rem 0 1rem;
 }
 
 .news-topics .topics-list {
@@ -150,7 +136,7 @@
   list-style: none;
   margin: 0 0 2rem;
   padding: 0;
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
 }
 
 .news-row {
@@ -160,7 +146,7 @@
   align-items: baseline;
   margin: 0;
   padding: 0.85rem 0.25rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
 }
 
 .news-row-date {
@@ -173,7 +159,7 @@
   display: inline-block;
   justify-self: start;
   padding: 0.05rem 0.55rem;
-  border: 1px solid var(--ink);
+  border: var(--border-strong);
   font-size: 0.8rem;
   line-height: 1.5;
   white-space: nowrap;

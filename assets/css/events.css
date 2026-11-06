@@ -17,9 +17,6 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  border: 1px solid var(--rule);
-  background: var(--paper);
-  transition: border-color 160ms var(--ease), box-shadow 200ms var(--ease-out);
 }
 .topics-card-link {
   display: flex;
@@ -30,16 +27,7 @@
 }
 .topics-card-link:hover .topics-title,
 .topics-card-link:focus-visible .topics-title { color: var(--seal); }
-.topics-card:has(.topics-card-link:focus-visible) {
-  border-color: var(--ink);
-  box-shadow: var(--shadow-lift);
-}
-@media (hover: hover) and (pointer: fine) {
-  .topics-card:has(.topics-card-link:hover) {
-    border-color: var(--ink);
-    box-shadow: var(--shadow-lift);
-  }
-}
+/* hover と focus の見た目は site.css の .card */
 
 .topics-visual {
   margin: 0;
@@ -78,7 +66,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -110,7 +98,7 @@
   margin: 0 0 0.65rem;
   padding-bottom: 0;
   border-bottom: 0;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -148,7 +136,7 @@
   gap: 0.75rem;
   align-items: center;
   min-width: 0;
-  border: 1px solid var(--rule);
+  border: var(--border);
   padding: 0.55rem 0.7rem;
 }
 .event-work img {
@@ -194,7 +182,7 @@
 .event-eyecatch {
   margin: 0 0 1.15rem;
   padding: 0;
-  border: 1px solid var(--rule);
+  border: var(--border);
   background: var(--paper);
   width: 100%;
 }
@@ -221,7 +209,7 @@
   padding: 1rem;
   background: #f5f1e8;
   color: var(--muted);
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: 1.05rem;
   text-align: center;
 }
@@ -235,11 +223,11 @@
   font-size: 0.82rem;
   line-height: 1.45;
   color: var(--muted);
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
 }
 
 /* 過去のイベント（年月の一覧＋カード） */
-.events-past { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.events-past { margin: 2.5rem 0 2rem; padding-top: 1.5rem; border-top: var(--border); }
 .events-cal { margin: 0 0 1.5rem; }
 .events-cal-year { margin: 0 0 0.5rem; font-size: 1rem; }
 .events-cal-months { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.35rem; }
@@ -270,7 +258,7 @@
 .event-oshinagaki-figure {
   margin: 0.85rem 0 0;
   padding: 0;
-  border: 1px solid var(--rule);
+  border: var(--border);
   background: #f5f1e8;
   overflow: hidden;
 }
@@ -285,7 +273,7 @@
   font-size: 0.88rem;
   color: var(--muted);
   background: var(--paper);
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
 }
 .event-oshinagaki-list {
   margin: 0.85rem 0 0;
@@ -298,11 +286,12 @@
 }
 
 /* 上部タイムライン（#events-timeline）— 下のカードから JS で生成 */
-.events-timeline { position: relative; margin: 0 0 2rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); padding: 0.9rem 0 1rem; }
+.events-timeline { position: relative; margin: 0 0 2rem; border-top: var(--border-strong); border-bottom: var(--border); padding: 0.9rem 0 1rem; }
 .etl-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 0.6rem; }
-.etl-heading { margin: 0; font-size: 0.95rem; letter-spacing: 0.08em; font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
+.etl-heading { margin: 0; font-size: 1.25rem; letter-spacing: -0.02em; font-family: var(--font-serif); }
+.etl-heading::after { content: none; }
 .etl-nav { display: flex; gap: 0.4rem; }
-.etl-nav button { width: 2.25rem; height: 2.25rem; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-size: 1rem; cursor: pointer; }
+.etl-nav button { width: 2.25rem; height: 2.25rem; border: var(--border-strong); background: var(--paper); color: var(--ink); font-size: 1rem; cursor: pointer; }
 .etl-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
 .etl-nav button:disabled { opacity: 0.3; cursor: default; }
 .etl-track { list-style: none; margin: 0; padding: 0.25rem 0 0.5rem; display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; position: relative; }
@@ -312,21 +301,21 @@
 @container (max-width: 56rem) { .etl-item { --n: 3; } }
 @container (max-width: 40rem) { .etl-item { --n: 2; } }
 @container (max-width: 30rem) { .etl-item { flex-basis: 82%; } }
-.etl-card { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--rule); background: var(--paper); color: inherit; text-decoration: none; transition: border-color 160ms var(--ease), box-shadow 200ms var(--ease-out); }
+.etl-card { display: flex; flex-direction: column; height: 100%; border: var(--border-soft); background: var(--paper); color: inherit; text-decoration: none; transition: border-color var(--dur-press) var(--ease), box-shadow var(--dur-lift) var(--ease-out); }
 .etl-card:focus-visible { border-color: var(--ink); box-shadow: var(--shadow-lift); }
 @media (hover: hover) and (pointer: fine) { .etl-card:hover { border-color: var(--ink); box-shadow: var(--shadow-lift); } }
 .etl-card:hover .etl-title { color: var(--seal); }
 .is-past .etl-card { opacity: 0.7; }
-.etl-visual { aspect-ratio: 16 / 9; background: #fff; border-bottom: 1px solid var(--rule); overflow: hidden; }
+.etl-visual { aspect-ratio: 16 / 9; background: #fff; border-bottom: var(--border); overflow: hidden; }
 .etl-visual img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .etl-visual--logo img { padding: 0 12%; box-sizing: border-box; }
-.etl-visual--none { display: flex; align-items: center; justify-content: center; padding: 1rem; background: #f5f1e8; color: var(--muted); font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; text-align: center; }
+.etl-visual--none { display: flex; align-items: center; justify-content: center; padding: 1rem; background: #f5f1e8; color: var(--muted); font-family: var(--font-serif); text-align: center; }
 .etl-body { padding: 0.6rem 0.8rem 0.75rem; display: flex; flex-direction: column; gap: 0.2rem; }
 .etl-body p { margin: 0; line-height: 1.45; }
 .etl-date { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .etl-time { font-weight: 400; color: var(--muted); font-size: 0.9rem; }
 .etl-badge { font-size: 0.72rem; font-weight: 400; border: 1px solid var(--muted); color: var(--muted); padding: 0 0.35rem; }
-.etl-title { font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif; font-size: 1.05rem; font-weight: 700; }
+.etl-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; }
 .etl-works { font-size: 0.9rem; }
 .etl-works::before { content: "出展："; color: var(--muted); }
 .etl-venue { font-size: 0.85rem; color: var(--muted); }
@@ -344,5 +333,5 @@
 .etl-today:first-child .etl-today-label { left: 0.6rem; }
 
 html:lang(ja) :is(.topics-title, .etl-title) { word-break: auto-phrase; text-wrap: balance; }
-.etl-nav button { transition: color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out); }
-.etl-nav button:active:not(:disabled) { transform: scale(0.97); }
+.etl-nav button { transition: color var(--dur-color) var(--ease), background-color var(--dur-color) var(--ease), transform var(--dur-press) var(--ease-out); }
+.etl-nav button:active:not(:disabled) { transform: scale(var(--press-scale)); }

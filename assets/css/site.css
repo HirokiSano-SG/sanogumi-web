@@ -5,10 +5,35 @@
   --rule: #d1d1d1;
   --seal: #d40000;
   --muted: #5c5c5c;
-  /* 動きの共通の値（emilkowalski/skills の強い ease-out） */
+  /* 余白（4px 刻み） */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  /* 角丸と枠線 */
+  --radius-0: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --rule-soft: #e6e6e6;
+  --border: 1px solid var(--rule);
+  --border-soft: 1px solid var(--rule-soft);
+  --border-strong: 1px solid var(--ink);
+  /* 押せるものの最小の大きさ */
+  --tap: 44px;
+  /* 動きの共通の値（emilkowalski/skills の強い ease-out）。時間は 300ms 以内、ease-in は使わない */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --dur-color: 150ms;
+  --dur-press: 160ms;
+  --dur-lift: 200ms;
+  --press-scale: 0.97;
   --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -8px rgba(0, 0, 0, 0.12);
+  /* 見出しの明朝 */
+  --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -18,7 +43,7 @@ html { scroll-behavior: smooth; }
   *, *::before, *::after {
     animation: none !important;
     transition-property: color, background-color, border-color, opacity !important;
-    transition-duration: 150ms !important;
+    transition-duration: var(--dur-color) !important;
   }
 }
 body {
@@ -31,7 +56,7 @@ body {
   color: var(--ink);
 }
 img { max-width: 100%; height: auto; object-fit: contain; }
-a { color: var(--ink); transition: color 150ms var(--ease); }
+a { color: var(--ink); transition: color var(--dur-color) var(--ease); }
 /* 見出しは文節で折り返し、行の長さをそろえる。本文は最後の行が1字だけにならないように */
 h1, h2, h3, .page-title, .ledger-title { text-wrap: balance; }
 html:lang(ja) :is(h1, h2, h3) { word-break: auto-phrase; }
@@ -51,7 +76,7 @@ a:focus-visible, button:focus-visible, .nav-toggle:focus-visible {
   background: var(--paper);
   color: var(--ink);
   text-decoration: none;
-  border: 1px solid var(--ink);
+  border: var(--border-strong);
 }
 .skip:focus { top: 0.75rem; }
 .wrap {
@@ -69,7 +94,7 @@ a:focus-visible, button:focus-visible, .nav-toggle:focus-visible {
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   -webkit-backdrop-filter: saturate(1.4) blur(12px);
   backdrop-filter: saturate(1.4) blur(12px);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
 }
 .header-inner {
   display: flex;
@@ -111,13 +136,72 @@ main.wrap { padding-top: 2.5rem; padding-bottom: 4rem; }
 .lede {
   margin: 0 0 2.5rem;
   max-width: 40em;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
   color: var(--ink);
 }
+/* トップのヒーロー（#180）。作品のキービジュアルと明朝の見出し。
+   見出し・リード・ボタンは、初めて開いたときだけ 60ms ずつずらして出す（@starting-style）。
+   動きを減らす設定では、上の共通の決まりで透明度だけになる */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem 3rem;
+  align-items: center;
+  margin: 0 0 3.5rem;
+}
+@media (min-width: 52rem) {
+  .hero { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+}
+.hero-visual { margin: 0; }
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: var(--border-soft);
+  background: #f4f5f7;
+}
+.hero-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.hero-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 1.2rem + 2.2vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.hero-lead {
+  margin: 0 0 1.25rem;
+  max-width: 30em;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  line-height: 1.8;
+}
+.hero-actions { margin: 0; }
+.hero-title, .hero-lead, .hero-actions {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 300ms var(--ease-out), translate 300ms var(--ease-out);
+}
+.hero-lead { transition-delay: 60ms; }
+.hero-actions { transition-delay: 120ms; }
+@starting-style {
+  .hero-title, .hero-lead, .hero-actions {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
 .page-title {
   margin: 0 0 0.5rem;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
   font-weight: 600;
   line-height: 1.3;
@@ -127,14 +211,18 @@ main.wrap { padding-top: 2.5rem; padding-bottom: 4rem; }
 section { margin: 0 0 3.5rem; }
 /* 本文の1行は40字ほどで止める */
 main.wrap > section > p { max-width: 40em; }
+/* セクション見出し。字の大きさと太さで目立たせ、線は赤い短い印だけ残す（下の枠線はやめた）。
+   区切りは section の間の余白でつける */
 h2 {
-  margin: 0 0 0.85rem;
-  font-size: 0.8rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
   color: var(--ink);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.4rem;
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 h2::after {
   content: "";
@@ -142,7 +230,7 @@ h2::after {
   width: 2rem;
   height: 2px;
   background: var(--seal);
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
 }
 p { margin: 0.4rem 0; }
 dl { margin: 0; display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.45rem 1rem; }
@@ -150,17 +238,33 @@ dt { color: var(--muted); }
 dd { margin: 0; }
 ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
 li { margin: 0.2rem 0; }
+/* カード。枠線・背景・hover と focus の見た目はここで決める。
+   class="card topics-card" のように、ページごとのクラスと並べて使う */
 .card {
-  border: 1px solid var(--rule);
-  border-radius: 0;
+  border: var(--border-soft);
+  border-radius: var(--radius-0);
   padding: 1.25rem 1.35rem;
   background: var(--paper);
+  transition: border-color var(--dur-press) var(--ease), box-shadow var(--dur-lift) var(--ease-out);
+}
+/* 押せるカード（中にリンクがあって、カードごと浮く） */
+.card.blog-index-card:focus-within,
+.card.topics-card:has(.topics-card-link:focus-visible) {
+  border-color: var(--ink);
+}
+.card.topics-card:has(.topics-card-link:focus-visible) { box-shadow: var(--shadow-lift); }
+@media (hover: hover) and (pointer: fine) {
+  .card.blog-index-card:hover,
+  .card.topics-card:has(.topics-card-link:hover) {
+    border-color: var(--ink);
+    box-shadow: var(--shadow-lift);
+  }
 }
 .ledger { border-left: 4px solid var(--seal); padding-left: 1.25rem; }
 .ledger-date { margin: 0 0 0.35rem; color: var(--muted); font-size: 0.85rem; letter-spacing: 0.06em; }
 .ledger-title {
   margin: 0 0 0.85rem;
-  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 600;
 }
@@ -168,8 +272,10 @@ li { margin: 0.2rem 0; }
 @media (min-width: 48rem) {
   .works-list { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 }
-.work-card { margin: 0; border: 1px solid var(--rule); padding: 1.1rem 1.2rem; }
-.work-visual { margin: 0 0 0.75rem; }
+/* 作品カード。画像はカードの上いっぱい（ブログ一覧の .blog-index-visual と同じ形）。
+   版ごとの区切り線はやめ、余白と小見出しで分ける（#182） */
+.work-card { margin: 0; padding: 1.1rem 1.2rem; }
+.work-visual { margin: -1.1rem -1.2rem 0.9rem; border-bottom: var(--border-soft); background: #f4f5f7; }
 .work-visual img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .work-title { margin: 0 0 0.2rem; font-size: 1.1rem; font-weight: 600; }
 .work-alias { margin: 0 0 0.1rem; }
@@ -178,14 +284,15 @@ li { margin: 0.2rem 0; }
 .work-meta { margin: 0; display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.28rem 0.75rem; font-size: 0.95rem; }
 .work-meta dt { color: var(--muted); }
 .work-meta dd { margin: 0; }
-.work-links { margin: 0.75rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; }
+.work-links { margin: 0.75rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }
+.work-links .status-note { margin-left: 0.25em; font-size: 0.85em; color: inherit; }
 .more { margin: 0.85rem 0 0; }
 .status-note, .works-status, .purpose-label { color: var(--muted); }
 .purpose-label { margin-top: 1rem; }
 .foot {
   margin-top: 2.5rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--rule);
+  border-top: var(--border);
   font-size: 0.9rem;
   color: var(--muted);
 }
@@ -196,8 +303,10 @@ li { margin: 0.2rem 0; }
 .work-embed { margin-top: 1rem; max-width: 34rem; }
 .work-embed iframe { width: 100%; }
 
-.work-edition { margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); }
-.work-edition .work-links { margin-top: 0.5rem; }
+.work-edition { margin-top: 1rem; }
+.work-edition-label { margin: 0 0 0.3rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); }
+.work-edition .work-links { margin-top: 0.6rem; }
+.work-card .work-actions { margin: 0.75rem 0 0; }
 
 .work-invite { margin: 1rem 0 0.5rem; font-size: 1rem; line-height: 1.75; }
 .work-next { margin: 0.35rem 0 1rem; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
@@ -209,36 +318,80 @@ li { margin: 0.2rem 0; }
   padding: 0;
   list-style: none;
 }
+/* ボタン。.button が共通の形。.work-actions a・.card-actions a・.btn・.news-cta-button は
+   HTML を直さずに済むように、同じ決まりをここで当てる（記事の手書きの HTML は変えない） */
+.button,
 .work-actions a,
-.work-actions .work-wait {
+.work-actions .work-wait,
+.card-actions a,
+.btn,
+.news-cta-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0.5rem 1.15rem;
-  border: 1px solid var(--ink);
+  min-height: var(--tap);
+  padding: var(--space-2) 1.15rem;
+  border: var(--border-strong);
+  border-radius: var(--radius-0);
   background: var(--paper);
   color: var(--ink);
-  text-decoration: none;
+  font: inherit;
   line-height: 1.35;
-  transition: border-color 150ms var(--ease), color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--dur-color) var(--ease), color var(--dur-color) var(--ease), background-color var(--dur-color) var(--ease), transform var(--dur-press) var(--ease-out);
 }
-.work-actions a:active { transform: scale(0.97); }
+.button:active,
+.work-actions a:active,
+.card-actions a:active,
+.btn:active,
+.news-cta-button:active { transform: scale(var(--press-scale)); }
+.button:hover,
+.button:focus-visible,
 .work-actions a:hover,
-.work-actions a:focus-visible {
+.work-actions a:focus-visible,
+.card-actions a:hover,
+.card-actions a:focus-visible,
+.btn:hover,
+.btn:focus-visible {
   color: var(--paper);
   background: var(--seal);
   border-color: var(--seal);
 }
-.work-actions a.primary {
+/* 強いボタン（赤）。hover で黒 */
+.button--primary,
+.work-actions a.primary,
+.card-actions a.primary,
+.btn-seal {
   background: var(--seal);
   color: var(--paper);
   border-color: var(--seal);
 }
+.button--primary:hover,
+.button--primary:focus-visible,
 .work-actions a.primary:hover,
-.work-actions a.primary:focus-visible {
+.work-actions a.primary:focus-visible,
+.card-actions a.primary:hover,
+.card-actions a.primary:focus-visible,
+.btn-seal:hover,
+.btn-seal:focus-visible {
   background: var(--ink);
   border-color: var(--ink);
+  color: var(--paper);
+}
+/* 黒いボタン（お知らせの CTA）。hover で赤 */
+.button--ink,
+.news-cta-button {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.button--ink:hover,
+.button--ink:focus-visible,
+.news-cta-button:hover,
+.news-cta-button:focus-visible {
+  background: var(--seal);
+  border-color: var(--seal);
   color: var(--paper);
 }
 .work-actions .work-wait {
@@ -295,33 +448,44 @@ html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
     color: var(--ink);
     -webkit-tap-highlight-color: transparent;
   }
+  /* 三本線。上下は ::before/::after、真ん中は背景の線。× への切り替えは上下の transform だけで 160ms（#184）。
+     真ん中の線は、開いた瞬間に消す（親の opacity を使うと上下の線まで消えるため） */
   .nav-toggle-bars {
     display: block;
-    width: 18px;
-    height: 2px;
-    background: currentColor;
-    box-shadow: 0 -6px 0 currentColor, 0 6px 0 currentColor;
     position: relative;
+    width: 18px;
+    height: 14px;
+    background: linear-gradient(currentColor, currentColor) center / 18px 2px no-repeat;
   }
-  .nav-menu[open] .nav-toggle-bars {
-    background: transparent;
-    box-shadow: none;
-  }
-  .nav-menu[open] .nav-toggle-bars::before,
-  .nav-menu[open] .nav-toggle-bars::after {
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
     content: "";
     position: absolute;
     left: 0;
-    top: 0;
+    top: 6px;
     width: 18px;
     height: 2px;
     background: currentColor;
+    transition: transform var(--dur-press) var(--ease-out);
   }
-  .nav-menu[open] .nav-toggle-bars::before { transform: rotate(45deg); }
-  .nav-menu[open] .nav-toggle-bars::after { transform: rotate(-45deg); }
-  .site-header .nav { display: none; }
+  .nav-toggle-bars::before { transform: translateY(-6px); }
+  .nav-toggle-bars::after { transform: translateY(6px); }
+  .nav-menu[open] .nav-toggle-bars { background-size: 0 2px; }
+  .nav-menu[open] .nav-toggle-bars::before { transform: translateY(0) rotate(45deg); }
+  .nav-menu[open] .nav-toggle-bars::after { transform: translateY(0) rotate(-45deg); }
+  /* 開いたメニュー。閉じるときは開くときより速い（120ms）。display は allow-discrete で、
+     消える動きが終わってから none になる。動きを減らす設定では、上の共通の決まりで透明度だけになる */
+  .site-header .nav {
+    display: none;
+    opacity: 0;
+    translate: 0 -4px;
+    transition: opacity 120ms var(--ease-out), translate 120ms var(--ease-out), display 120ms allow-discrete;
+  }
   .site-header:has(.nav-menu[open]) .nav {
     display: flex;
+    opacity: 1;
+    translate: 0 0;
+    transition-duration: 180ms, 180ms, 180ms;
     position: absolute;
     z-index: 20;
     left: 0;
@@ -335,7 +499,7 @@ html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
     margin: 0;
     padding: 0.35rem clamp(1.25rem, 4vw, 3rem) 0.6rem;
     background: var(--paper);
-    border-bottom: 1px solid var(--rule);
+    border-bottom: var(--border);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
     max-height: calc(100dvh - 3.5rem);
     overflow: auto;
@@ -350,7 +514,7 @@ html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
   .site-header:has(.nav-menu[open]) .nav .lang-bar {
     display: block;
     border-bottom: 0;
-    border-top: 1px solid var(--rule);
+    border-top: var(--border);
     margin-top: 0.35rem;
     font-size: 0.85rem;
   }
@@ -363,5 +527,12 @@ html:lang(ko) .nav-toggle .nav-label:lang(ko) { display: inline; }
     justify-content: flex-start;
     padding-top: 0.15rem;
     padding-bottom: 0.15rem;
+  }
+  /* 開く瞬間の出発点（ここから 180ms で opacity 1・位置 0 へ） */
+  @starting-style {
+    .site-header:has(.nav-menu[open]) .nav {
+      opacity: 0;
+      translate: 0 -4px;
+    }
   }
 }

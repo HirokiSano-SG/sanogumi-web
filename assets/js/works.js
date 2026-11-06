@@ -194,14 +194,14 @@
       var box = el("div", "work-edition");
       var price = text(ed.price);
       if (price && ed.priceNote) price += tl("（") + text(ed.priceNote) + tl("）");
+      // 版の名前は小見出し。カードには価格と対応だけ残し、言語などは作品ページに回す（#182）
+      if (text(ed.label)) box.appendChild(el("p", "work-edition-label", text(ed.label)));
       var dl = el("dl", "work-meta");
-      addMeta(dl, tl("区分"), ed.label);
       addMeta(dl, tl("価格"), price);
       addMeta(dl, tl("対応"), ed.platforms);
-      addMeta(dl, tl("言語"), ed.languages);
       if (dl.childNodes.length) box.appendChild(dl);
       if (Array.isArray(ed.links) && ed.links.length) {
-        var ul = el("ul", "work-links");
+        var ul = el("ul", "work-links work-actions");
         ed.links.forEach(function (item) {
           var rendered = renderLink(item);
           if (rendered) ul.appendChild(rendered);
@@ -212,7 +212,7 @@
     });
 
     if (Array.isArray(work.links) && work.links.length && Array.isArray(work.editions) && work.editions.length) {
-      var extra = el("ul", "work-links");
+      var extra = el("ul", "work-links work-actions");
       work.links.forEach(function (item) {
         var extraLink = renderLink(item);
         if (extraLink) extra.appendChild(extraLink);

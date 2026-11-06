@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.sanogumi.biz/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/blog/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/blog/gh-project-ratelimit-20260907/</loc>
@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/blog/steam-assets-spec-20261013/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/blog/x-header-icon-spec-20261003/</loc>
@@ -148,7 +148,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/en/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -277,7 +277,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/en/works/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/"/>
@@ -358,7 +358,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/ko/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -398,7 +398,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/indie-expo-20260925/</loc>
@@ -406,7 +406,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/kyomaf-creative-20261105/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://www.sanogumi.biz/news/official-x-20260831/</loc>
@@ -453,7 +453,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/works/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/"/>
@@ -498,7 +498,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hans/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -627,7 +627,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hans/works/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/"/>
@@ -664,7 +664,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hant/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/"/>
@@ -793,7 +793,7 @@
   </url>
   <url>
     <loc>https://www.sanogumi.biz/zh-hant/works/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sanogumi.biz/works/"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://www.sanogumi.biz/en/works/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.sanogumi.biz/zh-hant/works/"/>

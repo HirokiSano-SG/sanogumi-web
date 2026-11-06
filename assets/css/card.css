@@ -55,39 +55,7 @@
   list-style: none;
 }
 
-.card-actions a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0.5rem 1.15rem;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
-  text-decoration: none;
-  line-height: 1.35;
-  transition: border-color 150ms var(--ease), color 150ms var(--ease), background-color 150ms var(--ease), transform 160ms var(--ease-out);
-}
-
-.card-actions a:hover,
-.card-actions a:focus-visible {
-  color: var(--paper);
-  background: var(--seal);
-  border-color: var(--seal);
-}
-
-.card-actions a.primary {
-  background: var(--seal);
-  color: var(--paper);
-  border-color: var(--seal);
-}
-
-.card-actions a.primary:hover,
-.card-actions a.primary:focus-visible {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
-}
+/* .card-actions a の形は site.css の .button と同じ */
 
 .card-works {
   margin: 0.35rem 0 0;
@@ -98,7 +66,7 @@
 .card-works li {
   margin: 0;
   padding: 0.7rem 0;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: var(--border);
 }
 
 .card-works li:first-child {
@@ -143,5 +111,3 @@
   }
 }
 
-
-.card-actions a:active { transform: scale(0.97); }
