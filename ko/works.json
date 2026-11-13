@@ -13,9 +13,9 @@
       "editions": [
         {
           "label": "상용 버전",
-          "price": "550엔(세금 포함)",
+          "price": "₩ 5,450",
           "platforms": "Steam",
-          "languages": "일본어・영어・한국어",
+          "languages": "일본어・영어・한국어・중국어（간체자・번체자）",
           "links": [
             {
               "label": "Steam",
