@@ -77,3 +77,17 @@ html:lang(ko) .news-index-title, html:lang(ko) .creator-card-name {
 }
 /* 見出しの字間は日本語向けに広いので、分かち書きの韓国語では詰める */
 html:lang(ko) h2 { letter-spacing: 0.04em; }
+
+/* ゆめサクラの中文キービジュアルはドット絵（1232×706、原寸 PNG）。
+   幅に合わせて出すときは最近傍。16:9 に切り取らず、絵の縦横比のまま置く。 */
+img[src*="yumemiru-sakura-zh-"] {
+  image-rendering: pixelated;
+}
+.work-visual img[src*="yumemiru-sakura-zh-"],
+.hero-visual img[src*="yumemiru-sakura-zh-"],
+.tile-visual img[src*="yumemiru-sakura-zh-"],
+.tile-grid--featured .tile-visual img[src*="yumemiru-sakura-zh-"] {
+  aspect-ratio: 1232 / 706;
+  object-fit: contain;
+  height: auto;
+}

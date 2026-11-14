@@ -2,13 +2,13 @@
   "works": [
     {
       "id": "yumemiru-sakura-steam",
-      "title": "ゆめみるサクラの卒業式",
-      "alias": "ゆめサクラ",
+      "title": "夢幻櫻色畢業典",
+      "alias": "夢櫻",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
-      "blurb": "每重複一次，就崩壞得更多的畢業典禮。",
-      "image": "/assets/works/yumemiru-sakura.webp",
-      "imageAlt": "ゆめみるサクラの卒業式",
-      "kind": "恐怖小說遊戲",
+      "blurb": "每一次重複，畢業典禮都在步向崩潰。",
+      "image": "/assets/works/yumemiru-sakura-zh-hant.png",
+      "imageAlt": "夢幻櫻色畢業典",
+      "kind": "短篇恐怖互動聲畫讀物",
       "page": "/zh-hant/works/yumemiru-sakura-steam/",
       "editions": [
         {

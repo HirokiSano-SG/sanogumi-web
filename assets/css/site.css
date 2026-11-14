@@ -308,6 +308,12 @@ li { margin: 0.2rem 0; }
 .work-edition .work-links { margin-top: 0.6rem; }
 .work-card .work-actions { margin: 0.75rem 0 0; }
 
+.work-copy { margin: 1.15rem 0 0.15rem; max-width: 40em; }
+.work-copy h2 { font-size: 1.05rem; margin: 1.15rem 0 0.55rem; }
+.work-copy h2:first-child { margin-top: 0; }
+.work-copy p { margin: 0 0 0.75rem; line-height: 1.75; }
+.work-copy ul { margin: 0.2rem 0 0; padding-left: 1.25rem; line-height: 1.75; }
+.work-copy li { margin: 0.25rem 0; }
 .work-invite { margin: 1rem 0 0.5rem; font-size: 1rem; line-height: 1.75; }
 .work-next { margin: 0.35rem 0 1rem; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
 .work-actions {

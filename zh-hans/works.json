@@ -2,18 +2,18 @@
   "works": [
     {
       "id": "yumemiru-sakura-steam",
-      "title": "ゆめみるサクラの卒業式",
-      "alias": "ゆめサクラ",
+      "title": "梦幻樱色毕业典",
+      "alias": "梦樱",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
-      "blurb": "每重复一次，就崩坏得更多的毕业典礼。",
-      "image": "/assets/works/yumemiru-sakura.webp",
-      "imageAlt": "ゆめみるサクラの卒業式",
-      "kind": "恐怖小说游戏",
+      "blurb": "每一次重复，毕业典礼都在步向崩溃。",
+      "image": "/assets/works/yumemiru-sakura-zh-hans.png",
+      "imageAlt": "梦幻樱色毕业典",
+      "kind": "短篇恐怖互动声画读物",
       "page": "/zh-hans/works/yumemiru-sakura-steam/",
       "editions": [
         {
           "label": "商业版",
-          "price": "NT$ 117（台湾）／ HK$ 30.00（香港）／ S$5.89（新加坡）",
+          "price": "人民币 ¥22（中国区，2026年11月14日查询，未打折）／ NT$ 117（台湾）／ HK$ 30.00（香港）／ S$5.89（新加坡）",
           "platforms": "Steam",
           "languages": "日语・英语・韩语・简体中文・繁体中文",
           "links": [
