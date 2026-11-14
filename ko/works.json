@@ -2,12 +2,12 @@
   "works": [
     {
       "id": "yumemiru-sakura-steam",
-      "title": "ゆめみるサクラの卒業式",
+      "title": "꿈꾸는 사쿠라의 졸업식",
       "alias": "ゆめサクラ",
       "titleEn": "Dreamy Sakura's Graduation Ceremony",
       "blurb": "반복될 때마다 무너져 가는 졸업식.",
-      "image": "/assets/works/yumemiru-sakura.webp",
-      "imageAlt": "ゆめみるサクラの卒業式",
+      "image": "/assets/works/yumemiru-sakura-ko.png",
+      "imageAlt": "꿈꾸는 사쿠라의 졸업식",
       "kind": "호러 노벨 게임",
       "page": "/en/works/yumemiru-sakura-steam/",
       "editions": [
