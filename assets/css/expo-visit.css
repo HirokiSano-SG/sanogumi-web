@@ -325,3 +325,56 @@
 .expo-hub .ol-ph--sq { aspect-ratio: auto; height: 12rem; }
 .expo-hub .ol-ph--sq img { max-height: 100%; width: auto; }
 .expo-visit .vo-cr a { color: inherit; }
+
+/* ---------- ハブ3枚目（出展者のみなさまへ）と出展者向け案内 ---------- */
+.expo-hub .hb-card.exhibitor { border-top-color: var(--navy-d); }
+.expo-hub .hb-card.exhibitor .hb-go { background: var(--navy-d); }
+@media (min-width: 64rem) {
+  .expo-hub .hb-cta { grid-template-columns: 1fr 1fr 1fr; }
+}
+.expo-exhibitor h1.vh-catch { margin-top: clamp(0.75rem, 2vw, 1.25rem); }
+.expo-exhibitor h1::after { content: none; display: none; }
+.expo-exhibitor .eq-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 0;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.expo-exhibitor .eq-tbl th,
+.expo-exhibitor .eq-tbl td {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+.expo-exhibitor .eq-tbl thead th {
+  background: var(--wash);
+  color: var(--navy);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  border-top: 0;
+  font-weight: 900;
+}
+.expo-exhibitor .eq-tbl tbody th { font-weight: 700; }
+.expo-exhibitor .eq-tbl td,
+.expo-exhibitor .eq-tbl thead th:last-child {
+  text-align: right;
+  white-space: nowrap;
+  width: 6rem;
+}
+.expo-exhibitor .eq-note { margin-top: 1rem; }
+.expo-exhibitor .ex-bring { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+.expo-exhibitor .ex-bring li { margin: 0.25rem 0; }
+.expo-exhibitor .ex-mail {
+  margin: 0.8rem 0 0;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: var(--wash);
+}
+.expo-exhibitor .ex-mail p { margin: 0; }
+.expo-exhibitor .ex-mail ul { margin: 0.45rem 0 0; padding-left: 1.2rem; }
+.expo-exhibitor .ex-mail li { margin: 0.2rem 0; }
+.expo-exhibitor .hb-links { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-weight: 700; }

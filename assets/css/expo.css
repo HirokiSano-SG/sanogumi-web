@@ -611,3 +611,5 @@
 .expo-fig { margin: 1.2rem 0 0; }
 .expo-fig img { display: block; width: 100%; height: auto; }
 .expo-fig figcaption { margin: 0.5rem 0 0; color: var(--muted, #5c5c5c); font-size: 0.9rem; line-height: 1.6; }
+
+.expo .ex-portal-note { margin: 1.2rem 0 0; font-size: 0.95rem; }
