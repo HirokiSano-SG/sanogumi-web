@@ -604,3 +604,10 @@
   .expo-btn { transition: none; }
   .expo-btn:hover { transform: none; }
 }
+
+.expo-desk ul { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+.expo-desk li { margin: 0.25rem 0; }
+.expo-desk .expo-note { margin-top: 0.8rem; }
+.expo-fig { margin: 1.2rem 0 0; }
+.expo-fig img { display: block; width: 100%; height: auto; }
+.expo-fig figcaption { margin: 0.5rem 0 0; color: var(--muted, #5c5c5c); font-size: 0.9rem; line-height: 1.6; }
