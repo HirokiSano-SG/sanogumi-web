@@ -613,9 +613,3 @@
 .expo-fig figcaption { margin: 0.5rem 0 0; color: var(--muted, #5c5c5c); font-size: 0.9rem; line-height: 1.6; }
 
 .expo .ex-portal-note { margin: 1.2rem 0 0; font-size: 0.95rem; }
-
-.expo-floors { display: grid; gap: 1.6rem; margin: 1.2rem 0 0; }
-.expo-floors .expo-fig { margin: 0; }
-.expo-fig a { display: block; color: inherit; text-decoration: none; }
-.expo-fig a:hover img, .expo-fig a:focus-visible img { outline: 2px solid var(--line, #222); outline-offset: 2px; }
-.expo-note { margin: 0.8rem 0 0; color: var(--muted, #5c5c5c); font-size: 0.9rem; line-height: 1.6; }

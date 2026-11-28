@@ -196,27 +196,6 @@
 .vs-i.pub + .vs-i.pub { background: #34468c; }
 .vs-i.off.dark { background: #2b2b2b; color: #fff; }
 
-
-/* ---------- LTの時間割 ---------- */
-.lt-tt-block { margin: 1.6rem 0 0; scroll-margin-top: 6rem; }
-.lt-h {
-  margin: 0 0 0.55rem;
-  font-size: 1.15rem;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  color: var(--navy);
-  line-height: 1.4;
-}
-.lt-note { margin: 0 0 0.85rem; font-size: 0.95rem; line-height: 1.75; }
-.lt-tt-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.lt-tt { width: 100%; min-width: 0; border-collapse: collapse; font-size: 0.95rem; line-height: 1.55; }
-.lt-tt th, .lt-tt td { border: 1px solid var(--line, #d1d1d1); padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
-.lt-tt thead th { background: var(--navy); color: #fff; font-weight: 700; white-space: nowrap; }
-.lt-tt tbody th { width: 1%; white-space: nowrap; font-weight: 700; background: var(--wash, #f6f6f6); color: var(--navy); }
-.lt-tt td { font-weight: 700; }
-.lt-nm { word-break: auto-phrase; line-break: strict; }
-.lt-ttl { display: block; margin-top: 0.15rem; font-weight: 500; color: #333; word-break: auto-phrase; }
-
 /* ---------- 会場 ---------- */
 .va { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; padding: 1.1rem 1.4rem; border: 3px solid var(--line); border-radius: 16px; }
 .va-dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.1rem; margin: 0; }
@@ -262,8 +241,6 @@
   .vs-tm { grid-row: 1 / span 2; }
   .vs-nm, .vs-who { grid-column: 2; }
   .vh-free { top: -2.5rem; }
-  .lt-tt { font-size: 0.9rem; }
-  .lt-tt th, .lt-tt td { padding: 0.45rem 0.6rem; }
 }
 @media (max-width: 36rem) {
   .vg { grid-template-columns: 1fr; gap: 0.75rem; }
@@ -277,8 +254,6 @@
   .vh-when dt { justify-self: start; margin-top: 0.6rem; }
   .va-map, .va-map .expo-btn { width: 100%; }
   .vm .expo-btn { width: 100%; }
-  .lt-tt { font-size: 0.88rem; }
-  .lt-tt th, .lt-tt td { padding: 0.4rem 0.5rem; }
 }
 
 /* ---------- イベントのハブ（/events/kansai-indie-shiyukai-1/）。LP の要約だけ ---------- */
